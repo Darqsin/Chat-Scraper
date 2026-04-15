@@ -4,3 +4,6 @@
 2026-04-15 20:09:24,047 | INFO | fetch | Resolved date range: 04/14/2026 -> 04/14/2026
 2026-04-15 20:09:55,138 | INFO | fetch | Scrape returned 0 documents.
 2026-04-15 20:09:55,145 | INFO | fetch | Done. Records=0, with_address=0
+2026-04-15 20:20:54,004 | INFO | fetch | Date range: 04/14/2026 → 04/14/2026
+2026-04-15 20:21:25,101 | INFO | fetch | Found 0 records
+2026-04-15 20:21:25,417 | INFO | fetch | DONE → 0 records (0 with address)
