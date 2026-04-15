@@ -49,10 +49,21 @@ SESSION.headers.update({
 
 
 class MaricopaClerkScraper:
-    def __init__(self, lead_types: dict, start_date: str, end_date: str, **kwargs):
-        self.lead_types = lead_types
-        self.start_date = start_date
-        self.end_date   = end_date
+    def __init__(self, lead_types=None, start_date=None, end_date=None, **kwargs):
+
+        # 🔥 DEFAULT LEAD TYPES (what your system expects)
+        self.lead_types = lead_types or {
+            "NS": ("preforeclosure", "Notice of Trustee Sale"),
+            "FL": ("foreclosure", "Foreclosure"),
+            "DE": ("default", "Notice of Default"),
+        }
+
+        # 🔥 AUTO DATE (same-day pull like your logs show)
+        today = datetime.now().strftime("%Y-%m-%d")
+
+        self.start_date = start_date or today
+        self.end_date   = end_date   or today
+
         self.records: list[dict] = []
 
         self.base_url = PORTAL_BASE
