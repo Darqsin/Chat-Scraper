@@ -1,7 +1,10 @@
 {
-  "fetched_at": null,
+  "fetched_at": "2026-04-15T20:03:10.468406+00:00",
   "source": "https://recorder.maricopa.gov/recording/document-search.html",
-  "date_range": {"start": null, "end": null},
+  "date_range": {
+    "start": "04/14/2026",
+    "end": "04/14/2026"
+  },
   "total": 0,
   "with_address": 0,
   "records": []
