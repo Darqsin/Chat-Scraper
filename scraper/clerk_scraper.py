@@ -67,7 +67,9 @@ class MaricopaClerkScraper:
         LOGGER.info("Opening clerk portal: %s", BASE_URL)
         page.goto(BASE_URL, wait_until="domcontentloaded")
         page.wait_for_load_state("networkidle")
-        page.wait_for_selector("a:has-text('Recorded Document')", timeout=self.timeout_ms)
+        page.wait_for_load_state("domcontentloaded")
+        page.wait_for_load_state("networkidle")
+        page.wait_for_selector("input, select", timeout=self.timeout_ms)
         
     def _run_search(self, page: Page, beginning_date: str, end_date: str, document_code: str) -> None:
         LOGGER.info("Running search for code=%s, dates=%s -> %s", document_code, beginning_date, end_date)
