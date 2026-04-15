@@ -292,6 +292,10 @@ def _best_address(candidates: list[str]) -> dict[str, str]:
     best_score = -1
     for candidate in candidates:
         candidate = re.sub(r"\s+", " ", candidate).strip(" ,;")
+
+        if not is_valid_property_address(candidate):
+            continue
+
         if len(candidate) < 8:
             continue
         score = 0
