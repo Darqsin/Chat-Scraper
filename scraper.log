@@ -740,3 +740,32 @@ NameError: name 'is_valid_property_address' is not defined
 2026-04-15 23:00:43,861 | INFO | clerk_scraper | Returning 0 records
 2026-04-15 23:00:43,861 | INFO | fetch | Scraped 0 records
 2026-04-15 23:00:43,868 | INFO | fetch | FINAL: 0 records | 0 with address
+2026-04-15 23:33:30,398 | INFO | fetch | Date range: 04/14/2026 -> 04/14/2026
+2026-04-15 23:33:30,503 | INFO | clerk_scraper | Session warmed up via portal
+2026-04-15 23:33:30,503 | INFO | clerk_scraper | Scraping NS (Notice of Trustee Sale)
+2026-04-15 23:33:30,939 | INFO | clerk_scraper |   Page 1: 21 rows (total=21)
+2026-04-15 23:33:30,939 | INFO | clerk_scraper |   → 21 records for NS
+2026-04-15 23:33:30,940 | INFO | clerk_scraper | Total records: 21
+2026-04-15 23:33:30,940 | INFO | fetch | Scraped 21 records
+2026-04-15 23:33:36,277 | WARNING | fetch | Fallback record used for 20260219643: no such group
+2026-04-15 23:33:40,107 | WARNING | fetch | Fallback record used for 20260220010: no such group
+2026-04-15 23:33:44,460 | WARNING | fetch | Fallback record used for 20260220108: no such group
+2026-04-15 23:33:48,332 | WARNING | fetch | Fallback record used for 20260220458: no such group
+2026-04-15 23:33:52,370 | WARNING | fetch | Fallback record used for 20260220483: no such group
+2026-04-15 23:33:57,186 | WARNING | fetch | Fallback record used for 20260221099: no such group
+2026-04-15 23:34:02,105 | WARNING | fetch | Fallback record used for 20260221116: no such group
+2026-04-15 23:34:06,062 | WARNING | fetch | Fallback record used for 20260221131: no such group
+2026-04-15 23:34:09,919 | WARNING | fetch | Fallback record used for 20260221159: no such group
+2026-04-15 23:34:14,889 | WARNING | fetch | Fallback record used for 20260221277: no such group
+2026-04-15 23:34:19,301 | WARNING | fetch | Fallback record used for 20260221728: no such group
+2026-04-15 23:34:23,393 | WARNING | fetch | Fallback record used for 20260221835: no such group
+2026-04-15 23:34:28,101 | WARNING | fetch | Fallback record used for 20260221862: no such group
+2026-04-15 23:34:33,859 | WARNING | fetch | Fallback record used for 20260221869: name 'is_valid_property_address' is not defined
+2026-04-15 23:34:37,594 | WARNING | fetch | Fallback record used for 20260221880: no such group
+2026-04-15 23:34:44,659 | WARNING | fetch | Fallback record used for 20260221886: name 'is_valid_property_address' is not defined
+2026-04-15 23:34:49,218 | WARNING | fetch | Fallback record used for 20260222095: no such group
+2026-04-15 23:34:53,192 | WARNING | fetch | Fallback record used for 20260222178: no such group
+2026-04-15 23:34:57,103 | WARNING | fetch | Fallback record used for 20260222252: no such group
+2026-04-15 23:35:01,046 | WARNING | fetch | Fallback record used for 20260222297: no such group
+2026-04-15 23:35:15,866 | WARNING | fetch | Fallback record used for 20260222380: name 'is_valid_property_address' is not defined
+2026-04-15 23:35:15,888 | INFO | fetch | FINAL: 21 records | 0 with address
