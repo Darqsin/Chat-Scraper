@@ -29,12 +29,7 @@ RETRY_DELAY = 5
 REQUEST_DELAY = 0.5
 
 DOC_CODES = {
-    "NS": "NS",
-    "FL": "FL",
-    "SL": "SL",
-    "DE": "DE",
-    "PD": "PD",
-    "PJ": "PJ",
+    "NS": "NTS",
 }
 
 SESSION = requests.Session()
@@ -115,8 +110,8 @@ class MaricopaClerkScraper:
         while True:
             params = {
                 "documentCode": doc_code,
-                "beginDate": self.start_date,
-                "endDate": self.end_date,
+                "beginDate": self.start_date.replace("/", "-"),
+                "endDate": self.end_date.replace("/", "-"),
                 "pageSize": PAGE_SIZE,
                 "pageNumber": page,
                 "maxResults": MAX_RESULTS,
