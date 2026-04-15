@@ -7,3 +7,6 @@
 2026-04-15 20:20:54,004 | INFO | fetch | Date range: 04/14/2026 → 04/14/2026
 2026-04-15 20:21:25,101 | INFO | fetch | Found 0 records
 2026-04-15 20:21:25,417 | INFO | fetch | DONE → 0 records (0 with address)
+2026-04-15 20:33:25,481 | INFO | fetch | Date range: 04/14/2026 → 04/14/2026
+2026-04-15 20:33:56,515 | INFO | fetch | Found 0 records
+2026-04-15 20:33:56,522 | INFO | fetch | DONE → 0 records (0 with address)
