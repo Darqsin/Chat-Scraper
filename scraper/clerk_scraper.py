@@ -1,224 +1,91 @@
-"""
-clerk_scraper.py  v15 — working API search + real legacy PDF URL
-
-Updated:
-- Uses Recorder API to get result rows
-- Uses legacy PDF URL confirmed by live site screenshots
-- Compatible with current fetch.py
-"""
-
-import asyncio
-import logging
-from datetime import datetime
-from pathlib import Path
-from typing import Optional
-
-import requests
-
-log = logging.getLogger("clerk_scraper")
-
-API_BASE = "https://publicapi.recorder.maricopa.gov"
-SEARCH_URL = f"{API_BASE}/documents/search"
-PORTAL_BASE = "https://recorder.maricopa.gov"
-LEGACY_PDF_BASE = "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf"
-
-PAGE_SIZE = 200
-MAX_RESULTS = 200
-
-MAX_RETRIES = 3
-RETRY_DELAY = 5
-REQUEST_DELAY = 0.5
-
-DOC_CODES = {
-    "NS": "NS",
-    "FL": "FL",
-    "SL": "SL",
-    "DE": "DE",
-    "PD": "PD",
-    "PJ": "PJ",
-}
-
-SESSION = requests.Session()
-SESSION.headers.update(
-    {
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-        "Accept": "application/json, text/plain, */*",
-        "Accept-Language": "en-US,en;q=0.9",
-        "Referer": f"{PORTAL_BASE}/recording/document-search-results.html",
-        "Origin": PORTAL_BASE,
-        "Connection": "keep-alive",
-    }
-)
+from playwright.sync_api import sync_playwright
+import time
 
 
 class MaricopaClerkScraper:
-    def __init__(self, lead_types=None, start_date=None, end_date=None, **kwargs):
-        self.lead_types = lead_types or {
-            "NS": ("NOTS", "Notice of Trustee Sale"),
-        }
-        self.start_date = start_date or datetime.utcnow().strftime("%Y-%m-%d")
-        self.end_date = end_date or datetime.utcnow().strftime("%Y-%m-%d")
-        self.records: list[dict] = []
+    def __init__(self):
+        self.base_url = "https://recorder.maricopa.gov/recording/document-search.html"
 
-        self.downloads_dir = Path(kwargs.get("downloads_dir", "grouped_output/pdfs"))
-        self.base_url = PORTAL_BASE
+    def scrape(self, start_date, end_date, document_code="NS"):
+        results = []
 
-    def scrape(self, start_date=None, end_date=None, document_code=None):
-        if start_date:
-            self.start_date = _coerce_date(start_date)
-        if end_date:
-            self.end_date = _coerce_date(end_date)
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            context = browser.new_context()
+            page = context.new_page()
 
-        if document_code:
-            key = str(document_code).strip().upper()
-            existing = self.lead_types.get(key)
-            if existing:
-                self.lead_types = {key: existing}
-            else:
-                self.lead_types = {key: (key, key)}
+            page.goto(self.base_url, timeout=60000)
 
-        return asyncio.run(self.run())
+            # ---- SET SEARCH FILTERS ----
+            page.wait_for_selector("select")
 
-    async def run(self) -> list[dict]:
-        self.downloads_dir.mkdir(parents=True, exist_ok=True)
-        keep = self.downloads_dir / ".keep"
-        if not keep.exists():
-            keep.write_text("", encoding="utf-8")
+            # Document Type
+            page.select_option("select", document_code)
 
-        try:
-            SESSION.get(f"{PORTAL_BASE}/recording/document-search.html", timeout=15)
-            log.info("Session warmed up via portal")
-        except Exception as exc:
-            log.warning(f"Portal warmup failed (non-fatal): {exc}")
+            # Date inputs
+            page.fill("input[name='startDate']", start_date)
+            page.fill("input[name='endDate']", end_date)
 
-        self.records = []
+            # Click search
+            page.click("button:has-text('Search')")
 
-        for lead_key in self.lead_types:
-            doc_code = DOC_CODES.get(lead_key)
-            cat, cat_label = self.lead_types[lead_key]
-            log.info(f"Scraping {lead_key} ({cat_label})")
-            if not doc_code:
-                continue
+            # Wait for results
+            page.wait_for_selector("table")
 
-            try:
-                recs = self._fetch_all(lead_key, doc_code, cat, cat_label)
-                log.info(f"  → {len(recs)} records for {lead_key}")
-                self.records.extend(recs)
-            except Exception as exc:
-                log.error(f"  ✗ Failed {lead_key}: {exc}", exc_info=True)
+            rows = page.query_selector_all("table tbody tr")
 
-        log.info(f"Total records: {len(self.records)}")
-        return self.records
-
-    def _fetch_all(self, lead_key, doc_code, cat, cat_label) -> list[dict]:
-        all_records = []
-        page = 1
-
-        while True:
-            params = {
-                "documentCode": doc_code,
-                "beginDate": self.start_date,
-                "endDate": self.end_date,
-                "pageSize": PAGE_SIZE,
-                "pageNumber": page,
-                "maxResults": MAX_RESULTS,
-            }
-
-            data = self._get(SEARCH_URL, params)
-            if data is None:
-                break
-
-            results = data.get("searchResults", [])
-            total = data.get("totalResults", 0)
-            log.info(f"  Page {page}: {len(results)} rows (total={total})")
-
-            for item in results:
+            for row in rows:
                 try:
-                    rec = self._item_to_record(item, lead_key, cat, cat_label)
-                    if rec:
-                        all_records.append(rec)
-                except Exception as exc:
-                    log.debug(f"  Row error: {exc}")
+                    doc_link = row.query_selector("a")
+                    if not doc_link:
+                        continue
 
-            if len(all_records) >= total or len(results) < PAGE_SIZE:
-                break
+                    doc_num = doc_link.inner_text().strip()
 
-            page += 1
+                    # Open popup
+                    with page.expect_popup() as popup_info:
+                        doc_link.click()
 
-        return all_records
+                    popup = popup_info.value
 
-    def _item_to_record(self, item: dict, lead_key, cat, cat_label) -> Optional[dict]:
-        doc_num = str(item.get("recordingNumber", "")).strip()
-        if not doc_num:
-            return None
+                    popup.wait_for_load_state()
 
-        pdf_path = self.downloads_dir / f"{doc_num}.pdf"
+                    # ---- CLICK PDF ----
+                    pdf_link = popup.query_selector("a[href*='pdf']")
+                    if not pdf_link:
+                        popup.close()
+                        continue
 
-        return {
-            "doc_num": doc_num,
-            "doc_type": item.get("documentCode", cat),
-            "filed": _norm_date(item.get("recordingDate", "")),
-            "cat": cat,
-            "cat_label": cat_label,
-            "lead_key": lead_key,
-            "owner": item.get("names", "") or "",
-            "grantee": "",
-            "amount": None,
-            "legal": "",
-            "prop_address": None,
-            "prop_city": None,
-            "prop_state": "AZ",
-            "prop_zip": None,
-            "mail_address": None,
-            "mail_city": None,
-            "mail_state": None,
-            "mail_zip": None,
-            "parcel": None,
-            "first_name": None,
-            "last_name": None,
-            "first_name_2": None,
-            "last_name_2": None,
-            "trustee_name": None,
-            "trustee_phone": None,
-            "auction_date": None,
-            "pdf_url": f"{LEGACY_PDF_BASE}/{doc_num}.pdf",
-            "pdf_fallback": f"{PORTAL_BASE}/recording/document-preview.html?recNum={doc_num}",
-            "pdf_path": str(pdf_path),
-            "clerk_url": f"{PORTAL_BASE}/recording/document-details?id={doc_num}",
-            "flags": [],
-            "score": 0,
-        }
+                    with popup.expect_popup() as pdf_popup_info:
+                        pdf_link.click()
 
-    def _get(self, url: str, params: dict) -> Optional[dict]:
-        import time
+                    pdf_page = pdf_popup_info.value
+                    pdf_page.wait_for_load_state()
 
-        for attempt in range(1, MAX_RETRIES + 1):
-            try:
-                resp = SESSION.get(url, params=params, timeout=20)
-                if resp.ok:
-                    return resp.json()
-                log.warning(f"  HTTP {resp.status_code} — {resp.text[:200]}")
-            except Exception as exc:
-                log.warning(f"  Attempt {attempt} failed: {exc}")
-            time.sleep(RETRY_DELAY * attempt)
-        return None
+                    pdf_url = pdf_page.url
 
+                    # Close PDF tab
+                    pdf_page.close()
+                    popup.close()
 
-def _coerce_date(raw: str) -> str:
-    raw = str(raw).strip()
-    for fmt in ("%Y-%m-%d", "%m/%d/%Y", "%m-%d-%Y"):
-        try:
-            return datetime.strptime(raw, fmt).strftime("%Y-%m-%d")
-        except ValueError:
-            continue
-    return raw
+                    # Extract filed date (optional)
+                    cells = row.query_selector_all("td")
+                    filed = cells[1].inner_text().strip() if len(cells) > 1 else ""
 
+                    results.append({
+                        "doc_num": doc_num,
+                        "pdf_url": pdf_url,
+                        "clerk_url": self.base_url,
+                        "filed": filed,
+                        "doc_type": "NS"
+                    })
 
-def _norm_date(raw: str) -> str:
-    raw = str(raw).strip().replace("-", "/")
-    for fmt in ("%m/%d/%Y", "%Y/%m/%d", "%m/%d/%y"):
-        try:
-            return datetime.strptime(raw, fmt).strftime("%Y-%m-%d")
-        except ValueError:
-            continue
-    return raw
+                    time.sleep(0.5)
+
+                except Exception as e:
+                    print(f"Error processing row: {e}")
+                    continue
+
+            browser.close()
+
+        return results
