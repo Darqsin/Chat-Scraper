@@ -734,3 +734,9 @@ NameError: name 'is_valid_property_address' is not defined
 2026-04-15 22:52:29,347 | INFO | clerk_scraper | Returning 0 records
 2026-04-15 22:52:29,347 | INFO | fetch | Scraped 0 records
 2026-04-15 22:52:29,353 | INFO | fetch | FINAL: 0 records | 0 with address
+2026-04-15 23:00:17,009 | INFO | fetch | Date range: 04/14/2026 -> 04/14/2026
+2026-04-15 23:00:18,448 | INFO | clerk_scraper | Opening results page directly: https://recorder.maricopa.gov/recording/document-search-results.html?lastNames=&firstNames=&middleNames=&documentTypeSelector=code&documentCode=NS&beginDate=2026-04-14&endDate=2026-04-14
+2026-04-15 23:00:43,786 | INFO | clerk_scraper | Found 2 anchors on page
+2026-04-15 23:00:43,861 | INFO | clerk_scraper | Returning 0 records
+2026-04-15 23:00:43,861 | INFO | fetch | Scraped 0 records
+2026-04-15 23:00:43,868 | INFO | fetch | FINAL: 0 records | 0 with address
