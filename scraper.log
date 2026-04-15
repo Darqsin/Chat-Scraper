@@ -408,3 +408,294 @@ Traceback (most recent call last):
 IndexError: no such group
 2026-04-15 21:35:39,068 | INFO | fetch | Parsing PDF for document 20260222380
 2026-04-15 21:35:57,636 | INFO | fetch | Done. Records=3, with_address=3
+2026-04-15 21:49:31,233 | INFO | fetch | Resolved date range: 04/14/2026 -> 04/14/2026
+2026-04-15 21:49:31,269 | INFO | fetch | API date range: 2026-04-14 -> 2026-04-14
+2026-04-15 21:49:31,581 | INFO | clerk_scraper | Session warmed up via portal
+2026-04-15 21:49:31,581 | INFO | clerk_scraper | Scraping NS (Notice of Trustee Sale)
+2026-04-15 21:49:31,860 | INFO | clerk_scraper |   Page 1: 21 rows (total=21)
+2026-04-15 21:49:31,861 | INFO | clerk_scraper |   → 21 records for NS
+2026-04-15 21:49:31,861 | INFO | clerk_scraper | Total records: 21
+2026-04-15 21:49:31,861 | INFO | fetch | Scrape returned 21 documents.
+2026-04-15 21:49:31,861 | INFO | fetch | Parsing PDF for document 20260219643
+2026-04-15 21:49:37,206 | ERROR | fetch | Failed parsing 20260219643: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:49:37,207 | INFO | fetch | Parsing PDF for document 20260220010
+2026-04-15 21:49:41,062 | ERROR | fetch | Failed parsing 20260220010: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:49:41,063 | INFO | fetch | Parsing PDF for document 20260220108
+2026-04-15 21:49:45,342 | ERROR | fetch | Failed parsing 20260220108: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:49:45,343 | INFO | fetch | Parsing PDF for document 20260220458
+2026-04-15 21:49:49,270 | ERROR | fetch | Failed parsing 20260220458: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:49:49,270 | INFO | fetch | Parsing PDF for document 20260220483
+2026-04-15 21:49:53,310 | ERROR | fetch | Failed parsing 20260220483: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:49:53,310 | INFO | fetch | Parsing PDF for document 20260221099
+2026-04-15 21:49:58,125 | ERROR | fetch | Failed parsing 20260221099: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:49:58,126 | INFO | fetch | Parsing PDF for document 20260221116
+2026-04-15 21:50:03,044 | ERROR | fetch | Failed parsing 20260221116: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:50:03,044 | INFO | fetch | Parsing PDF for document 20260221131
+2026-04-15 21:50:07,073 | ERROR | fetch | Failed parsing 20260221131: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:50:07,074 | INFO | fetch | Parsing PDF for document 20260221159
+2026-04-15 21:50:10,918 | ERROR | fetch | Failed parsing 20260221159: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:50:10,918 | INFO | fetch | Parsing PDF for document 20260221277
+2026-04-15 21:50:15,920 | ERROR | fetch | Failed parsing 20260221277: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:50:15,920 | INFO | fetch | Parsing PDF for document 20260221728
+2026-04-15 21:50:20,336 | ERROR | fetch | Failed parsing 20260221728: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:50:20,336 | INFO | fetch | Parsing PDF for document 20260221835
+2026-04-15 21:50:24,475 | ERROR | fetch | Failed parsing 20260221835: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:50:24,476 | INFO | fetch | Parsing PDF for document 20260221862
+2026-04-15 21:50:29,176 | ERROR | fetch | Failed parsing 20260221862: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:50:29,176 | INFO | fetch | Parsing PDF for document 20260221869
+2026-04-15 21:50:34,935 | ERROR | fetch | Failed parsing 20260221869: name 'is_valid_property_address' is not defined
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 118, in parse_record
+    prop = _extract_property_address(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 270, in _extract_property_address
+    return _best_address(candidates)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 296, in _best_address
+    if not is_valid_property_address(candidate):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'is_valid_property_address' is not defined
+2026-04-15 21:50:34,935 | INFO | fetch | Parsing PDF for document 20260221880
+2026-04-15 21:50:38,683 | ERROR | fetch | Failed parsing 20260221880: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:50:38,683 | INFO | fetch | Parsing PDF for document 20260221886
+2026-04-15 21:50:46,162 | ERROR | fetch | Failed parsing 20260221886: name 'is_valid_property_address' is not defined
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 118, in parse_record
+    prop = _extract_property_address(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 270, in _extract_property_address
+    return _best_address(candidates)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 296, in _best_address
+    if not is_valid_property_address(candidate):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'is_valid_property_address' is not defined
+2026-04-15 21:50:46,163 | INFO | fetch | Parsing PDF for document 20260222095
+2026-04-15 21:50:50,723 | ERROR | fetch | Failed parsing 20260222095: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:50:50,724 | INFO | fetch | Parsing PDF for document 20260222178
+2026-04-15 21:50:54,689 | ERROR | fetch | Failed parsing 20260222178: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:50:54,690 | INFO | fetch | Parsing PDF for document 20260222252
+2026-04-15 21:50:58,597 | ERROR | fetch | Failed parsing 20260222252: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:50:58,597 | INFO | fetch | Parsing PDF for document 20260222297
+2026-04-15 21:51:02,560 | ERROR | fetch | Failed parsing 20260222297: no such group
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 116, in parse_record
+    legal = _extract_legal(text)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 252, in _extract_legal
+    return _clean_text(m.group(1))[:1000]
+                       ^^^^^^^^^^
+IndexError: no such group
+2026-04-15 21:51:02,561 | INFO | fetch | Parsing PDF for document 20260222380
+2026-04-15 21:51:17,434 | ERROR | fetch | Failed parsing 20260222380: name 'is_valid_property_address' is not defined
+Traceback (most recent call last):
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/fetch.py", line 148, in main
+    parsed_record = parse_record(
+                    ^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 118, in parse_record
+    prop = _extract_property_address(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 270, in _extract_property_address
+    return _best_address(candidates)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Chat-Scraper/Chat-Scraper/scraper/enricher.py", line 296, in _best_address
+    if not is_valid_property_address(candidate):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'is_valid_property_address' is not defined
+2026-04-15 21:51:17,439 | INFO | fetch | Done. Records=0, with_address=0

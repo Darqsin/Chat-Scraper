@@ -1,86 +1,11 @@
 {
-  "fetched_at": "2026-04-15T21:35:57.627984+00:00",
+  "fetched_at": "2026-04-15T21:51:17.434687+00:00",
   "source": "https://recorder.maricopa.gov/recording/document-search.html",
   "date_range": {
     "start": "04/14/2026",
     "end": "04/14/2026"
   },
-  "total": 3,
-  "with_address": 3,
-  "records": [
-    {
-      "doc_num": "20260221869",
-      "doc_type": "N/TR SALE",
-      "filed": "2026-04-14",
-      "cat": "NS",
-      "cat_label": "Notice of Trustee Sale",
-      "owner": "Gregory L Ehmann, an unmarried man",
-      "grantee": "is regulated by  &",
-      "amount": "$190,328.00",
-      "legal": "",
-      "prop_address": "35215 N 7th St",
-      "prop_city": "Phoenix",
-      "prop_state": "Arizona",
-      "prop_zip": "85086",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260221869",
-      "flags": [
-        "ocr_fallback"
-      ],
-      "score": 85
-    },
-    {
-      "doc_num": "20260221886",
-      "doc_type": "N/TR SALE",
-      "filed": "2026-04-14",
-      "cat": "NS",
-      "cat_label": "Notice of Trustee Sale",
-      "owner": "",
-      "grantee": "{Qualified under A.R.S. section 33-803.A.2]",
-      "amount": "$972,000.00",
-      "legal": "See Exhibit A\nTax Parcel Number{s]: 304-53-189\nOriginal Principal Balance: $972,000.00\n \nCurrent Beneficiary’s\nName and Address: FINEMARK NATIONAL BANK & TRUST\n7600 East Doubletree Ranch Road, Suite 100\nScottsdale, AZ 85258\nOriginal Trustor’s\nName and Address: Seth Dixon\nJessica Dixon\n2111 E. Melrose Street\nGilbert, AZ 85297\n1031.001 / Dixon / Trustee’s Sale (2026) / Notice of Trustee’s Sale\n20260221886\nCurrent Trustee’s\nName and Address: Todd M. Adkins, Esq.\nHimmelstein & Adkins, LLC\n6720 North Scottsdale Road, Suite 261\nScottsdale, Arizona 85253\nPhone: (480) 922-3933\nThis sale will not exhaust the power of sale contained in the Deed of Trust as to any remaining\nproperty encumbered by the Deed of Trust or the financing statements described above, which may, at the\nBeneficiary’s option, be sold in one or more subsequent sale proceedings. The recordation of this Notice\ndoes not constitute an election to proceed against any given collateral, or to pursue any given remedy, to\nthe exclusio",
-      "prop_address": "Himmelstein & Adkins, LLC, 6720 North Scottsdale Road, Suite 261, Scottsdale, Arizona 85253, on",
-      "prop_city": "",
-      "prop_state": "",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260221886",
-      "flags": [
-        "ocr_fallback",
-        "missing_owner"
-      ],
-      "score": 55
-    },
-    {
-      "doc_num": "20260222380",
-      "doc_type": "N/TR SALE",
-      "filed": "2026-04-14",
-      "cat": "NS",
-      "cat_label": "Notice of Trustee Sale",
-      "owner": "",
-      "grantee": "appointed herein qualifies as trustee of the Trust Deed in the trustee’s capacity as a",
-      "amount": "$1,932,500.00",
-      "legal": "ACCORDING TO THE DEED OF TRUST OR UPON INFORMATION SUPPLIED BY THE BENEFICIARY, THE\nFOLLOWING INFORMATION IS PROVIDED PURSUANT TO A.R.S. SECTION 33-808(C):\nStreet address or identifiable location: 150 S. Dobson Road\nMesa, AZ 85202\nA.P.N.: 134-33-0023\nOriginal Principal Balance: $1,932,500.00\nNAME AND ADDRESS OF ORIGINAL TRUSTOR (as shown on the Deed of Trust):\nJNRL Enterprises, LLC, an Arizona limited liability company\n150 S. Dobson Road\nMesa, AZ 85202\nNAME AND ADDRESS OF BENEFICIARY (as of recording of Notice of Sale):\nLive Oak Banking Company\n1741 Tiburon Drive\nWilmington, NC 28403\n20260222380\nTS#: Live Oak v JNRL Ent. Loan #: XX3485\nNOTICE OF TRUSTEE'S SALE\nThe successor trustee appointed herein qualifies as trustee of the Trust Deed in the trustee’s capacity as a\nmember of the Arizona State Bar as required by ARS Section 33-803, Subsection A(2). Name of Trustee's\nRegulator: Arizona State Bar Association\nNAME, ADDRESS & TELEPHONE NUMBER OF TRUSTEE (as of recording of Notice of Sale)",
-      "prop_address": "150 Dobson Road",
-      "prop_city": "Mesa",
-      "prop_state": "AZ",
-      "prop_zip": "85202:",
-      "mail_address": "is 150 5. Dobson",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260222380",
-      "flags": [
-        "ocr_fallback",
-        "missing_owner"
-      ],
-      "score": 80
-    }
-  ]
+  "total": 0,
+  "with_address": 0,
+  "records": []
 }
