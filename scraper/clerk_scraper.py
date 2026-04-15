@@ -1,18 +1,15 @@
 from __future__ import annotations
 
-import asyncio
 import logging
 import re
 from datetime import datetime
 from pathlib import Path
 
-from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from playwright.sync_api import sync_playwright
 
 log = logging.getLogger("clerk_scraper")
 
 PORTAL_BASE = "https://recorder.maricopa.gov"
-SEARCH_PAGE = f"{PORTAL_BASE}/recording/document-search.html"
 RESULTS_PAGE = f"{PORTAL_BASE}/recording/document-search-results.html"
 
 
@@ -47,9 +44,6 @@ class MaricopaClerkScraper:
         if not keep.exists():
             keep.write_text("", encoding="utf-8")
 
-        return asyncio.run(self.run(document_code=document_code))
-
-    async def run(self, document_code="NS"):
         return self._scrape_results_page(document_code=document_code)
 
     def _scrape_results_page(self, document_code="NS"):
@@ -96,7 +90,7 @@ class MaricopaClerkScraper:
                         log.warning("Could not open modal for %s", doc_num)
                         continue
 
-                    pdf_url = self._extract_pdf_url_from_modal(page)
+                    pdf_url = self._extract_pdf_url_from_modal(page, doc_num)
                     if not pdf_url:
                         log.warning("No PDF URL found in modal for %s", doc_num)
                         self._close_modal(page)
@@ -159,7 +153,6 @@ class MaricopaClerkScraper:
         return results
 
     def _build_results_url(self, document_code: str, begin_date: str, end_date: str) -> str:
-        # Matches the live URL pattern from your screenshot.
         return (
             f"{RESULTS_PAGE}"
             f"?lastNames="
@@ -174,7 +167,6 @@ class MaricopaClerkScraper:
     def _extract_doc_numbers(self, page) -> list[str]:
         html = page.content()
         nums = re.findall(r"\b(20\d{9,})\b", html)
-        # keep stable order, dedupe
         seen = set()
         ordered = []
         for n in nums:
@@ -184,7 +176,6 @@ class MaricopaClerkScraper:
         return ordered
 
     def _extract_filed_for_doc(self, page, doc_num: str) -> str:
-        # Pull a nearby date from the HTML around the doc number.
         html = page.content()
         idx = html.find(doc_num)
         if idx == -1:
@@ -202,7 +193,6 @@ class MaricopaClerkScraper:
         return raw
 
     def _open_doc_modal(self, page, doc_num: str) -> bool:
-        # Gray number is usually an anchor/button with the recording number text.
         candidates = [
             page.locator(f"a:has-text('{doc_num}')").first,
             page.locator(f"button:has-text('{doc_num}')").first,
@@ -226,18 +216,18 @@ class MaricopaClerkScraper:
             "text=Preview Unofficial Document",
             "a:has-text('PDF - All pages')",
         ]
-        for _ in range(10):
+        for _ in range(12):
             for sel in selectors:
                 try:
-                    if page.locator(sel).count() > 0 and page.locator(sel).first.is_visible():
+                    loc = page.locator(sel)
+                    if loc.count() > 0 and loc.first.is_visible():
                         return True
                 except Exception:
                     continue
             page.wait_for_timeout(500)
         return False
 
-    def _extract_pdf_url_from_modal(self, page) -> str:
-        # Best case: href already exists in the modal.
+    def _extract_pdf_url_from_modal(self, page, doc_num: str) -> str:
         selectors = [
             "a:has-text('PDF - All pages')",
             "a:has-text('PDF')",
@@ -248,10 +238,11 @@ class MaricopaClerkScraper:
         for sel in selectors:
             try:
                 loc = page.locator(sel)
-                if loc.count() == 0:
+                count = loc.count()
+                if count == 0:
                     continue
 
-                for i in range(loc.count()):
+                for i in range(count):
                     link = loc.nth(i)
                     href = link.get_attribute("href")
                     if href:
@@ -259,25 +250,18 @@ class MaricopaClerkScraper:
             except Exception:
                 continue
 
-        # Fallback: look in modal HTML
         html = page.content()
 
-        # full absolute PDF URL
         m = re.search(r'https?://[^"\']+\.pdf', html, re.I)
         if m:
             return m.group(0)
 
-        # legacy relative PDF path
         m = re.search(r'(/UnOfficialDocs/[^"\']+\.pdf)', html, re.I)
         if m:
             return self._normalize_url(m.group(1))
 
-        # sometimes the doc number is enough to build the real URL
-        m = re.search(r"\b(20\d{9,})\b", html)
-        if m:
-            return f"https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/{m.group(1)}.pdf"
-
-        return ""
+        # screenshot-confirmed fallback
+        return f"https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/{doc_num}.pdf"
 
     def _close_modal(self, page) -> None:
         selectors = [
@@ -296,7 +280,6 @@ class MaricopaClerkScraper:
             except Exception:
                 continue
 
-        # Esc fallback
         try:
             page.keyboard.press("Escape")
             page.wait_for_timeout(400)
@@ -305,7 +288,7 @@ class MaricopaClerkScraper:
 
     def _normalize_url(self, href: str) -> str:
         href = href.strip()
-        if href.startswith("http://") or href.startswith("https://"):
+        if href.startswith(("http://", "https://")):
             return href
         if href.startswith("/"):
             if href.lower().startswith("/unofficialdocs"):
