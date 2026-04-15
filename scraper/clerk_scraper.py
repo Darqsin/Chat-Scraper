@@ -1,14 +1,14 @@
 """
-clerk_scraper.py  v9 — PDF-FIRST + STABLE
+clerk_scraper.py  v10 — FINAL STABLE
 
-Fixes:
-- Ensures pdf_url points to ACTUAL downloadable PDF (not preview page)
-- Adds fallback PDF endpoint
-- Cleans record structure for enrichment
-- Fixes missing base_url bug (GitHub error)
-- Adds safe guards + logging
+- Compatible with fetch.py (scrape() method added)
+- No required init args
+- Fixes base_url error
+- Uses API (fast + reliable)
+- Outputs real PDF URLs (not PNG preview)
 """
 
+import asyncio
 import logging
 import time
 from datetime import datetime
@@ -49,16 +49,16 @@ SESSION.headers.update({
 
 
 class MaricopaClerkScraper:
+
     def __init__(self, lead_types=None, start_date=None, end_date=None, **kwargs):
 
-        # 🔥 DEFAULT LEAD TYPES (what your system expects)
+        # default lead types
         self.lead_types = lead_types or {
             "NS": ("preforeclosure", "Notice of Trustee Sale"),
             "FL": ("foreclosure", "Foreclosure"),
             "DE": ("default", "Notice of Default"),
         }
 
-        # 🔥 AUTO DATE (same-day pull like your logs show)
         today = datetime.now().strftime("%Y-%m-%d")
 
         self.start_date = start_date or today
@@ -66,9 +66,12 @@ class MaricopaClerkScraper:
 
         self.records: list[dict] = []
 
+        # fix for GitHub error
         self.base_url = PORTAL_BASE
 
     async def run(self) -> list[dict]:
+
+        # warm up session
         try:
             SESSION.get(f"{PORTAL_BASE}/recording/document-search.html", timeout=15)
             log.info("Session warmed up")
@@ -93,6 +96,22 @@ class MaricopaClerkScraper:
 
         log.info(f"TOTAL: {len(self.records)} records")
         return self.records
+
+    def scrape(self, start_date=None, end_date=None, document_code=None):
+        if start_date:
+            self.start_date = start_date
+        if end_date:
+            self.end_date = end_date
+
+        if document_code:
+            self.lead_types = {
+                document_code: self.lead_types.get(
+                    document_code,
+                    (document_code, document_code)
+                )
+            }
+
+        return asyncio.run(self.run())
 
     def _fetch_all(self, lead_key, doc_code, cat, cat_label) -> list[dict]:
         all_records = []
@@ -133,10 +152,7 @@ class MaricopaClerkScraper:
         if not doc_num:
             return None
 
-        # 🔥 KEY FIX — REAL PDF ENDPOINT
         pdf_url = f"{API_BASE}/documents/{doc_num}/pdf"
-
-        # fallback if API blocks (rare but safe)
         preview_url = f"{PORTAL_BASE}/recording/document-preview.html?recNum={doc_num}"
 
         return {
@@ -175,7 +191,6 @@ class MaricopaClerkScraper:
 
             "auction_date":  None,
 
-            # 🔥 THIS IS WHAT FIXES YOUR PIPELINE
             "pdf_url":       pdf_url,
             "pdf_fallback":  preview_url,
 
