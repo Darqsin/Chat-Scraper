@@ -49,7 +49,7 @@ SESSION.headers.update({
 
 
 class MaricopaClerkScraper:
-    def __init__(self, lead_types: dict, start_date: str, end_date: str):
+    def __init__(self, lead_types: dict, start_date: str, end_date: str, **kwargs):
         self.lead_types = lead_types
         self.start_date = start_date
         self.end_date   = end_date
