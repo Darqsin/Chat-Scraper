@@ -1,1 +1,108 @@
-<html><body><h1>Dashboard</h1></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maricopa NTS Dashboard</title>
+  <style>
+    :root { color-scheme: dark; }
+    body { font-family: Arial, sans-serif; margin: 0; background: #0b1220; color: #e7edf7; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { background: #121b2d; border: 1px solid #233252; border-radius: 14px; padding: 18px; }
+    .card h3 { margin: 0 0 8px; font-size: 14px; color: #96a9cf; }
+    .card .big { font-size: 28px; font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; background: #121b2d; border-radius: 14px; overflow: hidden; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid #233252; font-size: 14px; text-align: left; vertical-align: top; }
+    th { background: #16233d; position: sticky; top: 0; }
+    a { color: #8ab4ff; }
+    .muted { color: #9db0d6; }
+    .flags { color: #ffd279; }
+    .toolbar { display:flex; gap:12px; align-items:center; margin-bottom:16px; flex-wrap:wrap; }
+    input { background:#0e1526; color:#fff; border:1px solid #233252; border-radius:10px; padding:10px 12px; min-width:280px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Maricopa County NTS Leads</h1>
+    <p class="muted">Automated pull from the Recorder portal.</p>
+
+    <div class="cards">
+      <div class="card"><h3>Fetched At</h3><div class="big" id="fetchedAt">-</div></div>
+      <div class="card"><h3>Date Range</h3><div class="big" id="dateRange">-</div></div>
+      <div class="card"><h3>Total Records</h3><div class="big" id="total">0</div></div>
+      <div class="card"><h3>With Property Address</h3><div class="big" id="withAddress">0</div></div>
+    </div>
+
+    <div class="toolbar">
+      <input id="search" placeholder="Filter by owner, address, trustee, or doc number" />
+    </div>
+
+    <div style="overflow:auto; max-height: 70vh;">
+      <table>
+        <thead>
+          <tr>
+            <th>Doc #</th>
+            <th>Filed</th>
+            <th>Owner</th>
+            <th>Property Address</th>
+            <th>Mailing Address</th>
+            <th>Trustee</th>
+            <th>Auction Date</th>
+            <th>Score</th>
+            <th>Links</th>
+            <th>Flags</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    let all = [];
+
+    function render(records) {
+      const tbody = document.getElementById('rows');
+      tbody.innerHTML = '';
+      for (const r of records) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${r.doc_num || ''}</td>
+          <td>${r.filed || ''}</td>
+          <td>${r.owner || ''}</td>
+          <td>${[r.prop_address, r.prop_city, r.prop_state, r.prop_zip].filter(Boolean).join(', ')}</td>
+          <td>${[r.mail_address, r.mail_city, r.mail_state, r.mail_zip].filter(Boolean).join(', ')}</td>
+          <td>${r.grantee || ''}</td>
+          <td>${r.auction_date || ''}</td>
+          <td>${r.score ?? ''}</td>
+          <td><a href="${r.clerk_url}" target="_blank" rel="noopener">Clerk</a></td>
+          <td class="flags">${(r.flags || []).join(', ')}</td>
+        `;
+        tbody.appendChild(tr);
+      }
+    }
+
+    async function load() {
+      const res = await fetch('./records.json', { cache: 'no-store' });
+      const data = await res.json();
+      all = data.records || [];
+      document.getElementById('fetchedAt').textContent = new Date(data.fetched_at).toLocaleString();
+      document.getElementById('dateRange').textContent = `${data.date_range?.start || '-'} → ${data.date_range?.end || '-'}`;
+      document.getElementById('total').textContent = String(data.total || 0);
+      document.getElementById('withAddress').textContent = String(data.with_address || 0);
+      render(all);
+    }
+
+    document.getElementById('search').addEventListener('input', (e) => {
+      const q = e.target.value.trim().toLowerCase();
+      if (!q) return render(all);
+      render(all.filter(r => JSON.stringify(r).toLowerCase().includes(q)));
+    });
+
+    load().catch(err => {
+      document.getElementById('rows').innerHTML = `<tr><td colspan="10">Failed to load records.json: ${err}</td></tr>`;
+    });
+  </script>
+</body>
+</html>
