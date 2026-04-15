@@ -1,392 +1,121 @@
-from __future__ import annotations
-
-import logging
 import re
-from dataclasses import dataclass
-from pathlib import Path
-from typing import Any, Optional
-
 import pdfplumber
-import pytesseract
-import usaddress
-from pdf2image import convert_from_path
+import logging
 
-LOGGER = logging.getLogger(__name__)
-
-TRUSTEE_PHONE_RE = re.compile(r"(?:\+?1[-.\s]?)?(?:\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})")
-MONEY_RE = re.compile(r"\$\s?\d{1,3}(?:,\d{3})+(?:\.\d{2})?")
-DATE_RE = re.compile(
-    r"(?:JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER)\s+\d{1,2},\s+\d{4}",
-    re.I,
-)
-PARCEL_RE = re.compile(r"\b(?:APN|PARCEL\s*(?:NO|NUMBER)?|ASSESSOR(?:'S)?\s*(?:NO|NUMBER)?)[:\s#-]*([A-Z0-9-]{6,})", re.I)
-DOC_NUM_RE = re.compile(r"\b20\d{9,}\b")
+log = logging.getLogger("enricher")
 
 
-@dataclass
-class ParsedRecord:
-    doc_num: str
-    doc_type: str
-    filed: str
-    cat: str
-    cat_label: str
-    owner: str
-    grantee: str
-    amount: str
-    legal: str
-    prop_address: str
-    prop_city: str
-    prop_state: str
-    prop_zip: str
-    mail_address: str
-    mail_city: str
-    mail_state: str
-    mail_zip: str
-    county: str
-    parcel_number: str
-    original_loan: str
-    trustee_name: str
-    trustee_phone: str
-    auction_date: str
-    deed_of_trust: str
-    first_name: str
-    last_name: str
-    second_first: str
-    second_last: str
-    clerk_url: str
-    pdf_url: str
-    pdf_path: str
-    flags: list[str]
-    score: int
-    raw_text_path: str
+def enrich_records(records):
+    enriched = []
+
+    for rec in records:
+        try:
+            pdf_path = rec.get("pdf_path")
+
+            if not pdf_path:
+                rec["flags"] = ["no_pdf"]
+                enriched.append(rec)
+                continue
+
+            text = extract_text(pdf_path)
+
+            if not text:
+                rec["flags"] = ["no_pdf"]
+                enriched.append(rec)
+                continue
+
+            # Extract fields
+            rec["prop_address"] = extract_property_address(text)
+            rec["trustee_name"] = extract_trustee(text)
+            rec["auction_date"] = extract_auction_date(text)
+
+            # Flags
+            flags = []
+
+            if not rec["prop_address"]:
+                flags.append("no_address")
+
+            if not rec["trustee_name"]:
+                flags.append("no_trustee")
+
+            rec["flags"] = flags
+
+        except Exception as e:
+            log.warning(f"Failed to process {rec.get('doc_num')}: {e}")
+            rec["flags"] = ["error"]
+
+        enriched.append(rec)
+
+    return enriched
 
 
-def extract_text_from_pdf(pdf_path: str | Path, dpi: int = 300) -> tuple[str, list[str], list[str]]:
-    pdf_path = Path(pdf_path)
-    flags: list[str] = []
-    page_texts: list[str] = []
+# ---------------------------
+# TEXT EXTRACTION
+# ---------------------------
 
+def extract_text(pdf_path):
     try:
-        with pdfplumber.open(str(pdf_path)) as pdf:
+        text = ""
+        with pdfplumber.open(pdf_path) as pdf:
             for page in pdf.pages:
-                text = page.extract_text() or ""
-                if text.strip():
-                    page_texts.append(text)
-    except Exception as exc:
-        flags.append(f"pdfplumber_failed:{type(exc).__name__}")
-        LOGGER.warning("pdfplumber failed for %s: %s", pdf_path, exc)
-
-    if sum(len(t.strip()) for t in page_texts) < 50:
-        flags.append("ocr_fallback")
-        page_texts = []
-        images = convert_from_path(str(pdf_path), dpi=dpi)
-        for image in images:
-            page_texts.append(pytesseract.image_to_string(image))
-
-    cleaned_pages = [_clean_text(t) for t in page_texts if t and t.strip()]
-    full_text = "\n".join(cleaned_pages)
-    return full_text, cleaned_pages, flags
+                t = page.extract_text()
+                if t:
+                    text += "\n" + t
+        return text
+    except Exception as e:
+        log.warning(f"PDF read failed: {pdf_path} → {e}")
+        return None
 
 
-def parse_record(
-    pdf_path: str | Path,
-    clerk_url: str,
-    pdf_url: str,
-    filed: str = "",
-    doc_num: str = "",
-    doc_type: str = "NS",
-    cat_label: str = "Notice of Trustee Sale",
-    raw_text_dir: str | Path = "parsed_output",
-) -> ParsedRecord:
-    raw_text_dir = Path(raw_text_dir)
-    raw_text_dir.mkdir(parents=True, exist_ok=True)
+# ---------------------------
+# FIELD EXTRACTION
+# ---------------------------
 
-    text, pages, flags = extract_text_from_pdf(pdf_path)
-    if not text:
-        flags.append("no_text_extracted")
-
-    doc_num = doc_num or _find_first(DOC_NUM_RE, text)
-    owner = _extract_owner(text)
-    deed_of_trust = _extract_deed_of_trust(text)
-    original_loan = _find_first(MONEY_RE, text)
-    trustee_name = _extract_trustee_name(text)
-    trustee_phone = _find_first(TRUSTEE_PHONE_RE, text)
-    auction_date = _extract_auction_date(text)
-    parcel_number = _extract_parcel_number(text)
-    legal = _extract_legal(text)
-
-    prop = _extract_property_address(text)
-    mail = _extract_mailing_address(text, prop)
-    first_name, last_name, second_first, second_last = _split_owner_names(owner)
-
-    raw_text_path = raw_text_dir / f"{doc_num or Path(pdf_path).stem}.txt"
-    raw_text_path.write_text(text, encoding="utf-8")
-
-    score = _score_record(prop, mail, owner, trustee_name, auction_date, original_loan)
-
-    if not prop["address"]:
-        flags.append("missing_property_address")
-    if not owner:
-        flags.append("missing_owner")
-    if not trustee_name:
-        flags.append("missing_trustee")
-    if not auction_date:
-        flags.append("missing_auction_date")
-
-    return ParsedRecord(
-        doc_num=doc_num,
-        doc_type=doc_type,
-        filed=filed,
-        cat="NS",
-        cat_label=cat_label,
-        owner=owner,
-        grantee=trustee_name,
-        amount=original_loan,
-        legal=legal,
-        prop_address=prop["address"],
-        prop_city=prop["city"],
-        prop_state=prop["state"],
-        prop_zip=prop["zip"],
-        mail_address=mail["address"],
-        mail_city=mail["city"],
-        mail_state=mail["state"],
-        mail_zip=mail["zip"],
-        county="Maricopa",
-        parcel_number=parcel_number,
-        original_loan=original_loan,
-        trustee_name=trustee_name,
-        trustee_phone=trustee_phone,
-        auction_date=auction_date,
-        deed_of_trust=deed_of_trust,
-        first_name=first_name,
-        last_name=last_name,
-        second_first=second_first,
-        second_last=second_last,
-        clerk_url=clerk_url,
-        pdf_url=pdf_url,
-        pdf_path=str(pdf_path),
-        flags=flags,
-        score=score,
-        raw_text_path=str(raw_text_path),
-    )
-
-
-def _clean_text(text: str) -> str:
-    text = text.replace("\x00", " ")
-    text = re.sub(r"[ \t]+", " ", text)
-    text = re.sub(r"\n{2,}", "\n", text)
-    return text.strip()
-
-
-def _find_first(pattern: re.Pattern[str], text: str) -> str:
-    m = pattern.search(text)
-    return m.group(1).strip() if m and m.lastindex else (m.group(0).strip() if m else "")
-
-
-def _extract_owner(text: str) -> str:
-    patterns = [
-        r"Trustor(?:s)?\s*[:\-]\s*(.+?)(?:\n|Trustee|Beneficiary|Property Address)",
-        r"The current beneficiary and trustee of record.*?trustor(?:s)?\s*(.+?)(?:\n|Trustee)",
-        r"Name of Trustor\s*[:\-]?\s*(.+?)(?:\n|Trustee)",
-    ]
-    for pattern in patterns:
-        m = re.search(pattern, text, re.I | re.S)
-        if m:
-            return _normalize_name_line(m.group(1))
-    return ""
-
-
-def _extract_trustee_name(text: str) -> str:
-    patterns = [
-        r"Successor Trustee\s*[:\-]?\s*(.+?)(?:\n|Phone|Telephone|Address)",
-        r"Trustee\s*[:\-]?\s*(.+?)(?:\n|Phone|Telephone|Address)",
-        r"The Trustee\s+will\s+sell.*?(?:by and through)?\s*([A-Z][A-Z .,&'-]{4,})",
-    ]
-    for pattern in patterns:
-        m = re.search(pattern, text, re.I | re.S)
-        if m:
-            return _normalize_name_line(m.group(1))
-    return ""
-
-
-def _extract_auction_date(text: str) -> str:
-    patterns = [
-        r"(?:Sale Date|Auction Date|Date of Sale)\s*[:\-]?\s*(.+?)(?:\n|Time)",
-        r"on\s+(%s)" % DATE_RE.pattern,
-    ]
-    for pattern in patterns:
-        m = re.search(pattern, text, re.I | re.S)
-        if m:
-            value = m.group(1).strip() if m.lastindex else m.group(0).strip()
-            date_match = DATE_RE.search(value)
-            return date_match.group(0) if date_match else value
-    m = DATE_RE.search(text)
-    return m.group(0) if m else ""
-
-
-def _extract_parcel_number(text: str) -> str:
-    m = PARCEL_RE.search(text)
-    return m.group(1).strip() if m else ""
-
-
-def _extract_deed_of_trust(text: str) -> str:
-    patterns = [
-        r"Deed of Trust(?: recorded)?\s*(?:as|at|being)?\s*(?:Instrument|Document|No\.?|Number)?\s*[:#\-]?\s*(20\d{9,})",
-        r"pursuant to that certain Deed of Trust.*?(20\d{9,})",
-    ]
-    for pattern in patterns:
-        m = re.search(pattern, text, re.I | re.S)
-        if m:
-            return m.group(1).strip()
-    return ""
-
-
-def _extract_legal(text: str) -> str:
-    patterns = [
-        r"Legal Description\s*[:\-]?\s*(.+?)(?:\n\s*APN|\n\s*Parcel|\n\s*Property Address|$)",
-        r"Lot\s+\d+.+?(?:\n|$)",
-    ]
-    for pattern in patterns:
-        m = re.search(pattern, text, re.I | re.S)
-        if m:
-            return _clean_text(m.group(1))[:1000]
-    return ""
-
-
-def _extract_property_address(text: str) -> dict[str, str]:
-    candidates = []
-    patterns = [
-        r"Property Address\s*[:\-]?\s*(.+?)(?:\n|Parcel|APN|Tax)",
-        r"Commonly known as\s*[:\-]?\s*(.+?)(?:\n|Parcel|APN|Tax)",
-        r"Property\s+located\s+at\s+(.+?)(?:\n|Parcel|APN|Tax)",
-    ]
-    for pattern in patterns:
-        for m in re.finditer(pattern, text, re.I | re.S):
-            candidates.append(_clean_text(m.group(1)))
-
-    line_candidates = [line.strip() for line in text.splitlines() if re.search(r"\d{2,6} .+\b(AZ|ARIZONA)\b", line, re.I)]
-    candidates.extend(line_candidates)
-
-    return _best_address(candidates)
-
-
-def _extract_mailing_address(text: str, prop: dict[str, str]) -> dict[str, str]:
-    candidates = []
-    patterns = [
-        r"Mailing Address\s*[:\-]?\s*(.+?)(?:\n|Property Address|Trustee)",
-        r"Send notice to\s*[:\-]?\s*(.+?)(?:\n|Property Address|Trustee)",
-        r"Address of Trustor\s*[:\-]?\s*(.+?)(?:\n|Property Address|Trustee)",
-    ]
-    for pattern in patterns:
-        for m in re.finditer(pattern, text, re.I | re.S):
-            candidates.append(_clean_text(m.group(1)))
-
-    best = _best_address(candidates)
-    if best["address"] and best["address"].upper() != prop.get("address", "").upper():
-        return best
-    return {"address": "", "city": "", "state": "", "zip": ""}
-
-
-def _best_address(candidates: list[str]) -> dict[str, str]:
-    best = {"address": "", "city": "", "state": "", "zip": ""}
-    best_score = -1
-    for candidate in candidates:
-        candidate = re.sub(r"\s+", " ", candidate).strip(" ,;")
-
-        if not is_valid_property_address(candidate):
-            continue
-
-        if len(candidate) < 8:
-            continue
-        score = 0
-        if re.search(r"\d", candidate):
-            score += 1
-        if re.search(r"\bAZ\b|\bARIZONA\b", candidate, re.I):
-            score += 1
-        if re.search(r"\b\d{5}(?:-\d{4})?\b", candidate):
-            score += 1
-        parsed = _parse_us_address(candidate)
-        if parsed["address"]:
-            score += 2
-        if score > best_score:
-            best = parsed if parsed["address"] else best
-            best_score = score
-    return best
-
-
-def _parse_us_address(candidate: str) -> dict[str, str]:
+def extract_property_address(text):
     try:
-        tagged, _ = usaddress.tag(candidate)
-    except Exception:
-        return {"address": candidate if _looks_like_address(candidate) else "", "city": "", "state": "", "zip": ""}
-
-    street = " ".join(
-        part for key, part in tagged.items() if key in {
-            "AddressNumber", "StreetNamePreDirectional", "StreetName", "StreetNamePostType",
-            "OccupancyType", "OccupancyIdentifier", "USPSBoxType", "USPSBoxID",
-            "StreetNamePreType", "StreetNamePostDirectional", "BuildingName"
-        }
-    ).strip()
-    city = tagged.get("PlaceName", "").strip()
-    state = tagged.get("StateName", "").strip()
-    zipcode = tagged.get("ZipCode", "").strip()
-
-    return {"address": street, "city": city, "state": state, "zip": zipcode}
+        match = re.search(
+            r"Property Address[:\s]*(.+?\d{5})",
+            text,
+            re.IGNORECASE | re.DOTALL,
+        )
+        if match:
+            return clean(match.group(1))
+    except:
+        pass
+    return None
 
 
-def _looks_like_address(value: str) -> bool:
-    return bool(re.search(r"\d{2,6}\s+[A-Z0-9]", value, re.I))
+def extract_trustee(text):
+    try:
+        match = re.search(
+            r"Trustee[:\s]*(.+)",
+            text,
+            re.IGNORECASE,
+        )
+        if match:
+            return clean(match.group(1))
+    except:
+        pass
+    return None
 
 
-def _normalize_name_line(value: str) -> str:
-    value = re.sub(r"\s+", " ", value)
-    value = re.sub(r"\bAND\b", " & ", value, flags=re.I)
-    return value.strip(" ,;:-")
+def extract_auction_date(text):
+    try:
+        match = re.search(
+            r"Sale Date[:\s]*(\d{1,2}/\d{1,2}/\d{4})",
+            text,
+            re.IGNORECASE,
+        )
+        if match:
+            return match.group(1)
+    except:
+        pass
+    return None
 
 
-def _split_owner_names(owner: str) -> tuple[str, str, str, str]:
-    if not owner:
-        return "", "", "", ""
+# ---------------------------
+# HELPERS
+# ---------------------------
 
-    parts = re.split(r"\s*(?:&| AND |,\s*|/|\n)\s*", owner, maxsplit=1, flags=re.I)
-    primary = parts[0].strip()
-    secondary = parts[1].strip() if len(parts) > 1 else ""
-
-    p_first, p_last = _split_single_name(primary)
-    s_first, s_last = _split_single_name(secondary)
-    return p_first, p_last, s_first, s_last
-
-
-def _split_single_name(name: str) -> tuple[str, str]:
-    if not name:
-        return "", ""
-    tokens = [t for t in re.split(r"\s+", name.strip()) if t]
-    if len(tokens) == 1:
-        return tokens[0].title(), ""
-    return tokens[0].title(), tokens[-1].title()
-
-
-def _score_record(
-    prop: dict[str, str],
-    mail: dict[str, str],
-    owner: str,
-    trustee_name: str,
-    auction_date: str,
-    original_loan: str,
-) -> int:
-    score = 0
-    if prop.get("address"):
-        score += 30
-    if prop.get("zip"):
-        score += 10
-    if mail.get("address"):
-        score += 15
-    if owner:
-        score += 20
-    if trustee_name:
-        score += 10
-    if auction_date:
-        score += 10
-    if original_loan:
-        score += 5
-    return min(score, 100)
+def clean(value):
+    return re.sub(r"\s+", " ", value).strip()
