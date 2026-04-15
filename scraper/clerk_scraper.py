@@ -11,6 +11,7 @@ log = logging.getLogger("clerk_scraper")
 
 PORTAL_BASE = "https://recorder.maricopa.gov"
 RESULTS_PAGE = f"{PORTAL_BASE}/recording/document-search-results.html"
+LEGACY_PDF_BASE = "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf"
 
 
 class MaricopaClerkScraper:
@@ -72,29 +73,33 @@ class MaricopaClerkScraper:
             context = browser.new_context(accept_downloads=True)
             page = context.new_page()
 
-            log.info("Opening results page directly")
+            log.info("Opening results page directly: %s", results_url)
             page.goto(results_url, wait_until="domcontentloaded", timeout=90000)
-            page.wait_for_timeout(3000)
+            page.wait_for_timeout(5000)
 
-            doc_nums = self._extract_doc_numbers(page)
-            log.info("Found %s document numbers", len(doc_nums))
+            # Wait for the results summary or any anchor with a recording number
+            self._wait_for_results(page)
 
-            for doc_num in doc_nums:
-                if doc_num in seen:
-                    continue
+            # Pull only visible anchors that look like recording numbers
+            anchors = page.locator("a")
+            anchor_count = anchors.count()
+            log.info("Found %s anchors on page", anchor_count)
 
+            for i in range(anchor_count):
                 try:
+                    a = anchors.nth(i)
+                    if not a.is_visible():
+                        continue
+
+                    text = (a.inner_text() or "").strip()
+                    if not re.fullmatch(r"20\d{9,}", text):
+                        continue
+
+                    doc_num = text
+                    if doc_num in seen:
+                        continue
+
                     filed = self._extract_filed_for_doc(page, doc_num)
-
-                    if not self._open_doc_modal(page, doc_num):
-                        log.warning("Could not open modal for %s", doc_num)
-                        continue
-
-                    pdf_url = self._extract_pdf_url_from_modal(page, doc_num)
-                    if not pdf_url:
-                        log.warning("No PDF URL found in modal for %s", doc_num)
-                        self._close_modal(page)
-                        continue
 
                     results.append(
                         {
@@ -124,7 +129,7 @@ class MaricopaClerkScraper:
                             "trustee_name": None,
                             "trustee_phone": None,
                             "auction_date": None,
-                            "pdf_url": pdf_url,
+                            "pdf_url": f"{LEGACY_PDF_BASE}/{doc_num}.pdf",
                             "pdf_fallback": f"{PORTAL_BASE}/recording/document-preview.html?recNum={doc_num}",
                             "pdf_path": str(self.downloads_dir / f"{doc_num}.pdf"),
                             "clerk_url": f"{PORTAL_BASE}/recording/document-details?id={doc_num}",
@@ -134,15 +139,8 @@ class MaricopaClerkScraper:
                     )
                     seen.add(doc_num)
 
-                    self._close_modal(page)
-                    page.wait_for_timeout(400)
-
                 except Exception as exc:
-                    log.warning("Error processing %s: %s", doc_num, exc)
-                    try:
-                        self._close_modal(page)
-                    except Exception:
-                        pass
+                    log.warning("Error processing anchor %s: %s", i, exc)
 
             try:
                 browser.close()
@@ -164,139 +162,35 @@ class MaricopaClerkScraper:
             f"&endDate={end_date}"
         )
 
-    def _extract_doc_numbers(self, page) -> list[str]:
-        html = page.content()
-        nums = re.findall(r"\b(20\d{9,})\b", html)
-        seen = set()
-        ordered = []
-        for n in nums:
-            if n not in seen:
-                seen.add(n)
-                ordered.append(n)
-        return ordered
-
-    def _extract_filed_for_doc(self, page, doc_num: str) -> str:
-        html = page.content()
-        idx = html.find(doc_num)
-        if idx == -1:
-            return ""
-        window = html[max(0, idx - 500): idx + 500]
-        m = re.search(r"\b(\d{1,2}-\d{1,2}-\d{4}|\d{2}/\d{2}/\d{4})\b", window)
-        if not m:
-            return ""
-        raw = m.group(1)
-        for fmt in ("%m-%d-%Y", "%m/%d/%Y"):
+    def _wait_for_results(self, page) -> None:
+        for _ in range(20):
             try:
-                return datetime.strptime(raw, fmt).strftime("%Y-%m-%d")
-            except ValueError:
-                continue
-        return raw
-
-    def _open_doc_modal(self, page, doc_num: str) -> bool:
-        candidates = [
-            page.locator(f"a:has-text('{doc_num}')").first,
-            page.locator(f"button:has-text('{doc_num}')").first,
-            page.locator(f"text={doc_num}").first,
-        ]
-
-        for locator in candidates:
-            try:
-                if locator.count() > 0 and locator.is_visible():
-                    locator.click()
-                    if self._wait_for_modal(page):
-                        return True
-            except Exception:
-                continue
-
-        return False
-
-    def _wait_for_modal(self, page) -> bool:
-        selectors = [
-            "text=Document details",
-            "text=Preview Unofficial Document",
-            "a:has-text('PDF - All pages')",
-        ]
-        for _ in range(12):
-            for sel in selectors:
-                try:
-                    loc = page.locator(sel)
-                    if loc.count() > 0 and loc.first.is_visible():
-                        return True
-                except Exception:
-                    continue
-            page.wait_for_timeout(500)
-        return False
-
-    def _extract_pdf_url_from_modal(self, page, doc_num: str) -> str:
-        selectors = [
-            "a:has-text('PDF - All pages')",
-            "a:has-text('PDF')",
-            "a[href*='.pdf']",
-            "a[href*='UnOfficialDocs']",
-        ]
-
-        for sel in selectors:
-            try:
-                loc = page.locator(sel)
-                count = loc.count()
-                if count == 0:
-                    continue
-
-                for i in range(count):
-                    link = loc.nth(i)
-                    href = link.get_attribute("href")
-                    if href:
-                        return self._normalize_url(href)
-            except Exception:
-                continue
-
-        html = page.content()
-
-        m = re.search(r'https?://[^"\']+\.pdf', html, re.I)
-        if m:
-            return m.group(0)
-
-        m = re.search(r'(/UnOfficialDocs/[^"\']+\.pdf)', html, re.I)
-        if m:
-            return self._normalize_url(m.group(1))
-
-        # screenshot-confirmed fallback
-        return f"https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/{doc_num}.pdf"
-
-    def _close_modal(self, page) -> None:
-        selectors = [
-            "button[aria-label='Close']",
-            "button:has-text('×')",
-            "text=×",
-        ]
-
-        for sel in selectors:
-            try:
-                loc = page.locator(sel)
-                if loc.count() > 0 and loc.first.is_visible():
-                    loc.first.click()
-                    page.wait_for_timeout(400)
+                html = page.content()
+                if "Showing" in html and re.search(r"20\d{9,}", html):
                     return
             except Exception:
-                continue
+                pass
+            page.wait_for_timeout(1000)
 
+    def _extract_filed_for_doc(self, page, doc_num: str) -> str:
         try:
-            page.keyboard.press("Escape")
-            page.wait_for_timeout(400)
+            html = page.content()
+            idx = html.find(doc_num)
+            if idx == -1:
+                return ""
+            window = html[max(0, idx - 800): idx + 800]
+            m = re.search(r"\b(\d{1,2}-\d{1,2}-\d{4}|\d{2}/\d{2}/\d{4})\b", window)
+            if not m:
+                return ""
+            raw = m.group(1)
+            for fmt in ("%m-%d-%Y", "%m/%d/%Y"):
+                try:
+                    return datetime.strptime(raw, fmt).strftime("%Y-%m-%d")
+                except ValueError:
+                    continue
+            return raw
         except Exception:
-            pass
-
-    def _normalize_url(self, href: str) -> str:
-        href = href.strip()
-        if href.startswith(("http://", "https://")):
-            return href
-        if href.startswith("/"):
-            if href.lower().startswith("/unofficialdocs"):
-                return f"https://legacy.recorder.maricopa.gov{href}"
-            return f"{PORTAL_BASE}{href}"
-        if href.lower().startswith("unofficialdocs"):
-            return f"https://legacy.recorder.maricopa.gov/{href}"
-        return f"{PORTAL_BASE}/{href.lstrip('/')}"
+            return ""
 
     def _coerce_date(self, raw: str) -> str:
         raw = str(raw).strip()
