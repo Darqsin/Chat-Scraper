@@ -63,13 +63,11 @@ class MaricopaClerkScraper:
                 context.close()
                 browser.close()
 
-    def _open_search(self, page: Page) -> None:
-        LOGGER.info("Opening clerk portal: %s", BASE_URL)
-        page.goto(BASE_URL, wait_until="domcontentloaded")
-        page.wait_for_load_state("networkidle")
-        page.wait_for_load_state("domcontentloaded")
-        page.wait_for_load_state("networkidle")
-        page.wait_for_selector("input, select", timeout=self.timeout_ms)
+    def _open_search(self, page):
+        page.goto(self.base_url, wait_until="domcontentloaded", timeout=self.timeout_ms)
+        page.wait_for_timeout(3000)
+        page.wait_for_selector("input, select, button", timeout=self.timeout_ms)
+        self.logger.info("Search page loaded; form controls detected")
         
     def _run_search(self, page: Page, beginning_date: str, end_date: str, document_code: str) -> None:
         LOGGER.info("Running search for code=%s, dates=%s -> %s", document_code, beginning_date, end_date)
