@@ -48,14 +48,13 @@ SESSION.headers.update({
 })
 
 
-class ClerkScraper:
+class MaricopaClerkScraper:
     def __init__(self, lead_types: dict, start_date: str, end_date: str):
         self.lead_types = lead_types
         self.start_date = start_date
         self.end_date   = end_date
         self.records: list[dict] = []
 
-        # 🔥 FIX: prevents GitHub crash
         self.base_url = PORTAL_BASE
 
     async def run(self) -> list[dict]:
