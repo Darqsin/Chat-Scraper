@@ -18,3 +18,75 @@
 2026-04-15 20:54:53,791 | INFO | fetch | API date range: 2026-04-14 -> 2026-04-14
 2026-04-15 20:54:54,770 | INFO | fetch | Scrape returned 0 documents.
 2026-04-15 20:54:54,776 | INFO | fetch | Done. Records=0, with_address=0
+2026-04-15 21:00:23,406 | INFO | fetch | Resolved date range: 04/14/2026 -> 04/14/2026
+2026-04-15 21:00:23,456 | INFO | fetch | API date range: 2026-04-14 -> 2026-04-14
+2026-04-15 21:00:23,634 | INFO | clerk_scraper | Session warmed up via portal
+2026-04-15 21:00:23,634 | INFO | clerk_scraper | Scraping NS (Notice of Trustee Sale)
+2026-04-15 21:00:24,053 | INFO | clerk_scraper |   Page 1: 21 rows (total=21)
+2026-04-15 21:00:24,054 | INFO | clerk_scraper |   → 21 records for NS
+2026-04-15 21:00:24,554 | INFO | clerk_scraper | Total records: 21
+2026-04-15 21:00:24,555 | INFO | fetch | Scrape returned 21 documents.
+2026-04-15 21:00:24,836 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260219643/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:24,837 | WARNING | fetch | Primary PDF failed for 20260219643, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260219643
+2026-04-15 21:00:24,837 | WARNING | fetch | Skipping document 20260219643 because PDF was not downloaded.
+2026-04-15 21:00:25,087 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260220010/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:25,088 | WARNING | fetch | Primary PDF failed for 20260220010, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260220010
+2026-04-15 21:00:25,088 | WARNING | fetch | Skipping document 20260220010 because PDF was not downloaded.
+2026-04-15 21:00:25,374 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260220108/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:25,375 | WARNING | fetch | Primary PDF failed for 20260220108, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260220108
+2026-04-15 21:00:25,375 | WARNING | fetch | Skipping document 20260220108 because PDF was not downloaded.
+2026-04-15 21:00:25,585 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260220458/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:25,586 | WARNING | fetch | Primary PDF failed for 20260220458, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260220458
+2026-04-15 21:00:25,587 | WARNING | fetch | Skipping document 20260220458 because PDF was not downloaded.
+2026-04-15 21:00:25,863 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260220483/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:25,864 | WARNING | fetch | Primary PDF failed for 20260220483, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260220483
+2026-04-15 21:00:25,864 | WARNING | fetch | Skipping document 20260220483 because PDF was not downloaded.
+2026-04-15 21:00:25,991 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260221099/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:25,992 | WARNING | fetch | Primary PDF failed for 20260221099, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260221099
+2026-04-15 21:00:25,992 | WARNING | fetch | Skipping document 20260221099 because PDF was not downloaded.
+2026-04-15 21:00:26,230 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260221116/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:26,231 | WARNING | fetch | Primary PDF failed for 20260221116, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260221116
+2026-04-15 21:00:26,232 | WARNING | fetch | Skipping document 20260221116 because PDF was not downloaded.
+2026-04-15 21:00:26,483 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260221131/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:26,484 | WARNING | fetch | Primary PDF failed for 20260221131, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260221131
+2026-04-15 21:00:26,484 | WARNING | fetch | Skipping document 20260221131 because PDF was not downloaded.
+2026-04-15 21:00:26,659 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260221159/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:26,660 | WARNING | fetch | Primary PDF failed for 20260221159, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260221159
+2026-04-15 21:00:26,660 | WARNING | fetch | Skipping document 20260221159 because PDF was not downloaded.
+2026-04-15 21:00:26,826 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260221277/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:26,827 | WARNING | fetch | Primary PDF failed for 20260221277, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260221277
+2026-04-15 21:00:26,827 | WARNING | fetch | Skipping document 20260221277 because PDF was not downloaded.
+2026-04-15 21:00:26,973 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260221728/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:26,973 | WARNING | fetch | Primary PDF failed for 20260221728, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260221728
+2026-04-15 21:00:26,973 | WARNING | fetch | Skipping document 20260221728 because PDF was not downloaded.
+2026-04-15 21:00:27,096 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260221835/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:27,096 | WARNING | fetch | Primary PDF failed for 20260221835, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260221835
+2026-04-15 21:00:27,097 | WARNING | fetch | Skipping document 20260221835 because PDF was not downloaded.
+2026-04-15 21:00:27,219 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260221862/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:27,219 | WARNING | fetch | Primary PDF failed for 20260221862, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260221862
+2026-04-15 21:00:27,220 | WARNING | fetch | Skipping document 20260221862 because PDF was not downloaded.
+2026-04-15 21:00:27,345 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260221869/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:27,346 | WARNING | fetch | Primary PDF failed for 20260221869, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260221869
+2026-04-15 21:00:27,346 | WARNING | fetch | Skipping document 20260221869 because PDF was not downloaded.
+2026-04-15 21:00:27,600 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260221880/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:27,601 | WARNING | fetch | Primary PDF failed for 20260221880, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260221880
+2026-04-15 21:00:27,601 | WARNING | fetch | Skipping document 20260221880 because PDF was not downloaded.
+2026-04-15 21:00:27,864 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260221886/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:27,865 | WARNING | fetch | Primary PDF failed for 20260221886, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260221886
+2026-04-15 21:00:27,865 | WARNING | fetch | Skipping document 20260221886 because PDF was not downloaded.
+2026-04-15 21:00:28,001 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260222095/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:28,001 | WARNING | fetch | Primary PDF failed for 20260222095, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260222095
+2026-04-15 21:00:28,002 | WARNING | fetch | Skipping document 20260222095 because PDF was not downloaded.
+2026-04-15 21:00:28,121 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260222178/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:28,122 | WARNING | fetch | Primary PDF failed for 20260222178, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260222178
+2026-04-15 21:00:28,122 | WARNING | fetch | Skipping document 20260222178 because PDF was not downloaded.
+2026-04-15 21:00:28,236 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260222252/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:28,237 | WARNING | fetch | Primary PDF failed for 20260222252, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260222252
+2026-04-15 21:00:28,237 | WARNING | fetch | Skipping document 20260222252 because PDF was not downloaded.
+2026-04-15 21:00:28,363 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260222297/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:28,364 | WARNING | fetch | Primary PDF failed for 20260222297, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260222297
+2026-04-15 21:00:28,364 | WARNING | fetch | Skipping document 20260222297 because PDF was not downloaded.
+2026-04-15 21:00:28,488 | WARNING | fetch | Bad PDF response for https://publicapi.recorder.maricopa.gov/documents/20260222380/pdf | status=404 | content-type=application/json
+2026-04-15 21:00:28,489 | WARNING | fetch | Primary PDF failed for 20260222380, fallback exists but is not used as PDF: https://recorder.maricopa.gov/recording/document-preview.html?recNum=20260222380
+2026-04-15 21:00:28,489 | WARNING | fetch | Skipping document 20260222380 because PDF was not downloaded.
+2026-04-15 21:00:28,496 | INFO | fetch | Done. Records=0, with_address=0
