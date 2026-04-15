@@ -14,3 +14,7 @@
 2026-04-15 20:41:17,558 | INFO | fetch | API date range: 2026-04-14 -> 2026-04-14
 2026-04-15 20:41:18,467 | INFO | fetch | Scrape returned 0 documents.
 2026-04-15 20:41:18,473 | INFO | fetch | Done. Records=0, with_address=0
+2026-04-15 20:54:53,758 | INFO | fetch | Resolved date range: 04/14/2026 -> 04/14/2026
+2026-04-15 20:54:53,791 | INFO | fetch | API date range: 2026-04-14 -> 2026-04-14
+2026-04-15 20:54:54,770 | INFO | fetch | Scrape returned 0 documents.
+2026-04-15 20:54:54,776 | INFO | fetch | Done. Records=0, with_address=0
