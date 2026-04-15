@@ -728,3 +728,9 @@ NameError: name 'is_valid_property_address' is not defined
 2026-04-15 22:07:21,884 | WARNING | fetch | Fallback record used for 20260222297: no such group
 2026-04-15 22:07:40,863 | WARNING | fetch | Fallback record used for 20260222380: name 'is_valid_property_address' is not defined
 2026-04-15 22:07:40,888 | INFO | fetch | FINAL: 21 records | 0 with address
+2026-04-15 22:52:24,688 | INFO | fetch | Date range: 04/14/2026 -> 04/14/2026
+2026-04-15 22:52:26,063 | INFO | clerk_scraper | Opening results page directly
+2026-04-15 22:52:29,291 | INFO | clerk_scraper | Found 0 document numbers
+2026-04-15 22:52:29,347 | INFO | clerk_scraper | Returning 0 records
+2026-04-15 22:52:29,347 | INFO | fetch | Scraped 0 records
+2026-04-15 22:52:29,353 | INFO | fetch | FINAL: 0 records | 0 with address
