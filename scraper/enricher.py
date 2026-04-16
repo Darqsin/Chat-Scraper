@@ -325,6 +325,8 @@ def _extract_property_address(text: str) -> dict[str, str]:
             candidate = _clean_text(m.group(1))
             candidate = candidate.split("\n")[0]
             candidate = re.sub(r"(Suite|Ste|Unit).*", "", candidate, flags=re.I)
+            candidate = re.sub(r"(JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER).*$", "", candidate, flags=re.I)
+            candidate = re.sub(r"\d{1,2}:\d{2}\s*(AM|PM).*$", "", candidate, flags=re.I)
             candidate = candidate.strip(" ,;")
             candidates.append(candidate)
 
@@ -370,6 +372,8 @@ def is_valid_property_address(text: str) -> bool:
         "SCOTTSDALE ROAD", "SUITE", " STE ", "REGULATED BY", "STATE BAR",
         "BENEFICIARY", "CURRENT TRUSTEE", "NAME AND ADDRESS OF TRUSTEE",
         "PHONE:", "TELEPHONE", "TIBURON", "DOUBLETREE", "COURT BUILDING",
+        "SUPERIOR COURT", "COURTHOUSE", "JEFFERSON", "SALE LOCATION",
+        "LOCATED AT 201 WEST JEFFERSON", "201 W JEFFERSON", "201 WEST JEFFERSON",
     ]
     if any(term in upper for term in bad_terms):
         return False
