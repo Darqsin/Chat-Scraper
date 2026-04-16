@@ -265,7 +265,11 @@ def _extract_trustee_name(text: str) -> str:
 
         if len(value) > 5:
             return value
-
+    # 🔥 Fallback: detect law firms / trustee names
+    m = re.search(r"\b([A-Z][A-Za-z&., ]+(?:LLP|LLC|P\.A\.|LAW FIRM|ATTORNEY))\b", text)
+    if m:
+    return m.group(1).strip()
+    
     return ""
 
 
@@ -350,6 +354,8 @@ def _extract_property_address(text: str) -> dict[str, str]:
                 return _parse_address(combined)
 
     patterns = [
+        r"street address is purported to be[:\-]?\s*(.+?)(?:\n|\.|Tax Parcel|APN)",
+        r"is purported to be[:\-]?\s*(.+?)(?:\n|\.|Tax Parcel|APN)",
         r"Purported Street Address\s*[:\-]?\s*(.+?)(?:\n|Tax Parcel Number|Original Principal Balance)",
         r"Street address or identifiable location\s*[:\-]?\s*(.+?)(?:\n|A\.P\.N\.|APN|Original Principal Balance)",
         r"Property Address\s*[:\-]?\s*(.+?)(?:\n|Parcel|APN|Tax|Original Principal Balance)",
@@ -368,9 +374,9 @@ def _extract_property_address(text: str) -> dict[str, str]:
             candidates.append(candidate)
 
     line_candidates = [
-        re.sub(r"(Suite|Ste|Unit).*", "", line.strip(), flags=re.I)
-        for line in lines
-        if re.search(r"\d{2,6} .+\b(AZ|ARIZONA)\b", line, re.I)
+        line.strip()
+        for line in (text or "").splitlines()
+        if re.search(r"\d{2,6} .+(AZ|ARIZONA)\b.*\d{5}", line, re.I)
     ]
     candidates.extend(line_candidates)
 
@@ -391,7 +397,8 @@ def _extract_mailing_address(text: str, prop: dict[str, str]) -> dict[str, str]:
             candidate = _clean_text(m.group(1))
             if any(x in candidate.lower() for x in [
                 "llp", "loan", "title no", "tiffany", "bosco",
-                "central arts", "plaza", "twenty fourth floor"
+                "central arts", "plaza", "floor", "suite", "ste",
+                "trustee", "attorney"
             ]):
                 continue
             candidates.append(candidate)
@@ -414,11 +421,14 @@ def _is_valid_property_address(val: str) -> bool:
     upper = val.upper()
 
     bad_terms = [
+        "85003", "85004",
         "COURT", "COURTHOUSE", "SUPERIOR COURT",
         "JEFFERSON", "SALE LOCATION",
         "201 W JEFFERSON", "201 WEST JEFFERSON",
         "LOCATED AT 201 WEST JEFFERSON",
     ]
+    if "JEFFERSON" in upper and re.search(r"\b8500[34]\b", upper):
+    return False
     if any(term in upper for term in bad_terms):
         return False
 
