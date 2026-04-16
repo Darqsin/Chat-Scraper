@@ -210,7 +210,11 @@ def _clean_text(text: str) -> str:
 
 def _find_first(pattern: re.Pattern[str], text: str) -> str:
     m = pattern.search(text or "")
-    return m.group(1).strip() if m and m.lastindex else (m.group(0).strip() if m else "")
+    if not m:
+        return ""
+    if m.lastindex:
+        return m.group(1).strip()
+    return m.group(0).strip()
 
 
 def _extract_owner(text: str) -> str:
@@ -221,7 +225,7 @@ def _extract_owner(text: str) -> str:
         r"Name of Trustor\s*[:\-]?\s*(.+?)(?:\n(?:Trustee|Beneficiary|Property Address|Sale Date))",
     ]
     for pattern in patterns:
-        m = re.search(pattern, text, re.I | re.S)
+        m = re.search(pattern, text or "", re.I | re.S)
         if m:
             return _normalize_name_line(m.group(1))
     return ""
@@ -230,7 +234,7 @@ def _extract_owner(text: str) -> str:
 def _extract_trustee_name(text: str) -> str:
     m = re.search(
         r"The undersigned Trustee,\s*([^,\n]+),\s*Attorney at Law",
-        text,
+        text or "",
         re.I,
     )
     if m:
@@ -241,8 +245,9 @@ def _extract_trustee_name(text: str) -> str:
         r"Trustee\s*[:\-]?\s*(.+?)(?:\n(?:Phone|Telephone|Address|Sale Date|Name of Trustee's Regulator))",
         r"NAME, ADDRESS\s*&\s*TELEPHONE NUMBER OF TRUSTEE.*?\n(.+?)(?:\n(?:Name of Trustee's Regulator|State Bar|Dated this))",
     ]
+
     for pattern in patterns:
-        m = re.search(pattern, text, re.I | re.S)
+        m = re.search(pattern, text or "", re.I | re.S)
         if not m:
             continue
 
@@ -250,26 +255,16 @@ def _extract_trustee_name(text: str) -> str:
         if not value:
             continue
 
-        if any(x in value.lower() for x in [
-            "sale", "objection", "must file", "court order", "superior court"
-        ]):
+        lower = value.lower()
+        if any(x in lower for x in ["sale", "objection", "must file", "court order", "superior court"]):
             continue
-
         if re.search(r"\d{3,5}\s+.+\b(AZ|CA|TX|NV|NM)\b", value, re.I):
             continue
-
-        if any(x in value.lower() for x in [
-            "suite", "avenue", "road", "street", "drive", "lane", "boulevard"
-        ]):
+        if any(x in lower for x in ["suite", "avenue", "road", "street", "drive", "lane", "boulevard"]):
             continue
-
         if len(value) > 5:
             return value
-    # 🔥 Fallback: detect law firms / trustee names
-    m = re.search(r"\b([A-Z][A-Za-z&., ]+(?:LLP|LLC|P\.A\.|LAW FIRM|ATTORNEY))\b", text)
-    if m:
-        return m.group(1).strip()
-    
+
     return ""
 
 
@@ -278,29 +273,38 @@ def _extract_auction_date(text: str) -> str:
         r"(?:Sale Date and Time|Sale Date|Auction Date|Date of Sale)\s*[:\-]?\s*(.+?)(?:\n|Sale Location|Location)",
         r"on\s+(%s)" % DATE_LONG_RE.pattern,
     ]
+
     for pattern in patterns:
-        m = re.search(pattern, text, re.I | re.S)
+        m = re.search(pattern, text or "", re.I | re.S)
         if m:
             value = m.group(1).strip() if m.lastindex else m.group(0).strip()
+
             long_match = DATE_LONG_RE.search(value)
             if long_match:
                 return long_match.group(0)
+
             num_match = DATE_NUMERIC_RE.search(value)
             if num_match:
                 return num_match.group(0)
+
             return _clean_text(value)
 
     m = DATE_LONG_RE.search(text or "")
-    
+    if m:
         return m.group(0)
 
     m = DATE_NUMERIC_RE.search(text or "")
-    return m.group(0) if m else ""
+    if m:
+        return m.group(0)
+
+    return ""
 
 
 def _extract_parcel_number(text: str) -> str:
     m = PARCEL_RE.search(text or "")
-    return m.group(1).strip() if m else ""
+    if m:
+        return m.group(1).strip()
+    return ""
 
 
 def _extract_deed_of_trust(text: str) -> str:
@@ -310,7 +314,7 @@ def _extract_deed_of_trust(text: str) -> str:
         r"Instrument No\.?\s*(20\d{9,})",
     ]
     for pattern in patterns:
-        m = re.search(pattern, text, re.I | re.S)
+        m = re.search(pattern, text or "", re.I | re.S)
         if m:
             return m.group(1).strip()
     return ""
@@ -322,7 +326,7 @@ def _extract_legal(text: str) -> str:
         r"(LOT\s+\d+.+?)(?:\n\s*(?:APN|A\.P\.N\.|Parcel|Tax Parcel Number|Original Principal Balance|Property Address|Purported Street Address)|$)",
     ]
     for pattern in patterns:
-        m = re.search(pattern, text, re.I | re.S)
+        m = re.search(pattern, text or "", re.I | re.S)
         if m:
             return _clean_text(m.group(1))[:1000]
     return ""
@@ -330,12 +334,12 @@ def _extract_legal(text: str) -> str:
 
 def _extract_property_address(text: str) -> dict[str, str]:
     text = text or ""
-    lines = [l.strip() for l in text.splitlines() if l.strip()]
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
     candidates: list[str] = []
 
     for i, line in enumerate(lines):
         if re.search(
-            r"(purported street address|street address or identifiable location|property address)",
+            r"(purported street address|street address or identifiable location|property address|street address is purported to be|is purported to be)",
             line,
             re.I,
         ):
@@ -345,11 +349,12 @@ def _extract_property_address(text: str) -> dict[str, str]:
 
             combined = _clean_address(combined)
             combined = re.sub(
-                r"^(Purported Street Address|Street address or identifiable location|Property Address)\s*[:\-]?\s*",
+                r"^(Purported Street Address|Street address or identifiable location|Property Address|The street address is purported to be|Street address is purported to be|is purported to be)\s*[:\-]?\s*",
                 "",
                 combined,
                 flags=re.I,
             )
+
             if _is_valid_property_address(combined):
                 return _parse_address(combined)
 
@@ -375,7 +380,7 @@ def _extract_property_address(text: str) -> dict[str, str]:
 
     line_candidates = [
         line.strip()
-        for line in (text or "").splitlines()
+        for line in lines
         if re.search(r"\d{2,6} .+(AZ|ARIZONA)\b.*\d{5}", line, re.I)
     ]
     candidates.extend(line_candidates)
@@ -393,9 +398,10 @@ def _extract_mailing_address(text: str, prop: dict[str, str]) -> dict[str, str]:
     ]
 
     for pattern in patterns:
-        for m in re.finditer(pattern, text, re.I | re.S):
+        for m in re.finditer(pattern, text or "", re.I | re.S):
             candidate = _clean_text(m.group(1))
-            if any(x in candidate.lower() for x in [
+            lower = candidate.lower()
+            if any(x in lower for x in [
                 "llp", "loan", "title no", "tiffany", "bosco",
                 "central arts", "plaza", "floor", "suite", "ste",
                 "trustee", "attorney"
@@ -411,31 +417,31 @@ def _extract_mailing_address(text: str, prop: dict[str, str]) -> dict[str, str]:
 
 
 def _clean_address(val: str) -> str:
-    val = re.sub(r"\s+", " ", val)
+    val = re.sub(r"\s+", " ", val or "")
     val = re.sub(r"(suite|ste|unit).*", "", val, flags=re.I)
     val = val.strip(" ,;:-")
     return val
 
 
 def _is_valid_property_address(val: str) -> bool:
-    upper = val.upper()
+    upper = (val or "").upper()
 
     bad_terms = [
-        "85003", "85004",
         "COURT", "COURTHOUSE", "SUPERIOR COURT",
         "JEFFERSON", "SALE LOCATION",
         "201 W JEFFERSON", "201 WEST JEFFERSON",
         "LOCATED AT 201 WEST JEFFERSON",
     ]
-    if "JEFFERSON" in upper and re.search(r"\b8500[34]\b", upper):
-    return False
     if any(term in upper for term in bad_terms):
+        return False
+
+    if "JEFFERSON" in upper and re.search(r"\b8500[34]\b", upper):
         return False
 
     return bool(
         re.search(
             r"\d{3,6}\s+[A-Z0-9 .'\-]+(?:ST|STREET|AVE|AVENUE|RD|ROAD|DR|DRIVE|LN|LANE|CT|COURT|PL|PLACE|BLVD|BOULEVARD|WAY)\b.*\b(AZ|ARIZONA)\b.*\d{5}",
-            val,
+            val or "",
             re.I,
         )
     )
@@ -493,8 +499,6 @@ def _parse_address(val: str) -> dict[str, str]:
         "StreetNamePostDirectional",
         "OccupancyType",
         "OccupancyIdentifier",
-        "USPSBoxType",
-        "USPSBoxID",
         "BuildingName",
     ]:
         if key in tagged:
@@ -507,7 +511,6 @@ def _parse_address(val: str) -> dict[str, str]:
 
     if zipcode and len(zipcode) > 5:
         zipcode = zipcode[:5]
-
     if state.lower() == "arizona":
         state = "AZ"
 
@@ -515,7 +518,7 @@ def _parse_address(val: str) -> dict[str, str]:
 
 
 def _looks_like_address(value: str) -> bool:
-    return bool(re.search(r"\d{2,6}\s+[A-Z0-9]", value, re.I))
+    return bool(re.search(r"\d{2,6}\s+[A-Z0-9]", value or "", re.I))
 
 
 def _normalize_name_line(value: str) -> str:
