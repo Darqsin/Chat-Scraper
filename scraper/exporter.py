@@ -2,74 +2,112 @@ from __future__ import annotations
 
 import csv
 import json
-from dataclasses import asdict, is_dataclass
-from datetime import datetime, timezone
+import re
 from pathlib import Path
-from typing import Any
+from typing import Iterable
 
 from openpyxl import Workbook
 
-
-def _ensure_path(path: str | Path) -> Path:
-    p = Path(path)
-    p.parent.mkdir(parents=True, exist_ok=True)
-    return p
+ILLEGAL_XLSX_CHARS_RE = re.compile(r"[\x00-\x08\x0B\x0C\x0E-\x1F]")
 
 
-def _normalize_record(record: Any) -> dict[str, Any]:
-    if is_dataclass(record):
-        return asdict(record)
-    if isinstance(record, dict):
-        return record
-    raise TypeError(f"Unsupported record type: {type(record)!r}")
+def _clean_excel_value(value):
+    if value is None:
+        return ""
+
+    if isinstance(value, (int, float, bool)):
+        return value
+
+    if isinstance(value, (list, dict)):
+        value = json.dumps(value, ensure_ascii=False)
+
+    value = str(value)
+    value = ILLEGAL_XLSX_CHARS_RE.sub("", value)
+    value = value.replace("\r\n", "\n").replace("\r", "\n")
+    value = re.sub(r"\n{3,}", "\n\n", value)
+    return value.strip()
 
 
-def build_records_payload(records: list[Any], source: str, date_range: dict[str, str]) -> dict[str, Any]:
-    normalized = [_normalize_record(r) for r in records]
+def _clean_record(record: dict) -> dict:
+    return {k: _clean_excel_value(v) for k, v in record.items()}
+
+
+def build_records_payload(records: list[dict], source: str, date_range: dict) -> dict:
+    cleaned_records = [_clean_record(r) for r in records]
+    with_address = sum(1 for r in cleaned_records if r.get("prop_address"))
     return {
-        "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "fetched_at": __import__("datetime").datetime.utcnow().isoformat(),
         "source": source,
         "date_range": date_range,
-        "total": len(normalized),
-        "with_address": sum(1 for r in normalized if r.get("prop_address")),
-        "records": [
-            {
-                "doc_num": r.get("doc_num", ""),
-                "doc_type": r.get("doc_type", ""),
-                "filed": r.get("filed", ""),
-                "cat": r.get("cat", ""),
-                "cat_label": r.get("cat_label", ""),
-                "owner": r.get("owner", ""),
-                "grantee": r.get("grantee", ""),
-                "amount": r.get("amount", ""),
-                "legal": r.get("legal", ""),
-                "prop_address": r.get("prop_address", ""),
-                "prop_city": r.get("prop_city", ""),
-                "prop_state": r.get("prop_state", ""),
-                "prop_zip": r.get("prop_zip", ""),
-                "mail_address": r.get("mail_address", ""),
-                "mail_city": r.get("mail_city", ""),
-                "mail_state": r.get("mail_state", ""),
-                "mail_zip": r.get("mail_zip", ""),
-                "clerk_url": r.get("clerk_url", ""),
-                "flags": r.get("flags", []),
-                "score": r.get("score", 0),
-            }
-            for r in normalized
-        ],
+        "total": len(cleaned_records),
+        "with_address": with_address,
+        "records": cleaned_records,
     }
 
 
-def write_json_records(payload: dict[str, Any], *paths: str | Path) -> None:
+def write_json_records(payload: dict, *paths: Path) -> None:
     for path in paths:
-        p = _ensure_path(path)
-        p.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+        path.parent.mkdir(parents=True, exist_ok=True)
+        clean_payload = {
+            **payload,
+            "records": [_clean_record(r) for r in payload.get("records", [])],
+        }
+        path.write_text(json.dumps(clean_payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
-def write_ghl_csv(records: list[Any], path: str | Path) -> None:
-    p = _ensure_path(path)
-    normalized = [_normalize_record(r) for r in records]
-    headers = [
+def write_flat_csv(records: list[dict], path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    cleaned = [_clean_record(r) for r in records]
+
+    fieldnames = [
+        "doc_num",
+        "doc_type",
+        "filed",
+        "cat",
+        "cat_label",
+        "owner",
+        "grantee",
+        "amount",
+        "legal",
+        "prop_address",
+        "prop_city",
+        "prop_state",
+        "prop_zip",
+        "mail_address",
+        "mail_city",
+        "mail_state",
+        "mail_zip",
+        "county",
+        "parcel_number",
+        "original_loan",
+        "trustee_name",
+        "trustee_phone",
+        "auction_date",
+        "deed_of_trust",
+        "first_name",
+        "last_name",
+        "second_first",
+        "second_last",
+        "clerk_url",
+        "pdf_url",
+        "pdf_path",
+        "flags",
+        "score",
+        "raw_text_path",
+    ]
+
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+        writer.writeheader()
+        for row in cleaned:
+            writer.writerow(row)
+
+
+def write_ghl_csv(records: list[dict], path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    cleaned = [_clean_record(r) for r in records]
+
+    fieldnames = [
         "Deed of Trust",
         "First Name",
         "Last Name",
@@ -92,10 +130,11 @@ def write_ghl_csv(records: list[Any], path: str | Path) -> None:
         "Trustee Phone",
         "Auction Date",
     ]
-    with p.open("w", newline="", encoding="utf-8") as fh:
-        writer = csv.DictWriter(fh, fieldnames=headers)
+
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
-        for r in normalized:
+        for r in cleaned:
             writer.writerow(
                 {
                     "Deed of Trust": r.get("deed_of_trust", ""),
@@ -113,70 +152,76 @@ def write_ghl_csv(records: list[Any], path: str | Path) -> None:
                     "Property Postal Code": r.get("prop_zip", ""),
                     "County": r.get("county", "Maricopa"),
                     "Parcel Number": r.get("parcel_number", ""),
-                    "Original Loan": r.get("original_loan", ""),
+                    "Original Loan": r.get("original_loan", r.get("amount", "")),
                     "Estimated Value": "",
                     "Equity": "",
-                    "Trustee Name": r.get("trustee_name", ""),
+                    "Trustee Name": r.get("trustee_name", r.get("grantee", "")),
                     "Trustee Phone": r.get("trustee_phone", ""),
                     "Auction Date": r.get("auction_date", ""),
                 }
             )
 
 
-def write_flat_csv(records: list[Any], path: str | Path) -> None:
-    p = _ensure_path(path)
-    normalized = [_normalize_record(r) for r in records]
-    if not normalized:
-        headers = [
-            "doc_num", "doc_type", "filed", "cat", "cat_label", "owner", "grantee", "amount",
-            "legal", "prop_address", "prop_city", "prop_state", "prop_zip", "mail_address", "mail_city",
-            "mail_state", "mail_zip", "county", "parcel_number", "original_loan", "trustee_name",
-            "trustee_phone", "auction_date", "deed_of_trust", "first_name", "last_name", "second_first",
-            "second_last", "clerk_url", "pdf_url", "pdf_path", "flags", "score", "raw_text_path",
-        ]
-    else:
-        headers = list(normalized[0].keys())
+def write_xlsx(records: list[dict], path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    cleaned = [_clean_record(r) for r in records]
 
-    with p.open("w", newline="", encoding="utf-8") as fh:
-        writer = csv.DictWriter(fh, fieldnames=headers)
-        writer.writeheader()
-        for row in normalized:
-            row = row.copy()
-            if isinstance(row.get("flags"), list):
-                row["flags"] = ";".join(row["flags"])
-            writer.writerow(row)
-
-
-def write_xlsx(records: list[Any], path: str | Path) -> None:
-    p = _ensure_path(path)
-    normalized = [_normalize_record(r) for r in records]
     wb = Workbook()
     ws = wb.active
-    ws.title = "NTS Data"
+    ws.title = "NTS Leads"
 
     headers = [
-        "Deed of Trust", "First Name", "Last Name", "2nd First", "2nd Last",
-        "Street Address", "City", "State", "Postal Code", "Property Address",
-        "Property City", "Property State", "Property Postal Code", "County",
-        "Parcel Number", "Original Loan", "Trustee Name", "Trustee Phone", "Auction Date",
-        "Doc Number", "Doc Type", "Filed", "Owner", "Legal", "Score", "Flags",
-        "Clerk URL", "PDF URL", "PDF Path",
+        "doc_num",
+        "doc_type",
+        "filed",
+        "cat",
+        "cat_label",
+        "owner",
+        "grantee",
+        "amount",
+        "legal",
+        "prop_address",
+        "prop_city",
+        "prop_state",
+        "prop_zip",
+        "mail_address",
+        "mail_city",
+        "mail_state",
+        "mail_zip",
+        "county",
+        "parcel_number",
+        "original_loan",
+        "trustee_name",
+        "trustee_phone",
+        "auction_date",
+        "deed_of_trust",
+        "first_name",
+        "last_name",
+        "second_first",
+        "second_last",
+        "clerk_url",
+        "pdf_url",
+        "pdf_path",
+        "flags",
+        "score",
+        "raw_text_path",
     ]
+
     ws.append(headers)
 
-    for r in normalized:
-        ws.append(
-            [
-                r.get("deed_of_trust", ""), r.get("first_name", ""), r.get("last_name", ""),
-                r.get("second_first", ""), r.get("second_last", ""), r.get("mail_address", ""),
-                r.get("mail_city", ""), r.get("mail_state", ""), r.get("mail_zip", ""),
-                r.get("prop_address", ""), r.get("prop_city", ""), r.get("prop_state", ""),
-                r.get("prop_zip", ""), r.get("county", "Maricopa"), r.get("parcel_number", ""),
-                r.get("original_loan", ""), r.get("trustee_name", ""), r.get("trustee_phone", ""),
-                r.get("auction_date", ""), r.get("doc_num", ""), r.get("doc_type", ""),
-                r.get("filed", ""), r.get("owner", ""), r.get("legal", ""), r.get("score", 0),
-                ";".join(r.get("flags", [])) if isinstance(r.get("flags"), list) else r.get("flags", ""),
-                r.get("clerk_url", ""), r.get("pdf_url", ""), r.get("pdf_path", ""),
-            ]
-        )
-    wb.save(p)
+    for r in cleaned:
+        ws.append([_clean_excel_value(r.get(h, "")) for h in headers])
+
+    for col in ws.columns:
+        max_len = 0
+        col_letter = col[0].column_letter
+        for cell in col:
+            try:
+                cell_len = len(str(cell.value)) if cell.value is not None else 0
+                if cell_len > max_len:
+                    max_len = cell_len
+            except Exception:
+                pass
+        ws.column_dimensions[col_letter].width = min(max(max_len + 2, 12), 60)
+
+    wb.save(path)
