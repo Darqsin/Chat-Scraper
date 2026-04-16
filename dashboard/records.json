@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-04-16T20:23:03.741342+00:00",
+  "fetched_at": "2026-04-16T21:31:29.637601+00:00",
   "source": "https://recorder.maricopa.gov/recording/document-search.html",
   "date_range": {
     "start": "04/15/2026",
     "end": "04/15/2026"
   },
   "total": 30,
-  "with_address": 26,
+  "with_address": 27,
   "records": [
     {
       "doc_num": "20260222588",
@@ -47,16 +47,16 @@
       "prop_city": "",
       "prop_state": "",
       "prop_zip": "",
-      "mail_address": "7730 Market Center Ave Suite 100",
-      "mail_city": "El Paso",
-      "mail_state": "TX",
-      "mail_zip": "79912",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260222606",
       "flags": [
         "ocr_fallback",
         "missing_trustee"
       ],
-      "score": 80
+      "score": 65
     },
     {
       "doc_num": "20260222631",
@@ -72,17 +72,17 @@
       "prop_city": "PHOENIX",
       "prop_state": "AZ",
       "prop_zip": "85014",
-      "mail_address": "17100 Gillette Ave",
-      "mail_city": "Irvine",
-      "mail_state": "CA",
-      "mail_zip": "92614",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260222631",
       "flags": [
         "ocr_fallback",
         "missing_owner",
         "missing_trustee"
       ],
-      "score": 70
+      "score": 55
     },
     {
       "doc_num": "20260222700",
@@ -145,10 +145,10 @@
       "grantee": "Leonard J. McDonald",
       "amount": "$304,385",
       "legal": "",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "",
-      "prop_zip": "",
+      "prop_address": "2855 S Extension Rd Unit 247",
+      "prop_city": "Mesa",
+      "prop_state": "AZ",
+      "prop_zip": "85210",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
@@ -156,10 +156,9 @@
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260222909",
       "flags": [
         "ocr_fallback",
-        "missing_property_address",
         "missing_owner"
       ],
-      "score": 25
+      "score": 65
     },
     {
       "doc_num": "20260223068",
@@ -175,17 +174,17 @@
       "prop_city": "PHOENIX",
       "prop_state": "AZ",
       "prop_zip": "85033",
-      "mail_address": "17100 Gillette Ave",
-      "mail_city": "Irvine",
-      "mail_state": "CA",
-      "mail_zip": "92614",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260223068",
       "flags": [
         "ocr_fallback",
         "missing_owner",
         "missing_trustee"
       ],
-      "score": 70
+      "score": 55
     },
     {
       "doc_num": "20260223111",
@@ -226,17 +225,17 @@
       "prop_city": "SURPRISE",
       "prop_state": "AZ",
       "prop_zip": "85388",
-      "mail_address": "17100 Gillette Ave",
-      "mail_city": "Irvine",
-      "mail_state": "CA",
-      "mail_zip": "92614",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260223127",
       "flags": [
         "ocr_fallback",
         "missing_owner",
         "missing_trustee"
       ],
-      "score": 70
+      "score": 55
     },
     {
       "doc_num": "20260223286",
@@ -252,17 +251,17 @@
       "prop_city": "QUEEN CREEK",
       "prop_state": "AZ",
       "prop_zip": "85142",
-      "mail_address": "17100 Gillette Ave",
-      "mail_city": "Irvine",
-      "mail_state": "CA",
-      "mail_zip": "2614",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260223286",
       "flags": [
         "ocr_fallback",
         "missing_owner",
         "missing_trustee"
       ],
-      "score": 70
+      "score": 55
     },
     {
       "doc_num": "20260223322",
@@ -278,17 +277,17 @@
       "prop_city": "PHOENIX",
       "prop_state": "AZ",
       "prop_zip": "85037",
-      "mail_address": "17100 Gillette Ave",
-      "mail_city": "irvine",
-      "mail_state": "CA",
-      "mail_zip": "92614",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260223322",
       "flags": [
         "ocr_fallback",
         "missing_owner",
         "missing_trustee"
       ],
-      "score": 70
+      "score": 55
     },
     {
       "doc_num": "20260223541",
@@ -400,10 +399,10 @@
       "grantee": "",
       "amount": "$465,000.00",
       "legal": "Lot 577, TEMPE GARDENS UNIT FIVE, according to the plat of record in the office of the County\nRecorder of Maricopa County, Arizona in Book 120 of Maps, Page 22.\nThe street address is purported to be: 1737 E. Manhattan Dr., Tempe, AZ 85282",
-      "prop_address": "1737 E. Manhattan Dr. The street address is purported to be:",
-      "prop_city": "Tempe",
-      "prop_state": "AZ",
-      "prop_zip": "85282",
+      "prop_address": "1737 E. Manhattan Dr., Tempe, AZ 85282 Tax Parcel Number: 133-37-259",
+      "prop_city": "",
+      "prop_state": "",
+      "prop_zip": "",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
@@ -414,7 +413,7 @@
         "missing_owner",
         "missing_trustee"
       ],
-      "score": 55
+      "score": 45
     },
     {
       "doc_num": "20260224598",
@@ -703,17 +702,17 @@
       "prop_city": "PHOENIX",
       "prop_state": "AZ",
       "prop_zip": "85050",
-      "mail_address": "17100 Gillette Ave",
-      "mail_city": "Irvine",
-      "mail_state": "CA",
-      "mail_zip": "92614",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260225382",
       "flags": [
         "ocr_fallback",
         "missing_owner",
         "missing_trustee"
       ],
-      "score": 70
+      "score": 55
     },
     {
       "doc_num": "20260225528",
