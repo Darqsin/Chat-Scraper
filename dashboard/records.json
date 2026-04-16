@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-04-16T19:32:40.498508+00:00",
+  "fetched_at": "2026-04-16T20:23:03.741342+00:00",
   "source": "https://recorder.maricopa.gov/recording/document-search.html",
   "date_range": {
     "start": "04/15/2026",
     "end": "04/15/2026"
   },
   "total": 30,
-  "with_address": 25,
+  "with_address": 26,
   "records": [
     {
       "doc_num": "20260222588",
@@ -15,22 +15,23 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "(s): SPS PLATINUM PROPERTIES, LLC, AN",
-      "grantee": "'s Sale",
+      "grantee": "",
       "amount": "$250,000.00",
       "legal": "LOT 114, LAS CASAS GRANDES, ACCORDING TO THE PLAT OF\nRECORD IN THE OFFICE OF THE COUNTY RECORDER OF MARICOPA\nCOUNTY, ARIZONA, RECORDED IN BOOK 136 OF MAPS, PAGE 25\nAND PLAT OF CORRECTION RECORDED IN BOOK 138 OF MAPS,\nPAGE 2,",
-      "prop_address": "4130 W NANCY LN",
-      "prop_city": "PHOENIX",
-      "prop_state": "AZ",
-      "prop_zip": "85041",
+      "prop_address": "4130 W NANCY LN, PHOENIX, AZ 85041 Tax Parcel Number: 105-89-133",
+      "prop_city": "",
+      "prop_state": "",
+      "prop_zip": "",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
       "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260222588",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "missing_trustee"
       ],
-      "score": 85
+      "score": 65
     },
     {
       "doc_num": "20260222606",
@@ -42,10 +43,10 @@
       "grantee": "",
       "amount": "$ 630,000.00",
       "legal": "UNIT 1146, VILLAGES NORTH PHASE III CONDOMINIUMS, A CONDOMINIUM AS CREATED BY\nTHE CERTAIN DECLARATION RECORDED FEBRUARY 3, 1995, INRECORDER'S NO. 95-0065 120, RE-\nRECORDED FEBRUARY 16, 1995 IN RECORDER'S NO. 95-0087467, FIRST AMENDMENT RECORDED\nOCTOBER 27, 1995 IN RECORDER'S NO. 95-0659342, SECOND AMENDMENT RECORDED\nSEPTEMBER 17, 1996 IN RECORDER'S NO. 96-0657540, AND AS SHOWN ON PLAT OF SAID\nCONDOMINIUM RECORDED IN BOOK 420 OF MAPS, PAGE 7, RECORDS OF MARICOPA COUNTY,\nARIZONA.\nTOGETHER WITH A PROPORTIONATE INTEREST IN THE COMMON AREAS AND FACILITIES IN\nSAID DECLARATION AND PLAT;\nEXCEPT ALL OIL, GAS, OTHER HYDROCARBON SUBSTANCES, HELIUM OR OTHER SUBSTANCES\nOF A GASEOUS NATURE, COAL, METALS, MINERALS, FOSSILS, FERTILIZER OF EVERY NAME\nAND DESCRIPTION, TOGETHER WITH ALL URANIUM, THORIUM OR ANY OTHER MINERAL\nWHICH IS OR MAY BE DETERMINED BY THE LAWS OF THE UNITED STATES, OR OF THIS STATE,\nOR DECISIONS OF COURT TO BE PECULIARLY ESSENTIAL TO THE PRODUCTION OF\nFISSIONABLE MATERIALS, WHETHER ",
-      "prop_address": "15252 N 100TH STREET # 1146",
-      "prop_city": "SCOTTSDALE",
-      "prop_state": "AZ",
-      "prop_zip": "85260",
+      "prop_address": "15252 N 100TH STREET #1146, SCOTTSDALE, AZ 85260 Tax Parcel Number: 217-54-700",
+      "prop_city": "",
+      "prop_state": "",
+      "prop_zip": "",
       "mail_address": "7730 Market Center Ave Suite 100",
       "mail_city": "El Paso",
       "mail_state": "TX",
@@ -55,7 +56,7 @@
         "ocr_fallback",
         "missing_trustee"
       ],
-      "score": 90
+      "score": 80
     },
     {
       "doc_num": "20260222631",
@@ -96,7 +97,7 @@
       "prop_address": "29409 N 182ND AVE",
       "prop_city": "SURPRISE",
       "prop_state": "AZ",
-      "prop_zip": "85387-7084",
+      "prop_zip": "85387",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
@@ -141,7 +142,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
-      "grantee": "",
+      "grantee": "Leonard J. McDonald",
       "amount": "$304,385",
       "legal": "",
       "prop_address": "",
@@ -156,10 +157,9 @@
       "flags": [
         "ocr_fallback",
         "missing_property_address",
-        "missing_owner",
-        "missing_trustee"
+        "missing_owner"
       ],
-      "score": 15
+      "score": 25
     },
     {
       "doc_num": "20260223068",
@@ -197,10 +197,10 @@
       "grantee": "",
       "amount": "$100,000.00",
       "legal": "LOT 113, MESA HOMES, PER MAP RECORDED IN BOOK 57 OF MAPS, PAGE 38, IN THE OFFICE OF THE\nCOUNTY RECORDER, MARICOPA COUNTY, ARIZONA.",
-      "prop_address": "1501 East Nielson Avenue",
-      "prop_city": "Mesa",
-      "prop_state": "AZ",
-      "prop_zip": "85204",
+      "prop_address": "1501 East Nielson Avenue, Mesa, AZ 85204 Tax Parcel # 138-13-118",
+      "prop_city": "",
+      "prop_state": "",
+      "prop_zip": "",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
@@ -210,7 +210,7 @@
         "ocr_fallback",
         "missing_trustee"
       ],
-      "score": 75
+      "score": 65
     },
     {
       "doc_num": "20260223127",
@@ -303,7 +303,7 @@
       "prop_address": "5420 W Onyx Ave.",
       "prop_city": "Glendale",
       "prop_state": "AZ",
-      "prop_zip": "85302.",
+      "prop_zip": "85302",
       "mail_address": "4525 N 66\" St Unit 14",
       "mail_city": "",
       "mail_state": "",
@@ -322,7 +322,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "(as shown on the Deed of Trust)",
-      "grantee": "'S SALE",
+      "grantee": "",
       "amount": "$381,954.00",
       "legal": ", in the office of the\nCounty Recorder of Maricopa County, Arizona, NOTICE! IF YOU BELIEVE THERE IS A DEFENSE TO\nTHE TRUSTEE SALE OR IF YOU HAVE AN OBJECTION TO THE TRUSTEE SALE, YOU MUST FILE\nAN ACTION AND OBTAIN A COURT ORDER PURSUANT TO RULE 65, ARIZONA RULES OF CIVIL\nPROCEDURE, STOPPING THE SALE NO LATER THAN 5:00 P.M. MOUNTAIN STANDARD TIME OF\nTHE LAST BUSINESS DAY BEFORE THE SCHEDULED DATE OF THE SALE, OR YOU MAY HAVE\nWAIVED ANY DEFENSES OR OBJECTIONS TO THE SALE. UNLESS YOU OBTAIN AN ORDER, THE\nSALE WILL BE FINAL AND WILL OCCUR at public auction to the highest bidder in the Courtyard, by the\nmain entrance of the Superior Court Building, 201 West Jefferson, Phoenix, Arizona 85003, on 7/21/2026 at\n12:00 PM of said day:\nLOT 26, OF PARADISE VILLAGE II, ACCORDING TO BOOK 484 OF MAPS, PAGE 49 AND RE-\nRECORDED IN BOOK 495 OF MAPS, PAGE 3, RECORDS OF MARICOPA COUNTY, ARIZONA.\nPer A.R.S. Section 33-803 (A)(2) the successor trustee appointed here qualifies as a Trustee of the trust deed i",
       "prop_address": "",
@@ -336,9 +336,10 @@
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260224183",
       "flags": [
         "ocr_fallback",
-        "missing_property_address"
+        "missing_property_address",
+        "missing_trustee"
       ],
-      "score": 45
+      "score": 35
     },
     {
       "doc_num": "20260224205",
@@ -347,23 +348,22 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Jerry Beck, a single man",
-      "grantee": "",
+      "grantee": "Leonard J. McDonald",
       "amount": "$302,421.00",
       "legal": "Lot 79, of LAVEEN MEADOWS - PARCEL 3, according to the Plat of Record in the Office of the County Recorder\nof Maricopa County, Arizona, recorded in Book 729 of Maps, Page 40.\nThe street address/location of the real property described above is purported to be:\n7350 W. Desert Lane\nLaveen, AZ 85339\nTax Parcel No.: 300-01-899 4\nThe undersigned Trustee, Leonard J. McDonald, Attorney at Law, disclaims any liability for any incorrectness of\nthe street address and other common designation, if any, shown herein.\nSaid sale will be made in an “as is” condition, but without covenant or warranty, expressed or implied, regarding title,\npossession or encumbrances, to satisfy the indebtedness secured by said Deed of Trust, advances thereunder, with\ninterest as provided therein, and the unpaid principal balance of the Note secured by said Deed of Trust with interest\nthereon as proved in said Note, plus fees, charges and expenses of the Trustee and of the trusts created by said Deed\nof Trust.\n(Notice of",
       "prop_address": "7350 W. Desert Lane",
       "prop_city": "Laveen",
       "prop_state": "AZ",
       "prop_zip": "85339",
-      "mail_address": "Title No: 260189030-AZ-VOI",
+      "mail_address": "",
       "mail_city": "",
       "mail_state": "",
       "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260224205",
       "flags": [
-        "ocr_fallback",
-        "missing_trustee"
+        "ocr_fallback"
       ],
-      "score": 90
+      "score": 85
     },
     {
       "doc_num": "20260224218",
@@ -372,24 +372,23 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
-      "grantee": "",
+      "grantee": "Leonard J. McDonald",
       "amount": "$104,000.00",
       "legal": "Lot 518, of the Highlands at Arrowhead Ranch IV, according to the Plat of Record in the Office of the County\nRecorder of Maricopa County, Arizona, recorded in Book 419 of Maps, Page 40.\nThe street address/location of the real property described above is purported to be:\n6619 W Kristal Way\nGlendale, AZ 85308\nTax Parcel No.: 200-28-471 0\nThe undersigned Trustee, Leonard J. McDonald, Attorney at Law, disclaims any liability for any incorrectness of\nthe street address and other common designation, if any, shown herein.\nSaid sale will be made in an “as is” condition, but without covenant or warranty, expressed or implied, regarding title,\npossession or encumbrances, to satisfy the indebtedness secured by said Deed of Trust, advances thereunder, with\ninterest as provided therein, and the unpaid principal balance of the Note secured by said Deed of Trust with interest\nthereon as proved in said Note, plus fees, charges and expenses of the Trustee and of the trusts created by said Deed\nof Trust",
       "prop_address": "6619 W Kristal Way",
       "prop_city": "Glendale",
       "prop_state": "AZ",
       "prop_zip": "85308",
-      "mail_address": "Title No: 260201429-AZ-VOI",
+      "mail_address": "",
       "mail_city": "",
       "mail_state": "",
       "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260224218",
       "flags": [
         "ocr_fallback",
-        "missing_owner",
-        "missing_trustee"
+        "missing_owner"
       ],
-      "score": 70
+      "score": 65
     },
     {
       "doc_num": "20260224386",
@@ -424,24 +423,23 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
-      "grantee": "",
+      "grantee": "Leonard J. McDonald",
       "amount": "$1,295,280.00",
       "legal": "Lot 24, of MARLBOROUGH COUNTRY UNIT SIX, according to the Plat of Record in the Office of the County\nRecorder of Maricopa County, Arizona, recorded in Book 187 of Maps, Page 40.\nThe street address/location of the real property described above is purported to be:\n1434 W Kerry Lane\nPhoenix, AZ 85027\nTax Parcel No.: 209-23-024 0\nThe undersigned Trustee, Leonard J. McDonald, Attorney at Law, disclaims any liability for any incorrectness of\nthe street address and other common designation, if any, shown herein.\nSaid sale will be made in an “as is” condition, but without covenant or warranty, expressed or implied, regarding title,\npossession or encumbrances, to satisfy the indebtedness secured by said Deed of Trust, advances thereunder, with\ninterest as provided therein, and the unpaid principal balance of the Note secured by said Deed of Trust with interest\nthereon as proved in said Note, plus fees, charges and expenses of the Trustee and of the trusts created by said Deed\nof Trust.\n(Notice ",
       "prop_address": "1434 W Kerry Lane",
       "prop_city": "Phoenix",
-      "prop_state": "Arizona",
+      "prop_state": "AZ",
       "prop_zip": "85027",
-      "mail_address": "TIFFANY & BOSCO, P.A. Central Arts Plaza Twenty Fourth Floor 1850 North Central Avenue Phoenix, Arizona 85004 ee OO u-O Oo 0 ems Title No: 92723396",
+      "mail_address": "",
       "mail_city": "",
       "mail_state": "",
       "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260224598",
       "flags": [
         "ocr_fallback",
-        "missing_owner",
-        "missing_trustee"
+        "missing_owner"
       ],
-      "score": 70
+      "score": 65
     },
     {
       "doc_num": "20260224897",
@@ -450,24 +448,23 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
-      "grantee": "",
+      "grantee": "Leonard J. McDonald",
       "amount": "$117,930.00",
       "legal": "Lot 920, Sunburst Estates Two, according to the plat of record in the office of the County Recorder of Maricopa\nCounty, Arizona, recorded in Book 189 of Maps, Page 7.\nThe street address/location of the real property described above is purported to be:\n4931 E Sharon Dr\nScottsdale, AZ 85254-3527\nTax Parcel No.: 167-05-388 0\nThe undersigned Trustee, Leonard J. McDonald, Attorney at Law, disclaims any liability for any incorrectness of\nthe street address and other common designation, if any, shown herein.\nSaid sale will be made in an “as is” condition, but without covenant or warranty, expressed or implied, regarding title,\npossession or encumbrances, to satisfy the indebtedness secured by said Deed of Trust, advances thereunder, with\ninterest as provided therein, and the unpaid principal balance of the Note secured by said Deed of Trust with interest\nthereon as proved in said Note, plus fees, charges and expenses of the Trustee and of the trusts created by said Deed\nof Trust.\n(Notice of S",
       "prop_address": "4931 E Sharon Dr",
       "prop_city": "Scottsdale",
       "prop_state": "AZ",
       "prop_zip": "85254",
-      "mail_address": "85004 Title No: 22600371 RAY 22 TIFFANY & BOSCO, P.A. Yo. Central Arts Plaza Twenty Fourth Floor 1850 North Central Avenue Phoenix, Arizona",
+      "mail_address": "",
       "mail_city": "",
       "mail_state": "",
       "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260224897",
       "flags": [
         "ocr_fallback",
-        "missing_owner",
-        "missing_trustee"
+        "missing_owner"
       ],
-      "score": 70
+      "score": 65
     },
     {
       "doc_num": "20260224899",
@@ -476,23 +473,22 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Antonio A. Rodriguez, Jr., an unmarried man",
-      "grantee": "",
+      "grantee": "Leonard J. McDonald",
       "amount": "$167,200.00",
       "legal": "Lot 68, of WEDGEWOOD PARK UNIT EIGHT, according to Book 134 of Maps, Page 39, records of Maricopa\nCounty, Arizona.\nMore Correctly Described As:\nLot 68, of WEDGEWOOD PARK UNIT 8, according to Book 134 of Maps, Page 39, records of Maricopa County,\nArizona.\nThe street address/location of the real property described above is purported to be:\n4817 West Almeria Road\nPhoenix, AZ 85035\nTax Parcel No.: 103-20-587 6\nThe undersigned Trustee, Leonard J. McDonald, Attorney at Law, disclaims any liability for any incorrectness of\nthe street address and other common designation, if any, shown herein.\nSaid sale will be made in an “as is” condition, but without covenant or warranty, expressed or implied, regarding title,\npossession or encumbrances, to satisfy the indebtedness secured by said Deed of Trust, advances thereunder, with\ninterest as provided therein, and the unpaid principal balance of the Note secured by said Deed of Trust with interest\nthereon as proved in said Note, plus fees, charges and",
       "prop_address": "6302 West Windsor Blvd.",
       "prop_city": "Glendale",
       "prop_state": "AZ",
       "prop_zip": "85301",
-      "mail_address": "85004 Title No: 22600368 Car 22 TIFFANY & BOSCO, P.A. Yo. Central Arts Plaza Twenty Fourth Floor 1850 North Central Avenue Phoenix, Arizona",
+      "mail_address": "",
       "mail_city": "",
       "mail_state": "",
       "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260224899",
       "flags": [
-        "ocr_fallback",
-        "missing_trustee"
+        "ocr_fallback"
       ],
-      "score": 90
+      "score": 85
     },
     {
       "doc_num": "20260224933",
@@ -501,23 +497,22 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Jaime G Lopez, a married man as his sole and separate property",
-      "grantee": "",
+      "grantee": "Leonard J. McDonald",
       "amount": "$285,000.00",
       "legal": "Lot 454, of WEST PHOENIX ESTATES UNIT FOUR AMENDED, according to the Plat of Record in the Office of\nthe County Recorder of Maricopa County, Arizona, recorded in Book 129 of Maps, Page 46, of Official Records.\nThe street address/location of the real property described above is purported to be:\n41121 W Montebcllo Ave\nTonopah, AZ 85354\nTax Parcel No.: 506-35-036 8\nThe undersigned Trustee, Leonard J. McDonald, Attorney at Law, disclaims any liability for any incorrectness of\nthe street address and other common designation, if any, shown herein.\nSaid sale will be made in an “as is” condition, but without covenant or warranty, expressed or implied, regarding title,\npossession or encumbrances, to satisfy the indebtedness secured by said Deed of Trust, advances thereunder, with\ninterest as provided therein, and the unpaid principal balance of the Note secured by said Deed of Trust with interest\nthereon as proved in said Note, plus fees, charges and expenses of the Trustee and of the trusts cr",
       "prop_address": "41121 W Montebello Ave",
       "prop_city": "Tonopah",
-      "prop_state": "Arizona",
+      "prop_state": "AZ",
       "prop_zip": "85354",
-      "mail_address": "1850 North Central Avenue 22 TIFFANY & BOSCO, P.A. Ga. Central Arts Plaza Twenty Fourth Floor",
-      "mail_city": "Phoenix",
-      "mail_state": "Arizona",
-      "mail_zip": "85004",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260224933",
       "flags": [
-        "ocr_fallback",
-        "missing_trustee"
+        "ocr_fallback"
       ],
-      "score": 90
+      "score": 85
     },
     {
       "doc_num": "20260224934",
@@ -526,24 +521,23 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
-      "grantee": "",
+      "grantee": "Leonard J. McDonald",
       "amount": "$262,350.00",
       "legal": "",
       "prop_address": "302 E Mohave St",
       "prop_city": "Phoenix",
       "prop_state": "AZ",
       "prop_zip": "85004",
-      "mail_address": "1850 North Central Avenue 22 TIFFANY & BOSCO, P.A. Ga. Central Arts Plaza Twenty Fourth Floor",
-      "mail_city": "Phoenix",
-      "mail_state": "Arizona",
-      "mail_zip": "85004",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260224934",
       "flags": [
         "ocr_fallback",
-        "missing_owner",
-        "missing_trustee"
+        "missing_owner"
       ],
-      "score": 70
+      "score": 65
     },
     {
       "doc_num": "20260224938",
@@ -552,23 +546,22 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Jorge A Cornejo, an unmarried man",
-      "grantee": "",
+      "grantee": "Leonard J. McDonald",
       "amount": "$206,196.00",
       "legal": "Lot 202, of RIATA WEST UNIT 1, according to the Plat of Record in the Office of the County Recorder of Maricopa\nCounty, Arizona, recorded in Book 842 of Maps, Page 16.\nThe street address/location of the real property described above is purported to be:\n23976 W Pecan Road\nBuckeye, AZ, 85326\nTax Parcel No.: 504-75-530 1\nThe undersigned Trustee, Leonard J. McDonald, Attorney at Law, disclaims any liability for any incorrectness of\nthe street address and other common designation, if any, shown herein.\nSaid sale will be made in an “as is” condition, but without covenant or warranty, expressed or implied, regarding title,\npossession or encumbrances, to satisfy the indebtedness secured by said Deed of Trust, advances thereunder, with\ninterest as provided therein, and the unpaid principal balance of the Note secured by said Deed of Trust with interest\nthereon as proved in said Note, plus fees, charges and expenses of the Trustee and of the trusts created by said Deed\nof Trust.\n(Notice of Sale ",
       "prop_address": "23976 W Pecan Road",
       "prop_city": "Buckeye",
       "prop_state": "AZ",
       "prop_zip": "85326",
-      "mail_address": "85004 Title No: 22600237 CARY 22 TIFFANY & BOSCO, P.A. Ho: Central Arts Plaza Twenty Fourth Floor 1850 North Central Avenue Phoenix, Arizona",
+      "mail_address": "",
       "mail_city": "",
       "mail_state": "",
       "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260224938",
       "flags": [
-        "ocr_fallback",
-        "missing_trustee"
+        "ocr_fallback"
       ],
-      "score": 90
+      "score": 85
     },
     {
       "doc_num": "20260225129",
@@ -577,7 +570,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "(as shown on the Deed of Trust)",
-      "grantee": "'S SALE",
+      "grantee": "",
       "amount": "$147,000.00",
       "legal": "LOT 166, ENCHANTED VILLAGE, ACCORDING TO THE PLAT OF RECORD IN THE OFFICE OF\nTHE COUNTY RECORDER OF MARICOPA COUNTY, ARIZONA, RECORDED IN BOOK 107 OF\nMAPS, PAGE 14.\nThe successor trustee appointed herein qualifies as trustee of the Trust Deed in the trustee’s capacity as a\nmember of the Arizona State Bar as required pursuant to ARS 33-803(A)(2).\nACCORDING TO THE DEED OF TRUST OR UPON INFORMATION SUPPLIED BY THE BENEFICIARY,\nTHE FOLLOWING INFORMATION IS PROVIDED PURSUANT TO A.R.S. SECTION 33-808(C):\nStreet address or identifiable location: 1122 NORTH WELD CIRCLE\nMESA, Arizona 85203",
       "prop_address": "",
@@ -591,9 +584,10 @@
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260225129",
       "flags": [
         "ocr_fallback",
-        "missing_property_address"
+        "missing_property_address",
+        "missing_trustee"
       ],
-      "score": 45
+      "score": 35
     },
     {
       "doc_num": "20260225192",
@@ -602,22 +596,23 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "(s): TYRONE DANIEL WEST II AND ANDRIA",
-      "grantee": "'s Sale",
+      "grantee": "",
       "amount": "$353,100.00",
       "legal": "LOT 191, GOODYEAR PLANNED REGIONAL CENTER PARCEL 10,\nACCORDING TO BOOK 648 OF MAPS, PAGE 15, RECORDS OF\nMARICOPA COUNTY, ARIZONA.",
-      "prop_address": "2778 NORTH 150TH LANE",
-      "prop_city": "GOODYEAR",
-      "prop_state": "AZ",
-      "prop_zip": "85395",
+      "prop_address": "2778 NORTH 150TH LANE, GOODYEAR, AZ 85395 Tax Parcel Number: 508-14-199",
+      "prop_city": "",
+      "prop_state": "",
+      "prop_zip": "",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
       "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260225192",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "missing_trustee"
       ],
-      "score": 85
+      "score": 65
     },
     {
       "doc_num": "20260225194",
@@ -626,22 +621,23 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "(s): Ariel Carlos, a married man, as his sole and separate",
-      "grantee": "SALE OR IF YOU HAVE AN OBJECTION TO THE TRUSTEE SALE, YOU MUST FILE AN",
+      "grantee": "",
       "amount": "$455,000.00",
       "legal": "LOT 96, OF ABRALEE MEADOW, ACCORDING TO THE PLAT OF\nRECORD IN THE OFFICE OF THE COUNTY RECORDER OF MARICOPA\nCOUNTY, ARIZONA, RECORDED IN BOOK 652 OF MAPS, PAGE 23\nAND CERTIFICATE OF CORRECTION RECORDED IN RECORDING NO.\n2004-1261016",
-      "prop_address": "2799 E BALSAM DR",
-      "prop_city": "CHANDLER",
-      "prop_state": "AZ",
-      "prop_zip": "85286",
+      "prop_address": "2799 E BALSAM DR, CHANDLER, AZ 85286 Tax Parcel Number: 303-43-776, 303-43-776 6",
+      "prop_city": "",
+      "prop_state": "",
+      "prop_zip": "",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
       "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260225194",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "missing_trustee"
       ],
-      "score": 85
+      "score": 65
     },
     {
       "doc_num": "20260225195",
@@ -650,22 +646,23 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "(s): Paul A. Brent and Teresa D. Hernandez-Brent",
-      "grantee": "'s Sale",
+      "grantee": "",
       "amount": "$185,739.00",
       "legal": "Lot 210, of Copperfield Estates, according to the plat of record in the Office of\nthe County Recorder of Maricopa County, Arizona, recorded in Book 272 of\nMaps, Page 11 and Affidavit of Correction recorded in Instrument No. 84-\n412077. :",
-      "prop_address": "3636 W LAREDO ST",
-      "prop_city": "CHANDLER",
-      "prop_state": "AZ",
-      "prop_zip": "85226",
+      "prop_address": "3636 W LAREDO ST, CHANDLER, AZ 85226 Tax Parcel Number: 301-64-666",
+      "prop_city": "",
+      "prop_state": "",
+      "prop_zip": "",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
       "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260225195",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "missing_trustee"
       ],
-      "score": 85
+      "score": 65
     },
     {
       "doc_num": "20260225265",
@@ -674,13 +671,13 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "(as shown on the Deed of Trust)",
-      "grantee": "'S SALE",
+      "grantee": "",
       "amount": "$373,117.00",
       "legal": "LOT 175, OF 91ST AVENUE AND LOWER BUCKEYE ROAD, ACCORDING TO THE PLAT OF\nRECORD IN THE OFFICE OF THE COUNTY RECORDER OF MARICOPA COUNTY, ARIZONA,\nRECORDED IN BOOK 648 OF MAPS, PAGE 34.\nThe successor trustee appointed herein qualifies as trustee of the Trust Deed in the trustee’s capacity as a\nmember of the Arizona State Bar as required pursuant to ARS 33-803(A)(2).\nACCORDING TO THE DEED OF TRUST OR UPON INFORMATION SUPPLIED BY THE BENEFICIARY,\nTHE FOLLOWING INFORMATION IS PROVIDED PURSUANT TO A.R.S. SECTION 33-808(C):\nStreet address or identifiable location: 9018 W HILTON AVE\nTOLLESON, Arizona 85353",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "",
-      "prop_zip": "",
+      "prop_address": "9018 W HILTON AVE",
+      "prop_city": "TOLLESON",
+      "prop_state": "AZ",
+      "prop_zip": "85353",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
@@ -688,9 +685,9 @@
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260225265",
       "flags": [
         "ocr_fallback",
-        "missing_property_address"
+        "missing_trustee"
       ],
-      "score": 45
+      "score": 75
     },
     {
       "doc_num": "20260225382",
@@ -705,7 +702,7 @@
       "prop_address": "25836 N 43RD PL",
       "prop_city": "PHOENIX",
       "prop_state": "AZ",
-      "prop_zip": "85050-8930",
+      "prop_zip": "85050",
       "mail_address": "17100 Gillette Ave",
       "mail_city": "Irvine",
       "mail_state": "CA",
@@ -725,7 +722,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "(s): CORNELIUS E TANY! AND COLETTE T EBAIL",
-      "grantee": "'s Sale",
+      "grantee": "",
       "amount": "$550,800.00",
       "legal": "Purported Street Address:\n7/22/2026 at 12:00PM\nIn the courtyard by the main entrance of the Superior Court Building,\nlocated at 201 West Jefferson, Phoenix, AZ 85003\nLOT 2, SEVILLE 21, ACCORDING TO BOOK 644 OF MAPS, PAGE 34,\nRECORDS OF MARICOPA COUNTY, ARIZONA,\n7110 SOUTH CHAMPAGNE WAY, GILBERT, AZ, 85297",
       "prop_address": "7110 SOUTH CHAMPAGNE WAY",
@@ -738,9 +735,10 @@
       "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260225528",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "missing_trustee"
       ],
-      "score": 85
+      "score": 75
     },
     {
       "doc_num": "20260225555",
@@ -749,22 +747,23 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "(s): ROBERT L HENDERSON JR, SINGLE MAN",
-      "grantee": "'s Sale",
+      "grantee": "",
       "amount": "$392,950.00",
       "legal": "LOT 54, LUKE LANDING, ACCORDING TO THE FINAL PLAT\nRECORDED IN BOOK 1462 MAPS, PAGE 23, RECORDS OF MARICOPA\nCOUNTY, ARIZONA.",
-      "prop_address": "7264 N 128TH AVE",
-      "prop_city": "GLENDALE",
-      "prop_state": "AZ",
-      "prop_zip": "85307",
+      "prop_address": "7264 N 128TH AVE, GLENDALE, AZ, 85307 Tax Parcel Number: 501-53-449",
+      "prop_city": "",
+      "prop_state": "",
+      "prop_zip": "",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
       "mail_zip": "",
       "clerk_url": "https://recorder.maricopa.gov/recording/document-details?id=20260225555",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "missing_trustee"
       ],
-      "score": 85
+      "score": 65
     }
   ]
 }
