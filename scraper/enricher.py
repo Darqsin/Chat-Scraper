@@ -10,24 +10,35 @@ DOWNLOAD_DIR = Path("grouped_output/pdfs")
 DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def parse_record(record):
+# ✅ FIXED SIGNATURE (accepts pdf_path safely)
+def parse_record(record, pdf_path=None):
     try:
         doc_num = record.get("doc_num")
         fallback = record.get("pdf_fallback")
+
+        # Always define path
         pdf_path = DOWNLOAD_DIR / f"{doc_num}.pdf"
 
-        # ✅ Download via network capture
+        # =========================
+        # DOWNLOAD PDF
+        # =========================
         if not pdf_path.exists():
             if not download_pdf_via_network(fallback, pdf_path):
                 record["flags"] = ["no_pdf"]
                 return record
 
+        # =========================
+        # EXTRACT TEXT
+        # =========================
         text = extract_text(pdf_path)
 
         if not text:
             record["flags"] = ["no_pdf"]
             return record
 
+        # =========================
+        # EXTRACT DATA
+        # =========================
         record["prop_address"] = extract_property_address(text)
         record["trustee_name"] = extract_trustee(text)
         record["auction_date"] = extract_auction_date(text)
@@ -51,7 +62,7 @@ def parse_record(record):
 
 
 # =========================
-# 🔥 NETWORK CAPTURE DOWNLOAD
+# NETWORK DOWNLOAD
 # =========================
 
 def download_pdf_via_network(url, save_path):
