@@ -16,12 +16,8 @@ LOGGER = logging.getLogger("enricher")
 TRUSTEE_PHONE_RE = re.compile(r"(?:\+?1[-.\s]?)?(?:\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})")
 MONEY_RE = re.compile(r"\$\s?\d{1,3}(?:,\d{3})+(?:\.\d{2})?")
 DATE_NUMERIC_RE = re.compile(r"\b\d{1,2}/\d{1,2}/\d{4}\b")
-DATE_LONG_RE = re.compile(
-    r"(?:JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER)\s+\d{1,2},\s+\d{4}",
-    re.I,
-)
 PARCEL_RE = re.compile(
-    r"\b(?:APN|A\.P\.N\.|PARCEL\s*(?:NO|NUMBER)?|TAX\s*PARCEL\s*NUMBER|ASSESSOR(?:'S)?\s*(?:NO|NUMBER)?)[:\s#-]*([A-Z0-9-]{6,})",
+    r"\b(?:APN|PARCEL\s*(?:NO|NUMBER)?|TAX\s*PARCEL\s*NUMBER)[:\s#-]*([A-Z0-9-]{6,})",
     re.I,
 )
 DOC_NUM_RE = re.compile(r"\b20\d{9,}\b")
@@ -75,6 +71,7 @@ def parse_record(
     cat_label: str = "Notice of Trustee Sale",
     raw_text_dir: str | Path = "parsed_output",
 ) -> dict[str, Any]:
+
     raw_text_dir = Path(raw_text_dir)
     raw_text_dir.mkdir(parents=True, exist_ok=True)
 
@@ -82,75 +79,42 @@ def parse_record(
     pdf_path = Path(pdf_path)
 
     if not pdf_path.exists():
-        flags.append("no_pdf")
-        rec = ParsedRecord(
-            doc_num=doc_num,
-            doc_type=doc_type,
-            filed=filed,
-            cat="NS",
-            cat_label=cat_label,
-            clerk_url=clerk_url,
-            pdf_url=pdf_url,
-            pdf_path=str(pdf_path),
-            flags=flags,
-            score=0,
-        )
-        return asdict(rec)
+        return asdict(ParsedRecord(flags=["no_pdf"], score=0))
 
     text, _, text_flags = extract_text_from_pdf(pdf_path)
     flags.extend(text_flags)
 
-    if not text:
-        flags.append("no_text_extracted")
-
     doc_num = doc_num or _find_first(DOC_NUM_RE, text)
     owner = _extract_owner(text)
-    deed_of_trust = _extract_deed_of_trust(text)
-    original_loan = _find_first(MONEY_RE, text)
     trustee_name = _extract_trustee_name(text)
-    trustee_phone = _find_first(TRUSTEE_PHONE_RE, text)
-    auction_date = _extract_auction_date(text)
-    parcel_number = _extract_parcel_number(text)
-    legal = _extract_legal(text)
 
     prop = _extract_property_address(text)
-    mail = _extract_mailing_address(text, prop)
-    first_name, last_name, second_first, second_last = _split_owner_names(owner)
 
     raw_text_path = raw_text_dir / f"{doc_num or pdf_path.stem}.txt"
     raw_text_path.write_text(text or "", encoding="utf-8")
 
-    score = _score_record(prop, mail, owner, trustee_name, auction_date, original_loan)
+    score = 0
+    if prop["address"]:
+        score += 30
+    if owner:
+        score += 20
+    if trustee_name:
+        score += 10
 
     rec = ParsedRecord(
         doc_num=doc_num,
         doc_type=doc_type,
         filed=filed,
-        cat="NS",
-        cat_label=cat_label,
         owner=owner,
         grantee=trustee_name,
-        amount=original_loan,
-        legal=legal,
+        amount=_find_first(MONEY_RE, text),
         prop_address=prop["address"],
         prop_city=prop["city"],
         prop_state=prop["state"],
         prop_zip=prop["zip"],
-        mail_address=mail["address"],
-        mail_city=mail["city"],
-        mail_state=mail["state"],
-        mail_zip=mail["zip"],
-        county="Maricopa",
-        parcel_number=parcel_number,
-        original_loan=original_loan,
         trustee_name=trustee_name,
-        trustee_phone=trustee_phone,
-        auction_date=auction_date,
-        deed_of_trust=deed_of_trust,
-        first_name=first_name,
-        last_name=last_name,
-        second_first=second_first,
-        second_last=second_last,
+        trustee_phone=_find_first(TRUSTEE_PHONE_RE, text),
+        auction_date=_find_first(DATE_NUMERIC_RE, text),
         clerk_url=clerk_url,
         pdf_url=pdf_url,
         pdf_path=str(pdf_path),
@@ -158,19 +122,19 @@ def parse_record(
         score=score,
         raw_text_path=str(raw_text_path),
     )
+
     return asdict(rec)
 
 
-def extract_text_from_pdf(pdf_path: str | Path, dpi: int = 250):
+def extract_text_from_pdf(pdf_path, dpi=250):
     flags = []
     text = ""
 
     try:
         with pdfplumber.open(str(pdf_path)) as pdf:
             for page in pdf.pages:
-                t = page.extract_text() or ""
-                text += t + "\n"
-    except Exception:
+                text += (page.extract_text() or "") + "\n"
+    except:
         flags.append("pdfplumber_failed")
 
     if len(text.strip()) < 50:
@@ -180,75 +144,86 @@ def extract_text_from_pdf(pdf_path: str | Path, dpi: int = 250):
             text = ""
             for img in images:
                 text += pytesseract.image_to_string(img) + "\n"
-        except Exception:
+        except:
             flags.append("ocr_failed")
 
-    return _clean_text(text), [], flags
-
-
-def _clean_text(text: str) -> str:
-    text = re.sub(r"\s+", " ", text or "")
-    return text.strip()
+    return text, [], flags
 
 
 def _find_first(pattern, text):
     m = pattern.search(text or "")
-    return m.group(1).strip() if m and m.lastindex else (m.group(0).strip() if m else "")
+    return m.group(1).strip() if m and m.lastindex else (m.group(0) if m else "")
 
 
 # -------------------------
-# 🔥 ADDRESS FIXES START HERE
+# 🔥 OWNER (OCR SAFE)
 # -------------------------
 
-def _clean_address(val: str) -> str:
-    val = re.sub(r"Tax Parcel.*", "", val, flags=re.I)
-    val = re.sub(r"Parcel.*", "", val, flags=re.I)
-    val = re.sub(r"\s+", " ", val or "")
-    return val.strip(" ,;:-")
+def _extract_owner(text: str) -> str:
+    m = re.search(r"Trustor[:\-]?\s*(.+?)(?:Trustee|Beneficiary|$)", text or "", re.I | re.S)
+    if not m:
+        return ""
+
+    value = m.group(1).strip()
+
+    # remove address junk
+    value = re.sub(r"\d{3,5} .+", "", value)
+
+    return value if len(value) > 5 else ""
 
 
-def _extract_property_address(text: str) -> dict[str, str]:
-    text = text or ""
-    lines = [line.strip() for line in text.splitlines() if line.strip()]
+# -------------------------
+# 🔥 TRUSTEE (FILTERS COURTHOUSE)
+# -------------------------
 
-    # 🔥 Multi-line address detection
+def _extract_trustee_name(text: str) -> str:
+    m = re.search(r"Trustee[:\-]?\s*(.+?)(?:Trustor|Beneficiary|$)", text or "", re.I | re.S)
+    if not m:
+        return ""
+
+    value = m.group(1).strip()
+
+    # 🚫 remove courthouse / addresses
+    if re.search(r"\d{3,5} .+(AZ|CA|TX)", value):
+        return ""
+
+    if any(x in value.lower() for x in ["street", "avenue", "road", "suite"]):
+        return ""
+
+    return value if len(value) > 5 else ""
+
+
+# -------------------------
+# 🔥 ADDRESS (FIXED)
+# -------------------------
+
+def _extract_property_address(text: str) -> dict:
+    lines = [l.strip() for l in text.splitlines() if l.strip()]
+
     for i in range(len(lines) - 1):
         l1 = lines[i]
         l2 = lines[i + 1]
 
         if re.search(r"\d{3,6} .+", l1) and re.search(r"(AZ|Arizona).*\d{5}", l2, re.I):
-            combined = _clean_address(f"{l1}, {l2}")
-            parsed = _parse_address(combined)
-            if parsed["address"]:
-                return parsed
+            return _parse_address(f"{l1}, {l2}")
 
-    # 🔥 Pattern fallback
-    patterns = [
-        r"purported to be[:\-]?\s*(.+?)(?:\n|\.|Tax Parcel|APN)",
-        r"street address is purported to be[:\-]?\s*(.+?)(?:\n|\.|Tax Parcel|APN)",
-    ]
+    # fallback
+    matches = re.findall(r"\d{3,6} .+?(?:AZ|Arizona)\s*\d{5}", text, re.I)
 
-    candidates = []
-    for pattern in patterns:
-        for m in re.finditer(pattern, text, re.I | re.S):
-            candidates.append(_clean_address(m.group(1)))
-
-    return _best_address(candidates)
-
-
-def _best_address(candidates):
-    for c in candidates:
-        parsed = _parse_address(c)
-        if parsed["address"]:
+    for m in matches:
+        if len(m) < 15:
+            continue
+        parsed = _parse_address(m)
+        if parsed["zip"]:
             return parsed
 
     return {"address": "", "city": "", "state": "", "zip": ""}
 
 
-def _parse_address(val: str) -> dict[str, str]:
+def _parse_address(val: str) -> dict:
     try:
         tagged, _ = usaddress.tag(val)
-    except Exception:
+    except:
         return {"address": "", "city": "", "state": "", "zip": ""}
 
     return {
@@ -257,56 +232,3 @@ def _parse_address(val: str) -> dict[str, str]:
         "state": tagged.get("StateName", ""),
         "zip": tagged.get("ZipCode", "")[:5],
     }
-
-
-# -------------------------
-# OTHER EXTRACTORS (UNCHANGED)
-# -------------------------
-
-def _extract_owner(text: str) -> str:
-    m = re.search(r"Trustor.*?\n(.+)", text or "", re.I)
-    return m.group(1).strip() if m else ""
-
-
-def _extract_trustee_name(text: str) -> str:
-    m = re.search(r"Trustee.*?\n(.+)", text or "", re.I)
-    return m.group(1).strip() if m else ""
-
-
-def _extract_auction_date(text: str) -> str:
-    m = DATE_NUMERIC_RE.search(text or "")
-    return m.group(0) if m else ""
-
-
-def _extract_parcel_number(text: str) -> str:
-    m = PARCEL_RE.search(text or "")
-    return m.group(1) if m else ""
-
-
-def _extract_deed_of_trust(text: str) -> str:
-    m = DOC_NUM_RE.search(text or "")
-    return m.group(0) if m else ""
-
-
-def _extract_legal(text: str) -> str:
-    return ""
-
-
-def _extract_mailing_address(text: str, prop: dict[str, str]):
-    return {"address": "", "city": "", "state": "", "zip": ""}
-
-
-def _split_owner_names(owner: str):
-    if not owner:
-        return "", "", "", ""
-    parts = owner.split()
-    return parts[0], parts[-1], "", ""
-
-
-def _score_record(prop, mail, owner, trustee, auction, loan):
-    score = 0
-    if prop.get("address"):
-        score += 30
-    if owner:
-        score += 20
-    return score
