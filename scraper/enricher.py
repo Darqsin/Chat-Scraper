@@ -16,27 +16,29 @@ DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 def parse_record(record):
     try:
-        pdf_url = record.get("pdf_url")
         doc_num = record.get("doc_num")
-
         pdf_path = DOWNLOAD_DIR / f"{doc_num}.pdf"
 
-        # ✅ DOWNLOAD IF NOT EXISTS
-        if not pdf_path.exists():
-            success = download_pdf(pdf_url, pdf_path)
+        # ✅ STEP 1: GET REAL PDF URL
+        pdf_url = get_real_pdf_url(record)
 
-            if not success:
+        if not pdf_url:
+            record["flags"] = ["no_pdf"]
+            return record
+
+        # ✅ STEP 2: DOWNLOAD
+        if not pdf_path.exists():
+            if not download_pdf(pdf_url, pdf_path):
                 record["flags"] = ["no_pdf"]
                 return record
 
-        # ✅ EXTRACT TEXT
+        # ✅ STEP 3: PARSE
         text = extract_text(pdf_path)
 
         if not text:
             record["flags"] = ["no_pdf"]
             return record
 
-        # ✅ PARSE DATA
         record["prop_address"] = extract_property_address(text)
         record["trustee_name"] = extract_trustee(text)
         record["auction_date"] = extract_auction_date(text)
@@ -54,9 +56,47 @@ def parse_record(record):
         return record
 
     except Exception as e:
-        log.warning(f"Failed to process {record.get('doc_num')}: {e}")
+        log.warning(f"Failed {record.get('doc_num')}: {e}")
         record["flags"] = ["error"]
         return record
+
+
+# =========================
+# GET REAL PDF URL
+# =========================
+
+def get_real_pdf_url(record):
+    try:
+        fallback = record.get("pdf_fallback")
+
+        if not fallback:
+            return None
+
+        headers = {
+            "User-Agent": "Mozilla/5.0",
+            "Referer": "https://recorder.maricopa.gov/"
+        }
+
+        r = requests.get(fallback, headers=headers, timeout=20)
+
+        if r.status_code != 200:
+            return None
+
+        # Look for actual PDF link in page
+        match = re.search(r'href="([^"]+\.pdf)"', r.text)
+
+        if match:
+            url = match.group(1)
+
+            if url.startswith("/"):
+                return "https://recorder.maricopa.gov" + url
+
+            return url
+
+    except Exception as e:
+        log.warning(f"PDF URL extract failed: {e}")
+
+    return None
 
 
 # =========================
@@ -65,11 +105,9 @@ def parse_record(record):
 
 def download_pdf(url, path):
     try:
-        if not url:
-            return False
-
         headers = {
-            "User-Agent": "Mozilla/5.0"
+            "User-Agent": "Mozilla/5.0",
+            "Referer": "https://recorder.maricopa.gov/"
         }
 
         r = requests.get(url, headers=headers, timeout=20)
