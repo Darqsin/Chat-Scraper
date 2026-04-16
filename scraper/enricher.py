@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import logging
 import re
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
@@ -65,37 +65,6 @@ class ParsedRecord:
     raw_text_path: str = ""
 
 
-def extract_text_from_pdf(pdf_path: str | Path, dpi: int = 250) -> tuple[str, list[str], list[str]]:
-    pdf_path = Path(pdf_path)
-    flags: list[str] = []
-    page_texts: list[str] = []
-
-    try:
-        with pdfplumber.open(str(pdf_path)) as pdf:
-            for page in pdf.pages:
-                text = page.extract_text() or ""
-                if text.strip():
-                    page_texts.append(text)
-    except Exception as exc:
-        flags.append(f"pdfplumber_failed:{type(exc).__name__}")
-        LOGGER.warning("pdfplumber failed for %s: %s", pdf_path, exc)
-
-    if sum(len(t.strip()) for t in page_texts) < 50:
-        flags.append("ocr_fallback")
-        page_texts = []
-        try:
-            images = convert_from_path(str(pdf_path), dpi=dpi)
-            for image in images:
-                page_texts.append(pytesseract.image_to_string(image))
-        except Exception as exc:
-            flags.append(f"ocr_failed:{type(exc).__name__}")
-            LOGGER.warning("OCR failed for %s: %s", pdf_path, exc)
-
-    cleaned_pages = [_clean_text(t) for t in page_texts if t and t.strip()]
-    full_text = "\n".join(cleaned_pages)
-    return full_text, cleaned_pages, flags
-
-
 def parse_record(
     pdf_path: str | Path,
     clerk_url: str,
@@ -110,8 +79,8 @@ def parse_record(
     raw_text_dir.mkdir(parents=True, exist_ok=True)
 
     flags: list[str] = []
-
     pdf_path = Path(pdf_path)
+
     if not pdf_path.exists():
         flags.append("no_pdf")
         rec = ParsedRecord(
@@ -128,14 +97,13 @@ def parse_record(
         )
         return asdict(rec)
 
-    text, pages, text_flags = extract_text_from_pdf(pdf_path)
+    text, _, text_flags = extract_text_from_pdf(pdf_path)
     flags.extend(text_flags)
 
     if not text:
         flags.append("no_text_extracted")
 
     doc_num = doc_num or _find_first(DOC_NUM_RE, text)
-
     owner = _extract_owner(text)
     deed_of_trust = _extract_deed_of_trust(text)
     original_loan = _find_first(MONEY_RE, text)
@@ -202,6 +170,37 @@ def parse_record(
     return asdict(rec)
 
 
+def extract_text_from_pdf(pdf_path: str | Path, dpi: int = 250) -> tuple[str, list[str], list[str]]:
+    pdf_path = Path(pdf_path)
+    flags: list[str] = []
+    page_texts: list[str] = []
+
+    try:
+        with pdfplumber.open(str(pdf_path)) as pdf:
+            for page in pdf.pages:
+                text = page.extract_text() or ""
+                if text.strip():
+                    page_texts.append(text)
+    except Exception as exc:
+        flags.append(f"pdfplumber_failed:{type(exc).__name__}")
+        LOGGER.warning("pdfplumber failed for %s: %s", pdf_path, exc)
+
+    if sum(len(t.strip()) for t in page_texts) < 50:
+        flags.append("ocr_fallback")
+        page_texts = []
+        try:
+            images = convert_from_path(str(pdf_path), dpi=dpi)
+            for image in images:
+                page_texts.append(pytesseract.image_to_string(image))
+        except Exception as exc:
+            flags.append(f"ocr_failed:{type(exc).__name__}")
+            LOGGER.warning("OCR failed for %s: %s", pdf_path, exc)
+
+    cleaned_pages = [_clean_text(t) for t in page_texts if t and t.strip()]
+    full_text = "\n".join(cleaned_pages)
+    return full_text, cleaned_pages, flags
+
+
 def _clean_text(text: str) -> str:
     text = text.replace("\x00", " ")
     text = re.sub(r"[ \t]+", " ", text)
@@ -216,39 +215,40 @@ def _find_first(pattern: re.Pattern[str], text: str) -> str:
 
 def _extract_owner(text: str) -> str:
     patterns = [
-        r"Trustor.*?\n(.+)",
-        r"Original Trustor.*?\n(.+)",
-        r"Borrower.*?\n(.+)",
+        r"Original Trustor(?:'s)?(?:\s*Name and Address)?\s*[:\-]?\s*(.+?)(?:\n(?:Current Trustee|Trustee|Beneficiary|Name and Address of Beneficiary|Sale Date|TS#|NOTICE OF TRUSTEE))",
+        r"NAME AND ADDRESS OF ORIGINAL TRUSTOR.*?\n(.+?)(?:\n(?:NAME AND ADDRESS OF BENEFICIARY|CURRENT TRUSTEE|NOTICE OF TRUSTEE))",
+        r"Trustor(?:s)?\s*[:\-]\s*(.+?)(?:\n(?:Trustee|Beneficiary|Property Address|Sale Date))",
+        r"Name of Trustor\s*[:\-]?\s*(.+?)(?:\n(?:Trustee|Beneficiary|Property Address|Sale Date))",
     ]
-
     for pattern in patterns:
-        m = re.search(pattern, text, re.I)
+        m = re.search(pattern, text, re.I | re.S)
         if m:
-            value = m.group(1).strip()
-            if len(value) > 5:
-                return value
-
+            return _normalize_name_line(m.group(1))
     return ""
 
 
 def _extract_trustee_name(text: str) -> str:
     patterns = [
-        r"Current Trustee.*?\n(.+)",
-        r"Trustee.*?\n(.+)",
-        r"NAME.*TRUSTEE.*?\n(.+)",
+        r"Current Trustee(?:'s)?(?:\s*Name and Address)?\s*[:\-]?\s*(.+?)(?:\n(?:Phone|Telephone|Name of Trustee's Regulator|This sale|Sale Date))",
+        r"Trustee\s*[:\-]?\s*(.+?)(?:\n(?:Phone|Telephone|Address|Sale Date|Name of Trustee's Regulator))",
+        r"NAME, ADDRESS\s*&\s*TELEPHONE NUMBER OF TRUSTEE.*?\n(.+?)(?:\n(?:Name of Trustee's Regulator|State Bar|Dated this))",
     ]
-
     for pattern in patterns:
-        m = re.search(pattern, text, re.I)
-        if m:
-            value = m.group(1).strip()
+        m = re.search(pattern, text, re.I | re.S)
+        if not m:
+            continue
 
-            # 🚫 filter garbage
-            if len(value) < 5:
-                continue
-            if any(x in value.lower() for x in ["sale", "date", "time"]):
-                continue
+        value = _normalize_name_line(m.group(1))
+        if not value:
+            continue
 
+        if re.search(r"\d{3,5}\s+.+\b(AZ|CA|TX|NV|NM)\b", value, re.I):
+            continue
+
+        if any(x in value.lower() for x in ["suite", "avenue", "road", "street", "drive", "lane", "boulevard"]):
+            continue
+
+        if len(value) > 5:
             return value
 
     return ""
@@ -270,9 +270,11 @@ def _extract_auction_date(text: str) -> str:
             if num_match:
                 return num_match.group(0)
             return _clean_text(value)
+
     m = DATE_LONG_RE.search(text or "")
     if m:
         return m.group(0)
+
     m = DATE_NUMERIC_RE.search(text or "")
     return m.group(0) if m else ""
 
@@ -320,16 +322,20 @@ def _extract_property_address(text: str) -> dict[str, str]:
 
     for pattern in patterns:
         for m in re.finditer(pattern, text, re.I | re.S):
-            candidates.append(_clean_text(m.group(1)))
+            candidate = _clean_text(m.group(1))
+            candidate = candidate.split("\n")[0]
+            candidate = re.sub(r"(Suite|Ste|Unit).*", "", candidate, flags=re.I)
+            candidate = candidate.strip(" ,;")
+            candidates.append(candidate)
 
     line_candidates = [
-        line.strip()
+        re.sub(r"(Suite|Ste|Unit).*", "", line.strip(), flags=re.I)
         for line in (text or "").splitlines()
         if re.search(r"\d{2,6} .+\b(AZ|ARIZONA)\b", line, re.I)
     ]
     candidates.extend(line_candidates)
 
-    return _best_address(candidates)
+    return _best_address(candidates, property_mode=True)
 
 
 def _extract_mailing_address(text: str, prop: dict[str, str]) -> dict[str, str]:
@@ -340,13 +346,18 @@ def _extract_mailing_address(text: str, prop: dict[str, str]) -> dict[str, str]:
         r"Send notice to\s*[:\-]?\s*(.+?)(?:\n|Property Address|Trustee)",
         r"Address of Trustor\s*[:\-]?\s*(.+?)(?:\n|Property Address|Trustee)",
     ]
+
     for pattern in patterns:
         for m in re.finditer(pattern, text, re.I | re.S):
-            candidates.append(_clean_text(m.group(1)))
+            candidate = _clean_text(m.group(1))
+            if "llp" in candidate.lower() or "loan" in candidate.lower():
+                continue
+            candidates.append(candidate)
 
     best = _best_address(candidates, property_mode=False)
     if best["address"] and best["address"].upper() != prop.get("address", "").upper():
         return best
+
     return {"address": "", "city": "", "state": "", "zip": ""}
 
 
@@ -377,10 +388,7 @@ def _best_address(candidates: list[str], property_mode: bool = True) -> dict[str
     best_score = -1
 
     for candidate in candidates:
-        candidate = re.sub(r"(July|August|September|October|November|December).+", "", candidate, flags=re.I)
-        candidate = re.sub(r"\d{1,2}:\d{2}\s*(AM|PM).*", "", candidate, flags=re.I)
-        candidate = candidate.strip(" ,;")
-
+        candidate = re.sub(r"\s+", " ", candidate).strip(" ,;")
         if len(candidate) < 8:
             continue
 
