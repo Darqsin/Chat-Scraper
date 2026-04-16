@@ -1,8 +1,8 @@
 import re
 import pdfplumber
 import logging
-import requests
 from pathlib import Path
+from playwright.sync_api import sync_playwright
 
 log = logging.getLogger("enricher")
 
@@ -10,29 +10,18 @@ DOWNLOAD_DIR = Path("grouped_output/pdfs")
 DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 
-# =========================
-# MAIN ENTRY
-# =========================
-
 def parse_record(record):
     try:
         doc_num = record.get("doc_num")
+        fallback = record.get("pdf_fallback")
         pdf_path = DOWNLOAD_DIR / f"{doc_num}.pdf"
 
-        # ✅ STEP 1: GET REAL PDF URL
-        pdf_url = get_real_pdf_url(record)
-
-        if not pdf_url:
-            record["flags"] = ["no_pdf"]
-            return record
-
-        # ✅ STEP 2: DOWNLOAD
+        # ✅ Download via browser
         if not pdf_path.exists():
-            if not download_pdf(pdf_url, pdf_path):
+            if not download_with_browser(fallback, pdf_path):
                 record["flags"] = ["no_pdf"]
                 return record
 
-        # ✅ STEP 3: PARSE
         text = extract_text(pdf_path)
 
         if not text:
@@ -62,66 +51,52 @@ def parse_record(record):
 
 
 # =========================
-# GET REAL PDF URL
+# PLAYWRIGHT DOWNLOAD
 # =========================
 
-def get_real_pdf_url(record):
+def download_with_browser(url, save_path):
     try:
-        fallback = record.get("pdf_fallback")
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            context = browser.new_context(accept_downloads=True)
+            page = context.new_page()
 
-        if not fallback:
-            return None
+            page.goto(url, timeout=60000)
 
-        headers = {
-            "User-Agent": "Mozilla/5.0",
-            "Referer": "https://recorder.maricopa.gov/"
-        }
+            # Wait for PDF to load
+            page.wait_for_timeout(3000)
 
-        r = requests.get(fallback, headers=headers, timeout=20)
+            # Look for PDF iframe or direct link
+            frames = page.frames
+            pdf_url = None
 
-        if r.status_code != 200:
-            return None
+            for f in frames:
+                if ".pdf" in f.url:
+                    pdf_url = f.url
+                    break
 
-        # Look for actual PDF link in page
-        match = re.search(r'href="([^"]+\.pdf)"', r.text)
+            if not pdf_url and ".pdf" in page.url:
+                pdf_url = page.url
 
-        if match:
-            url = match.group(1)
+            if not pdf_url:
+                browser.close()
+                return False
 
-            if url.startswith("/"):
-                return "https://recorder.maricopa.gov" + url
+            # Download manually
+            import requests
+            r = requests.get(pdf_url, timeout=30)
 
-            return url
+            if r.status_code == 200:
+                with open(save_path, "wb") as f:
+                    f.write(r.content)
+                browser.close()
+                return True
+
+            browser.close()
+            return False
 
     except Exception as e:
-        log.warning(f"PDF URL extract failed: {e}")
-
-    return None
-
-
-# =========================
-# DOWNLOAD
-# =========================
-
-def download_pdf(url, path):
-    try:
-        headers = {
-            "User-Agent": "Mozilla/5.0",
-            "Referer": "https://recorder.maricopa.gov/"
-        }
-
-        r = requests.get(url, headers=headers, timeout=20)
-
-        if r.status_code == 200 and r.content:
-            with open(path, "wb") as f:
-                f.write(r.content)
-            return True
-
-        log.warning(f"Download failed {url} → {r.status_code}")
-        return False
-
-    except Exception as e:
-        log.warning(f"Download error {url} → {e}")
+        log.warning(f"Browser download failed: {e}")
         return False
 
 
@@ -150,7 +125,6 @@ def extract_text(pdf_path):
 def extract_property_address(text):
     patterns = [
         r"Property Address[:\s]*(.+?\d{5})",
-        r"Property Address[:\s]*(.+?Arizona\s+\d{5})",
         r"\b\d{3,5}\s+[A-Z0-9\s]+(?:ST|AVE|RD|DR|LN|BLVD|WAY|CT)[^\n]+AZ\s+\d{5}",
     ]
 
@@ -175,10 +149,6 @@ def extract_auction_date(text):
         return match.group(1)
     return None
 
-
-# =========================
-# HELPERS
-# =========================
 
 def clean(value):
     return re.sub(r"\s+", " ", value).strip()
