@@ -1,200 +1,31 @@
 doc_num,doc_type,filed,cat,cat_label,owner,grantee,amount,legal,prop_address,prop_city,prop_state,prop_zip,mail_address,mail_city,mail_state,mail_zip,county,parcel_number,original_loan,trustee_name,trustee_phone,auction_date,deed_of_trust,first_name,last_name,second_first,second_last,clerk_url,pdf_url,pdf_path,flags,score,raw_text_path
-20260222588,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,"(s): SPS PLATINUM PROPERTIES, LLC, AN",,"$250,000.00","LOT 114, LAS CASAS GRANDES, ACCORDING TO THE PLAT OF
-RECORD IN THE OFFICE OF THE COUNTY RECORDER OF MARICOPA
-COUNTY, ARIZONA, RECORDED IN BOOK 136 OF MAPS, PAGE 25
-AND PLAT OF CORRECTION RECORDED IN BOOK 138 OF MAPS,
-PAGE 2,","4130 W NANCY LN, PHOENIX, AZ 85041 Tax Parcel Number: 105-89-133",,,,,,,,Maricopa,105-89-133,"$250,000.00",,2022060328,7/21/2026,20220603286,(S):,An,,,https://recorder.maricopa.gov/recording/document-details?id=20260222588,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222588.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222588.pdf,ocr_fallback;missing_trustee,65,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222588.txt
-20260222606,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,"PEGGY LEE KNIGHT, TRUSTEE OF THE PEGGY LEE KNIGHT 1999 REVOCABLE TRUST DATED",,"$ 630,000.00","UNIT 1146, VILLAGES NORTH PHASE III CONDOMINIUMS, A CONDOMINIUM AS CREATED BY
-THE CERTAIN DECLARATION RECORDED FEBRUARY 3, 1995, INRECORDER'S NO. 95-0065 120, RE-
-RECORDED FEBRUARY 16, 1995 IN RECORDER'S NO. 95-0087467, FIRST AMENDMENT RECORDED
-OCTOBER 27, 1995 IN RECORDER'S NO. 95-0659342, SECOND AMENDMENT RECORDED
-SEPTEMBER 17, 1996 IN RECORDER'S NO. 96-0657540, AND AS SHOWN ON PLAT OF SAID
-CONDOMINIUM RECORDED IN BOOK 420 OF MAPS, PAGE 7, RECORDS OF MARICOPA COUNTY,
-ARIZONA.
-TOGETHER WITH A PROPORTIONATE INTEREST IN THE COMMON AREAS AND FACILITIES IN
-SAID DECLARATION AND PLAT;
-EXCEPT ALL OIL, GAS, OTHER HYDROCARBON SUBSTANCES, HELIUM OR OTHER SUBSTANCES
-OF A GASEOUS NATURE, COAL, METALS, MINERALS, FOSSILS, FERTILIZER OF EVERY NAME
-AND DESCRIPTION, TOGETHER WITH ALL URANIUM, THORIUM OR ANY OTHER MINERAL
-WHICH IS OR MAY BE DETERMINED BY THE LAWS OF THE UNITED STATES, OR OF THIS STATE,
-OR DECISIONS OF COURT TO BE PECULIARLY ESSENTIAL TO THE PRODUCTION OF
-FISSIONABLE MATERIALS, WHETHER ","15252 N 100TH STREET #1146, SCOTTSDALE, AZ 85260 Tax Parcel Number: 217-54-700",,,,,,,,Maricopa,217-54-700,"$ 630,000.00",,2024005679,"April 13, 2026",20240056798,Peggy,Dated,,,https://recorder.maricopa.gov/recording/document-details?id=20260222606,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222606.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222606.pdf,ocr_fallback;missing_trustee,65,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222606.txt
-20260222631,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$285,000.00",,1036 E HIGHLAND AVENUE,PHOENIX,AZ,85014,,,,,Maricopa,155-11-018,"$285,000.00",,101-1084974,". The purchaser at the sale, other than the Beneficiary to the extent of his",20130557230,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260222631,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222631.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222631.pdf,ocr_fallback;missing_owner;missing_trustee,55,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222631.txt
-20260222700,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$444,795.00","ATTACHED AS EXHIBIT ""A""",29409 N 182ND AVE,SURPRISE,AZ,85387,,,,,Maricopa,503-51-109T3,"$444,795.00",,2023048095,". The purchaser at the sale, other than the Beneficiary to the extent of his",20230480957,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260222700,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222700.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222700.pdf,ocr_fallback;missing_owner;missing_trustee,55,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222700.txt
-20260222835,N/TR SALE+,2026-04-15,NS,Notice of Trustee Sale,"’s Stated Name and Address: Salt River Point TT, LLC, 777 Third Avenue","’s Name, Address, and Telephone Number: Jason D. Curry, Renaissance One","$55,250,000",See attached Exhibit A,,,,,,,,,Maricopa,135-33-586,"$55,250,000","’s Name, Address, and Telephone Number: Jason D. Curry, Renaissance One",019-0625397,"August 13, 2019",,’S,Name,Address:,Avenue,https://recorder.maricopa.gov/recording/document-details?id=20260222835,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222835.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222835.pdf,ocr_fallback;missing_property_address,45,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222835.txt
-20260222909,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,Leonard J. McDonald,"$304,385",,2855 S Extension Rd Unit 247,Mesa,AZ,85210,,,,,Maricopa,,"$304,385",Leonard J. McDonald,2022069546,"July 15, 2026",,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260222909,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222909.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222909.pdf,ocr_fallback;missing_owner,65,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222909.txt
-20260223068,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$294,566.00","LOT 54, MARYVALE TERRACE NO. 49, ACCORDING TO BOOK 199 OF MAPS, PAGE 45, RECORDS
-OF MARICOPA COUNTY, ARIZONA.",3037 N 69TH AVENUE,PHOENIX,AZ,85033,,,,,Maricopa,102-21-180,"$294,566.00",,2021131699,". The purchaser at the sale, other than the Beneficiary to the extent of his",20211316991,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260223068,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223068.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223068.pdf,ocr_fallback;missing_owner;missing_trustee,55,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223068.txt
-20260223111,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,"Margie C. Yates, an unmarried woman, 1501 East Nielson Avenue, Mesa, AZ",,"$100,000.00","LOT 113, MESA HOMES, PER MAP RECORDED IN BOOK 57 OF MAPS, PAGE 38, IN THE OFFICE OF THE
-COUNTY RECORDER, MARICOPA COUNTY, ARIZONA.","1501 East Nielson Avenue, Mesa, AZ 85204 Tax Parcel # 138-13-118",,,,,,,,Maricopa,138-13-118,"$100,000.00",,(602) 222-5711,"December 20, 2022",20220901360,Margie,Az,,,https://recorder.maricopa.gov/recording/document-details?id=20260223111,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223111.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223111.pdf,ocr_fallback;missing_trustee,65,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223111.txt
-20260223127,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$322,200.00","LOT 263, OF SIERRA MONTANA PARCEL 14, ACCORDING TO THE PLAT OF RECORD IN THE OFFICE
-OF THE COUNTY RECORDER OF MARICOPA COUNTY, ARIZONA, RECORDED IN BOOK 686 OF
-MAPS, PAGE 10.",14870 N 174TH LN,SURPRISE,AZ,85388,,,,,Maricopa,502-88-840,"$322,200.00",,2023050742,". The purchaser at the sale, other than the Beneficiary to the extent of his",20230507420,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260223127,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223127.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223127.pdf,ocr_fallback;missing_owner;missing_trustee,55,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223127.txt
-20260223286,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$766,550.00","LOT 119, OF MADERA PHASE 1A, ACCORDING TO THE PLAT OF RECORD IN THE OFFICE OF THE
-COUNTY RECORDED OF MARICOPA COUNTY, ARIZONA RECORDED IN IN BOOK 1520 OF MAPS,
-PAGE 37",22495 E STIRRUP ST,QUEEN CREEK,AZ,85142,,,,,Maricopa,314-16-119,"$766,550.00",,2024031829,". The purchaser at the sale, other than the Beneficiary to the extent of his",20240318293,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260223286,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223286.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223286.pdf,ocr_fallback;missing_owner;missing_trustee,55,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223286.txt
-20260223322,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$82,500.00","LOT 121, OF ARIZONA HOMES, ACCORDING TO THE PLAT OF RECORD IN THE OFFICE OF THE
-COUNTY RECORDER OF MARICOPA COUNTY, ARIZONA, RECORDED IN BOOK 137 OF MAPS, PAGE
-7.",3832 N 86TH AVE,PHOENIX,AZ,85037,,,,,Maricopa,102-23-132,"$82,500.00",,2018030338,. The purchaser at the sale. other than the Beneficiary to the extent of his,20180303382,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260223322,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223322.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223322.pdf,ocr_fallback;missing_owner;missing_trustee,55,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223322.txt
-20260223541,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,"Mary Watola, a single woman, 4525 N 66"" St Unit 14",,"$250,000.00",Exhibit “A”,5420 W Onyx Ave.,Glendale,AZ,85302,"4525 N 66"" St Unit 14",,,,Maricopa,NUMBER,"$250,000.00",,022-0774491,"July 15, 2026",,Mary,14,,,https://recorder.maricopa.gov/recording/document-details?id=20260223541,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223541.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223541.pdf,ocr_fallback;missing_trustee,90,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223541.txt
-20260224183,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,(as shown on the Deed of Trust),,"$381,954.00",", in the office of the
-County Recorder of Maricopa County, Arizona, NOTICE! IF YOU BELIEVE THERE IS A DEFENSE TO
-THE TRUSTEE SALE OR IF YOU HAVE AN OBJECTION TO THE TRUSTEE SALE, YOU MUST FILE
-AN ACTION AND OBTAIN A COURT ORDER PURSUANT TO RULE 65, ARIZONA RULES OF CIVIL
-PROCEDURE, STOPPING THE SALE NO LATER THAN 5:00 P.M. MOUNTAIN STANDARD TIME OF
-THE LAST BUSINESS DAY BEFORE THE SCHEDULED DATE OF THE SALE, OR YOU MAY HAVE
-WAIVED ANY DEFENSES OR OBJECTIONS TO THE SALE. UNLESS YOU OBTAIN AN ORDER, THE
-SALE WILL BE FINAL AND WILL OCCUR at public auction to the highest bidder in the Courtyard, by the
-main entrance of the Superior Court Building, 201 West Jefferson, Phoenix, Arizona 85003, on 7/21/2026 at
-12:00 PM of said day:
-LOT 26, OF PARADISE VILLAGE II, ACCORDING TO BOOK 484 OF MAPS, PAGE 49 AND RE-
-RECORDED IN BOOK 495 OF MAPS, PAGE 3, RECORDS OF MARICOPA COUNTY, ARIZONA.
-Per A.R.S. Section 33-803 (A)(2) the successor trustee appointed here qualifies as a Trustee of the trust deed i",,,,,,,,,Maricopa,220-21-417,"$381,954.00",,2022086798,"March 1, 2026",20220867985,(As,Trust),,,https://recorder.maricopa.gov/recording/document-details?id=20260224183,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224183.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224183.pdf,ocr_fallback;missing_property_address;missing_trustee,35,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224183.txt
-20260224205,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,"Jerry Beck, a single man",Leonard J. McDonald,"$302,421.00","Lot 79, of LAVEEN MEADOWS - PARCEL 3, according to the Plat of Record in the Office of the County Recorder
-of Maricopa County, Arizona, recorded in Book 729 of Maps, Page 40.
-The street address/location of the real property described above is purported to be:
-7350 W. Desert Lane
-Laveen, AZ 85339
-Tax Parcel No.: 300-01-899 4
-The undersigned Trustee, Leonard J. McDonald, Attorney at Law, disclaims any liability for any incorrectness of
-the street address and other common designation, if any, shown herein.
-Said sale will be made in an “as is” condition, but without covenant or warranty, expressed or implied, regarding title,
-possession or encumbrances, to satisfy the indebtedness secured by said Deed of Trust, advances thereunder, with
-interest as provided therein, and the unpaid principal balance of the Note secured by said Deed of Trust with interest
-thereon as proved in said Note, plus fees, charges and expenses of the Trustee and of the trusts created by said Deed
-of Trust.
-(Notice of",7350 W. Desert Lane,Laveen,AZ,85339,,,,,Maricopa,,"$302,421.00",Leonard J. McDonald,2021062196,"July 23, 2026",,Jerry,Man,,,https://recorder.maricopa.gov/recording/document-details?id=20260224205,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224205.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224205.pdf,ocr_fallback,85,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224205.txt
-20260224218,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,Leonard J. McDonald,"$104,000.00","Lot 518, of the Highlands at Arrowhead Ranch IV, according to the Plat of Record in the Office of the County
-Recorder of Maricopa County, Arizona, recorded in Book 419 of Maps, Page 40.
-The street address/location of the real property described above is purported to be:
-6619 W Kristal Way
-Glendale, AZ 85308
-Tax Parcel No.: 200-28-471 0
-The undersigned Trustee, Leonard J. McDonald, Attorney at Law, disclaims any liability for any incorrectness of
-the street address and other common designation, if any, shown herein.
-Said sale will be made in an “as is” condition, but without covenant or warranty, expressed or implied, regarding title,
-possession or encumbrances, to satisfy the indebtedness secured by said Deed of Trust, advances thereunder, with
-interest as provided therein, and the unpaid principal balance of the Note secured by said Deed of Trust with interest
-thereon as proved in said Note, plus fees, charges and expenses of the Trustee and of the trusts created by said Deed
-of Trust",6619 W Kristal Way,Glendale,AZ,85308,,,,,Maricopa,,"$104,000.00",Leonard J. McDonald,2021093457,"July 30, 2026",,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224218,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224218.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224218.pdf,ocr_fallback;missing_owner,65,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224218.txt
-20260224386,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$465,000.00","Lot 577, TEMPE GARDENS UNIT FIVE, according to the plat of record in the office of the County
-Recorder of Maricopa County, Arizona in Book 120 of Maps, Page 22.
-The street address is purported to be: 1737 E. Manhattan Dr., Tempe, AZ 85282","1737 E. Manhattan Dr., Tempe, AZ 85282 Tax Parcel Number: 133-37-259",,,,,,,,Maricopa,133-37-259,"$465,000.00",,2003000098,"April 15, 2026",,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224386,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224386.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224386.pdf,ocr_fallback;missing_owner;missing_trustee,45,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224386.txt
-20260224598,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,Leonard J. McDonald,"$1,295,280.00","Lot 24, of MARLBOROUGH COUNTRY UNIT SIX, according to the Plat of Record in the Office of the County
-Recorder of Maricopa County, Arizona, recorded in Book 187 of Maps, Page 40.
-The street address/location of the real property described above is purported to be:
-1434 W Kerry Lane
-Phoenix, AZ 85027
-Tax Parcel No.: 209-23-024 0
-The undersigned Trustee, Leonard J. McDonald, Attorney at Law, disclaims any liability for any incorrectness of
-the street address and other common designation, if any, shown herein.
-Said sale will be made in an “as is” condition, but without covenant or warranty, expressed or implied, regarding title,
-possession or encumbrances, to satisfy the indebtedness secured by said Deed of Trust, advances thereunder, with
-interest as provided therein, and the unpaid principal balance of the Note secured by said Deed of Trust with interest
-thereon as proved in said Note, plus fees, charges and expenses of the Trustee and of the trusts created by said Deed
-of Trust.
-(Notice ",1434 W Kerry Lane,Phoenix,AZ,85027,,,,,Maricopa,,"$1,295,280.00",Leonard J. McDonald,007-0195094,"July 15, 2026",,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224598,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224598.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224598.pdf,ocr_fallback;missing_owner,65,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224598.txt
-20260224897,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,Leonard J. McDonald,"$117,930.00","Lot 920, Sunburst Estates Two, according to the plat of record in the office of the County Recorder of Maricopa
-County, Arizona, recorded in Book 189 of Maps, Page 7.
-The street address/location of the real property described above is purported to be:
-4931 E Sharon Dr
-Scottsdale, AZ 85254-3527
-Tax Parcel No.: 167-05-388 0
-The undersigned Trustee, Leonard J. McDonald, Attorney at Law, disclaims any liability for any incorrectness of
-the street address and other common designation, if any, shown herein.
-Said sale will be made in an “as is” condition, but without covenant or warranty, expressed or implied, regarding title,
-possession or encumbrances, to satisfy the indebtedness secured by said Deed of Trust, advances thereunder, with
-interest as provided therein, and the unpaid principal balance of the Note secured by said Deed of Trust with interest
-thereon as proved in said Note, plus fees, charges and expenses of the Trustee and of the trusts created by said Deed
-of Trust.
-(Notice of S",4931 E Sharon Dr,Scottsdale,AZ,85254,,,,,Maricopa,,"$117,930.00",Leonard J. McDonald,2023009805,"July 15, 2026",,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224897,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224897.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224897.pdf,ocr_fallback;missing_owner,65,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224897.txt
-20260224899,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,"Antonio A. Rodriguez, Jr., an unmarried man",Leonard J. McDonald,"$167,200.00","Lot 68, of WEDGEWOOD PARK UNIT EIGHT, according to Book 134 of Maps, Page 39, records of Maricopa
-County, Arizona.
-More Correctly Described As:
-Lot 68, of WEDGEWOOD PARK UNIT 8, according to Book 134 of Maps, Page 39, records of Maricopa County,
-Arizona.
-The street address/location of the real property described above is purported to be:
-4817 West Almeria Road
-Phoenix, AZ 85035
-Tax Parcel No.: 103-20-587 6
-The undersigned Trustee, Leonard J. McDonald, Attorney at Law, disclaims any liability for any incorrectness of
-the street address and other common designation, if any, shown herein.
-Said sale will be made in an “as is” condition, but without covenant or warranty, expressed or implied, regarding title,
-possession or encumbrances, to satisfy the indebtedness secured by said Deed of Trust, advances thereunder, with
-interest as provided therein, and the unpaid principal balance of the Note secured by said Deed of Trust with interest
-thereon as proved in said Note, plus fees, charges and",6302 West Windsor Blvd.,Glendale,AZ,85301,,,,,Maricopa,,"$167,200.00",Leonard J. McDonald,2006167899,"July 22, 2026",,Antonio,Man,,,https://recorder.maricopa.gov/recording/document-details?id=20260224899,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224899.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224899.pdf,ocr_fallback,85,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224899.txt
-20260224933,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,"Jaime G Lopez, a married man as his sole and separate property",Leonard J. McDonald,"$285,000.00","Lot 454, of WEST PHOENIX ESTATES UNIT FOUR AMENDED, according to the Plat of Record in the Office of
-the County Recorder of Maricopa County, Arizona, recorded in Book 129 of Maps, Page 46, of Official Records.
-The street address/location of the real property described above is purported to be:
-41121 W Montebcllo Ave
-Tonopah, AZ 85354
-Tax Parcel No.: 506-35-036 8
-The undersigned Trustee, Leonard J. McDonald, Attorney at Law, disclaims any liability for any incorrectness of
-the street address and other common designation, if any, shown herein.
-Said sale will be made in an “as is” condition, but without covenant or warranty, expressed or implied, regarding title,
-possession or encumbrances, to satisfy the indebtedness secured by said Deed of Trust, advances thereunder, with
-interest as provided therein, and the unpaid principal balance of the Note secured by said Deed of Trust with interest
-thereon as proved in said Note, plus fees, charges and expenses of the Trustee and of the trusts cr",41121 W Montebello Ave,Tonopah,AZ,85354,,,,,Maricopa,,"$285,000.00",Leonard J. McDonald,2021088582,"July 30, 2026",,Jaime,Sole,Separate,Property,https://recorder.maricopa.gov/recording/document-details?id=20260224933,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224933.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224933.pdf,ocr_fallback,85,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224933.txt
-20260224934,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,Leonard J. McDonald,"$262,350.00",,302 E Mohave St,Phoenix,AZ,85004,,,,,Maricopa,,"$262,350.00",Leonard J. McDonald,2022052003,"July 22, 2026",,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224934,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224934.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224934.pdf,ocr_fallback;missing_owner,65,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224934.txt
-20260224938,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,"Jorge A Cornejo, an unmarried man",Leonard J. McDonald,"$206,196.00","Lot 202, of RIATA WEST UNIT 1, according to the Plat of Record in the Office of the County Recorder of Maricopa
-County, Arizona, recorded in Book 842 of Maps, Page 16.
-The street address/location of the real property described above is purported to be:
-23976 W Pecan Road
-Buckeye, AZ, 85326
-Tax Parcel No.: 504-75-530 1
-The undersigned Trustee, Leonard J. McDonald, Attorney at Law, disclaims any liability for any incorrectness of
-the street address and other common designation, if any, shown herein.
-Said sale will be made in an “as is” condition, but without covenant or warranty, expressed or implied, regarding title,
-possession or encumbrances, to satisfy the indebtedness secured by said Deed of Trust, advances thereunder, with
-interest as provided therein, and the unpaid principal balance of the Note secured by said Deed of Trust with interest
-thereon as proved in said Note, plus fees, charges and expenses of the Trustee and of the trusts created by said Deed
-of Trust.
-(Notice of Sale ",23976 W Pecan Road,Buckeye,AZ,85326,,,,,Maricopa,,"$206,196.00",Leonard J. McDonald,2018046746,"August 6, 2026",,Jorge,Man,,,https://recorder.maricopa.gov/recording/document-details?id=20260224938,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224938.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224938.pdf,ocr_fallback,85,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224938.txt
-20260225129,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,(as shown on the Deed of Trust),,"$147,000.00","LOT 166, ENCHANTED VILLAGE, ACCORDING TO THE PLAT OF RECORD IN THE OFFICE OF
-THE COUNTY RECORDER OF MARICOPA COUNTY, ARIZONA, RECORDED IN BOOK 107 OF
-MAPS, PAGE 14.
-The successor trustee appointed herein qualifies as trustee of the Trust Deed in the trustee’s capacity as a
-member of the Arizona State Bar as required pursuant to ARS 33-803(A)(2).
-ACCORDING TO THE DEED OF TRUST OR UPON INFORMATION SUPPLIED BY THE BENEFICIARY,
-THE FOLLOWING INFORMATION IS PROVIDED PURSUANT TO A.R.S. SECTION 33-808(C):
-Street address or identifiable location: 1122 NORTH WELD CIRCLE
-MESA, Arizona 85203",,,,,,,,,Maricopa,137-32-272,"$147,000.00",,949-427-2010,7/15/2008,,(As,Trust),,,https://recorder.maricopa.gov/recording/document-details?id=20260225129,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225129.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225129.pdf,ocr_fallback;missing_property_address;missing_trustee,35,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225129.txt
-20260225192,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,(s): TYRONE DANIEL WEST II AND ANDRIA,,"$353,100.00","LOT 191, GOODYEAR PLANNED REGIONAL CENTER PARCEL 10,
-ACCORDING TO BOOK 648 OF MAPS, PAGE 15, RECORDS OF
-MARICOPA COUNTY, ARIZONA.","2778 NORTH 150TH LANE, GOODYEAR, AZ 85395 Tax Parcel Number: 508-14-199",,,,,,,,Maricopa,508-14-199,"$353,100.00",,2015001972,7/22/2026,20150019725,(S):,Ii,Andria,,https://recorder.maricopa.gov/recording/document-details?id=20260225192,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225192.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225192.pdf,ocr_fallback;missing_trustee,65,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225192.txt
-20260225194,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,"(s): Ariel Carlos, a married man, as his sole and separate",,"$455,000.00","LOT 96, OF ABRALEE MEADOW, ACCORDING TO THE PLAT OF
-RECORD IN THE OFFICE OF THE COUNTY RECORDER OF MARICOPA
-COUNTY, ARIZONA, RECORDED IN BOOK 652 OF MAPS, PAGE 23
-AND CERTIFICATE OF CORRECTION RECORDED IN RECORDING NO.
-2004-1261016","2799 E BALSAM DR, CHANDLER, AZ 85286 Tax Parcel Number: 303-43-776, 303-43-776 6",,,,,,,,Maricopa,303-43-776,"$455,000.00",,2021136601,Sale,20211366018,(S):,Sole,Separate,,https://recorder.maricopa.gov/recording/document-details?id=20260225194,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225194.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225194.pdf,ocr_fallback;missing_trustee,65,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225194.txt
-20260225195,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,(s): Paul A. Brent and Teresa D. Hernandez-Brent,,"$185,739.00","Lot 210, of Copperfield Estates, according to the plat of record in the Office of
-the County Recorder of Maricopa County, Arizona, recorded in Book 272 of
-Maps, Page 11 and Affidavit of Correction recorded in Instrument No. 84-
-412077. :","3636 W LAREDO ST, CHANDLER, AZ 85226 Tax Parcel Number: 301-64-666",,,,,,,,Maricopa,301-64-666,"$185,739.00",,012-0812180,7/23/2026,20250315111,(S):,Brent,Teresa,Hernandez-Brent,https://recorder.maricopa.gov/recording/document-details?id=20260225195,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225195.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225195.pdf,ocr_fallback;missing_trustee,65,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225195.txt
-20260225265,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,(as shown on the Deed of Trust),,"$373,117.00","LOT 175, OF 91ST AVENUE AND LOWER BUCKEYE ROAD, ACCORDING TO THE PLAT OF
-RECORD IN THE OFFICE OF THE COUNTY RECORDER OF MARICOPA COUNTY, ARIZONA,
-RECORDED IN BOOK 648 OF MAPS, PAGE 34.
-The successor trustee appointed herein qualifies as trustee of the Trust Deed in the trustee’s capacity as a
-member of the Arizona State Bar as required pursuant to ARS 33-803(A)(2).
-ACCORDING TO THE DEED OF TRUST OR UPON INFORMATION SUPPLIED BY THE BENEFICIARY,
-THE FOLLOWING INFORMATION IS PROVIDED PURSUANT TO A.R.S. SECTION 33-808(C):
-Street address or identifiable location: 9018 W HILTON AVE
-TOLLESON, Arizona 85353",9018 W HILTON AVE,TOLLESON,AZ,85353,,,,,Maricopa,101-57-175,"$373,117.00",,949-427-2010,10/28/2021,,(As,Trust),,,https://recorder.maricopa.gov/recording/document-details?id=20260225265,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225265.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225265.pdf,ocr_fallback;missing_trustee,75,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225265.txt
-20260225382,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$596,000.00","LOT 32, OF TATUM HIGHLANDS PARCEL 19, ACCORDING TO THE PLAT OF RECORD IN THE OFFICE
-OF THE COUNTY RECORDER OF MARICOPA COUNTY, ARIZONA, RECORDED IN BOOK 392 OF
-MAPS, PAGE 15;EXCEPT ALL OIL, GAS, OTHER HYDROCARBON SUBSTANCES, HELIUM OR OTHER
-SUBSTANCES OF A GASEOUS NATURE, COAL, METALS, MINERALS, FOSSILS, FERTILIZER OF
-EVERY NAME AND DESCRIPTION, AND EXCEPT ALL MATERIAL WHICH MAY BE ESSENTIAL TO THE
-PRODUCTION OF FISSIONABLE MATERIALS AS RESERVED PURSUANT TO RECORDED
-INSTRUMENT IN FAVOR OF THE UNITED STATES OF AMERICA OR THE STATE OF ARIZONA,
-PURSUANT TO THE PROVISIONS OF ARIZONA REVISED STATUTES 37-231.",25836 N 43RD PL,PHOENIX,AZ,85050,,,,,Maricopa,212-09-405,"$596,000.00",,2022047895,. The purchaser at the,20220478953,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260225382,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225382.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225382.pdf,ocr_fallback;missing_owner;missing_trustee,55,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225382.txt
-20260225528,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,(s): CORNELIUS E TANY! AND COLETTE T EBAIL,,"$550,800.00","Purported Street Address:
-7/22/2026 at 12:00PM
-In the courtyard by the main entrance of the Superior Court Building,
-located at 201 West Jefferson, Phoenix, AZ 85003
-LOT 2, SEVILLE 21, ACCORDING TO BOOK 644 OF MAPS, PAGE 34,
-RECORDS OF MARICOPA COUNTY, ARIZONA,
-7110 SOUTH CHAMPAGNE WAY, GILBERT, AZ, 85297",7110 SOUTH CHAMPAGNE WAY,GILBERT,AZ,85297,,,,,Maricopa,313-04-589,"$550,800.00",,2007014985,Sale,20070149857,(S):,Tany!,Colette,Ebail,https://recorder.maricopa.gov/recording/document-details?id=20260225528,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225528.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225528.pdf,ocr_fallback;missing_trustee,75,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225528.txt
-20260225555,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,"(s): ROBERT L HENDERSON JR, SINGLE MAN",,"$392,950.00","LOT 54, LUKE LANDING, ACCORDING TO THE FINAL PLAT
-RECORDED IN BOOK 1462 MAPS, PAGE 23, RECORDS OF MARICOPA
-COUNTY, ARIZONA.","7264 N 128TH AVE, GLENDALE, AZ, 85307 Tax Parcel Number: 501-53-449",,,,,,,,Maricopa,501-53-449,"$392,950.00",,2021100645,8/6/2026,20211006457,(S):,Man,,,https://recorder.maricopa.gov/recording/document-details?id=20260225555,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225555.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225555.pdf,ocr_fallback;missing_trustee,65,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225555.txt
+20260222588,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$250,000.00",,,,,,,,,,Maricopa,105-89-133,"$250,000.00",,2022060328,7/25/2022,20220603286,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260222588,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222588.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222588.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222588.txt
+20260222606,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$ 630,000.00",,,,,,,,,,Maricopa,217-54-700,"$ 630,000.00",,2024005679,01/31/2024,20240056798,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260222606,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222606.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222606.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222606.txt
+20260222631,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$285,000.00",,1036 E HIGHLAND AVENUE,PHOENIX,AZ,85014,,,,,Maricopa,155-11-018,"$285,000.00",,101-1084974,08/29/2024,20130557230,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260222631,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222631.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222631.pdf,ocr_fallback,30,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222631.txt
+20260222700,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$444,795.00",,29409 N 182ND AVE,SURPRISE,AZ,85387,,,,,Maricopa,503-51-109T3,"$444,795.00",,2023048095,08/29/2024,20230480957,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260222700,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222700.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222700.pdf,ocr_fallback,30,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222700.txt
+20260222835,N/TR SALE+,2026-04-15,NS,Notice of Trustee Sale,,,"$55,250,000",,,,,,,,,,Maricopa,135-33-586,"$55,250,000",,019-0625397,5/3/2029,20260222835,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260222835,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222835.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222835.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222835.txt
+20260222909,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$304,385",,2855 S Extension Rd Unit 247 Mesa,Mesa,AZ,85210,,,,,Maricopa,,"$304,385",,2022069546,09/07/2022,20220695468,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260222909,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222909.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222909.pdf,ocr_fallback,30,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222909.txt
+20260223068,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$294,566.00",,,,,,,,,,Maricopa,102-21-180,"$294,566.00",,2021131699,08/29/2024,20211316991,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260223068,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223068.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223068.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223068.txt
+20260223111,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$100,000.00",,,,,,,,,,Maricopa,138-13-118,"$100,000.00",,(602) 222-5711,,20220901360,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260223111,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223111.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223111.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223111.txt
+20260223127,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$322,200.00",,,,,,,,,,Maricopa,502-88-840,"$322,200.00",,2023050742,08/29/2024,20230507420,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260223127,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223127.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223127.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223127.txt
+20260223286,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$766,550.00",,,,,,,,,,Maricopa,314-16-119,"$766,550.00",,2024031829,08/29/2024,20240318293,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260223286,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223286.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223286.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223286.txt
+20260223322,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$82,500.00",,,,,,,,,,Maricopa,102-23-132,"$82,500.00",,2018030338,08/29/2024,20180303382,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260223322,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223322.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223322.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223322.txt
+20260223541,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$250,000.00",,,,,,,,,,Maricopa,NUMBER,"$250,000.00",,022-0774491,,20260223541,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260223541,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223541.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223541.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223541.txt
+20260224183,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$381,954.00",,,,,,,,,,Maricopa,220-21-417,"$381,954.00",,2022086798,11/30/2022,20220867985,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224183,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224183.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224183.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224183.txt
+20260224205,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$302,421.00",,7350 W,,,,,,,,Maricopa,,"$302,421.00",,2021062196,06/04/2021,20210621960,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224205,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224205.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224205.pdf,ocr_fallback,30,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224205.txt
+20260224218,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$104,000.00",,6619 W Kristal Way Glendale,Glendale,AZ,85308,,,,,Maricopa,,"$104,000.00",,2021093457,08/30/2021,20210934575,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224218,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224218.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224218.pdf,ocr_fallback,30,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224218.txt
+20260224386,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$465,000.00",,1737 E,,,,,,,,Maricopa,133-37-259,"$465,000.00",,2003000098,04/15/2026,20030000983297,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224386,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224386.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224386.pdf,ocr_fallback,30,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224386.txt
+20260224598,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$1,295,280.00",,1434 W Kerry Lane Phoenix,Phoenix,AZ,85027,,,,,Maricopa,,"$1,295,280.00",,007-0195094,02/16/2007,20260224598,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224598,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224598.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224598.pdf,ocr_fallback,30,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224598.txt
+20260224897,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$117,930.00",,4931 E Sharon Dr Scottsdale,Scottsdale,AZ,85254,,,,,Maricopa,,"$117,930.00",,2023009805,02/27/2023,20230098051,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224897,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224897.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224897.pdf,ocr_fallback,30,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224897.txt
+20260224899,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$167,200.00",,4817 West Almeria Road Phoenix,Phoenix,AZ,85035,,,,,Maricopa,,"$167,200.00",,2006167899,12/26/2006,20061678996,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224899,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224899.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224899.pdf,ocr_fallback,30,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224899.txt
+20260224933,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$285,000.00",,41121 W Montebcllo Ave Tonopah,Tonopah,AZ,85354,,,,,Maricopa,,"$285,000.00",,2021088582,08/16/2021,20210885821,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224933,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224933.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224933.pdf,ocr_fallback,30,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224933.txt
+20260224934,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$262,350.00",,302 E Mohave St Phoenix,Phoenix,AZ,85004,,,,,Maricopa,,"$262,350.00",,2022052003,06/22/2022,20220520030,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224934,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224934.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224934.pdf,ocr_fallback,30,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224934.txt
+20260224938,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$206,196.00",,23976 W Pecan Road Buckeye,Buckeye,AZ,85326,,,,,Maricopa,,"$206,196.00",,2018046746,06/19/2018,20180467465,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260224938,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224938.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224938.pdf,ocr_fallback,30,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224938.txt
+20260225129,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$147,000.00",,,,,,,,,,Maricopa,137-32-272,"$147,000.00",,949-427-2010,7/15/2008,20080659188,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260225129,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225129.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225129.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225129.txt
+20260225192,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$353,100.00",,,,,,,,,,Maricopa,508-14-199,"$353,100.00",,2015001972,1/6/2015,20150019725,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260225192,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225192.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225192.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225192.txt
+20260225194,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$455,000.00",,,,,,,,,,Maricopa,303-43-776,"$455,000.00",,2021136601,12/21/2021,20211366018,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260225194,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225194.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225194.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225194.txt
+20260225195,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$185,739.00",,,,,,,,,,Maricopa,301-64-666,"$185,739.00",,012-0812180,8/9/2012,20250315111,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260225195,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225195.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225195.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225195.txt
+20260225265,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$373,117.00",,,,,,,,,,Maricopa,101-57-175,"$373,117.00",,949-427-2010,10/28/2021,20211162698,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260225265,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225265.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225265.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225265.txt
+20260225382,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$596,000.00",,25836 N 43RD PL,PHOENIX,AZ,85050,,,,,Maricopa,212-09-405,"$596,000.00",,2022047895,08/29/2024,20220478953,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260225382,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225382.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225382.pdf,ocr_fallback,30,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225382.txt
+20260225528,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$550,800.00",,,,,,,,,,Maricopa,313-04-589,"$550,800.00",,2007014985,1/29/2007,20070149857,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260225528,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225528.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225528.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225528.txt
+20260225555,N/TR SALE,2026-04-15,NS,Notice of Trustee Sale,,,"$392,950.00",,,,,,,,,,Maricopa,501-53-449,"$392,950.00",,2021100645,9/14/2021,20211006457,,,,,https://recorder.maricopa.gov/recording/document-details?id=20260225555,https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225555.pdf,/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225555.pdf,ocr_fallback,0,/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225555.txt
