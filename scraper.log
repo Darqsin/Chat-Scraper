@@ -1051,3 +1051,11 @@ NameError: name 'is_valid_property_address' is not defined
 2026-04-16 17:29:41,280 | INFO | clerk_scraper | Total records: 30
 2026-04-16 17:29:41,280 | INFO | fetch | Scraped 30 records
 2026-04-16 17:32:23,724 | INFO | fetch | FINAL: 30 records | 26 with address
+2026-04-16 18:21:08,445 | INFO | fetch | Date range: 04/15/2026 -> 04/15/2026
+2026-04-16 18:21:08,565 | INFO | clerk_scraper | Session warmed up via portal
+2026-04-16 18:21:08,566 | INFO | clerk_scraper | Scraping NS (Notice of Trustee Sale)
+2026-04-16 18:21:08,956 | INFO | clerk_scraper |   Page 1: 30 rows (total=30)
+2026-04-16 18:21:08,957 | INFO | clerk_scraper |   → 30 records for NS
+2026-04-16 18:21:08,957 | INFO | clerk_scraper | Total records: 30
+2026-04-16 18:21:08,957 | INFO | fetch | Scraped 30 records
+2026-04-16 18:23:51,075 | INFO | fetch | FINAL: 30 records | 25 with address
