@@ -5,53 +5,50 @@ import logging
 log = logging.getLogger("enricher")
 
 
-def enrich_records(records):
-    enriched = []
+# =========================
+# MAIN ENTRY (REQUIRED)
+# =========================
 
-    for rec in records:
-        try:
-            pdf_path = rec.get("pdf_path")
+def parse_record(record):
+    try:
+        pdf_path = record.get("pdf_path")
 
-            if not pdf_path:
-                rec["flags"] = ["no_pdf"]
-                enriched.append(rec)
-                continue
+        if not pdf_path:
+            record["flags"] = ["no_pdf"]
+            return record
 
-            text = extract_text(pdf_path)
+        text = extract_text(pdf_path)
 
-            if not text:
-                rec["flags"] = ["no_pdf"]
-                enriched.append(rec)
-                continue
+        if not text:
+            record["flags"] = ["no_pdf"]
+            return record
 
-            # Extract fields
-            rec["prop_address"] = extract_property_address(text)
-            rec["trustee_name"] = extract_trustee(text)
-            rec["auction_date"] = extract_auction_date(text)
+        # Extract fields
+        record["prop_address"] = extract_property_address(text)
+        record["trustee_name"] = extract_trustee(text)
+        record["auction_date"] = extract_auction_date(text)
 
-            # Flags
-            flags = []
+        flags = []
 
-            if not rec["prop_address"]:
-                flags.append("no_address")
+        if not record["prop_address"]:
+            flags.append("no_address")
 
-            if not rec["trustee_name"]:
-                flags.append("no_trustee")
+        if not record["trustee_name"]:
+            flags.append("no_trustee")
 
-            rec["flags"] = flags
+        record["flags"] = flags
 
-        except Exception as e:
-            log.warning(f"Failed to process {rec.get('doc_num')}: {e}")
-            rec["flags"] = ["error"]
+        return record
 
-        enriched.append(rec)
-
-    return enriched
+    except Exception as e:
+        log.warning(f"Failed to process {record.get('doc_num')}: {e}")
+        record["flags"] = ["error"]
+        return record
 
 
-# ---------------------------
+# =========================
 # TEXT EXTRACTION
-# ---------------------------
+# =========================
 
 def extract_text(pdf_path):
     try:
@@ -67,9 +64,9 @@ def extract_text(pdf_path):
         return None
 
 
-# ---------------------------
+# =========================
 # FIELD EXTRACTION
-# ---------------------------
+# =========================
 
 def extract_property_address(text):
     try:
@@ -113,9 +110,9 @@ def extract_auction_date(text):
     return None
 
 
-# ---------------------------
+# =========================
 # HELPERS
-# ---------------------------
+# =========================
 
 def clean(value):
     return re.sub(r"\s+", " ", value).strip()
