@@ -268,7 +268,7 @@ def _extract_trustee_name(text: str) -> str:
     # 🔥 Fallback: detect law firms / trustee names
     m = re.search(r"\b([A-Z][A-Za-z&., ]+(?:LLP|LLC|P\.A\.|LAW FIRM|ATTORNEY))\b", text)
     if m:
-    return m.group(1).strip()
+        return m.group(1).strip()
     
     return ""
 
@@ -291,7 +291,7 @@ def _extract_auction_date(text: str) -> str:
             return _clean_text(value)
 
     m = DATE_LONG_RE.search(text or "")
-    if m:
+    
         return m.group(0)
 
     m = DATE_NUMERIC_RE.search(text or "")
