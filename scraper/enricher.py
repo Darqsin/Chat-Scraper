@@ -1,29 +1,42 @@
 import re
 import pdfplumber
 import logging
+import requests
+from pathlib import Path
 
 log = logging.getLogger("enricher")
 
+DOWNLOAD_DIR = Path("grouped_output/pdfs")
+DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
+
 
 # =========================
-# MAIN ENTRY (REQUIRED)
+# MAIN ENTRY
 # =========================
 
 def parse_record(record):
     try:
-        pdf_path = record.get("pdf_path")
+        pdf_url = record.get("pdf_url")
+        doc_num = record.get("doc_num")
 
-        if not pdf_path:
-            record["flags"] = ["no_pdf"]
-            return record
+        pdf_path = DOWNLOAD_DIR / f"{doc_num}.pdf"
 
+        # ✅ DOWNLOAD IF NOT EXISTS
+        if not pdf_path.exists():
+            success = download_pdf(pdf_url, pdf_path)
+
+            if not success:
+                record["flags"] = ["no_pdf"]
+                return record
+
+        # ✅ EXTRACT TEXT
         text = extract_text(pdf_path)
 
         if not text:
             record["flags"] = ["no_pdf"]
             return record
 
-        # Extract fields
+        # ✅ PARSE DATA
         record["prop_address"] = extract_property_address(text)
         record["trustee_name"] = extract_trustee(text)
         record["auction_date"] = extract_auction_date(text)
@@ -44,6 +57,34 @@ def parse_record(record):
         log.warning(f"Failed to process {record.get('doc_num')}: {e}")
         record["flags"] = ["error"]
         return record
+
+
+# =========================
+# DOWNLOAD
+# =========================
+
+def download_pdf(url, path):
+    try:
+        if not url:
+            return False
+
+        headers = {
+            "User-Agent": "Mozilla/5.0"
+        }
+
+        r = requests.get(url, headers=headers, timeout=20)
+
+        if r.status_code == 200 and r.content:
+            with open(path, "wb") as f:
+                f.write(r.content)
+            return True
+
+        log.warning(f"Download failed {url} → {r.status_code}")
+        return False
+
+    except Exception as e:
+        log.warning(f"Download error {url} → {e}")
+        return False
 
 
 # =========================
@@ -69,44 +110,31 @@ def extract_text(pdf_path):
 # =========================
 
 def extract_property_address(text):
-    try:
-        match = re.search(
-            r"Property Address[:\s]*(.+?\d{5})",
-            text,
-            re.IGNORECASE | re.DOTALL,
-        )
+    patterns = [
+        r"Property Address[:\s]*(.+?\d{5})",
+        r"Property Address[:\s]*(.+?Arizona\s+\d{5})",
+        r"\b\d{3,5}\s+[A-Z0-9\s]+(?:ST|AVE|RD|DR|LN|BLVD|WAY|CT)[^\n]+AZ\s+\d{5}",
+    ]
+
+    for pattern in patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
         if match:
-            return clean(match.group(1))
-    except:
-        pass
+            return clean(match.group(0))
+
     return None
 
 
 def extract_trustee(text):
-    try:
-        match = re.search(
-            r"Trustee[:\s]*(.+)",
-            text,
-            re.IGNORECASE,
-        )
-        if match:
-            return clean(match.group(1))
-    except:
-        pass
+    match = re.search(r"Trustee[:\s]*(.+)", text, re.IGNORECASE)
+    if match:
+        return clean(match.group(1))
     return None
 
 
 def extract_auction_date(text):
-    try:
-        match = re.search(
-            r"Sale Date[:\s]*(\d{1,2}/\d{1,2}/\d{4})",
-            text,
-            re.IGNORECASE,
-        )
-        if match:
-            return match.group(1)
-    except:
-        pass
+    match = re.search(r"Sale Date[:\s]*(\d{1,2}/\d{1,2}/\d{4})", text, re.IGNORECASE)
+    if match:
+        return match.group(1)
     return None
 
 
