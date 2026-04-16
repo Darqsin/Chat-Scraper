@@ -16,9 +16,9 @@ def parse_record(record):
         fallback = record.get("pdf_fallback")
         pdf_path = DOWNLOAD_DIR / f"{doc_num}.pdf"
 
-        # ✅ Download via browser
+        # ✅ Download via network capture
         if not pdf_path.exists():
-            if not download_with_browser(fallback, pdf_path):
+            if not download_pdf_via_network(fallback, pdf_path):
                 record["flags"] = ["no_pdf"]
                 return record
 
@@ -51,52 +51,42 @@ def parse_record(record):
 
 
 # =========================
-# PLAYWRIGHT DOWNLOAD
+# 🔥 NETWORK CAPTURE DOWNLOAD
 # =========================
 
-def download_with_browser(url, save_path):
+def download_pdf_via_network(url, save_path):
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
-            context = browser.new_context(accept_downloads=True)
+            context = browser.new_context()
             page = context.new_page()
 
+            pdf_bytes = None
+
+            def handle_response(response):
+                nonlocal pdf_bytes
+                if "pdf" in response.url and response.status == 200:
+                    try:
+                        pdf_bytes = response.body()
+                    except:
+                        pass
+
+            page.on("response", handle_response)
+
             page.goto(url, timeout=60000)
-
-            # Wait for PDF to load
-            page.wait_for_timeout(3000)
-
-            # Look for PDF iframe or direct link
-            frames = page.frames
-            pdf_url = None
-
-            for f in frames:
-                if ".pdf" in f.url:
-                    pdf_url = f.url
-                    break
-
-            if not pdf_url and ".pdf" in page.url:
-                pdf_url = page.url
-
-            if not pdf_url:
-                browser.close()
-                return False
-
-            # Download manually
-            import requests
-            r = requests.get(pdf_url, timeout=30)
-
-            if r.status_code == 200:
-                with open(save_path, "wb") as f:
-                    f.write(r.content)
-                browser.close()
-                return True
+            page.wait_for_timeout(5000)
 
             browser.close()
+
+            if pdf_bytes:
+                with open(save_path, "wb") as f:
+                    f.write(pdf_bytes)
+                return True
+
             return False
 
     except Exception as e:
-        log.warning(f"Browser download failed: {e}")
+        log.warning(f"Network capture failed: {e}")
         return False
 
 
