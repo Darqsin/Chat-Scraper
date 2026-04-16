@@ -1035,3 +1035,11 @@ NameError: name 'is_valid_property_address' is not defined
 2026-04-16 16:53:15,776 | WARNING | fetch | Fallback record used for 20260225528: parse_record() got an unexpected keyword argument 'clerk_url'
 2026-04-16 16:53:15,776 | WARNING | fetch | Fallback record used for 20260225555: parse_record() got an unexpected keyword argument 'clerk_url'
 2026-04-16 16:53:15,789 | INFO | fetch | FINAL: 30 records | 0 with address
+2026-04-16 17:07:48,747 | INFO | fetch | Date range: 04/15/2026 -> 04/15/2026
+2026-04-16 17:07:48,974 | INFO | clerk_scraper | Session warmed up via portal
+2026-04-16 17:07:48,974 | INFO | clerk_scraper | Scraping NS (Notice of Trustee Sale)
+2026-04-16 17:07:49,472 | INFO | clerk_scraper |   Page 1: 30 rows (total=30)
+2026-04-16 17:07:49,473 | INFO | clerk_scraper |   → 30 records for NS
+2026-04-16 17:07:49,473 | INFO | clerk_scraper | Total records: 30
+2026-04-16 17:07:49,473 | INFO | fetch | Scraped 30 records
+2026-04-16 17:10:38,594 | INFO | fetch | FINAL: 30 records | 26 with address
