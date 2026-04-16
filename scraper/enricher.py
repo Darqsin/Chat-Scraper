@@ -216,28 +216,41 @@ def _find_first(pattern: re.Pattern[str], text: str) -> str:
 
 def _extract_owner(text: str) -> str:
     patterns = [
-        r"Original Trustor(?:'s)?(?:\s*Name and Address)?\s*[:\-]?\s*(.+?)(?:\n(?:Current Trustee|Trustee|Beneficiary|Name and Address of Beneficiary|Sale Date|TS#|NOTICE OF TRUSTEE))",
-        r"NAME AND ADDRESS OF ORIGINAL TRUSTOR.*?\n(.+?)(?:\n(?:NAME AND ADDRESS OF BENEFICIARY|CURRENT TRUSTEE|NOTICE OF TRUSTEE))",
-        r"Trustor(?:s)?\s*[:\-]\s*(.+?)(?:\n(?:Trustee|Beneficiary|Property Address|Sale Date))",
-        r"Name of Trustor\s*[:\-]?\s*(.+?)(?:\n(?:Trustee|Beneficiary|Property Address|Sale Date))",
+        r"Trustor.*?\n(.+)",
+        r"Original Trustor.*?\n(.+)",
+        r"Borrower.*?\n(.+)",
     ]
+
     for pattern in patterns:
-        m = re.search(pattern, text, re.I | re.S)
+        m = re.search(pattern, text, re.I)
         if m:
-            return _normalize_name_line(m.group(1))
+            value = m.group(1).strip()
+            if len(value) > 5:
+                return value
+
     return ""
 
 
 def _extract_trustee_name(text: str) -> str:
     patterns = [
-        r"Current Trustee(?:'s)?(?:\s*Name and Address)?\s*[:\-]?\s*(.+?)(?:\n(?:Phone|Telephone|Name of Trustee's Regulator|This sale|Sale Date))",
-        r"Trustee\s*[:\-]?\s*(.+?)(?:\n(?:Phone|Telephone|Address|Sale Date|Name of Trustee's Regulator))",
-        r"NAME, ADDRESS\s*&\s*TELEPHONE NUMBER OF TRUSTEE.*?\n(.+?)(?:\n(?:Name of Trustee's Regulator|State Bar|Dated this))",
+        r"Current Trustee.*?\n(.+)",
+        r"Trustee.*?\n(.+)",
+        r"NAME.*TRUSTEE.*?\n(.+)",
     ]
+
     for pattern in patterns:
-        m = re.search(pattern, text, re.I | re.S)
+        m = re.search(pattern, text, re.I)
         if m:
-            return _normalize_name_line(m.group(1))
+            value = m.group(1).strip()
+
+            # 🚫 filter garbage
+            if len(value) < 5:
+                continue
+            if any(x in value.lower() for x in ["sale", "date", "time"]):
+                continue
+
+            return value
+
     return ""
 
 
@@ -364,7 +377,9 @@ def _best_address(candidates: list[str], property_mode: bool = True) -> dict[str
     best_score = -1
 
     for candidate in candidates:
-        candidate = re.sub(r"\s+", " ", candidate).strip(" ,;")
+        candidate = re.sub(r"(July|August|September|October|November|December).+", "", candidate, flags=re.I)
+        candidate = re.sub(r"\d{1,2}:\d{2}\s*(AM|PM).*", "", candidate, flags=re.I)
+        candidate = candidate.strip(" ,;")
 
         if len(candidate) < 8:
             continue
