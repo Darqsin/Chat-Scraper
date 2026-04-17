@@ -38,6 +38,25 @@ BAD_NAME_TOKENS = {
     "PUBLIC", "AUCTION", "DATED", "RECORDED", "APN", "PARCEL", "LEGAL"
 }
 
+BAD_TRUSTEE_PHRASES = {
+    "UNOFFICIAL DOCUMENT",
+    "MOUNTAIN STANDARD TIME OF THE LAST BUSINESS DAY BEFORE THE",
+    "P.M. MOUNTAIN STANDARD TIME ON THE LAST BUSINESS DAY BEFORE THE",
+    "OR YOU MAY HAVE WAIVED ANY DEFENSES OR OBJECTIONS TO THE",
+    "WARRANTY, EXPRESS OR IMPLIED",
+    "MY COMMISSION EXPIRES",
+    "AS SHOWN ON THE DEED OF TRUST",
+}
+
+BAD_TRUSTEE_SUBSTRINGS = [
+    "WARRANTY, EXPRESS OR IMPLIED",
+    "PAY THE",
+    "ENCUMBRANCES",
+    "LAST BUSINESS DAY BEFORE THE",
+    "MY COMMISSION EXPIRES",
+    "UNOFFICIAL DOCUMENT",
+]
+
 TRUSTEE_WHITELIST = {
     "CLEAR RECON": ("CLEAR RECON CORP", "(866) 931-0036"),
     "CLEAR RECON CORP": ("CLEAR RECON CORP", "(866) 931-0036"),
@@ -222,6 +241,53 @@ def _clean_trustee_candidate(value: str) -> str:
     return v
 
 
+
+
+def _clean_owner_noise(value: str) -> str:
+    v = _clean_owner(value)
+    if not v:
+        return ""
+    v = re.sub(r"^.*?NAME AND ADDRESS[:\s]*", "", v, flags=re.I).strip(" ,;:-")
+    v = re.sub(r"^.*?STATED NAME AND ADDRESS[:\s]*", "", v, flags=re.I).strip(" ,;:-")
+    v = re.sub(r"^['’]S\s+NAME\s+AND\s+ADDRESS[:\s]*", "", v, flags=re.I).strip(" ,;:-")
+    v = re.sub(r",?\s+NOT\s+AS\s+TENANTS.*$", "", v, flags=re.I).strip(" ,;:-")
+    v = re.sub(r",?\s+AS\s+COMMUNITY\s+PROPERTY.*$", "", v, flags=re.I).strip(" ,;:-")
+    v = re.sub(r",?\s+SINGLE\s+(?:MAN|WOMAN|PERSON).*$", "", v, flags=re.I).strip(" ,;:-")
+    v = re.sub(r",?\s+A\s+WIDOW.*$", "", v, flags=re.I).strip(" ,;:-")
+    v = re.sub(r"20\d{9}", "", v).strip(" ,;:-")
+    v = re.sub(r"\{\}|\[\]|\(\)", "", v).strip(" ,;:-")
+    v = re.sub(r"WHEREAS,.*$", "", v, flags=re.I).strip(" ,;:-")
+    v = re.sub(r"\s+", " ", v).strip(" ,;:-")
+    return v
+
+
+def _is_bad_trustee_value(value: str) -> bool:
+    v = _normalize_one_line(value)
+    if not v:
+        return True
+    vu = v.upper().strip(" ()")
+    if vu in BAD_TRUSTEE_PHRASES:
+        return True
+    if any(s in vu for s in BAD_TRUSTEE_SUBSTRINGS):
+        return True
+    if len(v.split()) > 12:
+        return True
+    if not re.search(r"(LLC|L\.L\.C\.|INC|CORP|CORPORATION|TRUST|TITLE|RECON|FINANCIAL|SERVICE|SERVICES|MCDONALD|HERB|ESQ\.?|LENDING|SOLUTIONS|PROGRESSIVE|DEFAULT|FORECLOSURE|PIONEER)", vu):
+        return True
+    return False
+
+
+def _clean_partial_property(prop: dict[str, str]) -> dict[str, str]:
+    out = dict(prop)
+    city = (out.get("city") or "").strip()
+    street = (out.get("address") or "").strip()
+    if city and street and city.lower().endswith(" phoenix") and not street.lower().endswith("phoenix"):
+        city = city.split()[-1]
+        out["city"] = city.title()
+    if out.get("state") == "Arizona":
+        out["state"] = "AZ"
+    return out
+
 def _extract_owner_deep(text: str) -> str:
     lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
     # search first 60 lines; many notices keep parties near top
@@ -266,7 +332,7 @@ def _extract_trustee_deep(text: str) -> tuple[str, str]:
                     if key in raw_u:
                         return name, phone
                 # fallback to a plausible trustee line with phone nearby
-                if _looks_like_name_line(raw) and not _is_bad_owner(raw):
+                if _looks_like_name_line(raw) and not _is_bad_owner(raw) and not _is_bad_trustee_value(raw):
                     phone = ""
                     joined = " ".join(window)
                     m_phone = TRUSTEE_PHONE_RE.search(joined)
@@ -346,16 +412,21 @@ def parse_record(
     raw_text_path = raw_text_dir / f"{doc_num or pdf_path.stem}.txt"
     raw_text_path.write_text(text or "", encoding="utf-8")
 
-    owner = _clean_owner(_extract_owner(text))
+    owner = _clean_owner_noise(_extract_owner(text))
     if _is_bad_owner(owner):
-        owner = _clean_owner(_extract_owner_deep(text))
+        owner = _clean_owner_noise(_extract_owner_deep(text))
     if _is_bad_owner(owner):
         flags.append("owner_suspect")
         owner = ""
 
     trustee_name, trustee_phone = _extract_trustee(text)
+    if _is_bad_trustee_value(trustee_name):
+        trustee_name, trustee_phone = "", ""
     if not trustee_name:
         trustee_name, trustee_phone = _extract_trustee_deep(text)
+    if _is_bad_trustee_value(trustee_name):
+        trustee_name, trustee_phone = "", ""
+        flags.append("trustee_suspect")
 
     auction_date = _normalize_date_string(_extract_auction_date(text))
     if not auction_date:
@@ -363,7 +434,7 @@ def parse_record(
     if not auction_date:
         flags.append("auction_date_missing")
 
-    prop = _extract_property_address(text)
+    prop = _clean_partial_property(_extract_property_address(text))
     parcel_number = _clean_parcel_number(_extract_parcel_number(text))
     if not parcel_number:
         flags.append("parcel_missing")

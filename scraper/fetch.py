@@ -23,6 +23,14 @@ ROOT = Path(__file__).resolve().parents[1]
 LOG_PATH = ROOT / "scraper.log"
 DEFAULT_SOURCE = "https://recorder.maricopa.gov/recording/document-search.html"
 
+PDF_SESSION = requests.Session()
+PDF_SESSION.headers.update({
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+    "Accept": "application/pdf,application/octet-stream,*/*",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Connection": "keep-alive",
+})
+
 
 def setup_logging(verbose: bool = False) -> None:
     level = logging.DEBUG if verbose else logging.INFO
@@ -123,7 +131,7 @@ def main() -> int:
         pdf_success = False
 
         if pdf_url and not pdf_path.exists():
-            pdf_success = download_pdf(pdf_url, pdf_path, logger)
+            pdf_success = download_pdf(pdf_url, pdf_path, logger, doc_num=doc_num, clerk_url=clerk_url)
 
         try:
             if pdf_success or pdf_path.exists():
