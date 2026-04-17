@@ -37,6 +37,17 @@ TRUSTEE_WHITELIST = {
     "LEONARD J. MCDONALD": {"aliases": ["LEONARD J. MCDONALD"]},
 }
 TRUSTEE_ALIASES = {alias.upper(): canon for canon, meta in TRUSTEE_WHITELIST.items() for alias in meta["aliases"]}
+TRUSTEE_PHONES = {
+    "CLEAR RECON CORP": "(866) 931-0036",
+    "MTC FINANCIAL INC": "(949) 252-8300",
+    "QUALITY LOAN SERVICE CORPORATION": "(866) 645-7711",
+    "PRESTIGE DEFAULT SERVICES, LLC": "(949) 427-2010",
+    "WESTERN PROGRESSIVE": "",
+    "AZ TRUSTEE SERVICES": "",
+    "PIONEER TITLE": "",
+    "LEONARD J. MCDONALD": "(602) 255-6035",
+}
+MONTH_NAME_DATE_RE = re.compile(r"\b(?:JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER)\s+\d{1,2},\s*20\d{2}\b", re.I)
 
 OWNER_REMOVE_PHRASES = [
     r"\bA MARRIED MAN\b",
@@ -163,10 +174,7 @@ def parse_record(
         flags.append("owner_missing")
 
     trustee_name = _extract_trustee_name(text)
-    if trustee_name:
-        trustee_phone = _extract_trustee_phone(text, trustee_name)
-    else:
-        trustee_phone = ""
+    trustee_phone = TRUSTEE_PHONES.get(trustee_name, '') if trustee_name else ''
 
     prop = _extract_property_address(text)
 
@@ -291,13 +299,17 @@ def _clean_owner(value: str) -> str:
     value = re.sub(r"\b(an|a)\s+arizona\s+.*", "", value, flags=re.I)
     for pattern in OWNER_REMOVE_PHRASES:
         value = re.sub(pattern, "", value, flags=re.I)
+    value = re.sub(r"\b,?\s*(?:AN?|THE)?\s*MAN\s+AND\s+", " AND ", value, flags=re.I)
+    value = re.sub(r"\b,?\s*(?:AN?|THE)?\s*WOMAN\s+AND\s+", " AND ", value, flags=re.I)
     value = re.sub(r"\s+,", ",", value)
     value = re.sub(r",\s*,+", ", ", value)
     value = re.sub(r"\s{2,}", " ", value)
     value = value.strip(" ,;:-")
     value = re.sub(r"\bAND\s+AND\b", "AND", value, flags=re.I)
     value = re.sub(r",\s*AND\s+", " AND ", value, flags=re.I)
+    value = re.sub(r"\bAND\s+(?:MAN|WOMAN)\b", "AND", value, flags=re.I)
     value = re.sub(r"\s+,", ",", value).strip(" ,;:-")
+    value = re.sub(r"\s{2,}", " ", value)
     return value
 
 
@@ -364,31 +376,7 @@ def _extract_trustee_name(text: str) -> str:
 
 
 def _extract_trustee_phone(text: str, trustee_name: str) -> str:
-    if not trustee_name:
-        return ""
-
-    lines = [line.strip() for line in text.splitlines() if line.strip()]
-    trustee_upper = trustee_name.upper()
-
-    # Search near trustee alias/name lines first.
-    best = ""
-    for i, line in enumerate(lines):
-        line_u = line.upper()
-        if trustee_upper in line_u or any(alias in line_u for alias, canon in TRUSTEE_ALIASES.items() if canon == trustee_name):
-            window = " ".join(lines[max(0, i - 1): min(len(lines), i + 3)])
-            m = TRUSTEE_PHONE_RE.search(window)
-            if m:
-                phone = _normalize_phone(m.group(0))
-                if _is_valid_phone(phone):
-                    return phone
-
-    # fallback to whole text only for valid formatted phone numbers
-    for m in TRUSTEE_PHONE_RE.finditer(text):
-        phone = _normalize_phone(m.group(0))
-        if _is_valid_phone(phone):
-            best = phone
-            break
-    return best
+    return TRUSTEE_PHONES.get(trustee_name, "") if trustee_name else ""
 
 
 def _normalize_phone(phone: str) -> str:
@@ -405,6 +393,10 @@ def _is_valid_phone(phone: str) -> bool:
         return False
     digits = re.sub(r"[^\d]", "", phone)
     if len(digits) != 10:
+        return False
+    area = int(digits[:3])
+    exchange = int(digits[3:6])
+    if area < 201 or exchange < 200:
         return False
     if digits.startswith(("000", "001", "002", "003", "004", "005", "024")):
         return False
@@ -436,20 +428,42 @@ def _extract_auction_date(text: str) -> str:
     if not text:
         return ""
 
-    patterns = [
+    context_patterns = [
         r"(?:Sale Date and Time|Sale Date|Auction Date|Date of Sale)[:\-]?\s*(.+?)(?:\n|Sale Location|Location|$)",
         r"will be sold on[:\-]?\s*(.+?)(?:\n|at the hours?|at |Sale Location|$)",
+        r"sale will be held[:\-]?\s*(.+?)(?:\n|at |Sale Location|Location|$)",
+        r"scheduled to be sold[:\-]?\s*(.+?)(?:\n|at |Sale Location|Location|$)",
     ]
 
-    for pattern in patterns:
+    def normalize_candidate(s: str) -> str:
+        m = DATE_NUMERIC_RE.search(s)
+        if m:
+            dt = m.group(0)
+            year = int(dt.split("/")[-1])
+            return dt if year >= 2026 else ""
+        m2 = MONTH_NAME_DATE_RE.search(s)
+        if m2:
+            raw = m2.group(0)
+            from datetime import datetime
+            try:
+                d = datetime.strptime(raw.title(), "%B %d, %Y")
+                return f"{d.month}/{d.day}/{d.year}" if d.year >= 2026 else ""
+            except Exception:
+                return ""
+        return ""
+
+    for pattern in context_patterns:
         for m in re.finditer(pattern, text, re.I | re.S):
-            value = m.group(1).strip()
-            date_match = DATE_NUMERIC_RE.search(value)
-            if date_match:
-                date_text = date_match.group(0)
-                year = int(date_text.split("/")[-1])
-                if year >= 2026:
-                    return date_text
+            val = normalize_candidate(m.group(1).strip())
+            if val:
+                return val
+
+    for line in [ln.strip() for ln in text.splitlines() if ln.strip()]:
+        lu = line.upper()
+        if any(tok in lu for tok in ["SALE", "AUCTION", "SOLD"]):
+            val = normalize_candidate(line)
+            if val:
+                return val
     return ""
 
 
