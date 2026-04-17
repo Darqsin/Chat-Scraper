@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-17T14:01:32.751682",
+  "fetched_at": "2026-04-17T15:17:10.196345",
   "source": "https://recorder.maricopa.gov/recording/document-search.html",
   "date_range": {
     "start": "04/16/2026",
@@ -395,7 +395,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
-      "grantee": "",
+      "grantee": "Unofficial Document",
       "amount": "$238,500.00",
       "legal": "",
       "prop_address": "11122 W Montana Ave",
@@ -409,7 +409,7 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$238,500.00",
-      "trustee_name": "",
+      "trustee_name": "Unofficial Document",
       "trustee_phone": "",
       "auction_date": "2026-07-22",
       "deed_of_trust": "2024-02-29",
@@ -425,7 +425,7 @@
         "owner_suspect",
         "parcel_missing"
       ],
-      "score": 30,
+      "score": 40,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226657.txt"
     },
     {
@@ -820,8 +820,8 @@
       "filed": "2026-04-16",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
-      "owner": "",
-      "grantee": "",
+      "owner": "Mani Hotels, LLC State Bank of Texas",
+      "grantee": "MOUNTAIN STANDARD TIME OF THE LAST BUSINESS DAY BEFORE THE",
       "amount": "$10,000,000.00",
       "legal": "",
       "prop_address": "1429 N. Scottsdale Road",
@@ -835,7 +835,7 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$10,000,000.00",
-      "trustee_name": "",
+      "trustee_name": "MOUNTAIN STANDARD TIME OF THE LAST BUSINESS DAY BEFORE THE",
       "trustee_phone": "",
       "auction_date": "",
       "deed_of_trust": "2024-08-10",
@@ -848,11 +848,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227302.pdf",
       "flags": [
         "ocr_fallback",
-        "owner_suspect",
         "auction_date_missing",
         "parcel_missing"
       ],
-      "score": 30,
+      "score": 60,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227302.txt"
     },
     {
@@ -976,7 +975,7 @@
       "filed": "2026-04-16",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
-      "owner": "",
+      "owner": "WHEREAS, the Deed of Trust was insured by the United States Secretary of Housing and Urban",
       "grantee": "MTC FINANCIAL INC",
       "amount": "$337,252.80",
       "legal": "",
@@ -1003,10 +1002,9 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260227902.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227902.pdf",
       "flags": [
-        "ocr_fallback",
-        "owner_suspect"
+        "ocr_fallback"
       ],
-      "score": 40,
+      "score": 60,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227902.txt"
     },
     {
@@ -1210,8 +1208,8 @@
       "filed": "2026-04-16",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
-      "owner": "",
-      "grantee": "",
+      "owner": "Strong Base, LLC",
+      "grantee": "on November 27, 2024, as instrument number 2024-0637955, executed by Strong Base, LLC",
       "amount": "$725,000.00",
       "legal": "",
       "prop_address": "7537 E. McDonald Drive",
@@ -1225,8 +1223,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$725,000.00",
-      "trustee_name": "",
-      "trustee_phone": "",
+      "trustee_name": "on November 27, 2024, as instrument number 2024-0637955, executed by Strong Base, LLC",
+      "trustee_phone": "024-0637955",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2024-09-23",
       "first_name": "",
@@ -1238,10 +1236,9 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260228010.pdf",
       "flags": [
         "ocr_fallback",
-        "owner_suspect",
         "parcel_missing"
       ],
-      "score": 30,
+      "score": 60,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260228010.txt"
     },
     {
