@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 import pdfplumber
+import requests
 import pytesseract
 import usaddress
 from pdf2image import convert_from_path
@@ -179,6 +180,119 @@ def _extract_deed_of_trust_date(text: str) -> str:
     return ""
 
 
+
+
+def _flatten_strings(obj: Any) -> list[str]:
+    out: list[str] = []
+    if isinstance(obj, dict):
+        for v in obj.values():
+            out.extend(_flatten_strings(v))
+    elif isinstance(obj, list):
+        for v in obj:
+            out.extend(_flatten_strings(v))
+    elif isinstance(obj, str):
+        out.append(obj)
+    return out
+
+
+def _find_value_by_keys(obj: Any, keys: set[str]) -> str:
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if k.lower() in keys and isinstance(v, (str, int, float)):
+                return str(v)
+        for v in obj.values():
+            found = _find_value_by_keys(v, keys)
+            if found:
+                return found
+    elif isinstance(obj, list):
+        for v in obj:
+            found = _find_value_by_keys(v, keys)
+            if found:
+                return found
+    return ""
+
+
+def _normalize_apn_for_lookup(apn: str) -> str:
+    return re.sub(r"[^A-Za-z0-9]", "", apn or "")
+
+
+def _lookup_assessor_by_apn(apn: str) -> dict[str, str]:
+    apn_clean = _normalize_apn_for_lookup(apn)
+    if not apn_clean:
+        return {}
+
+    url = f"https://api.mcassessor.maricopa.gov/parcel/{apn_clean}"
+    headers = {"Accept": "application/json", "User-Agent": "Mozilla/5.0"}
+    try:
+        resp = requests.get(url, headers=headers, timeout=15)
+        resp.raise_for_status()
+        data = resp.json()
+    except Exception as exc:
+        LOGGER.warning("APN lookup failed for %s: %s", apn, exc)
+        return {}
+
+    address = _find_value_by_keys(
+        data,
+        {
+            "propertyaddress",
+            "property_address",
+            "situsaddress",
+            "situs_address",
+            "address",
+            "streetaddress",
+            "siteaddress",
+            "propertyaddress1",
+        },
+    )
+    city = _find_value_by_keys(data, {"propertycity", "city", "situscity", "sitecity"})
+    state = _find_value_by_keys(data, {"propertystate", "state", "situsstate", "sitestate"})
+    zip_code = _find_value_by_keys(data, {"propertyzip", "zipcode", "zip", "situszip", "sitezip"})
+    owner = _find_value_by_keys(
+        data,
+        {
+            "ownername",
+            "owner_name",
+            "owner",
+            "owner1",
+            "ownerdisplayname",
+            "propertyowner",
+        },
+    )
+
+    # Fallback: parse any string that looks like a full AZ address from payload
+    if not address:
+        for s in _flatten_strings(data):
+            s_clean = _clean_address(s)
+            if re.search(r"\bAZ\b|\bArizona\b", s_clean, re.I) and re.search(r"\d{5}(?:-\d{4})?\b", s_clean):
+                parsed = _parse_address(s_clean)
+                if parsed.get("address") and not _is_bad_property_address(parsed):
+                    address = parsed["address"]
+                    city = city or parsed["city"]
+                    state = state or parsed["state"]
+                    zip_code = zip_code or parsed["zip"]
+                    break
+
+    if address:
+        parsed = _parse_address(_clean_address(f"{address}, {city}, {state} {zip_code}".strip(", ")))
+        if parsed.get("address"):
+            address = parsed["address"]
+            city = city or parsed["city"]
+            state = state or parsed["state"]
+            zip_code = zip_code or parsed["zip"]
+
+    state = "AZ" if str(state).strip().lower() == "arizona" else str(state).strip()
+    zip_code = str(zip_code).strip()[:10]
+    owner = _clean_owner(str(owner)) if owner else ""
+
+    return {
+        "address": _clean_address(str(address)),
+        "city": str(city).strip().replace(",", ""),
+        "state": state,
+        "zip": zip_code,
+        "owner": owner,
+    }
+
+
 def parse_record(
     pdf_path: str | Path,
     clerk_url: str,
@@ -236,6 +350,22 @@ def parse_record(
     parcel_number = _clean_parcel_number(_extract_parcel_number(text))
     if not parcel_number:
         flags.append("parcel_missing")
+
+    # APN fallback for missing property address and owner
+    if parcel_number and (not prop.get("address") or not owner):
+        assessor = _lookup_assessor_by_apn(parcel_number)
+        if assessor:
+            if not prop.get("address") and assessor.get("address"):
+                prop = {
+                    "address": assessor.get("address", ""),
+                    "city": assessor.get("city", ""),
+                    "state": assessor.get("state", ""),
+                    "zip": assessor.get("zip", ""),
+                }
+                flags.append("property_from_apn_lookup")
+            if not owner and assessor.get("owner"):
+                owner = assessor.get("owner", "")
+                flags.append("owner_from_apn_lookup")
 
     amount = _find_first(MONEY_RE, text)
     deed_of_trust = _extract_deed_of_trust_date(text)
