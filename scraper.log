@@ -1367,3 +1367,8 @@ NameError: name 'is_valid_property_address' is not defined
 2026-04-17 15:31:15,005 | WARNING | fetch | Fallback record used for 20260228499: parse_record() got an unexpected keyword argument 'pdf_path'
 2026-04-17 15:31:15,005 | WARNING | fetch | Fallback record used for 20260228514: parse_record() got an unexpected keyword argument 'pdf_path'
 2026-04-17 15:31:15,032 | INFO | fetch | FINAL: 39 records | 0 with address
+2026-04-17 16:05:53,668 | INFO | fetch | Date range: 04/16/2026 -> 04/16/2026
+2026-04-17 16:05:53,973 | INFO | clerk_scraper | Page 1: 39 records
+2026-04-17 16:06:08,684 | INFO | clerk_scraper | Total records: 39
+2026-04-17 16:06:08,685 | INFO | fetch | Scraped 39 records
+2026-04-17 16:09:24,608 | INFO | fetch | FINAL: 39 records | 39 with address
