@@ -1372,3 +1372,47 @@ NameError: name 'is_valid_property_address' is not defined
 2026-04-17 16:06:08,684 | INFO | clerk_scraper | Total records: 39
 2026-04-17 16:06:08,685 | INFO | fetch | Scraped 39 records
 2026-04-17 16:09:24,608 | INFO | fetch | FINAL: 39 records | 39 with address
+2026-04-17 16:14:11,537 | INFO | fetch | Date range: 04/16/2026 -> 04/16/2026
+2026-04-17 16:14:11,867 | INFO | clerk_scraper | Page 1: 39 records
+2026-04-17 16:14:15,265 | INFO | clerk_scraper | Total records: 39
+2026-04-17 16:14:15,265 | INFO | fetch | Scraped 39 records
+2026-04-17 16:14:15,265 | WARNING | fetch | Fallback record used for 20260225916: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,266 | WARNING | fetch | Fallback record used for 20260226177: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,266 | WARNING | fetch | Fallback record used for 20260226185: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,266 | WARNING | fetch | Fallback record used for 20260226190: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,266 | WARNING | fetch | Fallback record used for 20260226195: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,266 | WARNING | fetch | Fallback record used for 20260226197: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,266 | WARNING | fetch | Fallback record used for 20260226200: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,266 | WARNING | fetch | Fallback record used for 20260226202: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,266 | WARNING | fetch | Fallback record used for 20260226317: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,266 | WARNING | fetch | Fallback record used for 20260226412: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,266 | WARNING | fetch | Fallback record used for 20260226657: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,267 | WARNING | fetch | Fallback record used for 20260226771: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,267 | WARNING | fetch | Fallback record used for 20260226956: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,267 | WARNING | fetch | Fallback record used for 20260226960: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,267 | WARNING | fetch | Fallback record used for 20260227028: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,267 | WARNING | fetch | Fallback record used for 20260227091: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,267 | WARNING | fetch | Fallback record used for 20260227136: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,267 | WARNING | fetch | Fallback record used for 20260227218: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,267 | WARNING | fetch | Fallback record used for 20260227219: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,267 | WARNING | fetch | Fallback record used for 20260227220: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,267 | WARNING | fetch | Fallback record used for 20260227284: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,267 | WARNING | fetch | Fallback record used for 20260227302: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,268 | WARNING | fetch | Fallback record used for 20260227512: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,268 | WARNING | fetch | Fallback record used for 20260227521: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,268 | WARNING | fetch | Fallback record used for 20260227539: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,268 | WARNING | fetch | Fallback record used for 20260227902: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,268 | WARNING | fetch | Fallback record used for 20260227926: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,268 | WARNING | fetch | Fallback record used for 20260227939: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,268 | WARNING | fetch | Fallback record used for 20260227955: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,268 | WARNING | fetch | Fallback record used for 20260227961: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,268 | WARNING | fetch | Fallback record used for 20260227974: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,268 | WARNING | fetch | Fallback record used for 20260228010: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,268 | WARNING | fetch | Fallback record used for 20260228017: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,269 | WARNING | fetch | Fallback record used for 20260228048: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,269 | WARNING | fetch | Fallback record used for 20260228059: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,269 | WARNING | fetch | Fallback record used for 20260228370: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,269 | WARNING | fetch | Fallback record used for 20260228380: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,269 | WARNING | fetch | Fallback record used for 20260228499: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,269 | WARNING | fetch | Fallback record used for 20260228514: parse_record() got an unexpected keyword argument 'pdf_path'
+2026-04-17 16:14:15,297 | INFO | fetch | FINAL: 39 records | 0 with address
