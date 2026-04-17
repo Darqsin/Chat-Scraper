@@ -30,6 +30,14 @@ PARCEL_RE = re.compile(
 DOC_NUM_RE = re.compile(r"\b20\d{9,}\b")
 STREET_ONLY_RE = re.compile(r"\b\d{3,6}\s+[A-Za-z0-9 .'\-#/]+\s(?:AVE|AVENUE|ST|STREET|RD|ROAD|DR|DRIVE|LN|LANE|BLVD|BOULEVARD|CT|COURT|CIR|CIRCLE|PL|PLACE|PKWY|PARKWAY|TRL|TRAIL|WAY)\b(?:\s+(?:UNIT|STE|APT|#)\s*\w+)?", re.I)
 
+PERSONISH_LINE_RE = re.compile(r"^[A-Z][A-Z .,'&/-]{4,}$")
+TITLEISH_LINE_RE = re.compile(r"^[A-Z][A-Za-z .,'&/-]{4,}$")
+BAD_NAME_TOKENS = {
+    "NOTICE", "TRUSTEE", "SALE", "ARIZONA", "COUNTY", "RECORDS", "PHONE",
+    "INFORMATION", "BENEFICIARY", "COMMON", "DESIGNATION", "PROPERTY", "ADDRESS",
+    "PUBLIC", "AUCTION", "DATED", "RECORDED", "APN", "PARCEL", "LEGAL"
+}
+
 TRUSTEE_WHITELIST = {
     "CLEAR RECON": ("CLEAR RECON CORP", "(866) 931-0036"),
     "CLEAR RECON CORP": ("CLEAR RECON CORP", "(866) 931-0036"),
@@ -180,6 +188,122 @@ def _extract_deed_of_trust_date(text: str) -> str:
     return ""
 
 
+
+
+def _looks_like_name_line(value: str) -> bool:
+    v = _normalize_one_line(value)
+    if len(v) < 5:
+        return False
+    vu = v.upper()
+    if any(tok in vu for tok in BAD_NAME_TOKENS):
+        return False
+    if STREET_ONLY_RE.search(v):
+        return False
+    # reject obvious address/city lines
+    if re.search(r"\b(AZ|ARIZONA)\b", vu) and re.search(r"\b\d{5}\b", vu):
+        return False
+    if PERSONISH_LINE_RE.match(vu) or TITLEISH_LINE_RE.match(v):
+        return True
+    # allow LLC / INC / TRUST names too
+    if re.search(r"\b(LLC|L\.L\.C\.|INC|CORP|CORPORATION|TRUST|LP|LTD)\b", vu):
+        return True
+    return False
+
+
+def _clean_trustee_candidate(value: str) -> str:
+    v = _normalize_one_line(value)
+    v = re.sub(r"^(current|substitute)?\s*trustee[:\-\s]*", "", v, flags=re.I)
+    v = re.sub(r"\bwhose address is.*", "", v, flags=re.I)
+    v = re.sub(r"\bwhose business address is.*", "", v, flags=re.I)
+    v = re.sub(r"\bwhose street address is.*", "", v, flags=re.I)
+    v = re.sub(r"\bphone[:\-\s].*", "", v, flags=re.I)
+    v = re.sub(r"\btelephone[:\-\s].*", "", v, flags=re.I)
+    v = v.strip(" ,;:-")
+    return v
+
+
+def _extract_owner_deep(text: str) -> str:
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    # search first 60 lines; many notices keep parties near top
+    for i, line in enumerate(lines[:60]):
+        if re.search(r"\b(original trustor|trustor|grantor|borrower|owner of record|owner)\b", line, re.I):
+            window_lines = lines[i:i+5]
+            for cand in window_lines:
+                cand = re.sub(r".*?\b(original trustor|trustor|grantor|borrower|owner of record|owner)\b[:\-\s]*", "", cand, flags=re.I)
+                cand = re.sub(r"\b(as trustee|dated .*|under .* trust|trust dated .*|a/k/a.*)\b.*", "", cand, flags=re.I)
+                cand = _clean_owner(cand)
+                if _looks_like_name_line(cand) and not _is_bad_owner(cand):
+                    return cand
+
+    # deed-of-trust style fallback
+    patterns = [
+        r"deed of trust.*?(?:executed by|given by|made by)\s+(.+?)(?:,?\s+recorded|\s+as trustor|\s+trustee|\s+beneficiary|$)",
+        r"(?:executed by|given by|made by)\s+(.+?)(?:,?\s+recorded|\s+as trustor|\s+trustee|\s+beneficiary|$)",
+    ]
+    compact = re.sub(r"\s+", " ", text)
+    for pat in patterns:
+        m = re.search(pat, compact, re.I)
+        if m:
+            cand = _clean_owner(m.group(1))
+            if _looks_like_name_line(cand) and not _is_bad_owner(cand):
+                return cand
+    return ""
+
+
+def _extract_trustee_deep(text: str) -> tuple[str, str]:
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    label_re = re.compile(r"\b(current trustee|substitute trustee|trustee)\b", re.I)
+    for i, line in enumerate(lines[:80]):
+        if label_re.search(line):
+            window = lines[i:i+5]
+            for cand in window:
+                raw = _clean_trustee_candidate(cand)
+                raw_u = raw.upper()
+                if not raw:
+                    continue
+                # first try canonical map using discovered aliases in candidate
+                for key, (name, phone) in TRUSTEE_WHITELIST.items():
+                    if key in raw_u:
+                        return name, phone
+                # fallback to a plausible trustee line with phone nearby
+                if _looks_like_name_line(raw) and not _is_bad_owner(raw):
+                    phone = ""
+                    joined = " ".join(window)
+                    m_phone = TRUSTEE_PHONE_RE.search(joined)
+                    if m_phone:
+                        phone = m_phone.group(0)
+                    return raw, phone
+    return "", ""
+
+
+def _extract_auction_date_deep(text: str) -> str:
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    def year_ok(v: str) -> bool:
+        m = re.search(r"(20\d{2})", v)
+        return bool(m and int(m.group(1)) >= 2026)
+    keywords = ["sale date", "auction date", "date of sale", "public auction", "will be sold", "time of sale", "sale will be held", "to be sold on"]
+    for i, line in enumerate(lines):
+        block = " ".join(lines[i:i+6])
+        if any(k in block.lower() for k in keywords):
+            all_dates = DATE_NUMERIC_RE.findall(block)
+            all_dates += [m.group(0) for m in DATE_TEXT_RE.finditer(block)]
+            for d in all_dates:
+                if year_ok(d):
+                    return d
+    # as a final fallback, choose a 2026+ date only if it appears near "sale" within 120 chars
+    compact = re.sub(r"\s+", " ", text)
+    m = re.search(r"(sale|auction|sold).{0,120}?(" + DATE_NUMERIC_RE.pattern + r"|" + DATE_TEXT_RE.pattern + r")", compact, re.I)
+    if m:
+        # group 2 may be month name only due DATE_TEXT_RE inner capture; search within match
+        chunk = m.group(0)
+        m2 = DATE_NUMERIC_RE.search(chunk)
+        if m2 and year_ok(m2.group(0)):
+            return m2.group(0)
+        m3 = DATE_TEXT_RE.search(chunk)
+        if m3 and year_ok(m3.group(0)):
+            return m3.group(0)
+    return ""
+
 def parse_record(
     pdf_path: str | Path,
     clerk_url: str,
@@ -224,12 +348,18 @@ def parse_record(
 
     owner = _clean_owner(_extract_owner(text))
     if _is_bad_owner(owner):
+        owner = _clean_owner(_extract_owner_deep(text))
+    if _is_bad_owner(owner):
         flags.append("owner_suspect")
         owner = ""
 
     trustee_name, trustee_phone = _extract_trustee(text)
+    if not trustee_name:
+        trustee_name, trustee_phone = _extract_trustee_deep(text)
 
     auction_date = _normalize_date_string(_extract_auction_date(text))
+    if not auction_date:
+        auction_date = _normalize_date_string(_extract_auction_date_deep(text))
     if not auction_date:
         flags.append("auction_date_missing")
 
