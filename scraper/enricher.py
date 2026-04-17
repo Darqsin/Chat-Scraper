@@ -1,251 +1,373 @@
 from __future__ import annotations
 
-import csv
-import json
+import logging
 import re
+from dataclasses import asdict, dataclass
 from pathlib import Path
+from typing import Any
 
-from openpyxl import Workbook
+import pdfplumber
+import pytesseract
+import usaddress
+from pdf2image import convert_from_path
 
-ILLEGAL_XLSX_CHARS_RE = re.compile(r"[\x00-\x08\x0B\x0C\x0E-\x1F]")
+LOGGER = logging.getLogger("enricher")
+
+TRUSTEE_PHONE_RE = re.compile(r"(?:\+?1[-.\s]?)?(?:\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})")
+MONEY_RE = re.compile(r"\$\s?\d{1,3}(?:,\d{3})+(?:\.\d{2})?")
+DATE_NUMERIC_RE = re.compile(r"\b\d{1,2}/\d{1,2}/\d{4}\b")
+PARCEL_RE = re.compile(
+    r"\b(?:APN|A\.P\.N\.|PARCEL\s*(?:NO|NUMBER)?|TAX\s*PARCEL\s*NUMBER|ASSESSOR(?:'S)?\s*(?:NO|NUMBER)?)[:\s#-]*([A-Z0-9-]{6,})",
+    re.I,
+)
+DOC_NUM_RE = re.compile(r"\b20\d{9,}\b")
 
 
-def _clean_excel_value(value):
-    if value is None:
+@dataclass
+class ParsedRecord:
+    doc_num: str = ""
+    doc_type: str = ""
+    filed: str = ""
+    cat: str = "NS"
+    cat_label: str = "Notice of Trustee Sale"
+    owner: str = ""
+    grantee: str = ""
+    amount: str = ""
+    legal: str = ""
+    prop_address: str = ""
+    prop_city: str = ""
+    prop_state: str = ""
+    prop_zip: str = ""
+    mail_address: str = ""
+    mail_city: str = ""
+    mail_state: str = ""
+    mail_zip: str = ""
+    county: str = "Maricopa"
+    parcel_number: str = ""
+    original_loan: str = ""
+    trustee_name: str = ""
+    trustee_phone: str = ""
+    auction_date: str = ""
+    deed_of_trust: str = ""
+    first_name: str = ""
+    last_name: str = ""
+    second_first: str = ""
+    second_last: str = ""
+    clerk_url: str = ""
+    pdf_url: str = ""
+    pdf_path: str = ""
+    flags: list[str] | None = None
+    score: int = 0
+    raw_text_path: str = ""
+
+
+def parse_record(
+    pdf_path: str | Path,
+    clerk_url: str,
+    pdf_url: str,
+    filed: str = "",
+    doc_num: str = "",
+    doc_type: str = "NS",
+    cat_label: str = "Notice of Trustee Sale",
+    raw_text_dir: str | Path = "parsed_output",
+) -> dict[str, Any]:
+    raw_text_dir = Path(raw_text_dir)
+    raw_text_dir.mkdir(parents=True, exist_ok=True)
+
+    flags: list[str] = []
+    pdf_path = Path(pdf_path)
+
+    if not pdf_path.exists():
+        rec = ParsedRecord(
+            doc_num=doc_num,
+            doc_type=doc_type,
+            filed=filed,
+            cat="NS",
+            cat_label=cat_label,
+            clerk_url=clerk_url,
+            pdf_url=pdf_url,
+            pdf_path=str(pdf_path),
+            flags=["no_pdf"],
+            score=0,
+        )
+        return asdict(rec)
+
+    text, _, text_flags = extract_text_from_pdf(pdf_path)
+    flags.extend(text_flags)
+
+    if not text:
+        flags.append("no_text_extracted")
+
+    doc_num = doc_num or _find_first(DOC_NUM_RE, text)
+    owner = _extract_owner(text)
+    trustee_name = _extract_trustee_name(text)
+    prop = _extract_property_address(text)
+
+    raw_text_path = raw_text_dir / f"{doc_num or pdf_path.stem}.txt"
+    raw_text_path.write_text(text or "", encoding="utf-8")
+
+    amount = _find_first(MONEY_RE, text)
+    trustee_phone = _find_first(TRUSTEE_PHONE_RE, text)
+    auction_date = _find_first(DATE_NUMERIC_RE, text)
+    parcel_number = _extract_parcel_number(text)
+    deed_of_trust = _find_first(DOC_NUM_RE, text)
+
+    score = 0
+    if prop.get("address"):
+        score += 30
+    if owner:
+        score += 20
+    if trustee_name:
+        score += 10
+
+    rec = ParsedRecord(
+        doc_num=doc_num,
+        doc_type=doc_type,
+        filed=filed,
+        cat="NS",
+        cat_label=cat_label,
+        owner=owner,
+        grantee=trustee_name,
+        amount=amount,
+        legal="",
+        prop_address=prop.get("address", ""),
+        prop_city=prop.get("city", ""),
+        prop_state=prop.get("state", ""),
+        prop_zip=prop.get("zip", ""),
+        mail_address="",
+        mail_city="",
+        mail_state="",
+        mail_zip="",
+        county="Maricopa",
+        parcel_number=parcel_number,
+        original_loan=amount,
+        trustee_name=trustee_name,
+        trustee_phone=trustee_phone,
+        auction_date=auction_date,
+        deed_of_trust=deed_of_trust,
+        first_name="",
+        last_name="",
+        second_first="",
+        second_last="",
+        clerk_url=clerk_url,
+        pdf_url=pdf_url,
+        pdf_path=str(pdf_path),
+        flags=flags,
+        score=score,
+        raw_text_path=str(raw_text_path),
+    )
+    return asdict(rec)
+
+
+def extract_text_from_pdf(pdf_path: str | Path, dpi: int = 250):
+    flags: list[str] = []
+    text = ""
+
+    try:
+        with pdfplumber.open(str(pdf_path)) as pdf:
+            for page in pdf.pages:
+                page_text = page.extract_text() or ""
+                text += page_text + "\n"
+    except Exception as exc:
+        LOGGER.warning("pdfplumber failed for %s: %s", pdf_path, exc)
+        flags.append("pdfplumber_failed")
+
+    if len(text.strip()) < 50:
+        flags.append("ocr_fallback")
+        try:
+            images = convert_from_path(str(pdf_path), dpi=dpi)
+            text = ""
+            for img in images:
+                text += pytesseract.image_to_string(img) + "\n"
+        except Exception as exc:
+            LOGGER.warning("OCR failed for %s: %s", pdf_path, exc)
+            flags.append("ocr_failed")
+
+    text = _clean_text(text)
+    return text, [], flags
+
+
+def _clean_text(text: str) -> str:
+    text = text.replace("\x00", " ")
+    text = text.replace("\f", " ")
+    text = re.sub(r"[ \t]+", " ", text)
+    text = re.sub(r"\n{2,}", "\n", text)
+    return text.strip()
+
+
+def _find_first(pattern, text: str) -> str:
+    m = pattern.search(text or "")
+    if not m:
         return ""
-
-    if isinstance(value, (int, float, bool)):
-        return value
-
-    if isinstance(value, (list, dict)):
-        value = json.dumps(value, ensure_ascii=False)
-
-    value = str(value)
-    value = ILLEGAL_XLSX_CHARS_RE.sub("", value)
-    value = value.replace("\r\n", "\n").replace("\r", "\n")
-    value = re.sub(r"\n{3,}", "\n\n", value)
-    return value.strip()
+    if m.lastindex:
+        return (m.group(1) or "").strip()
+    return (m.group(0) or "").strip()
 
 
-def _ensure_list(val):
-    if val is None:
-        return []
-    if isinstance(val, list):
-        return val
-    return [str(val)]
+def _extract_owner(text: str) -> str:
+    text = text or ""
+
+    patterns = [
+        r"Original Trustor(?:'s)?(?: Name and Address)?[:\-]?\s*(.+?)(?:Current Trustee|Trustee|Beneficiary|Sale Date|NOTICE OF TRUSTEE|$)",
+        r"Trustor(?:s)?[:\-]?\s*(.+?)(?:Trustee|Beneficiary|Property Address|Sale Date|$)",
+        r"Borrower[:\-]?\s*(.+?)(?:Trustee|Beneficiary|Property Address|Sale Date|$)",
+    ]
+
+    for pattern in patterns:
+        m = re.search(pattern, text, re.I | re.S)
+        if m:
+            value = _normalize_one_line(m.group(1))
+            value = re.sub(r"\b\d{3,6}\s+.*", "", value).strip(" ,;:-")
+            if len(value) > 5:
+                return value
+
+    return ""
 
 
-def _clean_record(record: dict) -> dict:
-    cleaned = {}
-    for k, v in record.items():
-        if k == "flags":
-            cleaned[k] = _ensure_list(v)
-        else:
-            cleaned[k] = _clean_excel_value(v)
-    return cleaned
+def _extract_trustee_name(text: str) -> str:
+    text = text or ""
+
+    m = re.search(
+        r"The undersigned Trustee,\s*([^,\n]+),\s*Attorney at Law",
+        text,
+        re.I,
+    )
+    if m:
+        return m.group(1).strip()
+
+    patterns = [
+        r"Current Trustee(?:'s)?(?: Name and Address)?[:\-]?\s*(.+?)(?:Phone|Telephone|Sale Date|$)",
+        r"Trustee[:\-]?\s*(.+?)(?:Phone|Telephone|Sale Date|$)",
+    ]
+
+    for pattern in patterns:
+        m = re.search(pattern, text, re.I | re.S)
+        if not m:
+            continue
+
+        value = _normalize_one_line(m.group(1))
+        lower = value.lower()
+
+        if any(x in lower for x in ["sale", "objection", "must file", "court order", "superior court"]):
+            continue
+        if re.search(r"\d{3,5}\s+.+\b(AZ|CA|TX|NV|NM)\b", value, re.I):
+            continue
+        if any(x in lower for x in ["street", "avenue", "road", "suite", "lane", "drive", "boulevard"]):
+            continue
+        if len(value) > 5:
+            return value
+
+    return ""
 
 
-def build_records_payload(records: list[dict], source: str, date_range: dict) -> dict:
-    cleaned_records = [_clean_record(r) for r in records]
-    with_address = sum(1 for r in cleaned_records if r.get("prop_address"))
+def _extract_parcel_number(text: str) -> str:
+    m = PARCEL_RE.search(text or "")
+    return m.group(1).strip() if m else ""
+
+
+def _extract_property_address(text: str) -> dict[str, str]:
+    text = text or ""
+
+    multiline_patterns = [
+        r"The street address/location of the real property described above is purported to be:\s*([^\n]+)\s+([A-Za-z .]+,\s*(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
+        r"Street address or identifiable location:\s*([^\n]+)\s+([A-Za-z .]+,\s*(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
+        r"Purported Street Address[:\-]?\s*([^\n]+)\s+([A-Za-z .]+,\s*(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
+    ]
+
+    for pattern in multiline_patterns:
+        m = re.search(pattern, text, re.I)
+        if m:
+            combined = _clean_address(f"{m.group(1)}, {m.group(2)}")
+            parsed = _parse_address(combined)
+            if parsed["address"]:
+                return parsed
+
+    single_patterns = [
+        r"The street address is purported to be[:\-]?\s*(.+?(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
+        r"The street address/location of the real property described above is purported to be[:\-]?\s*(.+?(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
+        r"Street address or identifiable location[:\-]?\s*(.+?(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
+        r"Purported Street Address[:\-]?\s*(.+?(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
+        r"Property Address[:\-]?\s*(.+?(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
+    ]
+
+    candidates: list[str] = []
+
+    for pattern in single_patterns:
+        for m in re.finditer(pattern, text, re.I):
+            candidate = _clean_address(m.group(1))
+            if candidate:
+                candidates.append(candidate)
+
+    fallback_matches = re.findall(
+        r"\d{3,6}\s+[A-Za-z0-9 .'\-#]+,\s*[A-Za-z .]+,\s*(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?",
+        text,
+        re.I,
+    )
+    candidates.extend(_clean_address(x) for x in fallback_matches if x)
+
+    return _best_address(candidates)
+
+
+def _clean_address(val: str) -> str:
+    val = val or ""
+    val = val.replace("\f", " ")
+    val = re.sub(r"Tax Parcel.*", "", val, flags=re.I)
+    val = re.sub(r"Parcel.*", "", val, flags=re.I)
+    val = re.sub(r"APN.*", "", val, flags=re.I)
+    val = re.sub(r"\s+", " ", val)
+    return val.strip(" ,;:-")
+
+
+def _best_address(candidates: list[str]) -> dict[str, str]:
+    for c in candidates:
+        if len(c) < 15:
+            continue
+        parsed = _parse_address(c)
+        if parsed["address"] and parsed["zip"]:
+            return parsed
+
+    return {"address": "", "city": "", "state": "", "zip": ""}
+
+
+def _parse_address(val: str) -> dict[str, str]:
+    try:
+        tagged, _ = usaddress.tag(val)
+    except Exception:
+        return {"address": "", "city": "", "state": "", "zip": ""}
+
+    street_parts = []
+    for key in [
+        "AddressNumber",
+        "StreetNamePreDirectional",
+        "StreetNamePreType",
+        "StreetName",
+        "StreetNamePostType",
+        "StreetNamePostDirectional",
+        "OccupancyType",
+        "OccupancyIdentifier",
+    ]:
+        if key in tagged:
+            street_parts.append(tagged[key])
+
+    street = " ".join(street_parts).strip()
+    city = tagged.get("PlaceName", "").strip()
+    state = tagged.get("StateName", "").strip()
+    zipcode = tagged.get("ZipCode", "").strip()
+
+    if state.lower() == "arizona":
+        state = "AZ"
+    if len(zipcode) > 5:
+        zipcode = zipcode[:5]
+
     return {
-        "fetched_at": __import__("datetime").datetime.utcnow().isoformat(),
-        "source": source,
-        "date_range": date_range,
-        "total": len(cleaned_records),
-        "with_address": with_address,
-        "records": cleaned_records,
+        "address": street,
+        "city": city,
+        "state": state,
+        "zip": zipcode,
     }
 
 
-def write_json_records(payload: dict, *paths: Path) -> None:
-    for path in paths:
-        path.parent.mkdir(parents=True, exist_ok=True)
-        clean_payload = {
-            **payload,
-            "records": [_clean_record(r) for r in payload.get("records", [])],
-        }
-        path.write_text(
-            json.dumps(clean_payload, indent=2, ensure_ascii=False),
-            encoding="utf-8",
-        )
-
-
-def write_flat_csv(records: list[dict], path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    cleaned = [_clean_record(r) for r in records]
-
-    fieldnames = [
-        "doc_num",
-        "doc_type",
-        "filed",
-        "cat",
-        "cat_label",
-        "owner",
-        "grantee",
-        "amount",
-        "legal",
-        "prop_address",
-        "prop_city",
-        "prop_state",
-        "prop_zip",
-        "mail_address",
-        "mail_city",
-        "mail_state",
-        "mail_zip",
-        "county",
-        "parcel_number",
-        "original_loan",
-        "trustee_name",
-        "trustee_phone",
-        "auction_date",
-        "deed_of_trust",
-        "first_name",
-        "last_name",
-        "second_first",
-        "second_last",
-        "clerk_url",
-        "pdf_url",
-        "pdf_path",
-        "flags",
-        "score",
-        "raw_text_path",
-    ]
-
-    with path.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
-        writer.writeheader()
-        for row in cleaned:
-            out = dict(row)
-            out["flags"] = ", ".join(_ensure_list(out.get("flags")))
-            writer.writerow(out)
-
-
-def write_ghl_csv(records: list[dict], path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    cleaned = [_clean_record(r) for r in records]
-
-    fieldnames = [
-        "Deed of Trust",
-        "First Name",
-        "Last Name",
-        "2nd First",
-        "2nd Last",
-        "Street Address",
-        "City",
-        "State",
-        "Postal Code",
-        "Property Address",
-        "Property City",
-        "Property State",
-        "Property Postal Code",
-        "County",
-        "Parcel Number",
-        "Original Loan",
-        "Estimated Value",
-        "Equity",
-        "Trustee Name",
-        "Trustee Phone",
-        "Auction Date",
-    ]
-
-    with path.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        for r in cleaned:
-            writer.writerow(
-                {
-                    "Deed of Trust": r.get("deed_of_trust", ""),
-                    "First Name": r.get("first_name", ""),
-                    "Last Name": r.get("last_name", ""),
-                    "2nd First": r.get("second_first", ""),
-                    "2nd Last": r.get("second_last", ""),
-                    "Street Address": r.get("mail_address", ""),
-                    "City": r.get("mail_city", ""),
-                    "State": r.get("mail_state", ""),
-                    "Postal Code": r.get("mail_zip", ""),
-                    "Property Address": r.get("prop_address", ""),
-                    "Property City": r.get("prop_city", ""),
-                    "Property State": r.get("prop_state", ""),
-                    "Property Postal Code": r.get("prop_zip", ""),
-                    "County": r.get("county", "Maricopa"),
-                    "Parcel Number": r.get("parcel_number", ""),
-                    "Original Loan": r.get("original_loan", r.get("amount", "")),
-                    "Estimated Value": "",
-                    "Equity": "",
-                    "Trustee Name": r.get("trustee_name", r.get("grantee", "")),
-                    "Trustee Phone": r.get("trustee_phone", ""),
-                    "Auction Date": r.get("auction_date", ""),
-                }
-            )
-
-
-def write_xlsx(records: list[dict], path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    cleaned = [_clean_record(r) for r in records]
-
-    wb = Workbook()
-    ws = wb.active
-    ws.title = "NTS Leads"
-
-    headers = [
-        "doc_num",
-        "doc_type",
-        "filed",
-        "cat",
-        "cat_label",
-        "owner",
-        "grantee",
-        "amount",
-        "legal",
-        "prop_address",
-        "prop_city",
-        "prop_state",
-        "prop_zip",
-        "mail_address",
-        "mail_city",
-        "mail_state",
-        "mail_zip",
-        "county",
-        "parcel_number",
-        "original_loan",
-        "trustee_name",
-        "trustee_phone",
-        "auction_date",
-        "deed_of_trust",
-        "first_name",
-        "last_name",
-        "second_first",
-        "second_last",
-        "clerk_url",
-        "pdf_url",
-        "pdf_path",
-        "flags",
-        "score",
-        "raw_text_path",
-    ]
-
-    ws.append(headers)
-
-    for r in cleaned:
-        row = []
-        for h in headers:
-            val = r.get(h, "")
-            if isinstance(val, list):
-                val = ", ".join(val)
-            row.append(_clean_excel_value(val))
-        ws.append(row)
-
-    for col in ws.columns:
-        max_len = 0
-        col_letter = col[0].column_letter
-        for cell in col:
-            try:
-                cell_len = len(str(cell.value)) if cell.value is not None else 0
-                if cell_len > max_len:
-                    max_len = cell_len
-            except Exception:
-                pass
-        ws.column_dimensions[col_letter].width = min(max(max_len + 2, 12), 60)
-
-    wb.save(path)
+def _normalize_one_line(value: str) -> str:
+    value = value.replace("\f", " ")
+    value = re.sub(r"\s+", " ", value)
+    return value.strip()
