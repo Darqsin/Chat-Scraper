@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 import re
+from datetime import datetime
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
@@ -125,6 +126,59 @@ class ParsedRecord:
     raw_text_path: str = ""
 
 
+
+def _normalize_date_string(value: str) -> str:
+    value = (value or "").strip()
+    if not value:
+        return ""
+    formats = [
+        "%m/%d/%Y",
+        "%m/%d/%y",
+        "%B %d, %Y",
+        "%b %d, %Y",
+    ]
+    for fmt in formats:
+        try:
+            return datetime.strptime(value, fmt).strftime("%Y-%m-%d")
+        except ValueError:
+            pass
+    return value
+
+
+def _extract_deed_of_trust_date(text: str) -> str:
+    if not text:
+        return ""
+
+    compact = re.sub(r"[ \t]+", " ", text)
+    compact = re.sub(r"\n{2,}", "\n", compact)
+
+    patterns = [
+        r"Deed of Trust recorded on[:\-\s]{0,20}([A-Za-z]+\s+\d{1,2},\s+\d{4})",
+        r"Deed of Trust recorded on[:\-\s]{0,20}(\d{1,2}/\d{1,2}/\d{4})",
+        r"Deed of Trust .*? recorded .*? on[:\-\s]{0,20}([A-Za-z]+\s+\d{1,2},\s+\d{4})",
+        r"Deed of Trust .*? recorded .*? on[:\-\s]{0,20}(\d{1,2}/\d{1,2}/\d{4})",
+        r"recorded on[:\-\s]{0,20}([A-Za-z]+\s+\d{1,2},\s+\d{4}).{0,80}?Deed of Trust",
+        r"recorded on[:\-\s]{0,20}(\d{1,2}/\d{1,2}/\d{4}).{0,80}?Deed of Trust",
+    ]
+    for pat in patterns:
+        m = re.search(pat, compact, re.I | re.S)
+        if m:
+            return _normalize_date_string(m.group(1))
+
+    lines = [line.strip() for line in compact.splitlines() if line.strip()]
+    for i, line in enumerate(lines):
+        block = " ".join(lines[max(0, i-1):i+2])
+        if "deed of trust" in block.lower() and "recorded" in block.lower():
+            m = DATE_NUMERIC_RE.search(block)
+            if m:
+                return _normalize_date_string(m.group(0))
+            m2 = DATE_TEXT_RE.search(block)
+            if m2:
+                return _normalize_date_string(m2.group(0))
+
+    return ""
+
+
 def parse_record(
     pdf_path: str | Path,
     clerk_url: str,
@@ -174,7 +228,7 @@ def parse_record(
 
     trustee_name, trustee_phone = _extract_trustee(text)
 
-    auction_date = _extract_auction_date(text)
+    auction_date = _normalize_date_string(_extract_auction_date(text))
     if not auction_date:
         flags.append("auction_date_missing")
 
@@ -184,7 +238,7 @@ def parse_record(
         flags.append("parcel_missing")
 
     amount = _find_first(MONEY_RE, text)
-    deed_of_trust = _find_first(DOC_NUM_RE, text)
+    deed_of_trust = _extract_deed_of_trust_date(text)
 
     score = 0
     if prop.get("address"):
