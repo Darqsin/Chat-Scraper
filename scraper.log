@@ -1464,3 +1464,8 @@ NameError: name 'is_valid_property_address' is not defined
 2026-04-17 17:27:18,976 | WARNING | fetch | Fallback record used for 20260228499: cannot access local variable 'trustee_name' where it is not associated with a value
 2026-04-17 17:27:23,999 | WARNING | fetch | Fallback record used for 20260228514: cannot access local variable 'trustee_name' where it is not associated with a value
 2026-04-17 17:27:24,027 | INFO | fetch | FINAL: 39 records | 1 with address
+2026-04-17 17:43:37,408 | INFO | fetch | Date range: 04/16/2026 -> 04/16/2026
+2026-04-17 17:43:37,652 | INFO | clerk_scraper | Page 1: 39 records
+2026-04-17 17:43:43,235 | INFO | clerk_scraper | Total records: 39
+2026-04-17 17:43:43,236 | INFO | fetch | Scraped 39 records
+2026-04-17 17:46:22,370 | INFO | fetch | FINAL: 39 records | 39 with address
