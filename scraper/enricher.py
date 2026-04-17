@@ -8,7 +8,6 @@ from pathlib import Path
 from typing import Any
 
 import pdfplumber
-import requests
 import pytesseract
 import usaddress
 from pdf2image import convert_from_path
@@ -29,6 +28,7 @@ PARCEL_RE = re.compile(
     re.I,
 )
 DOC_NUM_RE = re.compile(r"\b20\d{9,}\b")
+STREET_ONLY_RE = re.compile(r"\b\d{3,6}\s+[A-Za-z0-9 .'\-#/]+\s(?:AVE|AVENUE|ST|STREET|RD|ROAD|DR|DRIVE|LN|LANE|BLVD|BOULEVARD|CT|COURT|CIR|CIRCLE|PL|PLACE|PKWY|PARKWAY|TRL|TRAIL|WAY)\b(?:\s+(?:UNIT|STE|APT|#)\s*\w+)?", re.I)
 
 TRUSTEE_WHITELIST = {
     "CLEAR RECON": ("CLEAR RECON CORP", "(866) 931-0036"),
@@ -180,119 +180,6 @@ def _extract_deed_of_trust_date(text: str) -> str:
     return ""
 
 
-
-
-def _flatten_strings(obj: Any) -> list[str]:
-    out: list[str] = []
-    if isinstance(obj, dict):
-        for v in obj.values():
-            out.extend(_flatten_strings(v))
-    elif isinstance(obj, list):
-        for v in obj:
-            out.extend(_flatten_strings(v))
-    elif isinstance(obj, str):
-        out.append(obj)
-    return out
-
-
-def _find_value_by_keys(obj: Any, keys: set[str]) -> str:
-    if isinstance(obj, dict):
-        for k, v in obj.items():
-            if k.lower() in keys and isinstance(v, (str, int, float)):
-                return str(v)
-        for v in obj.values():
-            found = _find_value_by_keys(v, keys)
-            if found:
-                return found
-    elif isinstance(obj, list):
-        for v in obj:
-            found = _find_value_by_keys(v, keys)
-            if found:
-                return found
-    return ""
-
-
-def _normalize_apn_for_lookup(apn: str) -> str:
-    return re.sub(r"[^A-Za-z0-9]", "", apn or "")
-
-
-def _lookup_assessor_by_apn(apn: str) -> dict[str, str]:
-    apn_clean = _normalize_apn_for_lookup(apn)
-    if not apn_clean:
-        return {}
-
-    url = f"https://api.mcassessor.maricopa.gov/parcel/{apn_clean}"
-    headers = {"Accept": "application/json", "User-Agent": "Mozilla/5.0"}
-    try:
-        resp = requests.get(url, headers=headers, timeout=15)
-        resp.raise_for_status()
-        data = resp.json()
-    except Exception as exc:
-        LOGGER.warning("APN lookup failed for %s: %s", apn, exc)
-        return {}
-
-    address = _find_value_by_keys(
-        data,
-        {
-            "propertyaddress",
-            "property_address",
-            "situsaddress",
-            "situs_address",
-            "address",
-            "streetaddress",
-            "siteaddress",
-            "propertyaddress1",
-        },
-    )
-    city = _find_value_by_keys(data, {"propertycity", "city", "situscity", "sitecity"})
-    state = _find_value_by_keys(data, {"propertystate", "state", "situsstate", "sitestate"})
-    zip_code = _find_value_by_keys(data, {"propertyzip", "zipcode", "zip", "situszip", "sitezip"})
-    owner = _find_value_by_keys(
-        data,
-        {
-            "ownername",
-            "owner_name",
-            "owner",
-            "owner1",
-            "ownerdisplayname",
-            "propertyowner",
-        },
-    )
-
-    # Fallback: parse any string that looks like a full AZ address from payload
-    if not address:
-        for s in _flatten_strings(data):
-            s_clean = _clean_address(s)
-            if re.search(r"\bAZ\b|\bArizona\b", s_clean, re.I) and re.search(r"\d{5}(?:-\d{4})?\b", s_clean):
-                parsed = _parse_address(s_clean)
-                if parsed.get("address") and not _is_bad_property_address(parsed):
-                    address = parsed["address"]
-                    city = city or parsed["city"]
-                    state = state or parsed["state"]
-                    zip_code = zip_code or parsed["zip"]
-                    break
-
-    if address:
-        parsed = _parse_address(_clean_address(f"{address}, {city}, {state} {zip_code}".strip(", ")))
-        if parsed.get("address"):
-            address = parsed["address"]
-            city = city or parsed["city"]
-            state = state or parsed["state"]
-            zip_code = zip_code or parsed["zip"]
-
-    state = "AZ" if str(state).strip().lower() == "arizona" else str(state).strip()
-    zip_code = str(zip_code).strip()[:10]
-    owner = _clean_owner(str(owner)) if owner else ""
-
-    return {
-        "address": _clean_address(str(address)),
-        "city": str(city).strip().replace(",", ""),
-        "state": state,
-        "zip": zip_code,
-        "owner": owner,
-    }
-
-
 def parse_record(
     pdf_path: str | Path,
     clerk_url: str,
@@ -350,22 +237,6 @@ def parse_record(
     parcel_number = _clean_parcel_number(_extract_parcel_number(text))
     if not parcel_number:
         flags.append("parcel_missing")
-
-    # APN fallback for missing property address and owner
-    if parcel_number and (not prop.get("address") or not owner):
-        assessor = _lookup_assessor_by_apn(parcel_number)
-        if assessor:
-            if not prop.get("address") and assessor.get("address"):
-                prop = {
-                    "address": assessor.get("address", ""),
-                    "city": assessor.get("city", ""),
-                    "state": assessor.get("state", ""),
-                    "zip": assessor.get("zip", ""),
-                }
-                flags.append("property_from_apn_lookup")
-            if not owner and assessor.get("owner"):
-                owner = assessor.get("owner", "")
-                flags.append("owner_from_apn_lookup")
 
     amount = _find_first(MONEY_RE, text)
     deed_of_trust = _extract_deed_of_trust_date(text)
@@ -487,6 +358,7 @@ def _clean_owner(value: str) -> str:
     value = re.sub(r"\bAND\s+AND\b", "AND", value, flags=re.I)
     value = re.sub(r"\s+", " ", value)
     value = value.strip(" ,;:-")
+    value = re.sub(r"\bAND MAN AND\b", "AND", value, flags=re.I)
     parts = [p.strip() for p in re.split(r"\bAND\b", value) if p.strip()]
     if parts:
         deduped = []
@@ -522,10 +394,11 @@ def _is_bad_owner(value: str) -> bool:
 def _extract_owner(text: str) -> str:
     text = text or ""
     patterns = [
-        r"Original Trustor(?:'s)?(?: Name and Address)?[:\-]?\s*(.+?)(?:Current Trustee|Trustee|Beneficiary|Sale Date|NOTICE OF TRUSTEE|$)",
-        r"Trustor(?:s)?[:\-]?\s*(.+?)(?:Trustee|Beneficiary|Property Address|Sale Date|$)",
-        r"Grantor(?:s)?[:\-]?\s*(.+?)(?:Trustee|Beneficiary|Property Address|Sale Date|$)",
-        r"Borrower[:\-]?\s*(.+?)(?:Trustee|Beneficiary|Property Address|Sale Date|$)",
+        r"Original Trustor(?:'s)?(?: Name and Address)?[:\-]?\s*(.+?)(?:Current Trustee|Substitute Trustee|Trustee|Beneficiary|Sale Date|Auction Date|NOTICE OF TRUSTEE|$)",
+        r"Trustor(?:s)?[:\-]?\s*(.+?)(?:Current Trustee|Substitute Trustee|Trustee|Beneficiary|Property Address|Sale Date|Auction Date|$)",
+        r"Grantor(?:s)?[:\-]?\s*(.+?)(?:Current Trustee|Substitute Trustee|Trustee|Beneficiary|Property Address|Sale Date|Auction Date|$)",
+        r"Borrower[:\-]?\s*(.+?)(?:Current Trustee|Substitute Trustee|Trustee|Beneficiary|Property Address|Sale Date|Auction Date|$)",
+        r"Owner(?: of Record)?[:\-]?\s*(.+?)(?:Current Trustee|Substitute Trustee|Trustee|Beneficiary|Property Address|Sale Date|Auction Date|$)",
     ]
 
     for pattern in patterns:
@@ -533,8 +406,23 @@ def _extract_owner(text: str) -> str:
         if m:
             value = _normalize_one_line(m.group(1))
             value = re.sub(r"\b\d{3,6}\s+.*", "", value).strip(" ,;:-")
+            value = re.sub(r"\bAS TRUSTEE.*", "", value, flags=re.I).strip(" ,;:-")
             if len(value) > 5:
                 return value
+
+    # Windowed line fallback near trustor / borrower labels
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    label_re = re.compile(r"\b(original trustor|trustor|grantor|borrower|owner of record|owner)\b", re.I)
+    for i, line in enumerate(lines):
+        if label_re.search(line):
+            window = " ".join(lines[i:i+3])
+            # look for a person/entity block before obvious address/legal text
+            m = re.search(r"(?:trustor|grantor|borrower|owner(?: of record)?)[:\-\s]+(.+?)(?:\b\d{3,6}\s+|\btrustee\b|\bbeneficiary\b|\bsale date\b|\bauction date\b|$)", window, re.I)
+            if m:
+                value = _normalize_one_line(m.group(1))
+                value = re.sub(r"\bAS TRUSTEE.*", "", value, flags=re.I).strip(" ,;:-")
+                if len(value) > 5:
+                    return value
     return ""
 
 
@@ -631,6 +519,7 @@ def _extract_property_address(text: str) -> dict[str, str]:
         r"The street address/location of the real property described above is purported to be:\s*([^\n]+)\s+([A-Za-z .]+,\s*(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
         r"Street address or identifiable location:\s*([^\n]+)\s+([A-Za-z .]+,\s*(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
         r"Purported Street Address[:\-]?\s*([^\n]+)\s+([A-Za-z .]+,\s*(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
+        r"Common designation, if any, of the property is purported to be[:\-]?\s*([^\n]+)\s+([A-Za-z .]+,\s*(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
     ]
 
     for pattern in multiline_patterns:
@@ -647,6 +536,7 @@ def _extract_property_address(text: str) -> dict[str, str]:
         r"Street address or identifiable location[:\-]?\s*(.+?(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
         r"Purported Street Address[:\-]?\s*(.+?(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
         r"Property Address[:\-]?\s*(.+?(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
+        r"Common designation, if any, of the property is purported to be[:\-]?\s*(.+?(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?)",
     ]
 
     candidates: list[str] = []
@@ -656,6 +546,22 @@ def _extract_property_address(text: str) -> dict[str, str]:
             if candidate:
                 candidates.append(candidate)
 
+    # line-window fallback for address labels where city/state may be on next line
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    label_re = re.compile(r"(street address|property address|identifiable location|common designation)", re.I)
+    city_state_zip_re = re.compile(r"[A-Za-z .]+,\s*(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?", re.I)
+    for i, line in enumerate(lines):
+        if label_re.search(line):
+            block = lines[i:i+4]
+            joined = " ".join(block)
+            m_addr = STREET_ONLY_RE.search(joined)
+            m_csz = city_state_zip_re.search(joined)
+            if m_addr and m_csz:
+                candidates.append(_clean_address(f"{m_addr.group(0)}, {m_csz.group(0)}"))
+            elif m_addr:
+                # keep street-only candidate for partial recovery
+                candidates.append(_clean_address(m_addr.group(0)))
+
     fallback_matches = re.findall(
         r"\d{3,6}\s+[A-Za-z0-9 .'\-#/]+,\s*[A-Za-z .]+,\s*(?:AZ|Arizona)\s*\d{5}(?:-\d{4})?",
         text,
@@ -664,11 +570,16 @@ def _extract_property_address(text: str) -> dict[str, str]:
     candidates.extend(_clean_address(x) for x in fallback_matches if x)
 
     for c in candidates:
-        if len(c) < 15:
+        if len(c) < 10:
             continue
         parsed = _parse_address(c)
-        if parsed["address"] and parsed["zip"] and not _is_bad_property_address(parsed):
+        if parsed["address"] and not _is_bad_property_address(parsed):
             return parsed
+
+    # final street-only fallback
+    m = STREET_ONLY_RE.search(text)
+    if m:
+        return {"address": _clean_address(m.group(0)), "city": "", "state": "", "zip": ""}
 
     return {"address": "", "city": "", "state": "", "zip": ""}
 
