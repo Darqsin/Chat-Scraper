@@ -1303,3 +1303,13 @@ NameError: name 'is_valid_property_address' is not defined
 2026-04-17 13:07:08,716 | INFO | clerk_scraper | Total records: 39
 2026-04-17 13:07:08,716 | INFO | fetch | Scraped 39 records
 2026-04-17 13:10:33,706 | INFO | fetch | FINAL: 39 records | 34 with address
+2026-04-17 13:33:14,025 | INFO | fetch | Date range: 04/16/2026 -> 04/16/2026
+2026-04-17 13:33:14,403 | INFO | clerk_scraper | Page 1: 39 records
+2026-04-17 13:33:15,079 | INFO | clerk_scraper | Total records: 39
+2026-04-17 13:33:15,080 | INFO | fetch | Scraped 39 records
+2026-04-17 13:33:57,962 | WARNING | enricher | APN lookup failed for 155-53-014: HTTPSConnectionPool(host='api.mcassessor.maricopa.gov', port=443): Max retries exceeded with url: /parcel/15553014 (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.mcassessor.maricopa.gov'. (_ssl.c:1016)")))
+2026-04-17 13:34:50,830 | WARNING | enricher | APN lookup failed for 102-84-270: HTTPSConnectionPool(host='api.mcassessor.maricopa.gov', port=443): Max retries exceeded with url: /parcel/10284270 (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.mcassessor.maricopa.gov'. (_ssl.c:1016)")))
+2026-04-17 13:34:54,233 | WARNING | enricher | APN lookup failed for 206-20-159: HTTPSConnectionPool(host='api.mcassessor.maricopa.gov', port=443): Max retries exceeded with url: /parcel/20620159 (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.mcassessor.maricopa.gov'. (_ssl.c:1016)")))
+2026-04-17 13:35:28,305 | WARNING | enricher | APN lookup failed for 232-31-246: HTTPSConnectionPool(host='api.mcassessor.maricopa.gov', port=443): Max retries exceeded with url: /parcel/23231246 (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.mcassessor.maricopa.gov'. (_ssl.c:1016)")))
+2026-04-17 13:36:12,396 | WARNING | enricher | APN lookup failed for 152-19-145: HTTPSConnectionPool(host='api.mcassessor.maricopa.gov', port=443): Max retries exceeded with url: /parcel/15219145 (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.mcassessor.maricopa.gov'. (_ssl.c:1016)")))
+2026-04-17 13:36:36,159 | INFO | fetch | FINAL: 39 records | 34 with address
