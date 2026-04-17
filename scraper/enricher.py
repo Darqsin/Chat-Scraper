@@ -3,6 +3,7 @@ from __future__ import annotations
 import logging
 import re
 from dataclasses import asdict, dataclass
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -16,6 +17,7 @@ LOGGER = logging.getLogger("enricher")
 TRUSTEE_PHONE_RE = re.compile(
     r"(?:\+?1[-.\s]?)?(?:\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})"
 )
+EMAIL_RE = re.compile(r"\b[A-Z0-9._%+\-]+@[A-Z0-9.\-]+\.[A-Z]{2,}\b", re.I)
 MONEY_RE = re.compile(r"\$\s?\d{1,3}(?:,\d{3})+(?:\.\d{2})?")
 DATE_NUMERIC_RE = re.compile(r"\b\d{1,2}/\d{1,2}/\d{4}\b")
 PARCEL_RE = re.compile(
@@ -23,6 +25,83 @@ PARCEL_RE = re.compile(
     re.I,
 )
 DOC_NUM_RE = re.compile(r"\b20\d{9,}\b")
+
+TRUSTEE_WHITELIST = [
+    "QUALITY LOAN SERVICE CORPORATION",
+    "MTC FINANCIAL INC",
+    "MTC FINANCIAL INC. DBA TRUSTEE CORPS",
+    "TRUSTEE CORPS",
+    "CLEAR RECON CORP",
+    "CLEAR RECON CORP.",
+    "WESTERN PROGRESSIVE - ARIZONA",
+    "WESTERN PROGRESSIVE, LLC",
+    "AZ TRUSTEE SERVICES LLC",
+    "AZ TRUSTEE SERVICES, LLC",
+    "NATIONWIDE TRUSTEE SERVICES, INC.",
+    "NATIONWIDE TRUSTEE SERVICES INC",
+    "PRESTIGE DEFAULT SERVICES, LLC",
+    "PRESTIGE DEFAULT SERVICES LLC",
+    "FAY SERVICING, LLC",
+    "T.D. SERVICE COMPANY",
+    "TD SERVICE COMPANY",
+    "LEONARD J. MCDONALD",
+    "RONALD E. HERBERS",
+    "RONALD E HERBERS",
+]
+
+TRUSTEE_BAD_PHRASES = [
+    "CURRENT BENEFICIARY",
+    "ORIGINAL TRUSTOR",
+    "COMMON DESIGNATION",
+    "TO THE HIGHEST BIDDER",
+    "TRUSTEE'S PHONE",
+    "TRUSTEE’S PHONE",
+    "THE FOLLOWING INFORMATION IS PROVIDED",
+    "A.R.S. SECTION 33-808",
+    "NO LATER THAN 5:00 P.M.",
+    "LAST BUSINESS DAY",
+    "TRUST DATED",
+    "DEED OF TRUST",
+    "RECORDED ON",
+    "INSTRUMENT NO",
+    "INSTRUMENT #",
+    "LOAN NUMBER",
+    "LOAN NO",
+    "TS#",
+    "SALE DATE",
+    "AUCTION DATE",
+    "PROPERTY ADDRESS",
+    "STREET ADDRESS",
+    "GILLETTE AVE",
+    "PHOENIX, AZ",
+    "ARIZONA 85234",
+]
+
+OWNER_STATUS_PHRASES = [
+    r",?\s+a single man\b",
+    r",?\s+a single woman\b",
+    r",?\s+an unmarried man\b",
+    r",?\s+an unmarried woman\b",
+    r",?\s+single man\b",
+    r",?\s+single woman\b",
+    r",?\s+unmarried man\b",
+    r",?\s+unmarried woman\b",
+    r",?\s+husband and wife\b",
+    r",?\s+wife and husband\b",
+    r",?\s+as community property\b",
+    r",?\s+as community property with rights? of survivorship\b",
+    r",?\s+as joint tenants with rights? of survivorship\b",
+    r",?\s+as his sole and separate property\b",
+    r",?\s+as her sole and separate property\b",
+    r",?\s+as their sole and separate property\b",
+    r",?\s+sole and separate property\b",
+]
+
+KNOWN_CITY_FIXES = {
+    "SUN, CITY": "SUN CITY",
+    "QUEEN, CREEK": "QUEEN CREEK",
+    "EL, MIRAGE": "EL MIRAGE",
+}
 
 
 @dataclass
@@ -104,13 +183,12 @@ def parse_record(
     doc_num = doc_num or _find_first(DOC_NUM_RE, text)
     owner = _clean_owner(_extract_owner(text))
     if _is_bad_owner(owner):
-        owner = ""
         flags.append("owner_suspect")
+        owner = ""
 
     trustee_name = _extract_trustee_name(text)
-    if _is_bad_trustee_candidate(trustee_name):
-        trustee_name = ""
-        flags.append("trustee_suspect")
+    if not trustee_name:
+        flags.append("trustee_missing")
 
     prop = _extract_property_address(text)
 
@@ -118,17 +196,17 @@ def parse_record(
     raw_text_path.write_text(text or "", encoding="utf-8")
 
     amount = _find_first(MONEY_RE, text)
-    trustee_phone = _find_first(TRUSTEE_PHONE_RE, text)
+    trustee_phone = _extract_trustee_phone(text)
     auction_date = _extract_auction_date(text)
     parcel_number = _extract_parcel_number(text)
-    deed_of_trust = _find_first(DOC_NUM_RE, text)
+    deed_of_trust = _extract_deed_of_trust(text, doc_num)
 
     if not owner:
         flags.append("owner_missing")
-    if not trustee_name:
-        flags.append("trustee_missing")
     if not auction_date:
         flags.append("auction_date_missing")
+    if not parcel_number:
+        flags.append("parcel_missing")
 
     score = 0
     if prop.get("address"):
@@ -208,6 +286,7 @@ def extract_text_from_pdf(pdf_path: str | Path, dpi: int = 250) -> tuple[str, li
 def _clean_text(text: str) -> str:
     text = text.replace("\x00", " ")
     text = text.replace("\f", " ")
+    text = text.replace("’", "'")
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r"\n{2,}", "\n", text)
     return text.strip()
@@ -228,6 +307,14 @@ def _normalize_one_line(value: str) -> str:
     return value.strip(" ,;:-")
 
 
+def _smart_title_name(value: str) -> str:
+    if not value:
+        return ""
+    if value.isupper():
+        return value.title()
+    return value
+
+
 def _clean_owner(value: str) -> str:
     if not value:
         return ""
@@ -235,24 +322,36 @@ def _clean_owner(value: str) -> str:
     value = re.sub(r"\(.*?\)", "", value)
     value = re.sub(r"\b(as shown on the deed of trust)\b", "", value, flags=re.I)
     value = re.sub(r"\b(an|a)\s+arizona\s+.*", "", value, flags=re.I)
-    value = re.sub(r"\s+", " ", value)
-    return value.strip(" ,;:-")
+    value = re.sub(r"^[/: ]*(grantor|trustor|borrower)s?[:\-]?\s*", "", value, flags=re.I)
+    value = re.sub(r"\s+", " ", value).strip(" ,;:-")
+
+    for pattern in OWNER_STATUS_PHRASES:
+        value = re.sub(pattern, "", value, flags=re.I)
+
+    value = re.sub(r"\s+and\s+and\s+", " and ", value, flags=re.I)
+    value = re.sub(r"\s+,", ",", value)
+    value = re.sub(r",\s*,+", ", ", value)
+    value = re.sub(r"\s{2,}", " ", value)
+    value = value.strip(" ,;:-")
+    return _smart_title_name(value)
 
 
 def _is_bad_owner(value: str) -> bool:
-    v = (value or "").strip()
-    vu = v.upper()
-
-    if len(v) < 6:
+    if not value:
         return True
+
+    vu = value.upper().strip()
 
     bad_starts = [
         "/GRANTOR",
+        "GRANTOR:",
         "IN FAVOR OF",
         "IN WHICH",
         "AS OF THE RECORDING",
         "THAT CERTAIN",
         "UNDER THAT CERTAIN",
+        "CURRENT BENEFICIARY",
+        "ORIGINAL TRUSTOR",
     ]
     if any(vu.startswith(x) for x in bad_starts):
         return True
@@ -262,6 +361,10 @@ def _is_bad_owner(value: str) -> bool:
         "AN UNMARRIED MAN",
         "A SINGLE MAN",
         "A SINGLE WOMAN",
+        "SINGLE MAN",
+        "SINGLE WOMAN",
+        "UNMARRIED MAN",
+        "UNMARRIED WOMAN",
         "NUMBER",
         "NUMBERS",
         "IDENTIFIABLE",
@@ -272,7 +375,7 @@ def _is_bad_owner(value: str) -> bool:
     if vu.endswith(" AS"):
         return True
 
-    return False
+    return len(vu) < 4
 
 
 def _extract_owner(text: str) -> str:
@@ -296,37 +399,23 @@ def _extract_owner(text: str) -> str:
     return ""
 
 
-def _is_bad_trustee_candidate(value: str) -> bool:
-    v = (value or "").upper().strip()
-    if not v:
-        return False
-
-    bad_phrases = [
-        "DEED OF TRUST",
-        "TRUST DATED",
-        "RECORDED ON",
-        "INSTRUMENT NO",
-        "INSTRUMENT #",
-        "LOAN NUMBER",
-        "LOAN NO",
-        "TS#",
-        "RECORDS OF MARICOPA COUNTY",
-        "SUBJECT DEED OF TRUST",
-        "ASSIGNMENT OF RENTS",
-    ]
-
-    if any(p in v for p in bad_phrases):
-        return True
-
-    if v in {"CORPS", "NUMBER", "NUMBERS", "IDENTIFIABLE"}:
-        return True
-
-    return False
+def _normalize_for_match(value: str) -> str:
+    value = value.upper()
+    value = re.sub(r"[^A-Z0-9]+", " ", value)
+    value = re.sub(r"\s+", " ", value).strip()
+    return value
 
 
 def _extract_trustee_name(text: str) -> str:
     if not text:
         return ""
+
+    normalized_text = _normalize_for_match(text)
+
+    for trustee in TRUSTEE_WHITELIST:
+        trustee_norm = _normalize_for_match(trustee)
+        if trustee_norm in normalized_text:
+            return trustee
 
     m = re.search(
         r"The undersigned Trustee,\s*([^,\n]+),\s*Attorney at Law",
@@ -334,44 +423,114 @@ def _extract_trustee_name(text: str) -> str:
         re.I,
     )
     if m:
-        return m.group(1).strip()
+        candidate = _clean_trustee_candidate(m.group(1))
+        if _is_good_trustee_candidate(candidate):
+            return candidate
+
+    patterns = [
+        r"Current Trustee[:\-]?\s*([^\n]+)",
+        r"Successor Trustee[:\-]?\s*([^\n]+)",
+        r"Substitute Trustee[:\-]?\s*([^\n]+)",
+        r"Trustee[:\-]?\s*([^\n]+)",
+        r"/Agent[:\-]?\s*([^\n]+)",
+        r"/A gent[:\-]?\s*([^\n]+)",
+    ]
+
+    candidates: list[str] = []
+    for pattern in patterns:
+        for m in re.finditer(pattern, text, re.I):
+            candidates.append(m.group(1))
 
     lines = [line.strip() for line in text.splitlines() if line.strip()]
-    candidates: list[str] = []
-
     for i, line in enumerate(lines):
-        if re.search(r"trustee", line, re.I):
-            same_line = re.sub(r"(?i).*trustee[s]?:?", "", line).strip(" ,;:-")
-            if same_line:
-                candidates.append(same_line)
-
+        if re.search(r"\b(trustee|successor trustee|substitute trustee|/agent)\b", line, re.I):
+            cleaned_line = re.sub(r"(?i).*\b(trustee|successor trustee|substitute trustee|/agent|/a gent)\b[:\-]?", "", line).strip(" ,;:-")
+            if cleaned_line:
+                candidates.append(cleaned_line)
             for j in range(1, 3):
                 if i + j < len(lines):
                     candidates.append(lines[i + j])
 
-    clean: list[str] = []
-    for c in candidates:
-        c = _normalize_one_line(c)
-        if re.search(r"\d{3,5} .+(AZ|ARIZONA|CA|TX|NV|NM)", c, re.I):
-            continue
-        if any(x in c.lower() for x in ["street", "road", "avenue", "suite", "phoenix", "az"]):
-            continue
-        if any(x in c.lower() for x in ["sale", "objection", "must file", "court order", "superior court"]):
-            continue
-        if len(c) > 4:
-            clean.append(c)
-
-    if clean:
-        for c in clean:
-            if not _is_bad_trustee_candidate(c):
-                return c
+    for candidate in candidates:
+        cleaned = _clean_trustee_candidate(candidate)
+        if _is_good_trustee_candidate(cleaned):
+            return cleaned
 
     return ""
 
 
+def _clean_trustee_candidate(value: str) -> str:
+    value = _normalize_one_line(value)
+    value = value.strip(" /")
+    value = re.sub(r"^(Agent|A gent)[:\-]?\s*", "", value, flags=re.I)
+    value = re.sub(r"\s{2,}", " ", value)
+    return value.strip(" ,;:-")
+
+
+def _is_good_trustee_candidate(value: str) -> bool:
+    if not value:
+        return False
+
+    vu = value.upper()
+
+    if EMAIL_RE.search(value):
+        return False
+    if TRUSTEE_PHONE_RE.search(value):
+        return False
+    if re.search(r"\d{3,5}\s+\w+", value):
+        return False
+    if any(bad in vu for bad in TRUSTEE_BAD_PHRASES):
+        return False
+    if len(vu) < 4:
+        return False
+
+    good_tokens = [
+        "TRUSTEE",
+        "CORP",
+        "CORPORATION",
+        "INC",
+        "INC.",
+        "LLC",
+        "COMPANY",
+        "SERVICE",
+        "SERVICES",
+        "RECON",
+        "MCDONALD",
+        "HERBERS",
+        "QUALITY",
+        "MTC",
+        "CLEAR",
+        "WESTERN",
+        "PRESTIGE",
+        "NATIONWIDE",
+        "AZ TRUSTEE",
+    ]
+    if any(token in vu for token in good_tokens):
+        return True
+
+    if re.fullmatch(r"[A-Z][A-Z .,'\-]{4,}", value):
+        return True
+
+    if re.fullmatch(r"[A-Za-z][A-Za-z .,'\-]{4,}", value):
+        return True
+
+    return False
+
+
 def _extract_parcel_number(text: str) -> str:
     m = PARCEL_RE.search(text or "")
-    return m.group(1).strip() if m else ""
+    if not m:
+        return ""
+
+    parcel = m.group(1).strip().upper()
+    parcel = re.sub(r"[^A-Z0-9\-]", "", parcel)
+
+    if parcel in {"NUMBER", "NUMBERS", "IDENTIFIABLE"}:
+        return ""
+
+    parcel = re.sub(r"(\d{3}-\d{2}-\d{3})(\1)+", r"\1", parcel)
+    m_clean = re.match(r"^\d{3}-\d{2}-\d{3}[A-Z]?$", parcel)
+    return m_clean.group(0) if m_clean else ""
 
 
 def _extract_auction_date(text: str) -> str:
@@ -379,17 +538,49 @@ def _extract_auction_date(text: str) -> str:
         return ""
 
     patterns = [
-        r"(?:Sale Date and Time|Sale Date|Auction Date|Date of Sale)[:\-]?\s*(.+?)(?:\n|Sale Location|Location|$)",
+        r"(?:Sale Date and Time|Sale Date|Auction Date|Date of Sale)[:\-]?\s*(.+?)(?:\n|Sale Location|Location|Place of Sale|$)",
+        r"(?:The sale will be made at public auction on)[:\-]?\s*(.+?)(?:\n|at\s+\d{1,2}:\d{2}|$)",
     ]
 
     for pattern in patterns:
-        m = re.search(pattern, text, re.I | re.S)
-        if m:
+        for m in re.finditer(pattern, text, re.I | re.S):
             value = m.group(1).strip()
-            date_match = DATE_NUMERIC_RE.search(value)
-            if date_match:
-                return date_match.group(0)
+            for date_match in DATE_NUMERIC_RE.finditer(value):
+                if _is_valid_auction_date(date_match.group(0)):
+                    return date_match.group(0)
 
+    return ""
+
+
+def _is_valid_auction_date(value: str) -> bool:
+    try:
+        dt = datetime.strptime(value, "%m/%d/%Y")
+    except ValueError:
+        try:
+            dt = datetime.strptime(value, "%m/%d/%y")
+        except ValueError:
+            return False
+
+    return dt.year >= 2026
+
+
+def _extract_deed_of_trust(text: str, doc_num: str = "") -> str:
+    candidates = DOC_NUM_RE.findall(text or "")
+    for cand in candidates:
+        if cand != doc_num:
+            return cand
+    return doc_num
+
+
+def _extract_trustee_phone(text: str) -> str:
+    for match in TRUSTEE_PHONE_RE.finditer(text or ""):
+        raw = match.group(0).strip()
+        digits = re.sub(r"\D", "", raw)
+        if len(digits) != 10:
+            continue
+        if digits.startswith("20"):
+            continue
+        return raw
     return ""
 
 
@@ -486,6 +677,8 @@ def _parse_address(val: str) -> dict[str, str]:
         state = "AZ"
     if len(zipcode) > 5:
         zipcode = zipcode[:5]
+
+    city = KNOWN_CITY_FIXES.get(city.upper(), city)
 
     return {
         "address": street,
