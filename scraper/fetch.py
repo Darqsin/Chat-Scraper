@@ -69,24 +69,58 @@ def mmddyyyy_to_yyyymmdd(value: str) -> str:
     return datetime.strptime(value, "%m/%d/%Y").strftime("%Y-%m-%d")
 
 
-def download_pdf(url: str, save_path: Path, logger: logging.Logger) -> bool:
-    try:
-        headers = {
-            "User-Agent": "Mozilla/5.0",
-            "Accept": "application/pdf,*/*",
-        }
+def download_pdf(
+    url: str,
+    save_path: Path,
+    logger: logging.Logger,
+    doc_num: str = "",
+    clerk_url: str = "",
+) -> bool:
+    candidates = []
+    if url:
+        candidates.append(url)
 
-        resp = requests.get(url, headers=headers, timeout=45)
+    if doc_num:
+        candidates.extend([
+            f"https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/{doc_num}.pdf",
+            f"https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/{doc_num}.pdf",
+            f"https://recorder.maricopa.gov/UnOfficialDocs/pdf/{doc_num}.pdf",
+        ])
 
-        if resp.ok and resp.content and resp.content[:4] == b"%PDF":
-            save_path.parent.mkdir(parents=True, exist_ok=True)
-            save_path.write_bytes(resp.content)
-            return True
+    # preserve order / de-dupe
+    seen = set()
+    unique_candidates = []
+    for c in candidates:
+        if c and c not in seen:
+            unique_candidates.append(c)
+            seen.add(c)
 
-        logger.warning("Bad PDF response: %s | status=%s", url, resp.status_code)
+    for candidate in unique_candidates:
+        try:
+            headers = {
+                "User-Agent": "Mozilla/5.0",
+                "Accept": "application/pdf,application/octet-stream,*/*",
+                "Referer": clerk_url or DEFAULT_SOURCE,
+            }
 
-    except Exception as exc:
-        logger.warning("PDF download failed: %s | %s", url, exc)
+            resp = requests.get(candidate, headers=headers, timeout=45)
+
+            if resp.ok and resp.content:
+                first_chunk = resp.content[:32].lstrip()
+                if first_chunk.startswith(b"%PDF"):
+                    save_path.parent.mkdir(parents=True, exist_ok=True)
+                    save_path.write_bytes(resp.content)
+                    return True
+
+            logger.warning(
+                "Bad PDF response: %s | status=%s | doc=%s",
+                candidate,
+                getattr(resp, "status_code", "n/a"),
+                doc_num,
+            )
+
+        except Exception as exc:
+            logger.warning("PDF download failed: %s | %s | doc=%s", candidate, exc, doc_num)
 
     return False
 
