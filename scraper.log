@@ -1313,3 +1313,8 @@ NameError: name 'is_valid_property_address' is not defined
 2026-04-17 13:35:28,305 | WARNING | enricher | APN lookup failed for 232-31-246: HTTPSConnectionPool(host='api.mcassessor.maricopa.gov', port=443): Max retries exceeded with url: /parcel/23231246 (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.mcassessor.maricopa.gov'. (_ssl.c:1016)")))
 2026-04-17 13:36:12,396 | WARNING | enricher | APN lookup failed for 152-19-145: HTTPSConnectionPool(host='api.mcassessor.maricopa.gov', port=443): Max retries exceeded with url: /parcel/15219145 (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.mcassessor.maricopa.gov'. (_ssl.c:1016)")))
 2026-04-17 13:36:36,159 | INFO | fetch | FINAL: 39 records | 34 with address
+2026-04-17 13:58:12,479 | INFO | fetch | Date range: 04/16/2026 -> 04/16/2026
+2026-04-17 13:58:12,875 | INFO | clerk_scraper | Page 1: 39 records
+2026-04-17 13:58:13,561 | INFO | clerk_scraper | Total records: 39
+2026-04-17 13:58:13,561 | INFO | fetch | Scraped 39 records
+2026-04-17 14:01:32,780 | INFO | fetch | FINAL: 39 records | 39 with address

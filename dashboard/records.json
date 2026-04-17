@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-04-17T13:36:36.128934",
+  "fetched_at": "2026-04-17T14:01:32.751682",
   "source": "https://recorder.maricopa.gov/recording/document-search.html",
   "date_range": {
     "start": "04/16/2026",
     "end": "04/16/2026"
   },
   "total": 39,
-  "with_address": 34,
+  "with_address": 39,
   "records": [
     {
       "doc_num": "20260225916",
@@ -322,7 +322,7 @@
       "grantee": "PRESTIGE DEFAULT SERVICES, LLC",
       "amount": "$374,000.00",
       "legal": "",
-      "prop_address": "",
+      "prop_address": "1802 WEST PIERSON STREET",
       "prop_city": "",
       "prop_state": "",
       "prop_zip": "",
@@ -347,7 +347,7 @@
       "flags": [
         "ocr_fallback"
       ],
-      "score": 30,
+      "score": 60,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226317.txt"
     },
     {
@@ -398,7 +398,7 @@
       "grantee": "",
       "amount": "$238,500.00",
       "legal": "",
-      "prop_address": "11122 W Montana Ave.",
+      "prop_address": "11122 W Montana Ave",
       "prop_city": "Youngtown",
       "prop_state": "AZ",
       "prop_zip": "85363",
@@ -671,8 +671,8 @@
       "grantee": "RONALD B. HERB",
       "amount": "$480,000.00",
       "legal": "",
-      "prop_address": "18245 N PIMA ROAD UNIT 1049",
-      "prop_city": "SCOTTSDALE",
+      "prop_address": "4037 S. 12th Street",
+      "prop_city": "th Street Phoenix",
       "prop_state": "AZ",
       "prop_zip": "85040",
       "mail_address": "",
@@ -710,7 +710,7 @@
       "grantee": "RONALD B. HERB",
       "amount": "$110,000.00",
       "legal": "",
-      "prop_address": "",
+      "prop_address": "5420 W. Onyx Ave",
       "prop_city": "",
       "prop_state": "",
       "prop_zip": "",
@@ -735,7 +735,7 @@
       "flags": [
         "ocr_fallback"
       ],
-      "score": 30,
+      "score": 60,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227219.txt"
     },
     {
@@ -748,7 +748,7 @@
       "grantee": "RONALD B. HERB",
       "amount": "$176,000.00",
       "legal": "",
-      "prop_address": "",
+      "prop_address": "5420 W. Onyx Ave",
       "prop_city": "",
       "prop_state": "",
       "prop_zip": "",
@@ -773,7 +773,7 @@
       "flags": [
         "ocr_fallback"
       ],
-      "score": 30,
+      "score": 60,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227220.txt"
     },
     {
@@ -824,10 +824,10 @@
       "grantee": "",
       "amount": "$10,000,000.00",
       "legal": "",
-      "prop_address": "7508 N. 59th Avenue",
-      "prop_city": "Glendale",
-      "prop_state": "AZ",
-      "prop_zip": "85301",
+      "prop_address": "1429 N. Scottsdale Road",
+      "prop_city": "",
+      "prop_state": "",
+      "prop_zip": "",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
@@ -899,7 +899,7 @@
       "filed": "2026-04-16",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
-      "owner": "ZHONG K WANG AND FRANCIS N PRICE AND MAN AND FRANCIS PRICE",
+      "owner": "ZHONG K WANG AND FRANCIS N PRICE AND FRANCIS PRICE",
       "grantee": "QUALITY LOAN SERVICE CORPORATION",
       "amount": "$200,000.00",
       "legal": "",
@@ -1214,7 +1214,7 @@
       "grantee": "",
       "amount": "$725,000.00",
       "legal": "",
-      "prop_address": "",
+      "prop_address": "7537 E. McDonald Drive",
       "prop_city": "",
       "prop_state": "",
       "prop_zip": "",
@@ -1241,7 +1241,7 @@
         "owner_suspect",
         "parcel_missing"
       ],
-      "score": 0,
+      "score": 30,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260228010.txt"
     },
     {
@@ -1332,10 +1332,10 @@
       "grantee": "CLEAR RECON CORP",
       "amount": "$380,972.00",
       "legal": "",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "",
-      "prop_zip": "",
+      "prop_address": "3939 W CAVALIER DR",
+      "prop_city": "PHOENIX",
+      "prop_state": "AZ",
+      "prop_zip": "85019",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
@@ -1357,7 +1357,7 @@
       "flags": [
         "ocr_fallback"
       ],
-      "score": 30,
+      "score": 60,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260228059.txt"
     },
     {
