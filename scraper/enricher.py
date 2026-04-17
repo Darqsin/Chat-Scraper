@@ -347,27 +347,13 @@ def parse_record(
     raw_text_path.write_text(text or "", encoding="utf-8")
 
     owner = _clean_owner(_extract_owner(text))
-
     if _is_bad_owner(owner):
         owner = _clean_owner(_extract_owner_deep(text))
-
-    if _is_bad_owner(owner):
-        lines = text.splitlines()
-        for i, line in enumerate(lines):
-            if any(k in line.lower() for k in ["trustor", "grantor", "borrower"]):
-                window = " ".join(lines[i:i+5])
-                match = re.search(r"[A-Z][A-Z\s,&\.]{6,}", window)
-                if match:
-                    candidate = match.group(0).strip()
-                    if not any(x in candidate for x in ["LLC", "CORP", "TRUSTEE", "SERVICE"]):
-                        owner = _clean_owner(candidate)
-                        break
-
     if _is_bad_owner(owner):
         flags.append("owner_suspect")
         owner = ""
-        trustee_name, trustee_phone = _extract_trustee(text)
-        
+
+    trustee_name, trustee_phone = _extract_trustee(text)
     if not trustee_name:
         trustee_name, trustee_phone = _extract_trustee_deep(text)
 
