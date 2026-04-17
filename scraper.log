@@ -1421,3 +1421,46 @@ NameError: name 'is_valid_property_address' is not defined
 2026-04-17 16:35:09,832 | INFO | clerk_scraper | Total records: 39
 2026-04-17 16:35:09,833 | INFO | fetch | Scraped 39 records
 2026-04-17 16:38:35,151 | INFO | fetch | FINAL: 39 records | 39 with address
+2026-04-17 17:23:58,390 | INFO | fetch | Date range: 04/16/2026 -> 04/16/2026
+2026-04-17 17:23:58,784 | INFO | clerk_scraper | Page 1: 39 records
+2026-04-17 17:24:05,563 | INFO | clerk_scraper | Total records: 39
+2026-04-17 17:24:05,564 | INFO | fetch | Scraped 39 records
+2026-04-17 17:24:10,207 | WARNING | fetch | Fallback record used for 20260225916: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:24:15,403 | WARNING | fetch | Fallback record used for 20260226177: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:24:19,644 | WARNING | fetch | Fallback record used for 20260226185: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:24:23,911 | WARNING | fetch | Fallback record used for 20260226190: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:24:28,487 | WARNING | fetch | Fallback record used for 20260226195: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:24:33,287 | WARNING | fetch | Fallback record used for 20260226197: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:24:37,862 | WARNING | fetch | Fallback record used for 20260226200: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:24:42,739 | WARNING | fetch | Fallback record used for 20260226202: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:24:46,963 | WARNING | fetch | Fallback record used for 20260226317: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:24:51,343 | WARNING | fetch | Fallback record used for 20260226412: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:25:02,225 | WARNING | fetch | Fallback record used for 20260226771: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:25:08,810 | WARNING | fetch | Fallback record used for 20260226956: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:25:13,915 | WARNING | fetch | Fallback record used for 20260226960: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:25:20,519 | WARNING | fetch | Fallback record used for 20260227028: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:25:26,780 | WARNING | fetch | Fallback record used for 20260227091: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:25:33,347 | WARNING | fetch | Fallback record used for 20260227136: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:25:36,463 | WARNING | fetch | Fallback record used for 20260227218: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:25:39,647 | WARNING | fetch | Fallback record used for 20260227219: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:25:42,893 | WARNING | fetch | Fallback record used for 20260227220: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:25:47,692 | WARNING | fetch | Fallback record used for 20260227284: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:25:54,209 | WARNING | fetch | Fallback record used for 20260227302: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:25:59,315 | WARNING | fetch | Fallback record used for 20260227512: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:26:04,171 | WARNING | fetch | Fallback record used for 20260227521: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:26:09,214 | WARNING | fetch | Fallback record used for 20260227539: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:26:16,803 | WARNING | fetch | Fallback record used for 20260227902: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:26:21,539 | WARNING | fetch | Fallback record used for 20260227926: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:26:26,734 | WARNING | fetch | Fallback record used for 20260227939: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:26:31,806 | WARNING | fetch | Fallback record used for 20260227955: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:26:37,022 | WARNING | fetch | Fallback record used for 20260227961: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:26:41,909 | WARNING | fetch | Fallback record used for 20260227974: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:26:45,537 | WARNING | fetch | Fallback record used for 20260228010: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:26:50,411 | WARNING | fetch | Fallback record used for 20260228017: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:26:56,123 | WARNING | fetch | Fallback record used for 20260228048: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:27:00,363 | WARNING | fetch | Fallback record used for 20260228059: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:27:07,270 | WARNING | fetch | Fallback record used for 20260228370: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:27:14,198 | WARNING | fetch | Fallback record used for 20260228380: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:27:18,976 | WARNING | fetch | Fallback record used for 20260228499: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:27:23,999 | WARNING | fetch | Fallback record used for 20260228514: cannot access local variable 'trustee_name' where it is not associated with a value
+2026-04-17 17:27:24,027 | INFO | fetch | FINAL: 39 records | 1 with address
