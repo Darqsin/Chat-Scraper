@@ -32,6 +32,7 @@ TRUSTEE_WHITELIST = {
     "CLEAR RECON": ("CLEAR RECON CORP", "(866) 931-0036"),
     "CLEAR RECON CORP": ("CLEAR RECON CORP", "(866) 931-0036"),
     "MTC FINANCIAL": ("MTC FINANCIAL INC", "(949) 252-8300"),
+    "MTC FINANCIAL INC": ("MTC FINANCIAL INC", "(949) 252-8300"),
     "TRUSTEE CORPS": ("MTC FINANCIAL INC", "(949) 252-8300"),
     "QUALITY LOAN SERVICE": ("QUALITY LOAN SERVICE CORPORATION", "(866) 645-7711"),
     "QUALITY LOAN SERVICE CORPORATION": ("QUALITY LOAN SERVICE CORPORATION", "(866) 645-7711"),
@@ -39,6 +40,14 @@ TRUSTEE_WHITELIST = {
     "PRESTIGE DEFAULT SERVICES, LLC": ("PRESTIGE DEFAULT SERVICES, LLC", "(949) 427-2010"),
     "LEONARD J. MCDONALD": ("LEONARD J. MCDONALD", "(602) 255-6035"),
     "LEONARD J MCDONALD": ("LEONARD J. MCDONALD", "(602) 255-6035"),
+    "PRIME RECON": ("PRIME RECON LLC", "(888) 725-4142"),
+    "PRIME RECON LLC": ("PRIME RECON LLC", "(888) 725-4142"),
+    "(888) 725-4142": ("PRIME RECON LLC", "(888) 725-4142"),
+    "RONALD B. HERB": ("RONALD B. HERB", "(602) 488-1349"),
+    "RONALD HERB": ("RONALD B. HERB", "(602) 488-1349"),
+    "RONALDHERB@GMAIL.COM": ("RONALD B. HERB", "(602) 488-1349"),
+    "(602) 488-1349": ("RONALD B. HERB", "(602) 488-1349"),
+    "LICENSED REAL ESTATE BROKER IN ARIZONA": ("RONALD B. HERB", "(602) 488-1349"),
     "WESTERN PROGRESSIVE": ("WESTERN PROGRESSIVE", ""),
     "AZ TRUSTEE SERVICES": ("AZ TRUSTEE SERVICES", ""),
     "PIONEER TITLE": ("PIONEER TITLE", ""),
@@ -286,8 +295,12 @@ def _clean_owner(value: str) -> str:
         value = re.sub(pat, "", value, flags=re.I)
     value = re.sub(r"\bAND MAN AND\b", "AND", value, flags=re.I)
     value = re.sub(r"\bAND WOMAN AND\b", "AND", value, flags=re.I)
+    value = re.sub(r"\bAND\s*,\s*AND\b", "AND", value, flags=re.I)
+    value = re.sub(r"\bAS\s*$", "", value, flags=re.I)
     value = re.sub(r"\s+,", ",", value)
     value = re.sub(r",\s*,", ", ", value)
+    value = re.sub(r",\s+AND\b", " AND", value, flags=re.I)
+    value = re.sub(r"\bAND\s+AND\b", "AND", value, flags=re.I)
     value = re.sub(r"\s+", " ", value)
     value = value.strip(" ,;:-")
     parts = [p.strip() for p in re.split(r"\bAND\b", value) if p.strip()]
@@ -343,11 +356,36 @@ def _extract_owner(text: str) -> str:
 
 def _extract_trustee(text: str) -> tuple[str, str]:
     text_u = (text or "").upper()
+
+    priority_keys = [
+        "QUALITY LOAN SERVICE CORPORATION",
+        "QUALITY LOAN SERVICE",
+        "PRESTIGE DEFAULT SERVICES, LLC",
+        "PRESTIGE DEFAULT SERVICES",
+        "CLEAR RECON CORP",
+        "CLEAR RECON",
+        "MTC FINANCIAL INC",
+        "MTC FINANCIAL",
+        "TRUSTEE CORPS",
+        "LEONARD J. MCDONALD",
+        "LEONARD J MCDONALD",
+        "PRIME RECON LLC",
+        "PRIME RECON",
+        "(888) 725-4142",
+        "RONALD B. HERB",
+        "RONALD HERB",
+        "RONALDHERB@GMAIL.COM",
+        "(602) 488-1349",
+        "LICENSED REAL ESTATE BROKER IN ARIZONA",
+    ]
+    for key in priority_keys:
+        if key in text_u:
+            return TRUSTEE_WHITELIST[key]
+
     for key, (name, phone) in TRUSTEE_WHITELIST.items():
         if key in text_u:
             return name, phone
     return "", ""
-
 
 def _extract_parcel_number(text: str) -> str:
     m = PARCEL_RE.search(text or "")
@@ -367,24 +405,40 @@ def _clean_parcel_number(parcel: str) -> str:
 def _extract_auction_date(text: str) -> str:
     if not text:
         return ""
-    lines = [line.strip() for line in text.splitlines() if line.strip()]
-    for line in lines:
-        l = line.lower()
-        if any(k in l for k in ["sale", "auction", "sold"]):
-            m = DATE_NUMERIC_RE.search(line)
-            if m:
-                date_str = m.group(0)
-                year = int(date_str.split("/")[-1])
-                if year >= 2026:
-                    return date_str
-            m2 = DATE_TEXT_RE.search(line)
-            if m2:
-                txt = m2.group(0)
-                year = int(txt.rsplit(" ", 1)[-1])
-                if year >= 2026:
-                    return txt
-    return ""
 
+    def _year_ok(s: str) -> bool:
+        m = re.search(r"(20\d{2})", s)
+        return bool(m and int(m.group(1)) >= 2026)
+
+    compact = re.sub(r"[ \t]+", " ", text)
+    compact = re.sub(r"\n{2,}", "\n", compact)
+
+    patterns = [
+        r"(?:Sale Date(?: and Time)?|Auction Date|Date of Sale)[:\-\s]{0,20}([A-Za-z]+\s+\d{1,2},\s+20\d{2})",
+        r"(?:Sale Date(?: and Time)?|Auction Date|Date of Sale)[:\-\s]{0,20}(\d{1,2}/\d{1,2}/20\d{2})",
+        r"(?:will be sold on|to be sold on|sale to be held on|sale will be held on)[^\n]{0,100}?([A-Za-z]+\s+\d{1,2},\s+20\d{2})",
+        r"(?:will be sold on|to be sold on|sale to be held on|sale will be held on)[^\n]{0,100}?(\d{1,2}/\d{1,2}/20\d{2})",
+    ]
+    for pat in patterns:
+        m = re.search(pat, compact, re.I | re.S)
+        if m:
+            candidate = m.group(1).strip()
+            if _year_ok(candidate):
+                return candidate
+
+    lines = [line.strip() for line in compact.splitlines() if line.strip()]
+    for i, line in enumerate(lines):
+        block = " ".join(lines[i:i+3])
+        l = block.lower()
+        if any(k in l for k in ["sale", "auction", "sold"]):
+            m = DATE_NUMERIC_RE.search(block)
+            if m and _year_ok(m.group(0)):
+                return m.group(0)
+            m2 = DATE_TEXT_RE.search(block)
+            if m2 and _year_ok(m2.group(0)):
+                return m2.group(0)
+
+    return ""
 
 def _extract_property_address(text: str) -> dict[str, str]:
     text = text or ""
