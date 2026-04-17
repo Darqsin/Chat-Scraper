@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-17T19:10:04.705365",
+  "fetched_at": "2026-04-17T21:11:34.312067",
   "source": "https://recorder.maricopa.gov/recording/document-search.html",
   "date_range": {
     "start": "04/10/2026",
@@ -15,7 +15,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "WILLIAM GUNTY AND JENNIFER GUNTY",
-      "grantee": "QUALITY LOAN SERVICE CORPORATION",
+      "grantee": "",
       "amount": "$548,250.00",
       "legal": "",
       "prop_address": "10537 E LUMIERE AVE",
@@ -29,8 +29,8 @@
       "county": "Maricopa",
       "parcel_number": "304-50-409",
       "original_loan": "$548,250.00",
-      "trustee_name": "QUALITY LOAN SERVICE CORPORATION",
-      "trustee_phone": "(866) 645-7711",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2021-01-25",
       "first_name": "",
@@ -41,9 +41,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260211720.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260211720.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260211720.txt"
     },
     {
@@ -52,8 +53,8 @@
       "filed": "2026-04-10",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
-      "owner": "{} Sarah Rendon AND Patricia Cross, .",
-      "grantee": "Entra Default Solutions, LLC",
+      "owner": "Sarah Rendon AND Patricia Cross, .",
+      "grantee": "",
       "amount": "$276,822.00",
       "legal": "",
       "prop_address": "12164 WEST RIO VISTA LANE",
@@ -67,7 +68,7 @@
       "county": "Maricopa",
       "parcel_number": "500-32-628",
       "original_loan": "$276,822.00",
-      "trustee_name": "Entra Default Solutions, LLC",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-15",
       "deed_of_trust": "2026-07-15",
@@ -79,9 +80,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260211848.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260211848.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260211848.txt"
     },
     {
@@ -91,7 +93,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "RONALD EDWARD DOERLER",
-      "grantee": "PRESTIGE DEFAULT SERVICES, LLC",
+      "grantee": "",
       "amount": "$874,250.00",
       "legal": "",
       "prop_address": "1920 Old Tustin Ave",
@@ -105,8 +107,8 @@
       "county": "Maricopa",
       "parcel_number": "219-31-796",
       "original_loan": "$874,250.00",
-      "trustee_name": "PRESTIGE DEFAULT SERVICES, LLC",
-      "trustee_phone": "(949) 427-2010",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-21",
       "deed_of_trust": "2026-07-21",
       "first_name": "",
@@ -117,9 +119,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260211893.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260211893.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260211893.txt"
     },
     {
@@ -129,7 +132,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "WENDY ORTIZ AND JOSEPH ORTIZ",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$525,000.00",
       "legal": "",
       "prop_address": "510 E BELMONT AVE",
@@ -143,8 +146,8 @@
       "county": "Maricopa",
       "parcel_number": "160-38-025",
       "original_loan": "$525,000.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-14",
       "deed_of_trust": "2026-07-14",
       "first_name": "",
@@ -155,9 +158,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260211934.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260211934.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260211934.txt"
     },
     {
@@ -167,7 +171,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "ALEX M MONTOYAAND CYNTHIA U MONTOYA",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$285,729.00",
       "legal": "",
       "prop_address": "16521 N 171ST DR",
@@ -181,8 +185,8 @@
       "county": "Maricopa",
       "parcel_number": "502-01-404",
       "original_loan": "$285,729.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2026-07-16",
       "first_name": "",
@@ -193,9 +197,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260211955.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260211955.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260211955.txt"
     },
     {
@@ -205,7 +210,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Paul M Power",
-      "grantee": "QUALITY LOAN SERVICE CORPORATION",
+      "grantee": "",
       "amount": "$264,000.00",
       "legal": "",
       "prop_address": "4034 W VOLTAIRE AVE",
@@ -219,8 +224,8 @@
       "county": "Maricopa",
       "parcel_number": "149-26-146",
       "original_loan": "$264,000.00",
-      "trustee_name": "QUALITY LOAN SERVICE CORPORATION",
-      "trustee_phone": "(866) 645-7711",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2021-03-18",
       "first_name": "",
@@ -231,9 +236,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260213276.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260213276.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260213276.txt"
     },
     {
@@ -243,7 +249,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "DAWN L MARTHINI",
-      "grantee": "PRIME RECON LLC",
+      "grantee": "",
       "amount": "$396,000.00",
       "legal": "",
       "prop_address": "2594 E BOSTON ST",
@@ -257,8 +263,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$396,000.00",
-      "trustee_name": "PRIME RECON LLC",
-      "trustee_phone": "(888) 725-4142",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2023-02-23",
       "first_name": "",
@@ -270,9 +276,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260213302.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260213302.txt"
     },
     {
@@ -282,7 +289,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "LUCY AKPAN",
-      "grantee": "CLEAR RECON CORP",
+      "grantee": "",
       "amount": "$43,780.00",
       "legal": "",
       "prop_address": "4932 W SAINT ANNE AVENUE",
@@ -296,8 +303,8 @@
       "county": "Maricopa",
       "parcel_number": "104-78-254",
       "original_loan": "$43,780.00",
-      "trustee_name": "CLEAR RECON CORP",
-      "trustee_phone": "(866) 931-0036",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2007-01-30",
       "first_name": "",
@@ -308,9 +315,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260213451.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260213451.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260213451.txt"
     },
     {
@@ -320,7 +328,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$516,000.00",
       "legal": "",
       "prop_address": "7239 S 65TH DR",
@@ -334,8 +342,8 @@
       "county": "Maricopa",
       "parcel_number": "104-85-149",
       "original_loan": "$516,000.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2026-07-16",
       "first_name": "",
@@ -347,9 +355,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260213720.pdf",
       "flags": [
         "ocr_fallback",
-        "owner_suspect"
+        "owner_suspect",
+        "trustee_suspect"
       ],
-      "score": 40,
+      "score": 30,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260213720.txt"
     },
     {
@@ -359,7 +368,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Agency, AZ",
-      "grantee": "WHEREAS, the Deed of Trust was insured by the United States Secretary of",
+      "grantee": "",
       "amount": "$318,773.40",
       "legal": "",
       "prop_address": "19607 N. 14th Street",
@@ -373,7 +382,7 @@
       "county": "Maricopa",
       "parcel_number": "213-23-070",
       "original_loan": "$318,773.40",
-      "trustee_name": "WHEREAS, the Deed of Trust was insured by the United States Secretary of",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-05-14",
       "deed_of_trust": "2019-01-16",
@@ -385,9 +394,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260213853.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260213853.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260213853.txt"
     },
     {
@@ -397,7 +407,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Beata L Knowles, A Widow",
-      "grantee": "PRESTIGE DEFAULT SERVICES, LLC",
+      "grantee": "",
       "amount": "$340,500.00",
       "legal": "",
       "prop_address": "2240 E DOLPHIN AVE",
@@ -411,8 +421,8 @@
       "county": "Maricopa",
       "parcel_number": "140-42-178",
       "original_loan": "$340,500.00",
-      "trustee_name": "PRESTIGE DEFAULT SERVICES, LLC",
-      "trustee_phone": "(949) 427-2010",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-29",
       "deed_of_trust": "2026-07-29",
       "first_name": "",
@@ -423,9 +433,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260213898.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260213898.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260213898.txt"
     },
     {
@@ -435,7 +446,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Francisco Javier Guzman Orozco",
-      "grantee": "PIONEER TITLE",
+      "grantee": "",
       "amount": "$300,000.00",
       "legal": "",
       "prop_address": "5407 W. Yucca St.",
@@ -449,7 +460,7 @@
       "county": "Maricopa",
       "parcel_number": "148-26-414",
       "original_loan": "$300,000.00",
-      "trustee_name": "PIONEER TITLE",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-14",
       "deed_of_trust": "2024-11-01",
@@ -461,9 +472,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260214110.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260214110.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260214110.txt"
     },
     {
@@ -473,11 +485,11 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "RYMAX DEVELOPMENT, L.L.C.",
-      "grantee": "RONALD B. HERB",
+      "grantee": "",
       "amount": "$480,000.00",
       "legal": "",
       "prop_address": "4037 S. 12th Street",
-      "prop_city": "th Street Phoenix",
+      "prop_city": "Phoenix",
       "prop_state": "AZ",
       "prop_zip": "85040",
       "mail_address": "",
@@ -487,8 +499,8 @@
       "county": "Maricopa",
       "parcel_number": "113-25-057",
       "original_loan": "$480,000.00",
-      "trustee_name": "RONALD B. HERB",
-      "trustee_phone": "(602) 488-1349",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "",
       "deed_of_trust": "2024-10-11",
       "first_name": "",
@@ -500,9 +512,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260214859.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "auction_date_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260214859.txt"
     },
     {
@@ -512,11 +525,11 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "RYMAX DEVELOPMENT, L.L.C.",
-      "grantee": "RONALD B. HERB",
+      "grantee": "",
       "amount": "$480,000.00",
       "legal": "",
       "prop_address": "4037 S. 12th Street",
-      "prop_city": "th Street Phoenix",
+      "prop_city": "Phoenix",
       "prop_state": "AZ",
       "prop_zip": "85040",
       "mail_address": "",
@@ -526,8 +539,8 @@
       "county": "Maricopa",
       "parcel_number": "113-25-053",
       "original_loan": "$480,000.00",
-      "trustee_name": "RONALD B. HERB",
-      "trustee_phone": "(602) 488-1349",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "",
       "deed_of_trust": "2024-08-26",
       "first_name": "",
@@ -539,9 +552,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260214860.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "auction_date_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260214860.txt"
     },
     {
@@ -551,11 +565,11 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "RYMAX DEVELOPMENT, L.L.C.",
-      "grantee": "RONALD B. HERB",
+      "grantee": "",
       "amount": "$480,000.00",
       "legal": "",
       "prop_address": "4037 S. 12th Street",
-      "prop_city": "th Street Phoenix",
+      "prop_city": "Phoenix",
       "prop_state": "AZ",
       "prop_zip": "85040",
       "mail_address": "",
@@ -565,8 +579,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$480,000.00",
-      "trustee_name": "RONALD B. HERB",
-      "trustee_phone": "(602) 488-1349",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "",
       "deed_of_trust": "2024-08-23",
       "first_name": "",
@@ -578,10 +592,11 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260214861.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "auction_date_missing",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260214861.txt"
     },
     {
@@ -591,11 +606,11 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "RYMAX DEVELOPMENT, L.L.C.",
-      "grantee": "RONALD B. HERB",
+      "grantee": "",
       "amount": "$480,000.00",
       "legal": "",
       "prop_address": "4037 S. 12th Street",
-      "prop_city": "th Street Phoenix",
+      "prop_city": "Phoenix",
       "prop_state": "AZ",
       "prop_zip": "85040",
       "mail_address": "",
@@ -605,8 +620,8 @@
       "county": "Maricopa",
       "parcel_number": "113-25-051",
       "original_loan": "$480,000.00",
-      "trustee_name": "RONALD B. HERB",
-      "trustee_phone": "(602) 488-1349",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "",
       "deed_of_trust": "2024-08-23",
       "first_name": "",
@@ -618,9 +633,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260214862.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "auction_date_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260214862.txt"
     },
     {
@@ -630,11 +646,11 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "RYMAX DEVELOPMENT, L.L.C.",
-      "grantee": "RONALD B. HERB",
+      "grantee": "",
       "amount": "$480,000.00",
       "legal": "",
       "prop_address": "4037 S. 12th Street",
-      "prop_city": "th Street Phoenix",
+      "prop_city": "Phoenix",
       "prop_state": "AZ",
       "prop_zip": "85040",
       "mail_address": "",
@@ -644,8 +660,8 @@
       "county": "Maricopa",
       "parcel_number": "113-25-057",
       "original_loan": "$480,000.00",
-      "trustee_name": "RONALD B. HERB",
-      "trustee_phone": "(602) 488-1349",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-14",
       "deed_of_trust": "2024-10-11",
       "first_name": "",
@@ -656,9 +672,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260215914.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260215914.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260215914.txt"
     },
     {
@@ -668,11 +685,11 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "RYMAX DEVELOPMENT, L.L.C.",
-      "grantee": "RONALD B. HERB",
+      "grantee": "",
       "amount": "$480,000.00",
       "legal": "",
       "prop_address": "4037 S. 12th Street",
-      "prop_city": "th Street Phoenix",
+      "prop_city": "Phoenix",
       "prop_state": "AZ",
       "prop_zip": "85040",
       "mail_address": "",
@@ -682,8 +699,8 @@
       "county": "Maricopa",
       "parcel_number": "113-25-051",
       "original_loan": "$480,000.00",
-      "trustee_name": "RONALD B. HERB",
-      "trustee_phone": "(602) 488-1349",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-14",
       "deed_of_trust": "2024-08-23",
       "first_name": "",
@@ -694,9 +711,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260215915.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260215915.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260215915.txt"
     },
     {
@@ -706,11 +724,11 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "RYMAX DEVELOPMENT, L.L.C.",
-      "grantee": "RONALD B. HERB",
+      "grantee": "",
       "amount": "$480,000.00",
       "legal": "",
       "prop_address": "4037 S. 12th Street",
-      "prop_city": "th Street Phoenix",
+      "prop_city": "Phoenix",
       "prop_state": "AZ",
       "prop_zip": "85040",
       "mail_address": "",
@@ -720,8 +738,8 @@
       "county": "Maricopa",
       "parcel_number": "113-25-053",
       "original_loan": "$480,000.00",
-      "trustee_name": "RONALD B. HERB",
-      "trustee_phone": "(602) 488-1349",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-14",
       "deed_of_trust": "2024-08-26",
       "first_name": "",
@@ -732,9 +750,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260215916.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260215916.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260215916.txt"
     },
     {
@@ -744,11 +763,11 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "RYMAX DEVELOPMENT, L.L.C.",
-      "grantee": "RONALD B. HERB",
+      "grantee": "",
       "amount": "$480,000.00",
       "legal": "",
       "prop_address": "4037 S. 12th Street",
-      "prop_city": "th Street Phoenix",
+      "prop_city": "Phoenix",
       "prop_state": "AZ",
       "prop_zip": "85040",
       "mail_address": "",
@@ -758,8 +777,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$480,000.00",
-      "trustee_name": "RONALD B. HERB",
-      "trustee_phone": "(602) 488-1349",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-14",
       "deed_of_trust": "2024-08-23",
       "first_name": "",
@@ -771,9 +790,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260215917.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260215917.txt"
     },
     {
@@ -783,7 +803,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Rymax Development, L.L.C.",
-      "grantee": "OR YOU MAY HAVE WAIVED ANY DEFENSES OR OBJECTIONS TO THE",
+      "grantee": "",
       "amount": "$480,000.00",
       "legal": "",
       "prop_address": "4037 S 12th St Unit 104",
@@ -797,7 +817,7 @@
       "county": "Maricopa",
       "parcel_number": "113-25-052",
       "original_loan": "$480,000.00",
-      "trustee_name": "OR YOU MAY HAVE WAIVED ANY DEFENSES OR OBJECTIONS TO THE",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2026-07-16",
@@ -809,9 +829,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260216584.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260216584.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260216584.txt"
     },
     {
@@ -821,7 +842,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Rymax Development, L.L.C.",
-      "grantee": "OR YOU MAY HAVE WAIVED ANY DEFENSES OR OBJECTIONS TO THE",
+      "grantee": "",
       "amount": "$480,000.00",
       "legal": "",
       "prop_address": "4037 S 12th St",
@@ -835,7 +856,7 @@
       "county": "Maricopa",
       "parcel_number": "113-25-050",
       "original_loan": "$480,000.00",
-      "trustee_name": "OR YOU MAY HAVE WAIVED ANY DEFENSES OR OBJECTIONS TO THE",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2026-07-16",
@@ -847,9 +868,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260216594.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260216594.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260216594.txt"
     },
     {
@@ -859,7 +881,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Rymax Development, L.L.C.",
-      "grantee": "OR YOU MAY HAVE WAIVED ANY DEFENSES OR OBJECTIONS TO THE",
+      "grantee": "",
       "amount": "$480,000.00",
       "legal": "",
       "prop_address": "4037 S 12th St",
@@ -873,7 +895,7 @@
       "county": "Maricopa",
       "parcel_number": "113-25-056",
       "original_loan": "$480,000.00",
-      "trustee_name": "OR YOU MAY HAVE WAIVED ANY DEFENSES OR OBJECTIONS TO THE",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2026-07-16",
@@ -885,9 +907,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260216602.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260216602.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260216602.txt"
     },
     {
@@ -897,7 +920,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Rymax Development, L.L.C.",
-      "grantee": "OR YOU MAY HAVE WAIVED ANY DEFENSES OR OBJECTIONS TO THE",
+      "grantee": "",
       "amount": "$480,000.00",
       "legal": "",
       "prop_address": "4037 S 12th St",
@@ -911,7 +934,7 @@
       "county": "Maricopa",
       "parcel_number": "113-25-058",
       "original_loan": "$480,000.00",
-      "trustee_name": "OR YOU MAY HAVE WAIVED ANY DEFENSES OR OBJECTIONS TO THE",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2026-07-16",
@@ -923,9 +946,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260216631.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260216631.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260216631.txt"
     },
     {
@@ -935,7 +959,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "VICTOR M. CASILLAS",
-      "grantee": "PRIME RECON LLC",
+      "grantee": "",
       "amount": "$146,610.00",
       "legal": "",
       "prop_address": "14800 N. 129TH DR",
@@ -949,8 +973,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$146,610.00",
-      "trustee_name": "PRIME RECON LLC",
-      "trustee_phone": "(888) 725-4142",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2017-01-12",
       "first_name": "",
@@ -962,9 +986,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260217097.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260217097.txt"
     },
     {
@@ -974,7 +999,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "David Bitterman and Melissa Coles-Bitterman, 70 West Roadrunner Drive, Chandler, AZ",
-      "grantee": "P.M. MOUNTAIN STANDARD TIME ON THE LAST BUSINESS DAY BEFORE THE",
+      "grantee": "",
       "amount": "$389,695.44",
       "legal": "",
       "prop_address": "70 West Roadrunner Drive",
@@ -988,7 +1013,7 @@
       "county": "Maricopa",
       "parcel_number": "303-85-159",
       "original_loan": "$389,695.44",
-      "trustee_name": "P.M. MOUNTAIN STANDARD TIME ON THE LAST BUSINESS DAY BEFORE THE",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-04-13",
       "deed_of_trust": "2025-01-08",
@@ -1000,9 +1025,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260217218.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260217218.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260217218.txt"
     },
     {
@@ -1012,7 +1038,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Aaron Anaya",
-      "grantee": "P.M. MOUNTAIN STANDARD TIME ON THE LAST BUSINESS DAY BEFORE THE",
+      "grantee": "",
       "amount": "$450,000.00",
       "legal": "",
       "prop_address": "483 N. 161st Ave.",
@@ -1026,7 +1052,7 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$450,000.00",
-      "trustee_name": "P.M. MOUNTAIN STANDARD TIME ON THE LAST BUSINESS DAY BEFORE THE",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-04-13",
       "deed_of_trust": "2024-03-01",
@@ -1039,9 +1065,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260217240.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260217240.txt"
     },
     {
@@ -1051,7 +1078,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "CALVIN HUGGAR AND KARMA JOY HUGGAR",
-      "grantee": "(as shown on the Deed of Trust)",
+      "grantee": "",
       "amount": "$517,997.00",
       "legal": "",
       "prop_address": "8707 S 67TH DR",
@@ -1065,7 +1092,7 @@
       "county": "Maricopa",
       "parcel_number": "300-07-243",
       "original_loan": "$517,997.00",
-      "trustee_name": "(as shown on the Deed of Trust)",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2026-07-23",
@@ -1077,9 +1104,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260217364.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260217364.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260217364.txt"
     },
     {
@@ -1089,7 +1117,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "BOBBY DEAN SWIM AND TERRY ANN SWIM",
-      "grantee": "Planet Home Lending LLC",
+      "grantee": "",
       "amount": "$364,000.00",
       "legal": "",
       "prop_address": "10533 E ELMHURST DR",
@@ -1103,7 +1131,7 @@
       "county": "Maricopa",
       "parcel_number": "303-59-870",
       "original_loan": "$364,000.00",
-      "trustee_name": "Planet Home Lending LLC",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2026-07-23",
@@ -1115,9 +1143,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260217762.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260217762.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260217762.txt"
     },
     {
@@ -1127,7 +1156,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "JESSE G SERNA AND VALERIE ANN LLANEZ",
-      "grantee": "QUALITY LOAN SERVICE CORPORATION",
+      "grantee": "",
       "amount": "$289,656.00",
       "legal": "",
       "prop_address": "22655 W ASHLEIGH MARIE DR",
@@ -1141,8 +1170,8 @@
       "county": "Maricopa",
       "parcel_number": "504-21-565",
       "original_loan": "$289,656.00",
-      "trustee_name": "QUALITY LOAN SERVICE CORPORATION",
-      "trustee_phone": "(866) 645-7711",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2018-03-20",
       "first_name": "",
@@ -1153,9 +1182,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260217908.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260217908.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260217908.txt"
     },
     {
@@ -1621,7 +1651,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "DANAE LOREAN FLORES",
-      "grantee": "America West Lender Services, LLC",
+      "grantee": "",
       "amount": "",
       "legal": "",
       "prop_address": "19283 W WOODLANDS AVE",
@@ -1635,7 +1665,7 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "",
-      "trustee_name": "America West Lender Services, LLC",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2024-05-06",
@@ -1648,9 +1678,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260219643.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260219643.txt"
     },
     {
@@ -1660,7 +1691,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "ANA ESTRADA AND JOHN ESTRADA",
-      "grantee": "(as shown on the Deed of Trust)",
+      "grantee": "",
       "amount": "$314,204.00",
       "legal": "",
       "prop_address": "12832 N 112TH AVE",
@@ -1674,7 +1705,7 @@
       "county": "Maricopa",
       "parcel_number": "200-85-321",
       "original_loan": "$314,204.00",
-      "trustee_name": "(as shown on the Deed of Trust)",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2022-08-29",
@@ -1686,9 +1717,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260220010.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260220010.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260220010.txt"
     },
     {
@@ -1698,7 +1730,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "MARIA G ESTRADA AND BRANDON AMAYA",
-      "grantee": "Nestor Solutions, LLC",
+      "grantee": "",
       "amount": "$537,240.00",
       "legal": "",
       "prop_address": "3773 W ABRAMS DR",
@@ -1712,7 +1744,7 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$537,240.00",
-      "trustee_name": "Nestor Solutions, LLC",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-03-17",
       "deed_of_trust": "2024-09-09",
@@ -1725,9 +1757,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260220108.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260220108.txt"
     },
     {
@@ -1737,7 +1770,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "ERIC D FLORE",
-      "grantee": "(as shown on the Deed of Trust)",
+      "grantee": "",
       "amount": "$166,920.00",
       "legal": "",
       "prop_address": "3416 WEST SIERRA VISTA DRIVE",
@@ -1751,7 +1784,7 @@
       "county": "Maricopa",
       "parcel_number": "152-22-114",
       "original_loan": "$166,920.00",
-      "trustee_name": "(as shown on the Deed of Trust)",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-21",
       "deed_of_trust": "2015-11-02",
@@ -1763,9 +1796,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260220458.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260220458.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260220458.txt"
     },
     {
@@ -1775,7 +1809,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Luis Ernesto Olmos Jr",
-      "grantee": "(as shown on the Deed of Trust)",
+      "grantee": "",
       "amount": "$242,526.00",
       "legal": "",
       "prop_address": "11202 W OREGON AVE",
@@ -1789,7 +1823,7 @@
       "county": "Maricopa",
       "parcel_number": "142-64-232",
       "original_loan": "$242,526.00",
-      "trustee_name": "(as shown on the Deed of Trust)",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-21",
       "deed_of_trust": "2019-09-13",
@@ -1801,9 +1835,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260220483.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260220483.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260220483.txt"
     },
     {
@@ -1813,7 +1848,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Alberto Vasquez",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$219,000.00",
       "legal": "",
       "prop_address": "432 N Ash",
@@ -1827,8 +1862,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$219,000.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-21",
       "deed_of_trust": "",
       "first_name": "",
@@ -1840,9 +1875,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260221099.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260221099.txt"
     },
     {
@@ -1851,8 +1887,8 @@
       "filed": "2026-04-14",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
-      "owner": "Jorge Valles, Jr. and Melissa Vivar Y. Balderrama, AND not as tenants in common or as joint tenants",
-      "grantee": "LEONARD J. MCDONALD",
+      "owner": "Jorge Valles, Jr. and Melissa Vivar Y. Balderrama, AND",
+      "grantee": "",
       "amount": "$369,780.00",
       "legal": "",
       "prop_address": "822 W Devon Dr",
@@ -1866,8 +1902,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$369,780.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-30",
       "deed_of_trust": "",
       "first_name": "",
@@ -1879,9 +1915,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260221116.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260221116.txt"
     },
     {
@@ -1891,7 +1928,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "JOSEPH WYLEZIK AND TAYLOR WYLEZIK",
-      "grantee": "CLEAR RECON CORP",
+      "grantee": "",
       "amount": "$531,226.00",
       "legal": "",
       "prop_address": "7567 WEST ANDREA DRIVE",
@@ -1905,8 +1942,8 @@
       "county": "Maricopa",
       "parcel_number": "201-20-137",
       "original_loan": "$531,226.00",
-      "trustee_name": "CLEAR RECON CORP",
-      "trustee_phone": "(866) 931-0036",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-21",
       "deed_of_trust": "2025-04-29",
       "first_name": "",
@@ -1917,9 +1954,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260221131.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260221131.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260221131.txt"
     },
     {
@@ -1929,7 +1967,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "JESUS ZAMORA AND OLIVA ZAMORA",
-      "grantee": "CLEAR RECON CORP",
+      "grantee": "",
       "amount": "$461,295.00",
       "legal": "",
       "prop_address": "3429 SOUTH 177TH DR",
@@ -1943,8 +1981,8 @@
       "county": "Maricopa",
       "parcel_number": "502-48-207",
       "original_loan": "$461,295.00",
-      "trustee_name": "CLEAR RECON CORP",
-      "trustee_phone": "(866) 931-0036",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-21",
       "deed_of_trust": "2025-02-21",
       "first_name": "",
@@ -1955,9 +1993,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260221159.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260221159.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260221159.txt"
     },
     {
@@ -1967,7 +2006,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "KENNY B SEAVER",
-      "grantee": "CLEAR RECON CORP",
+      "grantee": "",
       "amount": "$733,400.00",
       "legal": "",
       "prop_address": "2325 N 7TH AVE",
@@ -1981,8 +2020,8 @@
       "county": "Maricopa",
       "parcel_number": "118-49-139",
       "original_loan": "$733,400.00",
-      "trustee_name": "CLEAR RECON CORP",
-      "trustee_phone": "(866) 931-0036",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2021-04-20",
       "first_name": "",
@@ -1993,9 +2032,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260221277.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260221277.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260221277.txt"
     },
     {
@@ -2005,7 +2045,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Roy C.Burnett and Marie O. Burnett, as joint tenants",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$319,500.00",
       "legal": "",
       "prop_address": "4635 West Dailey Street",
@@ -2019,8 +2059,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$319,500.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-28",
       "deed_of_trust": "",
       "first_name": "",
@@ -2032,9 +2072,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260221728.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260221728.txt"
     },
     {
@@ -2070,7 +2111,8 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260221835.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260221835.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
       "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260221835.txt"
@@ -2082,7 +2124,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Donna Mae Wilcox",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$164,000.00",
       "legal": "",
       "prop_address": "4131 E Sandia Street",
@@ -2096,8 +2138,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$164,000.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-30",
       "deed_of_trust": "",
       "first_name": "",
@@ -2109,9 +2151,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260221862.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260221862.txt"
     },
     {
@@ -2121,7 +2164,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Gregory L Ehmann",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$190,328.00",
       "legal": "",
       "prop_address": "35215 N 7th St",
@@ -2135,8 +2178,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$190,328.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-28",
       "deed_of_trust": "",
       "first_name": "",
@@ -2148,9 +2191,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260221869.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260221869.txt"
     },
     {
@@ -2159,8 +2203,8 @@
       "filed": "2026-04-14",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
-      "owner": "GEORGE T. NORTON JR. AND NANCY NORTON, NOT AS TENANTS IN COMMON, NOT ESTATE, BUT",
-      "grantee": "(as shown on the Deed of Trust)",
+      "owner": "GEORGE T. NORTON JR. AND NANCY NORTON",
+      "grantee": "",
       "amount": "$141,004.00",
       "legal": "",
       "prop_address": "4366 East Sandia Street",
@@ -2174,7 +2218,7 @@
       "county": "Maricopa",
       "parcel_number": "301-58-228",
       "original_loan": "$141,004.00",
-      "trustee_name": "(as shown on the Deed of Trust)",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-22",
       "deed_of_trust": "2015-03-11",
@@ -2186,9 +2230,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260221880.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260221880.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260221880.txt"
     },
     {
@@ -2197,8 +2242,8 @@
       "filed": "2026-04-14",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
-      "owner": "’s Name and Address: Seth Dixon Jessica Dixon",
-      "grantee": "warranty, express or implied, regarding title, condition, possession or encumbrances, to pay the",
+      "owner": "Seth Dixon Jessica Dixon",
+      "grantee": "",
       "amount": "$972,000.00",
       "legal": "",
       "prop_address": "2111 E. Melrose Street",
@@ -2212,7 +2257,7 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$972,000.00",
-      "trustee_name": "warranty, express or implied, regarding title, condition, possession or encumbrances, to pay the",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2021-02-19",
@@ -2225,9 +2270,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260221886.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260221886.txt"
     },
     {
@@ -2237,7 +2283,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "DOKUZ, LLC",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$420,750.00",
       "legal": "",
       "prop_address": "1044 E. WHITTON AVE",
@@ -2251,8 +2297,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$420,750.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-08-18",
       "deed_of_trust": "2026-08-18",
       "first_name": "",
@@ -2264,9 +2310,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222095.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222095.txt"
     },
     {
@@ -2276,7 +2323,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "LORI YATES",
-      "grantee": "(as shown on the Deed of Trust)",
+      "grantee": "",
       "amount": "$398,860.00",
       "legal": "",
       "prop_address": "14906 N 134TH CIR",
@@ -2290,7 +2337,7 @@
       "county": "Maricopa",
       "parcel_number": "501-15-300",
       "original_loan": "$398,860.00",
-      "trustee_name": "(as shown on the Deed of Trust)",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-22",
       "deed_of_trust": "2022-11-02",
@@ -2302,9 +2349,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222178.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222178.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222178.txt"
     },
     {
@@ -2314,7 +2362,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "RAUL BERMUDEZ",
-      "grantee": "(as shown on the Deed of Trust)",
+      "grantee": "",
       "amount": "$220,924.00",
       "legal": "",
       "prop_address": "4130 W HAYWARD AVE",
@@ -2328,7 +2376,7 @@
       "county": "Maricopa",
       "parcel_number": "151-06-168",
       "original_loan": "$220,924.00",
-      "trustee_name": "(as shown on the Deed of Trust)",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-22",
       "deed_of_trust": "2018-06-06",
@@ -2340,9 +2388,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222252.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222252.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222252.txt"
     },
     {
@@ -2352,7 +2401,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "JEREMY JAMES MOLLENHAUER",
-      "grantee": "(as shown on the Deed of Trust)",
+      "grantee": "",
       "amount": "$601,663.00",
       "legal": "",
       "prop_address": "18004 W DIANA AVE",
@@ -2366,7 +2415,7 @@
       "county": "Maricopa",
       "parcel_number": "502-10-490",
       "original_loan": "$601,663.00",
-      "trustee_name": "(as shown on the Deed of Trust)",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-03-16",
       "deed_of_trust": "2024-03-29",
@@ -2378,9 +2427,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222297.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222297.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222297.txt"
     },
     {
@@ -2390,7 +2440,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "JNRL Enterprises, LLC",
-      "grantee": "Janel M. Glynn, Esq.",
+      "grantee": "",
       "amount": "$1,932,500.00",
       "legal": "",
       "prop_address": "150 S. Dobson Road",
@@ -2404,7 +2454,7 @@
       "county": "Maricopa",
       "parcel_number": "134-33-002",
       "original_loan": "$1,932,500.00",
-      "trustee_name": "Janel M. Glynn, Esq.",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2022-11-09",
@@ -2416,9 +2466,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222380.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222380.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222380.txt"
     },
     {
@@ -2428,7 +2479,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "SPS PLATINUM PROPERTIES, LLC",
-      "grantee": "QUALITY LOAN SERVICE CORPORATION",
+      "grantee": "",
       "amount": "$250,000.00",
       "legal": "",
       "prop_address": "4130 W NANCY LN",
@@ -2442,8 +2493,8 @@
       "county": "Maricopa",
       "parcel_number": "105-89-133",
       "original_loan": "$250,000.00",
-      "trustee_name": "QUALITY LOAN SERVICE CORPORATION",
-      "trustee_phone": "(866) 645-7711",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-21",
       "deed_of_trust": "2022-07-25",
       "first_name": "",
@@ -2454,9 +2505,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222588.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222588.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222588.txt"
     },
     {
@@ -2466,7 +2518,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "PEGGY LEE KNIGHT",
-      "grantee": "WESTERN PROGRESSIVE",
+      "grantee": "",
       "amount": "$ 630,000.00",
       "legal": "",
       "prop_address": "15252 N 100TH STREET # 1146",
@@ -2480,7 +2532,7 @@
       "county": "Maricopa",
       "parcel_number": "217-54-700",
       "original_loan": "$ 630,000.00",
-      "trustee_name": "WESTERN PROGRESSIVE",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-21",
       "deed_of_trust": "2024-01-31",
@@ -2492,9 +2544,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222606.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222606.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222606.txt"
     },
     {
@@ -2504,7 +2557,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "DONALD J. ECHOLS AND COLLEEN A. ECHOLS",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$285,000.00",
       "legal": "",
       "prop_address": "1036 E HIGHLAND AVENUE",
@@ -2518,8 +2571,8 @@
       "county": "Maricopa",
       "parcel_number": "155-11-018",
       "original_loan": "$285,000.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-22",
       "deed_of_trust": "2026-07-22",
       "first_name": "",
@@ -2530,9 +2583,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222631.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222631.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222631.txt"
     },
     {
@@ -2542,7 +2596,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "MASON BODROG",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$444,795.00",
       "legal": "",
       "prop_address": "29409 N 182ND AVE",
@@ -2556,8 +2610,8 @@
       "county": "Maricopa",
       "parcel_number": "503-51-109T",
       "original_loan": "$444,795.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2026-07-23",
       "first_name": "",
@@ -2568,9 +2622,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222700.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222700.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222700.txt"
     },
     {
@@ -2579,8 +2634,8 @@
       "filed": "2026-04-15",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
-      "owner": "’s Stated Name and Address: Salt River Point TT, LLC",
-      "grantee": "(MESA REPOSITION PARTNERS, LLC/SALT RIVER POINT TT, LLC)",
+      "owner": "Salt River Point TT, LLC",
+      "grantee": "",
       "amount": "$55,250,000",
       "legal": "",
       "prop_address": "1146 and 1150 North Alma School Road",
@@ -2594,7 +2649,7 @@
       "county": "Maricopa",
       "parcel_number": "135-33-586",
       "original_loan": "$55,250,000",
-      "trustee_name": "(MESA REPOSITION PARTNERS, LLC/SALT RIVER POINT TT, LLC)",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-08-04",
       "deed_of_trust": "2019-08-13",
@@ -2606,9 +2661,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260222835.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222835.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222835.txt"
     },
     {
@@ -2618,7 +2674,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Rommel Eugenio Cordova",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$304,385",
       "legal": "",
       "prop_address": "2855 S Extension Rd Unit 247",
@@ -2632,8 +2688,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$304,385",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-15",
       "deed_of_trust": "",
       "first_name": "",
@@ -2645,9 +2701,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260222909.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260222909.txt"
     },
     {
@@ -2657,7 +2714,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "ALEXIS M JAUREGU! RODRIGUEZ AND IYOANA G CHAVEZ",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$294,566.00",
       "legal": "",
       "prop_address": "3037 N 69TH AVENUE",
@@ -2671,8 +2728,8 @@
       "county": "Maricopa",
       "parcel_number": "102-21-180",
       "original_loan": "$294,566.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-21",
       "deed_of_trust": "2026-07-21",
       "first_name": "",
@@ -2683,9 +2740,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223068.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223068.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223068.txt"
     },
     {
@@ -2695,7 +2753,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Margie C. Yates",
-      "grantee": "My commission expires",
+      "grantee": "",
       "amount": "$100,000.00",
       "legal": "",
       "prop_address": "1501 East Nielson Avenue",
@@ -2709,7 +2767,7 @@
       "county": "Maricopa",
       "parcel_number": "138-13-118",
       "original_loan": "$100,000.00",
-      "trustee_name": "My commission expires",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2022-12-20",
@@ -2721,9 +2779,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223111.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223111.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223111.txt"
     },
     {
@@ -2733,7 +2792,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "LOGAN HAINLEN AND APRILYN STREETY",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$322,200.00",
       "legal": "",
       "prop_address": "14870 N 174TH LN",
@@ -2747,8 +2806,8 @@
       "county": "Maricopa",
       "parcel_number": "502-88-840",
       "original_loan": "$322,200.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2026-07-23",
       "first_name": "",
@@ -2759,9 +2818,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223127.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223127.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223127.txt"
     },
     {
@@ -2771,7 +2831,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "JOSEPH PARKINSON AND ALEXIS PARKINSON",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$766,550.00",
       "legal": "",
       "prop_address": "22495 E STIRRUP ST",
@@ -2785,8 +2845,8 @@
       "county": "Maricopa",
       "parcel_number": "314-16-119",
       "original_loan": "$766,550.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2026-07-23",
       "first_name": "",
@@ -2797,9 +2857,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223286.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223286.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223286.txt"
     },
     {
@@ -2809,7 +2870,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "ROBERTO GAMINO",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$82,500.00",
       "legal": "",
       "prop_address": "3832 N 86TH AVE",
@@ -2823,8 +2884,8 @@
       "county": "Maricopa",
       "parcel_number": "102-23-132",
       "original_loan": "$82,500.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2026-07-23",
       "first_name": "",
@@ -2835,9 +2896,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260223322.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223322.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223322.txt"
     },
     {
@@ -2847,7 +2909,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Mary Watola",
-      "grantee": "RONALD B. HERB",
+      "grantee": "",
       "amount": "$250,000.00",
       "legal": "",
       "prop_address": "5420 W Onyx Ave",
@@ -2861,8 +2923,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$250,000.00",
-      "trustee_name": "RONALD B. HERB",
-      "trustee_phone": "(602) 488-1349",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-15",
       "deed_of_trust": "",
       "first_name": "",
@@ -2874,9 +2936,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260223541.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260223541.txt"
     },
     {
@@ -2886,7 +2949,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "MICHELLE INEZ MIRABELLA AND CRAIG STEVEN NETH",
-      "grantee": "Carrington Mortgage Services, LLC",
+      "grantee": "",
       "amount": "$381,954.00",
       "legal": "",
       "prop_address": "511 N 94TH CIR",
@@ -2900,7 +2963,7 @@
       "county": "Maricopa",
       "parcel_number": "220-21-417",
       "original_loan": "$381,954.00",
-      "trustee_name": "Carrington Mortgage Services, LLC",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-03-05",
       "deed_of_trust": "2026-03-05",
@@ -2912,9 +2975,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224183.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224183.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224183.txt"
     },
     {
@@ -2924,7 +2988,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Jerry Beck",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$302,421.00",
       "legal": "",
       "prop_address": "7350 W. Desert Lane",
@@ -2938,8 +3002,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$302,421.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "",
       "first_name": "",
@@ -2951,9 +3015,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224205.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224205.txt"
     },
     {
@@ -2963,7 +3028,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Cynthia L Walsh",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$104,000.00",
       "legal": "",
       "prop_address": "6619 W Kristal Way",
@@ -2977,8 +3042,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$104,000.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-30",
       "deed_of_trust": "",
       "first_name": "",
@@ -2990,9 +3055,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224218.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224218.txt"
     },
     {
@@ -3002,7 +3068,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Jorge Guzman",
-      "grantee": "P.M. MOUNTAIN STANDARD TIME ON THE LAST BUSINESS DAY BEFORE THE",
+      "grantee": "",
       "amount": "$465,000.00",
       "legal": "",
       "prop_address": "1737 E. Manhattan Dr.",
@@ -3016,7 +3082,7 @@
       "county": "Maricopa",
       "parcel_number": "133-37-259",
       "original_loan": "$465,000.00",
-      "trustee_name": "P.M. MOUNTAIN STANDARD TIME ON THE LAST BUSINESS DAY BEFORE THE",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-04-15",
       "deed_of_trust": "2025-05-20",
@@ -3028,9 +3094,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260224386.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224386.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224386.txt"
     },
     {
@@ -3040,7 +3107,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Thomas A. Dehne, single",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$1,295,280.00",
       "legal": "",
       "prop_address": "1434 W Kerry Lane",
@@ -3054,8 +3121,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$1,295,280.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-15",
       "deed_of_trust": "",
       "first_name": "",
@@ -3067,9 +3134,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224598.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224598.txt"
     },
     {
@@ -3079,7 +3147,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Travis Partridge",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$117,930.00",
       "legal": "",
       "prop_address": "4931 E Sharon Dr",
@@ -3093,8 +3161,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$117,930.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-15",
       "deed_of_trust": "",
       "first_name": "",
@@ -3106,9 +3174,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224897.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224897.txt"
     },
     {
@@ -3118,7 +3187,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Antonio A. Rodriguez, Jr.",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$167,200.00",
       "legal": "",
       "prop_address": "4817 West Almeria Road",
@@ -3132,8 +3201,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$167,200.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-22",
       "deed_of_trust": "",
       "first_name": "",
@@ -3145,9 +3214,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224899.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224899.txt"
     },
     {
@@ -3157,7 +3227,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Jaime G Lopez",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$285,000.00",
       "legal": "",
       "prop_address": "41121 W Montebcllo Ave",
@@ -3171,8 +3241,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$285,000.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-30",
       "deed_of_trust": "",
       "first_name": "",
@@ -3184,9 +3254,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224933.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224933.txt"
     },
     {
@@ -3196,7 +3267,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Domanick O Lucious",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$262,350.00",
       "legal": "",
       "prop_address": "302 E Mohave St",
@@ -3210,8 +3281,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$262,350.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-22",
       "deed_of_trust": "",
       "first_name": "",
@@ -3223,9 +3294,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224934.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224934.txt"
     },
     {
@@ -3235,7 +3307,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Jorge A Cornejo",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$206,196.00",
       "legal": "",
       "prop_address": "23976 W Pecan Road",
@@ -3249,8 +3321,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$206,196.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-08-06",
       "deed_of_trust": "",
       "first_name": "",
@@ -3262,9 +3334,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260224938.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260224938.txt"
     },
     {
@@ -3274,7 +3347,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "CLAYTON M. WOODRUFF AND DOROTHY J. WOODRUFF",
-      "grantee": "PRESTIGE DEFAULT SERVICES, LLC",
+      "grantee": "",
       "amount": "$147,000.00",
       "legal": "",
       "prop_address": "1122 NORTH WELD CIRCLE",
@@ -3288,8 +3361,8 @@
       "county": "Maricopa",
       "parcel_number": "137-32-272",
       "original_loan": "$147,000.00",
-      "trustee_name": "PRESTIGE DEFAULT SERVICES, LLC",
-      "trustee_phone": "(949) 427-2010",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-08-04",
       "deed_of_trust": "2026-08-04",
       "first_name": "",
@@ -3300,9 +3373,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225129.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225129.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225129.txt"
     },
     {
@@ -3312,7 +3386,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "TYRONE DANIEL WEST II AND ANDRIA ELANIA WEST, AS 20260225192 COMMUNITY PROPERTY",
-      "grantee": "QUALITY LOAN SERVICE CORPORATION",
+      "grantee": "",
       "amount": "$353,100.00",
       "legal": "",
       "prop_address": "2778 NORTH 150TH LANE",
@@ -3326,8 +3400,8 @@
       "county": "Maricopa",
       "parcel_number": "508-14-199",
       "original_loan": "$353,100.00",
-      "trustee_name": "QUALITY LOAN SERVICE CORPORATION",
-      "trustee_phone": "(866) 645-7711",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-22",
       "deed_of_trust": "2015-01-06",
       "first_name": "",
@@ -3338,9 +3412,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225192.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225192.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225192.txt"
     },
     {
@@ -3350,7 +3425,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Ariel Carlos, 20260225194",
-      "grantee": "QUALITY LOAN SERVICE CORPORATION",
+      "grantee": "",
       "amount": "$455,000.00",
       "legal": "",
       "prop_address": "2799 E BALSAM DR",
@@ -3364,8 +3439,8 @@
       "county": "Maricopa",
       "parcel_number": "303-43-776",
       "original_loan": "$455,000.00",
-      "trustee_name": "QUALITY LOAN SERVICE CORPORATION",
-      "trustee_phone": "(866) 645-7711",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2021-12-21",
       "first_name": "",
@@ -3376,9 +3451,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225194.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225194.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225194.txt"
     },
     {
@@ -3388,7 +3464,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Paul A. Brent and Teresa D. Hernandez-Brent",
-      "grantee": "QUALITY LOAN SERVICE CORPORATION",
+      "grantee": "",
       "amount": "$185,739.00",
       "legal": "",
       "prop_address": "3636 W LAREDO ST",
@@ -3402,8 +3478,8 @@
       "county": "Maricopa",
       "parcel_number": "301-64-666",
       "original_loan": "$185,739.00",
-      "trustee_name": "QUALITY LOAN SERVICE CORPORATION",
-      "trustee_phone": "(866) 645-7711",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2012-08-09",
       "first_name": "",
@@ -3414,9 +3490,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225195.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225195.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225195.txt"
     },
     {
@@ -3426,7 +3503,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "SERGIO VILLAGOMEZ PADILLA AND MARIA VILLAGOMEZ",
-      "grantee": "PRESTIGE DEFAULT SERVICES, LLC",
+      "grantee": "",
       "amount": "$373,117.00",
       "legal": "",
       "prop_address": "9018 W HILTON AVE",
@@ -3440,8 +3517,8 @@
       "county": "Maricopa",
       "parcel_number": "101-57-175",
       "original_loan": "$373,117.00",
-      "trustee_name": "PRESTIGE DEFAULT SERVICES, LLC",
-      "trustee_phone": "(949) 427-2010",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-29",
       "deed_of_trust": "2026-07-29",
       "first_name": "",
@@ -3452,9 +3529,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225265.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225265.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225265.txt"
     },
     {
@@ -3464,7 +3542,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "SERENA SHAO AND SAMUEL TANG",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$596,000.00",
       "legal": "",
       "prop_address": "25836 N 43RD PL",
@@ -3478,8 +3556,8 @@
       "county": "Maricopa",
       "parcel_number": "212-09-405",
       "original_loan": "$596,000.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-01-14",
       "deed_of_trust": "2026-01-14",
       "first_name": "",
@@ -3490,9 +3568,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225382.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225382.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225382.txt"
     },
     {
@@ -3502,7 +3581,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "CORNELIUS E TANY! AND COLETTE T EBAIL, in the office of the County 20260225528 7110S CHAMPAGNE WAY, xxx, GILBERT, AZ",
-      "grantee": "QUALITY LOAN SERVICE CORPORATION",
+      "grantee": "",
       "amount": "$550,800.00",
       "legal": "",
       "prop_address": "7110 SOUTH CHAMPAGNE WAY",
@@ -3516,8 +3595,8 @@
       "county": "Maricopa",
       "parcel_number": "313-04-589",
       "original_loan": "$550,800.00",
-      "trustee_name": "QUALITY LOAN SERVICE CORPORATION",
-      "trustee_phone": "(866) 645-7711",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-22",
       "deed_of_trust": "2007-01-29",
       "first_name": "",
@@ -3528,9 +3607,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225528.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225528.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225528.txt"
     },
     {
@@ -3540,7 +3620,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "ROBERT L HENDERSON JR, SINGLE MAN",
-      "grantee": "QUALITY LOAN SERVICE CORPORATION",
+      "grantee": "",
       "amount": "$392,950.00",
       "legal": "",
       "prop_address": "7264 N 128TH AVE",
@@ -3554,8 +3634,8 @@
       "county": "Maricopa",
       "parcel_number": "501-53-449",
       "original_loan": "$392,950.00",
-      "trustee_name": "QUALITY LOAN SERVICE CORPORATION",
-      "trustee_phone": "(866) 645-7711",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-08-06",
       "deed_of_trust": "2021-09-14",
       "first_name": "",
@@ -3566,9 +3646,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225555.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225555.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225555.txt"
     },
     {
@@ -3578,7 +3659,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "STERLING M. GRANT",
-      "grantee": "CLEAR RECON CORP",
+      "grantee": "",
       "amount": "$236,880.00",
       "legal": "",
       "prop_address": "19079 E SEAGULL DR",
@@ -3592,8 +3673,8 @@
       "county": "Maricopa",
       "parcel_number": "314-05-709",
       "original_loan": "$236,880.00",
-      "trustee_name": "CLEAR RECON CORP",
-      "trustee_phone": "(866) 931-0036",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-04-13",
       "deed_of_trust": "2018-08-08",
       "first_name": "",
@@ -3604,9 +3685,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260225916.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260225916.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260225916.txt"
     },
     {
@@ -3616,7 +3698,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "RONALD HODNE AND LA TOYA GUEVARA",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$690,900.00",
       "legal": "",
       "prop_address": "13910 S 180TH AVE",
@@ -3630,8 +3712,8 @@
       "county": "Maricopa",
       "parcel_number": "400-82-358",
       "original_loan": "$690,900.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2026-07-23",
       "first_name": "",
@@ -3642,9 +3724,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260226177.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260226177.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226177.txt"
     },
     {
@@ -3654,7 +3737,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "BRIAN JAMISON",
-      "grantee": "CLEAR RECON CORP",
+      "grantee": "",
       "amount": "$330,000.00",
       "legal": "",
       "prop_address": "8126 W WATKINS ST",
@@ -3668,8 +3751,8 @@
       "county": "Maricopa",
       "parcel_number": "104-33-181",
       "original_loan": "$330,000.00",
-      "trustee_name": "CLEAR RECON CORP",
-      "trustee_phone": "(866) 931-0036",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2021-06-07",
       "first_name": "",
@@ -3680,9 +3763,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260226185.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260226185.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226185.txt"
     },
     {
@@ -3692,7 +3776,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "CANDICE AUGE AND TODD AUGE",
-      "grantee": "CLEAR RECON CORP",
+      "grantee": "",
       "amount": "$285,000.00",
       "legal": "",
       "prop_address": "4202 E EVERETT DR",
@@ -3706,8 +3790,8 @@
       "county": "Maricopa",
       "parcel_number": "215-71-184",
       "original_loan": "$285,000.00",
-      "trustee_name": "CLEAR RECON CORP",
-      "trustee_phone": "(866) 931-0036",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2022-03-03",
       "first_name": "",
@@ -3718,9 +3802,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260226190.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260226190.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226190.txt"
     },
     {
@@ -3730,7 +3815,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "HELEN E CHARLES",
-      "grantee": "CLEAR RECON CORP",
+      "grantee": "",
       "amount": "$246,500.00",
       "legal": "",
       "prop_address": "9810 N BALBOA DR",
@@ -3744,8 +3829,8 @@
       "county": "Maricopa",
       "parcel_number": "142-84-801",
       "original_loan": "$246,500.00",
-      "trustee_name": "CLEAR RECON CORP",
-      "trustee_phone": "(866) 931-0036",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2021-07-29",
       "first_name": "",
@@ -3756,9 +3841,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260226195.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260226195.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226195.txt"
     },
     {
@@ -3768,7 +3854,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "YOLANDA MCKIM AND BILLY MCKIM",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$335,805.00",
       "legal": "",
       "prop_address": "3937 W MYRTLE AVE",
@@ -3782,8 +3868,8 @@
       "county": "Maricopa",
       "parcel_number": "151-26-142",
       "original_loan": "$335,805.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2026-07-23",
       "first_name": "",
@@ -3794,9 +3880,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260226197.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260226197.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226197.txt"
     },
     {
@@ -3806,7 +3893,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "ROBERT FARMER",
-      "grantee": "CLEAR RECON CORP",
+      "grantee": "",
       "amount": "$205,128.00",
       "legal": "",
       "prop_address": "14300 W BELL RD UNIT 52",
@@ -3820,8 +3907,8 @@
       "county": "Maricopa",
       "parcel_number": "503-59-212B",
       "original_loan": "$205,128.00",
-      "trustee_name": "CLEAR RECON CORP",
-      "trustee_phone": "(866) 931-0036",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2023-03-02",
       "first_name": "",
@@ -3832,9 +3919,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260226200.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260226200.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226200.txt"
     },
     {
@@ -3844,7 +3932,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "NIRA WANNARKA AND WILLIAM DIXON",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$381,562.00",
       "legal": "",
       "prop_address": "2330 W SPENCER RUN",
@@ -3858,8 +3946,8 @@
       "county": "Maricopa",
       "parcel_number": "105-65-525",
       "original_loan": "$381,562.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2026-07-23",
       "first_name": "",
@@ -3870,9 +3958,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260226202.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260226202.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226202.txt"
     },
     {
@@ -3882,7 +3971,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "GOOD NEWS GROUP, LLC",
-      "grantee": "PRESTIGE DEFAULT SERVICES, LLC",
+      "grantee": "",
       "amount": "$374,000.00",
       "legal": "",
       "prop_address": "1802 WEST PIERSON STREET",
@@ -3896,8 +3985,8 @@
       "county": "Maricopa",
       "parcel_number": "155-53-014",
       "original_loan": "$374,000.00",
-      "trustee_name": "PRESTIGE DEFAULT SERVICES, LLC",
-      "trustee_phone": "(949) 427-2010",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-28",
       "deed_of_trust": "2026-07-28",
       "first_name": "",
@@ -3908,9 +3997,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260226317.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260226317.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226317.txt"
     },
     {
@@ -3920,7 +4010,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "CAROLINE ANN BRICKELL AND SEAN GENZMER",
-      "grantee": "CLEAR RECON CORP",
+      "grantee": "",
       "amount": "$252,340.00",
       "legal": "",
       "prop_address": "21003 N 123RD DR",
@@ -3934,8 +4024,8 @@
       "county": "Maricopa",
       "parcel_number": "232-14-036",
       "original_loan": "$252,340.00",
-      "trustee_name": "CLEAR RECON CORP",
-      "trustee_phone": "(866) 931-0036",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-30",
       "deed_of_trust": "2021-12-23",
       "first_name": "",
@@ -3946,9 +4036,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260226412.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260226412.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226412.txt"
     },
     {
@@ -3958,7 +4049,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
-      "grantee": "Unofficial Document",
+      "grantee": "",
       "amount": "$238,500.00",
       "legal": "",
       "prop_address": "11122 W Montana Ave",
@@ -3972,7 +4063,7 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$238,500.00",
-      "trustee_name": "Unofficial Document",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "2026-07-22",
       "deed_of_trust": "2024-02-29",
@@ -3986,9 +4077,10 @@
       "flags": [
         "ocr_fallback",
         "owner_suspect",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 40,
+      "score": 30,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226657.txt"
     },
     {
@@ -3998,7 +4090,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "BOBBI SCHULTZ",
-      "grantee": "PRIME RECON LLC",
+      "grantee": "",
       "amount": "$275,000.00",
       "legal": "",
       "prop_address": "10437 W CHERYL DR",
@@ -4012,8 +4104,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$275,000.00",
-      "trustee_name": "PRIME RECON LLC",
-      "trustee_phone": "(888) 725-4142",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-22",
       "deed_of_trust": "2022-09-16",
       "first_name": "",
@@ -4025,9 +4117,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260226771.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226771.txt"
     },
     {
@@ -4037,7 +4130,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "LUIS ALONSO MIRANDA GOMEZ",
-      "grantee": "PRIME RECON LLC",
+      "grantee": "",
       "amount": "$122,042.00",
       "legal": "",
       "prop_address": "520 E HARRISON DR",
@@ -4051,8 +4144,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$122,042.00",
-      "trustee_name": "PRIME RECON LLC",
-      "trustee_phone": "(888) 725-4142",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2018-11-07",
       "first_name": "",
@@ -4064,9 +4157,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260226956.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226956.txt"
     },
     {
@@ -4076,7 +4170,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "YOLANDA S. DE LEON AND DOMINGO DE LEON AND ANTHONY DE LEON",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$323,000.00",
       "legal": "",
       "prop_address": "30306 WEST PORTLAND STREET",
@@ -4090,8 +4184,8 @@
       "county": "Maricopa",
       "parcel_number": "504-15-159",
       "original_loan": "$323,000.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-21",
       "deed_of_trust": "2026-07-21",
       "first_name": "",
@@ -4102,9 +4196,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260226960.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260226960.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260226960.txt"
     },
     {
@@ -4114,7 +4209,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "JASON DANIEL MURRAY AND AMBER MURRAY",
-      "grantee": "PRIME RECON LLC",
+      "grantee": "",
       "amount": "$235,653.00",
       "legal": "",
       "prop_address": "3307 W ECHO LN",
@@ -4128,8 +4223,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$235,653.00",
-      "trustee_name": "PRIME RECON LLC",
-      "trustee_phone": "(888) 725-4142",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2022-11-30",
       "first_name": "",
@@ -4141,9 +4236,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227028.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227028.txt"
     },
     {
@@ -4153,7 +4249,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "JORDAN OLIVA",
-      "grantee": "PRIME RECON LLC",
+      "grantee": "",
       "amount": "$427,696.00",
       "legal": "",
       "prop_address": "22229 E VIA DEL PALO",
@@ -4167,8 +4263,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$427,696.00",
-      "trustee_name": "PRIME RECON LLC",
-      "trustee_phone": "(888) 725-4142",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2021-10-28",
       "first_name": "",
@@ -4180,9 +4276,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227091.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227091.txt"
     },
     {
@@ -4192,7 +4289,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "RUSTY ROBERTS AND NICHOLE ROBERTS",
-      "grantee": "PRIME RECON LLC",
+      "grantee": "",
       "amount": "$1,138,564.00",
       "legal": "",
       "prop_address": "8145 W CAMINO DE ORO",
@@ -4206,8 +4303,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$1,138,564.00",
-      "trustee_name": "PRIME RECON LLC",
-      "trustee_phone": "(888) 725-4142",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2023-03-28",
       "first_name": "",
@@ -4219,9 +4316,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227136.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227136.txt"
     },
     {
@@ -4231,11 +4329,11 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "RYMAX DEVELOPMENT, L.L.C.",
-      "grantee": "RONALD B. HERB",
+      "grantee": "",
       "amount": "$480,000.00",
       "legal": "",
       "prop_address": "4037 S. 12th Street",
-      "prop_city": "th Street Phoenix",
+      "prop_city": "Phoenix",
       "prop_state": "AZ",
       "prop_zip": "85040",
       "mail_address": "",
@@ -4245,8 +4343,8 @@
       "county": "Maricopa",
       "parcel_number": "113-25-059",
       "original_loan": "$480,000.00",
-      "trustee_name": "RONALD B. HERB",
-      "trustee_phone": "(602) 488-1349",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "",
       "deed_of_trust": "2024-10-23",
       "first_name": "",
@@ -4258,9 +4356,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227218.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "auction_date_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227218.txt"
     },
     {
@@ -4270,7 +4369,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "TITAN FAMILY REALESTATE LLC",
-      "grantee": "RONALD B. HERB",
+      "grantee": "",
       "amount": "$110,000.00",
       "legal": "",
       "prop_address": "5420 W. Onyx Ave",
@@ -4284,8 +4383,8 @@
       "county": "Maricopa",
       "parcel_number": "102-84-270",
       "original_loan": "$110,000.00",
-      "trustee_name": "RONALD B. HERB",
-      "trustee_phone": "(602) 488-1349",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-01-09",
       "deed_of_trust": "2026-01-09",
       "first_name": "",
@@ -4296,9 +4395,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260227219.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227219.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227219.txt"
     },
     {
@@ -4308,7 +4408,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Graciela Bucio Perez",
-      "grantee": "RONALD B. HERB",
+      "grantee": "",
       "amount": "$176,000.00",
       "legal": "",
       "prop_address": "5420 W. Onyx Ave",
@@ -4322,8 +4422,8 @@
       "county": "Maricopa",
       "parcel_number": "206-20-159",
       "original_loan": "$176,000.00",
-      "trustee_name": "RONALD B. HERB",
-      "trustee_phone": "(602) 488-1349",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-20",
       "deed_of_trust": "2024-03-19",
       "first_name": "",
@@ -4334,9 +4434,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260227220.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227220.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227220.txt"
     },
     {
@@ -4346,7 +4447,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "JOSEPH VERDUZCO",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$294,405.00",
       "legal": "",
       "prop_address": "2830 S. CHATSWORTH",
@@ -4360,8 +4461,8 @@
       "county": "Maricopa",
       "parcel_number": "309-19-162",
       "original_loan": "$294,405.00",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2026-07-23",
       "first_name": "",
@@ -4372,9 +4473,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260227284.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227284.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227284.txt"
     },
     {
@@ -4384,7 +4486,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Mani Hotels, LLC State Bank of Texas",
-      "grantee": "MOUNTAIN STANDARD TIME OF THE LAST BUSINESS DAY BEFORE THE",
+      "grantee": "",
       "amount": "$10,000,000.00",
       "legal": "",
       "prop_address": "1429 N. Scottsdale Road",
@@ -4398,7 +4500,7 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$10,000,000.00",
-      "trustee_name": "MOUNTAIN STANDARD TIME OF THE LAST BUSINESS DAY BEFORE THE",
+      "trustee_name": "",
       "trustee_phone": "",
       "auction_date": "",
       "deed_of_trust": "2024-08-10",
@@ -4411,10 +4513,11 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227302.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "auction_date_missing",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227302.txt"
     },
     {
@@ -4424,7 +4527,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "BRENDA FAE HUBBARD",
-      "grantee": "QUALITY LOAN SERVICE CORPORATION",
+      "grantee": "",
       "amount": "$192,449.00",
       "legal": "",
       "prop_address": "9113 E BUTTERNUT AVE",
@@ -4438,8 +4541,8 @@
       "county": "Maricopa",
       "parcel_number": "218-41-190",
       "original_loan": "$192,449.00",
-      "trustee_name": "QUALITY LOAN SERVICE CORPORATION",
-      "trustee_phone": "(866) 645-7711",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2022-07-28",
       "first_name": "",
@@ -4450,9 +4553,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260227512.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227512.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227512.txt"
     },
     {
@@ -4462,7 +4566,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "ZHONG K WANG AND FRANCIS N PRICE AND FRANCIS PRICE",
-      "grantee": "QUALITY LOAN SERVICE CORPORATION",
+      "grantee": "",
       "amount": "$200,000.00",
       "legal": "",
       "prop_address": "12546 W MANDALAY LANE",
@@ -4476,8 +4580,8 @@
       "county": "Maricopa",
       "parcel_number": "509-13-497",
       "original_loan": "$200,000.00",
-      "trustee_name": "QUALITY LOAN SERVICE CORPORATION",
-      "trustee_phone": "(866) 645-7711",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2019-01-15",
       "first_name": "",
@@ -4488,9 +4592,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260227521.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227521.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227521.txt"
     },
     {
@@ -4500,7 +4605,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Wayne Carpenter",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$50,000.00",
       "legal": "",
       "prop_address": "7486 S Sundown Ct",
@@ -4514,8 +4619,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$50,000.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-30",
       "deed_of_trust": "",
       "first_name": "",
@@ -4527,9 +4632,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227539.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227539.txt"
     },
     {
@@ -4539,7 +4645,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "WHEREAS, the Deed of Trust was insured by the United States Secretary of Housing and Urban",
-      "grantee": "MTC FINANCIAL INC",
+      "grantee": "",
       "amount": "$337,252.80",
       "legal": "",
       "prop_address": "21823 NORTH MAYA COURT",
@@ -4553,8 +4659,8 @@
       "county": "Maricopa",
       "parcel_number": "232-31-246",
       "original_loan": "$337,252.80",
-      "trustee_name": "MTC FINANCIAL INC",
-      "trustee_phone": "(949) 252-8300",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-06-02",
       "deed_of_trust": "2015-03-31",
       "first_name": "",
@@ -4565,9 +4671,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260227902.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227902.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227902.txt"
     },
     {
@@ -4577,7 +4684,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Frances Garcia",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$68,000.00",
       "legal": "",
       "prop_address": "2802 West Madison Street",
@@ -4591,8 +4698,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$68,000.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-08-06",
       "deed_of_trust": "",
       "first_name": "",
@@ -4604,9 +4711,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227926.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227926.txt"
     },
     {
@@ -4616,7 +4724,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Luis Vincente Gurrola Martinez",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$233,100.00",
       "legal": "",
       "prop_address": "4107 W Krall St",
@@ -4630,8 +4738,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$233,100.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-08-06",
       "deed_of_trust": "",
       "first_name": "",
@@ -4643,9 +4751,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227939.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227939.txt"
     },
     {
@@ -4655,7 +4764,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Christine Lea Kurtz-Ford",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$121,000.00",
       "legal": "",
       "prop_address": "630 E Jensen St Unit 138",
@@ -4669,8 +4778,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$121,000.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-08-06",
       "deed_of_trust": "",
       "first_name": "",
@@ -4682,9 +4791,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227955.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227955.txt"
     },
     {
@@ -4694,7 +4804,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Martin V Valadez AND Velazquez David Valadez",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$380,000.00",
       "legal": "",
       "prop_address": "3708 West Berridge Lane",
@@ -4708,8 +4818,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$380,000.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-08-06",
       "deed_of_trust": "",
       "first_name": "",
@@ -4721,9 +4831,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227961.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227961.txt"
     },
     {
@@ -4733,7 +4844,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Richard L Bristol and Grace A Bristol",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$149,055.00",
       "legal": "",
       "prop_address": "20803 W Bradley Road",
@@ -4747,8 +4858,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$149,055.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-08-06",
       "deed_of_trust": "",
       "first_name": "",
@@ -4760,9 +4871,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260227974.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260227974.txt"
     },
     {
@@ -4772,7 +4884,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Strong Base, LLC",
-      "grantee": "on November 27, 2024, as instrument number 2024-0637955, executed by Strong Base, LLC",
+      "grantee": "",
       "amount": "$725,000.00",
       "legal": "",
       "prop_address": "7537 E. McDonald Drive",
@@ -4786,8 +4898,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$725,000.00",
-      "trustee_name": "on November 27, 2024, as instrument number 2024-0637955, executed by Strong Base, LLC",
-      "trustee_phone": "024-0637955",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-16",
       "deed_of_trust": "2024-09-23",
       "first_name": "",
@@ -4799,9 +4911,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260228010.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260228010.txt"
     },
     {
@@ -4811,7 +4924,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Rene Campa AND Sebastian Campa",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$368,207.00",
       "legal": "",
       "prop_address": "5214 W Cholla St",
@@ -4825,8 +4938,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$368,207.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-08-06",
       "deed_of_trust": "",
       "first_name": "",
@@ -4838,9 +4951,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260228017.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260228017.txt"
     },
     {
@@ -4850,7 +4964,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Lynda Peretz",
-      "grantee": "LEONARD J. MCDONALD",
+      "grantee": "",
       "amount": "$187,000.00",
       "legal": "",
       "prop_address": "325 E. Anderson Ave.",
@@ -4864,8 +4978,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$187,000.00",
-      "trustee_name": "LEONARD J. MCDONALD",
-      "trustee_phone": "(602) 255-6035",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-30",
       "deed_of_trust": "2008-02-05",
       "first_name": "",
@@ -4877,9 +4991,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260228048.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260228048.txt"
     },
     {
@@ -4889,7 +5004,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "RICHARDO MONTES IBARBOL AND ABAGAIL ALEXXIS MENDEZ AND MARIA THERESA IBARBOL CRUZ",
-      "grantee": "CLEAR RECON CORP",
+      "grantee": "",
       "amount": "$380,972.00",
       "legal": "",
       "prop_address": "3939 W CAVALIER DR",
@@ -4903,8 +5018,8 @@
       "county": "Maricopa",
       "parcel_number": "152-19-145",
       "original_loan": "$380,972.00",
-      "trustee_name": "CLEAR RECON CORP",
-      "trustee_phone": "(866) 931-0036",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-04-14",
       "deed_of_trust": "2023-09-01",
       "first_name": "",
@@ -4915,9 +5030,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260228059.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260228059.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260228059.txt"
     },
     {
@@ -4927,7 +5043,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "YAVIN JAY CRANSHAW",
-      "grantee": "PRIME RECON LLC",
+      "grantee": "",
       "amount": "$363,298.00",
       "legal": "",
       "prop_address": "4454 W PIUTE AVE",
@@ -4941,8 +5057,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$363,298.00",
-      "trustee_name": "PRIME RECON LLC",
-      "trustee_phone": "(888) 725-4142",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-30",
       "deed_of_trust": "2021-08-20",
       "first_name": "",
@@ -4954,9 +5070,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260228370.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260228370.txt"
     },
     {
@@ -4966,7 +5083,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "JUAN CARRANZA",
-      "grantee": "PRIME RECON LLC",
+      "grantee": "",
       "amount": "$286,805.00",
       "legal": "",
       "prop_address": "19559 W LINCOLN STREET",
@@ -4980,8 +5097,8 @@
       "county": "Maricopa",
       "parcel_number": "",
       "original_loan": "$286,805.00",
-      "trustee_name": "PRIME RECON LLC",
-      "trustee_phone": "(888) 725-4142",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-30",
       "deed_of_trust": "2019-09-18",
       "first_name": "",
@@ -4993,9 +5110,10 @@
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260228380.pdf",
       "flags": [
         "ocr_fallback",
+        "trustee_suspect",
         "parcel_missing"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260228380.txt"
     },
     {
@@ -5005,7 +5123,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "BLANCA M ARMENTA QUINONEZ AND MICHAEL G ARMENTA",
-      "grantee": "QUALITY LOAN SERVICE CORPORATION",
+      "grantee": "",
       "amount": "$280,819.00",
       "legal": "",
       "prop_address": "2108 W HADLEY ST",
@@ -5019,8 +5137,8 @@
       "county": "Maricopa",
       "parcel_number": "109-64-004",
       "original_loan": "$280,819.00",
-      "trustee_name": "QUALITY LOAN SERVICE CORPORATION",
-      "trustee_phone": "(866) 645-7711",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2024-02-14",
       "first_name": "",
@@ -5031,9 +5149,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260228499.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260228499.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260228499.txt"
     },
     {
@@ -5043,7 +5162,7 @@
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "Andrew S Kulin and Kasie M Lambros",
-      "grantee": "QUALITY LOAN SERVICE CORPORATION",
+      "grantee": "",
       "amount": "$372,000.00",
       "legal": "",
       "prop_address": "1923 E PRESIDIO RD",
@@ -5057,8 +5176,8 @@
       "county": "Maricopa",
       "parcel_number": "166-41-057",
       "original_loan": "$372,000.00",
-      "trustee_name": "QUALITY LOAN SERVICE CORPORATION",
-      "trustee_phone": "(866) 645-7711",
+      "trustee_name": "",
+      "trustee_phone": "",
       "auction_date": "2026-07-23",
       "deed_of_trust": "2021-08-30",
       "first_name": "",
@@ -5069,9 +5188,10 @@
       "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260228514.pdf",
       "pdf_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/grouped_output/pdfs/20260228514.pdf",
       "flags": [
-        "ocr_fallback"
+        "ocr_fallback",
+        "trustee_suspect"
       ],
-      "score": 60,
+      "score": 50,
       "raw_text_path": "/home/runner/work/Chat-Scraper/Chat-Scraper/parsed_output/20260228514.txt"
     }
   ]
