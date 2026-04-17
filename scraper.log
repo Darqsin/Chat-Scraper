@@ -1469,3 +1469,32 @@ NameError: name 'is_valid_property_address' is not defined
 2026-04-17 17:43:43,235 | INFO | clerk_scraper | Total records: 39
 2026-04-17 17:43:43,236 | INFO | fetch | Scraped 39 records
 2026-04-17 17:46:22,370 | INFO | fetch | FINAL: 39 records | 39 with address
+2026-04-17 18:31:11,205 | INFO | fetch | Date range: 04/10/2026 -> 04/16/2026
+2026-04-17 18:31:11,700 | INFO | clerk_scraper | Page 1: 132 records
+2026-04-17 18:59:18,899 | INFO | clerk_scraper | Total records: 132
+2026-04-17 18:59:18,900 | INFO | fetch | Scraped 132 records
+2026-04-17 19:01:49,507 | WARNING | fetch | Bad PDF response: https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260217960.pdf | status=404
+2026-04-17 19:01:49,508 | WARNING | fetch | Fallback record used for 20260217960: No valid PDF
+2026-04-17 19:01:49,892 | WARNING | fetch | Bad PDF response: https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260218221.pdf | status=404
+2026-04-17 19:01:49,893 | WARNING | fetch | Fallback record used for 20260218221: No valid PDF
+2026-04-17 19:01:50,302 | WARNING | fetch | Bad PDF response: https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260218532.pdf | status=404
+2026-04-17 19:01:50,303 | WARNING | fetch | Fallback record used for 20260218532: No valid PDF
+2026-04-17 19:01:50,687 | WARNING | fetch | Bad PDF response: https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260218694.pdf | status=404
+2026-04-17 19:01:50,688 | WARNING | fetch | Fallback record used for 20260218694: No valid PDF
+2026-04-17 19:01:51,101 | WARNING | fetch | Bad PDF response: https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260218704.pdf | status=404
+2026-04-17 19:01:51,101 | WARNING | fetch | Fallback record used for 20260218704: No valid PDF
+2026-04-17 19:01:51,555 | WARNING | fetch | Bad PDF response: https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260218777.pdf | status=404
+2026-04-17 19:01:51,555 | WARNING | fetch | Fallback record used for 20260218777: No valid PDF
+2026-04-17 19:01:51,979 | WARNING | fetch | Bad PDF response: https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260218783.pdf | status=404
+2026-04-17 19:01:51,980 | WARNING | fetch | Fallback record used for 20260218783: No valid PDF
+2026-04-17 19:01:52,333 | WARNING | fetch | Bad PDF response: https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260218795.pdf | status=404
+2026-04-17 19:01:52,334 | WARNING | fetch | Fallback record used for 20260218795: No valid PDF
+2026-04-17 19:01:52,712 | WARNING | fetch | Bad PDF response: https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260219042.pdf | status=404
+2026-04-17 19:01:52,713 | WARNING | fetch | Fallback record used for 20260219042: No valid PDF
+2026-04-17 19:01:53,070 | WARNING | fetch | Bad PDF response: https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260219043.pdf | status=404
+2026-04-17 19:01:53,071 | WARNING | fetch | Fallback record used for 20260219043: No valid PDF
+2026-04-17 19:01:53,440 | WARNING | fetch | Bad PDF response: https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260219053.pdf | status=404
+2026-04-17 19:01:53,441 | WARNING | fetch | Fallback record used for 20260219053: No valid PDF
+2026-04-17 19:01:53,803 | WARNING | fetch | Bad PDF response: https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260219057.pdf | status=404
+2026-04-17 19:01:53,804 | WARNING | fetch | Fallback record used for 20260219057: No valid PDF
+2026-04-17 19:10:04,783 | INFO | fetch | FINAL: 132 records | 120 with address
