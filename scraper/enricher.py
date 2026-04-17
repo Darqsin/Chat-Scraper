@@ -103,7 +103,15 @@ def parse_record(
 
     doc_num = doc_num or _find_first(DOC_NUM_RE, text)
     owner = _clean_owner(_extract_owner(text))
+    if _is_bad_owner(owner):
+        owner = ""
+        flags.append("owner_suspect")
+
     trustee_name = _extract_trustee_name(text)
+    if _is_bad_trustee_candidate(trustee_name):
+        trustee_name = ""
+        flags.append("trustee_suspect")
+
     prop = _extract_property_address(text)
 
     raw_text_path = raw_text_dir / f"{doc_num or pdf_path.stem}.txt"
@@ -114,6 +122,13 @@ def parse_record(
     auction_date = _extract_auction_date(text)
     parcel_number = _extract_parcel_number(text)
     deed_of_trust = _find_first(DOC_NUM_RE, text)
+
+    if not owner:
+        flags.append("owner_missing")
+    if not trustee_name:
+        flags.append("trustee_missing")
+    if not auction_date:
+        flags.append("auction_date_missing")
 
     score = 0
     if prop.get("address"):
@@ -224,6 +239,42 @@ def _clean_owner(value: str) -> str:
     return value.strip(" ,;:-")
 
 
+def _is_bad_owner(value: str) -> bool:
+    v = (value or "").strip()
+    vu = v.upper()
+
+    if len(v) < 6:
+        return True
+
+    bad_starts = [
+        "/GRANTOR",
+        "IN FAVOR OF",
+        "IN WHICH",
+        "AS OF THE RECORDING",
+        "THAT CERTAIN",
+        "UNDER THAT CERTAIN",
+    ]
+    if any(vu.startswith(x) for x in bad_starts):
+        return True
+
+    bad_exact = {
+        "AN UNMARRIED WOMAN",
+        "AN UNMARRIED MAN",
+        "A SINGLE MAN",
+        "A SINGLE WOMAN",
+        "NUMBER",
+        "NUMBERS",
+        "IDENTIFIABLE",
+    }
+    if vu in bad_exact:
+        return True
+
+    if vu.endswith(" AS"):
+        return True
+
+    return False
+
+
 def _extract_owner(text: str) -> str:
     text = text or ""
 
@@ -243,6 +294,34 @@ def _extract_owner(text: str) -> str:
                 return value
 
     return ""
+
+
+def _is_bad_trustee_candidate(value: str) -> bool:
+    v = (value or "").upper().strip()
+    if not v:
+        return False
+
+    bad_phrases = [
+        "DEED OF TRUST",
+        "TRUST DATED",
+        "RECORDED ON",
+        "INSTRUMENT NO",
+        "INSTRUMENT #",
+        "LOAN NUMBER",
+        "LOAN NO",
+        "TS#",
+        "RECORDS OF MARICOPA COUNTY",
+        "SUBJECT DEED OF TRUST",
+        "ASSIGNMENT OF RENTS",
+    ]
+
+    if any(p in v for p in bad_phrases):
+        return True
+
+    if v in {"CORPS", "NUMBER", "NUMBERS", "IDENTIFIABLE"}:
+        return True
+
+    return False
 
 
 def _extract_trustee_name(text: str) -> str:
@@ -283,7 +362,9 @@ def _extract_trustee_name(text: str) -> str:
             clean.append(c)
 
     if clean:
-        return clean[0]
+        for c in clean:
+            if not _is_bad_trustee_candidate(c):
+                return c
 
     return ""
 
@@ -309,8 +390,7 @@ def _extract_auction_date(text: str) -> str:
             if date_match:
                 return date_match.group(0)
 
-    m = DATE_NUMERIC_RE.search(text)
-    return m.group(0) if m else ""
+    return ""
 
 
 def _extract_property_address(text: str) -> dict[str, str]:
