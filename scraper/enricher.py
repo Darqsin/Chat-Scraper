@@ -2,14 +2,9 @@
 from __future__ import annotations
 import re
 from datetime import datetime
-from pathlib import Path
 import pdfplumber
 import pytesseract
 from pdf2image import convert_from_path
-
-TRUSTEE_LABELS = ["trustee:", "successor trustee:", "substitute trustee:"]
-
-BAD_WORDS = ["trustor","borrower","beneficiary","attorney","notary"]
 
 DATE_RE = re.compile(r"\b\d{1,2}/\d{1,2}/\d{4}\b")
 
@@ -30,55 +25,52 @@ def extract_text(pdf_path):
         pass
     return ocr_pdf(pdf_path)
 
-def clean_owner(text):
-    text = re.split(r"\d{5,}", text)[0]
-    return text.strip()
+def extract_block(text, start_label):
+    lines = text.split("\n")
+    for i, line in enumerate(lines):
+        if start_label.lower() in line.lower():
+            return lines[i+1:i+6]
+    return []
+
+def extract_owner(text):
+    block = extract_block(text, "Name and address of original trustor")
+    return block[0].strip() if block else ""
 
 def extract_trustee(text):
-    lines = text.split("\n")
-    for i,l in enumerate(lines):
-        low = l.lower()
-        if any(lbl in low for lbl in TRUSTEE_LABELS):
-            block = " ".join(lines[i:i+3])
-            if not any(b in block.lower() for b in BAD_WORDS):
-                return block.strip()
+    block = extract_block(text, "NAME, ADDRESS & TELEPHONE NUMBER OF TRUSTEE")
+    return block[0].strip() if block else ""
+
+def extract_address(text):
+    block = extract_block(text, "Street address or identifiable location")
+    if len(block) >= 2:
+        street = block[0].strip()
+        city = block[1].strip()
+        return f"{street}, {city}"
     return ""
 
-def extract_dates(text, filed):
-    dates = DATE_RE.findall(text)
-    filed_dt = None
-    try:
-        filed_dt = datetime.strptime(filed, "%Y-%m-%d")
-    except:
-        pass
-
-    valid = []
-    for d in dates:
+def extract_auction_date(text):
+    matches = DATE_RE.findall(text)
+    for d in matches:
         try:
             dt = datetime.strptime(d, "%m/%d/%Y")
-            if not filed_dt or dt >= filed_dt:
-                valid.append(dt.strftime("%Y-%m-%d"))
+            if dt.year >= 2026:
+                return dt.strftime("%Y-%m-%d")
         except:
             continue
-
-    return valid[0] if valid else ""
+    return ""
 
 def parse_record(**kwargs):
     pdf_path = kwargs.get("pdf_path")
     text = extract_text(pdf_path)
 
-    owner = clean_owner(text)
-    trustee = extract_trustee(text)
-    auction = extract_dates(text, kwargs.get("filed",""))
-
     return {
         "doc_num": kwargs.get("doc_num",""),
         "doc_type": kwargs.get("doc_type",""),
         "filed": kwargs.get("filed",""),
-        "owner": owner,
-        "trustee_name": trustee,
-        "auction_date": auction,
-        "prop_address": "",
+        "owner": extract_owner(text),
+        "trustee_name": extract_trustee(text),
+        "prop_address": extract_address(text),
+        "auction_date": extract_auction_date(text),
         "flags": [],
-        "score": 80
+        "score": 90
     }
