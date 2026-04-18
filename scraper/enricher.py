@@ -337,8 +337,16 @@ def _is_bad_owner(value: str) -> bool:
         "WHEN RECORDED",
         "UNOFFICIAL",
         "P.O. BOX",
+        "NOTICE TO POTENTIAL BIDDERS",
+        "COUNTY OF",
     ]
-    return any(vu.startswith(x) for x in bad_starts)
+    if any(vu.startswith(x) for x in bad_starts):
+        return True
+    if re.search(r"\b(CAMINO DEL RIO|SAN DIEGO, CA|HTTP://|WWW\.|DEFAULT SERVICES DEPARTMENT|TRUST CREATED BY SAID DEED OF TRUST)\b", vu):
+        return True
+    if re.search(r"\b\d{1,6}\s+\w+", v) and re.search(r"\b(AZ|CA|ARIZONA|CALIFORNIA)\b", vu):
+        return True
+    return False
 
 
 def _extract_block_after_labels(text: str, labels: list[str], max_lines: int = 8) -> list[str]:
@@ -566,7 +574,9 @@ def _extract_property_address(text: str) -> dict[str, str]:
                             street = m_prev.group(0).strip(" ,")
                     break
             if street:
-                return {"address": street, "city": city, "state": state, "zip": zipcode}
+                candidate = {"address": street, "city": city, "state": state, "zip": zipcode}
+                if not _is_bad_property_address(candidate):
+                    return candidate
 
     full = re.search(
         r"(\d{1,6}\s+[A-Za-z0-9 .'\-#/]+),\s*([A-Za-z .'-]+),?\s+(AZ|Arizona)\s+(\d{5}(?:-\d{4})?)",
@@ -574,15 +584,91 @@ def _extract_property_address(text: str) -> dict[str, str]:
         re.I,
     )
     if full:
-        return {
+        candidate = {
             "address": _normalize_one_line(full.group(1)),
             "city": full.group(2).strip(" ,"),
             "state": "AZ",
             "zip": full.group(4)[:5],
         }
+        if not _is_bad_property_address(candidate):
+            return candidate
 
     return {"address": "", "city": "", "state": "", "zip": ""}
 
+
+
+
+def _cleanup_owner_final(value: str) -> str:
+    v = _clean_owner_noise(value)
+    if not v:
+        return ""
+    # reject obvious non-owner lines
+    if re.search(r"\b(CAMINO DEL RIO|SAN DIEGO|HTTP|WWW\.|P\.?O\.?\s*BOX|CARE OF/SERVICER|DEFAULT SERVICES DEPARTMENT)\b", v, re.I):
+        return ""
+    if re.search(r"\b(COUNTY OF|NOTICE TO POTENTIAL BIDDERS|TRUST CREATED BY SAID DEED OF TRUST)\b", v, re.I):
+        return ""
+    # trim trailing qualifiers
+    trims = [
+        r"\b,\s*NOT AS TENANTS.*$",
+        r"\b,\s*NOT\b.*$",
+        r"\b,\s*AS JOINT.*$",
+        r"\b,\s*AS COMMUNITY.*$",
+        r"\b,\s*WITH RIGHT.*$",
+        r"\b,\s*COMMUNITY\b.*$",
+        r"\b,\s*MAN\b.*$",
+        r"\b,\s*WOMAN\b.*$",
+        r"\b,\s*HUSBAND\b.*$",
+        r"\b,\s*WIFE\b.*$",
+        r"\bAND\s*$",
+        r"\bAS\s*$",
+    ]
+    for pat in trims:
+        v = re.sub(pat, "", v, flags=re.I).strip(" ,;:-")
+    v = v.replace("AN PERSON", "AN INDIVIDUAL")
+    v = v.replace(" Carbaja! ", " Carbajal ")
+    return v.strip(" ,;:-")
+
+
+def _is_bad_trustee_text(value: str) -> bool:
+    v = _normalize_one_line(value)
+    if not v:
+        return True
+    u = v.upper()
+    bad_terms = [
+        "HTTP://", "WWW.", "PLEASE BE ADVISED", "IF THE SALE IS SET ASIDE",
+        "NOTARY PUBLIC", "ON THIS", "CARE OF/SERVICER", "TWENTY FOURTH FLOOR",
+        "DEFAULT SERVICES DEPARTMENT", "ATTORNEY AT LAW, TRUSTEE, IS REGULATED",
+        "THE TRUSTEE SHALL NOT", "PURCHASER", "HIGHEST BIDDER",
+    ]
+    if any(term in u for term in bad_terms):
+        return True
+    if re.search(r"\b(CAMINO DEL RIO|SAN DIEGO, CA)\b", u):
+        return True
+    return False
+
+
+def _cleanup_trustee_phone(phone: str) -> str:
+    if not phone:
+        return ""
+    digits = re.sub(r"\D", "", phone)
+    if len(digits) == 11 and digits.startswith("1"):
+        digits = digits[1:]
+    if len(digits) != 10:
+        return ""
+    return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}"
+
+
+def _is_bad_property_address(parsed: dict[str, str]) -> bool:
+    address = (parsed.get("address") or "").upper().strip()
+    city = (parsed.get("city") or "").upper().strip()
+    zip_code = (parsed.get("zip") or "").strip()
+    if address in {"201 W JEFFERSON", "201 W JEFFERSON STREET", "201 WEST JEFFERSON", "201 WEST JEFFERSON STREET"}:
+        return True
+    if city == "PHOENIX" and zip_code == "85003" and "JEFFERSON" in address:
+        return True
+    if address.startswith("1850 N CENTRAL AVE"):
+        return True
+    return False
 
 def parse_record(
     pdf_path: str | Path,
@@ -626,13 +712,16 @@ def parse_record(
     raw_text_path = raw_text_dir / f"{doc_num or pdf_path.stem}.txt"
     raw_text_path.write_text(text or "", encoding="utf-8")
 
-    owner = _clean_owner_noise(_extract_owner(text))
+    owner = _cleanup_owner_final(_extract_owner(text))
     if _is_bad_owner(owner):
         flags.append("owner_suspect")
         owner = ""
 
     trustee_name, trustee_phone = _extract_trustee(text)
-    if not trustee_name:
+    trustee_phone = _cleanup_trustee_phone(trustee_phone)
+    if not trustee_name or _is_bad_trustee_text(trustee_name):
+        trustee_name = ""
+        trustee_phone = ""
         flags.append("trustee_suspect")
 
     auction_date = _extract_auction_date(text, filed=filed)
@@ -649,6 +738,8 @@ def parse_record(
 
     amount = _find_first(MONEY_RE, text)
     deed_of_trust = _extract_deed_of_trust_date(text)
+    if deed_of_trust and auction_date and deed_of_trust >= auction_date:
+        deed_of_trust = ""
 
     score = 0
     if prop.get("address"):
