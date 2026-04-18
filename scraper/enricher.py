@@ -30,6 +30,8 @@ def extract_address(text):
     bad_patterns = [
         "201 w jefferson",
         "1850 n central",
+        "camino del rio",
+        "gillette ave",
         "suite",
         "floor",
         "servicer",
@@ -39,7 +41,8 @@ def extract_address(text):
         "trustee",
         "sales line",
         "http",
-        "www"
+        "www",
+        "will occur"
     ]
 
     def is_bad(line):
@@ -52,18 +55,57 @@ def extract_address(text):
     def is_city_state(line):
         return bool(re.search(r"[A-Za-z\s]+,\s*[A-Z]{2}\s*\d{5}", line))
 
+    def clean(line):
+        line = re.sub(r"street address or identifiable location:\s*", "", line, flags=re.I)
+        line = re.sub(r"purported street address:\s*", "", line, flags=re.I)
+        return line.strip()
+
     for i, line in enumerate(lines):
-        if "street address or identifiable location" in line.lower():
+        if "street address" in line.lower():
             for j in range(i+1, min(i+6, len(lines)-1)):
                 if is_street(lines[j]) and not is_bad(lines[j]):
                     if is_city_state(lines[j+1]):
-                        return f"{lines[j]}, {lines[j+1]}"
+                        return f"{clean(lines[j])}, {clean(lines[j+1])}"
 
     for i in range(len(lines)-1):
         if is_street(lines[i]) and is_city_state(lines[i+1]):
             if not is_bad(lines[i]):
-                return f"{lines[i]}, {lines[i+1]}"
+                return f"{clean(lines[i])}, {clean(lines[i+1])}"
 
+    return ""
+
+def extract_owner(text):
+    lines = text.split("\n")
+    for i, l in enumerate(lines):
+        if "original trustor" in l.lower():
+            for j in range(i+1, i+6):
+                if j < len(lines):
+                    line = lines[j].strip()
+                    if line and not any(x in line.lower() for x in ["deed", "recording", "notice"]):
+                        return line
+    return ""
+
+def extract_trustee(text):
+    lines = text.split("\n")
+    for i, l in enumerate(lines):
+        if "trustee" in l.lower():
+            for j in range(i+1, i+6):
+                if j < len(lines):
+                    line = lines[j].strip()
+                    if line and not any(x in line.lower() for x in [
+                        "address","phone","www","http","suite","floor"
+                    ]):
+                        return line
+    return ""
+
+def extract_auction_date(text):
+    for m in DATE_RE.findall(text):
+        try:
+            dt = datetime.strptime(m, "%m/%d/%Y")
+            if dt.year >= 2026:
+                return dt.strftime("%Y-%m-%d")
+        except:
+            continue
     return ""
 
 def parse_record(**kwargs):
@@ -72,8 +114,8 @@ def parse_record(**kwargs):
 
     return {
         "doc_num": kwargs.get("doc_num",""),
-        "owner": "",
-        "trustee_name": "",
+        "owner": extract_owner(text),
+        "trustee_name": extract_trustee(text),
         "prop_address": extract_address(text),
-        "auction_date": "",
+        "auction_date": extract_auction_date(text),
     }
