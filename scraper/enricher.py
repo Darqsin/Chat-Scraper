@@ -12,6 +12,8 @@ from pdf2image import convert_from_path
 # Uncomment if running locally on Windows and Tesseract is not on PATH.
 # pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
+print("PYT OK:", pytesseract.get_tesseract_version())
+
 DATE_RE = re.compile(r"\b\d{1,2}/\d{1,2}/\d{4}\b")
 APN_RE = re.compile(r"\b(?:APN|A\.P\.N\.|Parcel(?:\s+No\.?|\s+Number)?)[\s:#-]*([0-9\-]{6,20})\b", re.I)
 PHONE_RE = re.compile(r"(?:\+?1[-.\s]?)?\(?([2-9][0-9]{2})\)?[-.\s]?([0-9]{3})[-.\s]?([0-9]{4})")
