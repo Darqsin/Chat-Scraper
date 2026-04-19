@@ -1,3 +1,5 @@
+# FINAL FIXED ENRICHER
+
 from __future__ import annotations
 import re
 from datetime import datetime
@@ -9,10 +11,7 @@ DATE_RE = re.compile(r"\b\d{1,2}/\d{1,2}/\d{4}\b")
 
 def ocr_pdf(path):
     images = convert_from_path(path)
-    text = ""
-    for img in images:
-        text += pytesseract.image_to_string(img)
-    return text
+    return "\n".join(pytesseract.image_to_string(img) for img in images)
 
 def extract_text(pdf_path):
     try:
@@ -24,94 +23,62 @@ def extract_text(pdf_path):
         pass
     return ocr_pdf(pdf_path)
 
+BAD = [
+    "201 w jefferson","1850 n central","camino del rio","gillette ave",
+    "suite","floor","servicer","qualityloan","law group","default services",
+    "trustee","sales line","http","www","will occur","courthouse","superior court"
+]
+
+def bad(l): return any(x in l.lower() for x in BAD)
+
+def street(l): return bool(re.search(r"\d{2,5}\s+[A-Za-z]", l))
+
+def city(l): return bool(re.search(r"[A-Za-z\s]+,\s*[A-Z]{2}\s*\d{5}", l))
+
+def clean(l):
+    l = re.sub(r"street address.*?:\s*", "", l, flags=re.I)
+    l = re.sub(r"purported street address:\s*", "", l, flags=re.I)
+    return l.strip()
+
 def extract_address(text):
     lines = [l.strip() for l in text.split("\n") if l.strip()]
 
-    bad_patterns = [
-        "201 w jefferson",
-        "1850 n central",
-        "camino del rio",
-        "gillette ave",
-        "suite",
-        "floor",
-        "servicer",
-        "qualityloan",
-        "law group",
-        "default services",
-        "trustee",
-        "sales line",
-        "http",
-        "www",
-        "will occur"
-    ]
-
-    def is_bad(line):
-        l = line.lower()
-        return any(p in l for p in bad_patterns)
-
-    def is_street(line):
-        return bool(re.search(r"\d{2,5}\s+[A-Za-z]", line))
-
-    def is_city_state(line):
-        return bool(re.search(r"[A-Za-z\s]+,\s*[A-Z]{2}\s*\d{5}", line))
-
-    def clean(line):
-        line = re.sub(r"street address or identifiable location:\s*", "", line, flags=re.I)
-        line = re.sub(r"purported street address:\s*", "", line, flags=re.I)
-        return line.strip()
-
-    for i, line in enumerate(lines):
-        if "street address" in line.lower():
-            for j in range(i+1, min(i+6, len(lines)-1)):
-                if is_street(lines[j]) and not is_bad(lines[j]):
-                    if is_city_state(lines[j+1]):
-                        return f"{clean(lines[j])}, {clean(lines[j+1])}"
+    for i,l in enumerate(lines):
+        if "street address" in l.lower():
+            for j in range(i+1, min(i+6,len(lines)-1)):
+                if street(lines[j]) and city(lines[j+1]) and not bad(lines[j]):
+                    return f"{clean(lines[j])}, {clean(lines[j+1])}"
 
     for i in range(len(lines)-1):
-        if is_street(lines[i]) and is_city_state(lines[i+1]):
-            if not is_bad(lines[i]):
+        if street(lines[i]) and city(lines[i+1]):
+            if not bad(lines[i]) and not bad(lines[i+1]):
                 return f"{clean(lines[i])}, {clean(lines[i+1])}"
 
     return ""
 
 def extract_owner(text):
-    lines = text.split("\n")
-    for i, l in enumerate(lines):
-        if "original trustor" in l.lower():
-            for j in range(i+1, i+6):
-                if j < len(lines):
-                    line = lines[j].strip()
-                    if line and not any(x in line.lower() for x in ["deed", "recording", "notice"]):
-                        return line
+    for line in text.split("\n"):
+        if "original trustor" in line.lower():
+            return line.strip()
     return ""
 
 def extract_trustee(text):
-    lines = text.split("\n")
-    for i, l in enumerate(lines):
-        if "trustee" in l.lower():
-            for j in range(i+1, i+6):
-                if j < len(lines):
-                    line = lines[j].strip()
-                    if line and not any(x in line.lower() for x in [
-                        "address","phone","www","http","suite","floor"
-                    ]):
-                        return line
+    for line in text.split("\n"):
+        if "trustee" in line.lower() and not bad(line):
+            return line.strip()
     return ""
 
 def extract_auction_date(text):
     for m in DATE_RE.findall(text):
         try:
-            dt = datetime.strptime(m, "%m/%d/%Y")
-            if dt.year >= 2026:
-                return dt.strftime("%Y-%m-%d")
-        except:
-            continue
+            d = datetime.strptime(m,"%m/%d/%Y")
+            if d.year >= 2026:
+                return d.strftime("%Y-%m-%d")
+        except: pass
     return ""
 
 def parse_record(**kwargs):
-    pdf_path = kwargs.get("pdf_path")
-    text = extract_text(pdf_path)
-
+    text = extract_text(kwargs.get("pdf_path"))
     return {
         "doc_num": kwargs.get("doc_num",""),
         "owner": extract_owner(text),
