@@ -1,5 +1,5 @@
 Unofficial
-2~Document
+2.-Document
 17
 ro
 When recorded mail to:
@@ -13,7 +13,7 @@ The following legally described trust property will be sold, pursuant to the pow
 Deed of Trust recorded on 01/12/2017 in Instrument No. 20170027566, records of MARICOPA County,
 ARIZONA, at public auction to the highest bidder, AT THE MAIN ENTRANCE TO THE SUPERIOR
 COURT BUILDING MARICOPA COUNTY COURTHOUSE, 201 W. JEFFERSON STREET,
-PHOENIX, AZ 85003 on 07/23/2026 at 10:00 AM. NOTICE! iF YOU BELIEVE THERE IS A
+PHOENIX, AZ 85003 on 07/23/2026 at 10:00 AM. NOTICE! IF YOU BELIEVE THERE IS A
 DEFENSE TO THE TRUSTEE SALE OR IF YOU HAVE AN OBJECTION TO THE TRUSTEE
 SALE, YOU MUST FILE AN ACTION AND OBTAIN A COURT ORDER PURSUANT TO RULE
 65, ARIZONA RULES OF CIVIL PROCEDURE, STOPPING THE SALE NO LATER THAN 5:00
@@ -25,8 +25,8 @@ Secured property is legally described as:
 LOT 674, RANCHO EL MIRAGE-PARCEL C, ACCORDING TO THE PLAT OF
 RECORD IN THE OFFICE OF THE COUNTY RECORDER OF MARICOPA
 COUNTY, ARIZONA, RECORDED IN BOOK 642 OF MAPS, PAGE 41 AND
-AFFIDAVIT OF CORRECTION RECORDED IN DOCUMENT NO. 2003-1012869.
-PURPORTED STREET ADDRESS: 14800 N. 129TH DR, EL MIRAGE, AZ, 85335
+AFFIDAVIT OF CORRECTION RECORDED IN DOCUMENT NO. 2003-1012869,
+PURPORTED STREET ADDRESS: 14800 N. 129TH DR, EL MIRAGE, AZ 85335
 TAX PARCEL NUMBER(S): 509-13-701
 ORIGINAL PRINCIPAL BALANCE: $146,610.00
 Name and Address of Beneficiary:
@@ -44,10 +44,9 @@ regarding title, possession or encumbrances, to satisfy the indebtedness secured
 advances thereunder, with interest as provided therein, and the unpaid principal balance of the Note secured
 by said Deed of Trust with interest thereon as proved in said Note, plus fees, charges and expenses of the
 Trustee and of the trusts created by said Deed of Trust.
- 
 20260217097
 NOTICE OF TRUSTEE’S SALE CONTINUED
-Trustee's Sale No. 191701
+Trustee's Sale No, 191701
 Name and Address of Trustee:
 Prime Recon LLC
 Prime Recon LLC
@@ -55,7 +54,6 @@ Prime Recon LLC
 Phoenix, AZ 85018
 Telephone: (888) 725-4142
 Dated: April 13, 2026.
- 
 Israel Brown, Authorized Signer
 The Successor Trustee herein qualifies as Trustee of the Trust Deed in the Trustee’s capacity as a licensed
 escrow agency by entity No: EA-2001166 as required by Arizona Revised Statutes section 33-803,
@@ -68,22 +66,19 @@ the person whose name is subscribed to the foregoing instrument and acknowledged
 executed the same for the purposes and consideration therein expressed.
 Given under my hand and seal of office this April 13, 2026.
 (Personalized Seal)
- 
- 
-Ry, CARMEN ROBINSON .
-> Notary ID #134464293
-VAY) My Commission Expires
-toe’ August 15, 2027 : -
+CARMEN ROBINSON ’
+Notary ID #134464293
+My Commission Expires
+August 15, 2027 . -
 ary Public’s Signature
 This firm is not a Debt Collector as that term is defined pursuant to the Fair Debt Collection Practices Act within this jurisdiction (See Mansour v.
 Cal-Western Reconveyance Corp., 618 F. Supp.2d 1178 (D. Ariz. 2009)). Should a subsequent determination be made that this firm is a Debt
 Collector as that term is defined within the Act, then you are notified that any information obtained will be used for the purpose of collecting a
 debt. Please be advised that if your personal liability for this debt has been modified or extinguished by a discharge in bankruptcy, this
 communication is provided solely in reference to the foreclosure on the Deed of Trust remaining on your property and is not an attempt to collect
-the discharged personal obligation. The notifications provided herein do not limit or detract from the effect of foreclosure upon the subject property,
+the discharged personal obligation. The notifications provided herein do not limit or detract from the effect of foreclosure upon the subject property.
 NOTICE: If the sale is set aside for any reason, the Purchaser at the sale shall be entitled only to a return of the deposit paid. The Purchaser shall
 not have further recourse against the Mortgagor, the Mortgagee or the Mortgagee’s attorney.
- 
 20260217097
 NOTICE OF TRUSTEE’S SALE CONTINUED
 Trustee's Sale No. 191701
@@ -105,7 +100,7 @@ over the entity, date of birth, complete residential street address,
 citizenship, and unique identifying number (like tax ID no. or
 nonexpired passport no.)
 Full legal name of transferee
-Any trade name or “‘doing business as” name
+Any trade name or “doing business as” name
 Street address, city, state, zip code
 Federal EIN or applicable tax ID
 Corporation, LLC, partnership, trust, etc.
