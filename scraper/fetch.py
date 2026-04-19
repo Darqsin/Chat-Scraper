@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import argparse
-import json
 import logging
+import time
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Optional
@@ -24,12 +24,18 @@ LOG_PATH = ROOT / "scraper.log"
 DEFAULT_SOURCE = "https://recorder.maricopa.gov/recording/document-search.html"
 
 PDF_SESSION = requests.Session()
-PDF_SESSION.headers.update({
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
-    "Accept": "application/pdf,application/octet-stream,*/*",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Connection": "keep-alive",
-})
+PDF_SESSION.headers.update(
+    {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+        "Accept": "application/pdf,application/octet-stream,*/*",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Connection": "keep-alive",
+    }
+)
+
+PDF_TIMEOUT = 60
+PDF_RETRIES = 3
+PDF_RETRY_STATUS = {403, 408, 429, 500, 502, 503, 504}
 
 
 def setup_logging(verbose: bool = False) -> None:
@@ -69,60 +75,165 @@ def mmddyyyy_to_yyyymmdd(value: str) -> str:
     return datetime.strptime(value, "%m/%d/%Y").strftime("%Y-%m-%d")
 
 
+def build_pdf_candidates(url: str, doc_num: str) -> list[str]:
+    candidates: list[str] = []
+    if url:
+        candidates.append(url)
+
+    if doc_num:
+        candidates.extend(
+            [
+                f"https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/{doc_num}.pdf",
+                f"https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/{doc_num}.pdf",
+                f"https://recorder.maricopa.gov/UnOfficialDocs/pdf/{doc_num}.pdf",
+                f"https://recorder.maricopa.gov/UnOfficialDocs/PDF/{doc_num}.pdf",
+            ]
+        )
+
+    seen: set[str] = set()
+    ordered: list[str] = []
+    for candidate in candidates:
+        candidate = str(candidate or "").strip()
+        if candidate and candidate not in seen:
+            seen.add(candidate)
+            ordered.append(candidate)
+    return ordered
+
+
+def is_pdf_response(content: bytes, content_type: str) -> bool:
+    if not content:
+        return False
+    header = content[:32].lstrip()
+    if header.startswith(b"%PDF"):
+        return True
+    return "pdf" in (content_type or "").lower() and len(content) > 1000
+
+
+def fetch_candidate(candidate: str, clerk_url: str, logger: logging.Logger, doc_num: str) -> tuple[bool, bytes, str, int]:
+    headers = {
+        "Referer": clerk_url or DEFAULT_SOURCE,
+        "Accept": "application/pdf,application/octet-stream,*/*",
+    }
+
+    last_status = 0
+    last_content_type = ""
+
+    for attempt in range(1, PDF_RETRIES + 1):
+        try:
+            resp = PDF_SESSION.get(
+                candidate,
+                headers=headers,
+                timeout=PDF_TIMEOUT,
+                allow_redirects=True,
+            )
+            last_status = resp.status_code
+            last_content_type = resp.headers.get("Content-Type", "")
+            content = resp.content or b""
+
+            if resp.ok and is_pdf_response(content, last_content_type):
+                return True, content, last_content_type, resp.status_code
+
+            logger.warning(
+                "Bad PDF response | doc=%s | attempt=%s/%s | status=%s | type=%s | url=%s",
+                doc_num,
+                attempt,
+                PDF_RETRIES,
+                resp.status_code,
+                last_content_type or "n/a",
+                candidate,
+            )
+
+            if resp.status_code not in PDF_RETRY_STATUS:
+                break
+
+        except Exception as exc:
+            logger.warning(
+                "PDF request failed | doc=%s | attempt=%s/%s | url=%s | err=%s",
+                doc_num,
+                attempt,
+                PDF_RETRIES,
+                candidate,
+                exc,
+            )
+
+        if attempt < PDF_RETRIES:
+            time.sleep(1.5 * attempt)
+
+    return False, b"", last_content_type, last_status
+
+
 def download_pdf(
     url: str,
     save_path: Path,
     logger: logging.Logger,
     doc_num: str = "",
     clerk_url: str = "",
-) -> bool:
-    candidates = []
-    if url:
-        candidates.append(url)
+) -> tuple[bool, str]:
+    candidates = build_pdf_candidates(url, doc_num)
+    if not candidates:
+        return False, "pdf_missing"
 
-    if doc_num:
-        candidates.extend([
-            f"https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/{doc_num}.pdf",
-            f"https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/{doc_num}.pdf",
-            f"https://recorder.maricopa.gov/UnOfficialDocs/pdf/{doc_num}.pdf",
-        ])
+    save_path.parent.mkdir(parents=True, exist_ok=True)
 
-    # preserve order / de-dupe
-    seen = set()
-    unique_candidates = []
-    for c in candidates:
-        if c and c not in seen:
-            unique_candidates.append(c)
-            seen.add(c)
+    saw_block = False
+    saw_non_pdf = False
 
-    for candidate in unique_candidates:
-        try:
-            headers = {
-                "User-Agent": "Mozilla/5.0",
-                "Accept": "application/pdf,application/octet-stream,*/*",
-                "Referer": clerk_url or DEFAULT_SOURCE,
-            }
+    for candidate in candidates:
+        ok, content, content_type, status = fetch_candidate(candidate, clerk_url, logger, doc_num)
+        if ok:
+            save_path.write_bytes(content)
+            logger.info("PDF downloaded | doc=%s | url=%s", doc_num, candidate)
+            return True, ""
 
-            resp = requests.get(candidate, headers=headers, timeout=45)
+        if status in {403, 429}:
+            saw_block = True
+        if content_type and "pdf" not in content_type.lower():
+            saw_non_pdf = True
 
-            if resp.ok and resp.content:
-                first_chunk = resp.content[:32].lstrip()
-                if first_chunk.startswith(b"%PDF"):
-                    save_path.parent.mkdir(parents=True, exist_ok=True)
-                    save_path.write_bytes(resp.content)
-                    return True
+    if saw_block:
+        return False, "pdf_blocked"
+    if saw_non_pdf:
+        return False, "pdf_non_pdf_response"
+    return False, "pdf_missing"
 
-            logger.warning(
-                "Bad PDF response: %s | status=%s | doc=%s",
-                candidate,
-                getattr(resp, "status_code", "n/a"),
-                doc_num,
-            )
 
-        except Exception as exc:
-            logger.warning("PDF download failed: %s | %s | doc=%s", candidate, exc, doc_num)
-
-    return False
+def fallback_record(doc_num: str, doc_type: str, filed: str, clerk_url: str, pdf_url: str, flags: list[str]) -> dict:
+    return {
+        "doc_num": doc_num,
+        "doc_type": doc_type,
+        "filed": filed,
+        "cat": "NS",
+        "cat_label": "Notice of Trustee Sale",
+        "owner": "",
+        "grantee": "",
+        "amount": "",
+        "legal": "",
+        "prop_address": "",
+        "prop_city": "",
+        "prop_state": "",
+        "prop_zip": "",
+        "mail_address": "",
+        "mail_city": "",
+        "mail_state": "",
+        "mail_zip": "",
+        "county": "Maricopa",
+        "parcel_number": "",
+        "original_loan": "",
+        "trustee_name": "",
+        "trustee_phone": "",
+        "auction_date": "",
+        "deed_of_trust": "",
+        "first_name": "",
+        "last_name": "",
+        "second_first": "",
+        "second_last": "",
+        "clerk_url": clerk_url,
+        "pdf_url": pdf_url,
+        "pdf_path": "",
+        "flags": flags,
+        "score": 0,
+        "raw_text_path": "",
+    }
 
 
 def main() -> int:
@@ -141,17 +252,19 @@ def main() -> int:
     data_dir = ROOT / "data"
     dashboard_dir = ROOT / "dashboard"
 
-    for d in [downloads_dir, raw_text_dir, data_dir, dashboard_dir]:
-        d.mkdir(parents=True, exist_ok=True)
+    for directory in [downloads_dir, raw_text_dir, data_dir, dashboard_dir]:
+        directory.mkdir(parents=True, exist_ok=True)
 
     scraper = MaricopaClerkScraper()
     results = scraper.scrape(start_api, end_api, document_code=args.document_code)
 
     logger.info("Scraped %s records", len(results))
 
-    parsed = []
+    parsed: list[dict] = []
+    download_success = 0
+    download_fail = 0
 
-    for result in results:
+    for idx, result in enumerate(results, start=1):
         doc_num = str(result.get("doc_num", "")).strip()
         pdf_url = str(result.get("pdf_url", "")).strip()
         clerk_url = str(result.get("clerk_url", "")).strip()
@@ -159,16 +272,31 @@ def main() -> int:
         doc_type = str(result.get("doc_type", "NS")).strip() or "NS"
 
         if not doc_num:
+            logger.warning("Skipping record %s: missing doc_num", idx)
             continue
 
         pdf_path = downloads_dir / f"{doc_num}.pdf"
         pdf_success = False
+        pdf_fail_reason = ""
 
-        if pdf_url and not pdf_path.exists():
-            pdf_success = download_pdf(pdf_url, pdf_path, logger, doc_num=doc_num, clerk_url=clerk_url)
+        if pdf_path.exists() and pdf_path.stat().st_size > 1000:
+            pdf_success = True
+        else:
+            pdf_success, pdf_fail_reason = download_pdf(
+                pdf_url,
+                pdf_path,
+                logger,
+                doc_num=doc_num,
+                clerk_url=clerk_url,
+            )
+
+        if pdf_success:
+            download_success += 1
+        else:
+            download_fail += 1
 
         try:
-            if pdf_success or pdf_path.exists():
+            if pdf_success or (pdf_path.exists() and pdf_path.stat().st_size > 1000):
                 parsed_record = parse_record(
                     pdf_path=pdf_path,
                     clerk_url=clerk_url,
@@ -180,49 +308,29 @@ def main() -> int:
                     raw_text_dir=raw_text_dir,
                 )
             else:
-                raise Exception("No valid PDF")
+                raise RuntimeError(pdf_fail_reason or "No valid PDF")
 
         except Exception as exc:
             logger.warning("Fallback record used for %s: %s", doc_num, exc)
-
-            parsed_record = {
-                "doc_num": doc_num,
-                "doc_type": doc_type,
-                "filed": filed,
-                "cat": "NS",
-                "cat_label": "Notice of Trustee Sale",
-                "owner": "",
-                "grantee": "",
-                "amount": "",
-                "legal": "",
-                "prop_address": "",
-                "prop_city": "",
-                "prop_state": "",
-                "prop_zip": "",
-                "mail_address": "",
-                "mail_city": "",
-                "mail_state": "",
-                "mail_zip": "",
-                "county": "Maricopa",
-                "parcel_number": "",
-                "original_loan": "",
-                "trustee_name": "",
-                "trustee_phone": "",
-                "auction_date": "",
-                "deed_of_trust": "",
-                "first_name": "",
-                "last_name": "",
-                "second_first": "",
-                "second_last": "",
-                "clerk_url": clerk_url,
-                "pdf_url": pdf_url,
-                "pdf_path": "",
-                "flags": ["no_pdf"],
-                "score": 0,
-                "raw_text_path": "",
-            }
+            parsed_record = fallback_record(
+                doc_num=doc_num,
+                doc_type=doc_type,
+                filed=filed,
+                clerk_url=clerk_url,
+                pdf_url=pdf_url,
+                flags=[pdf_fail_reason or "no_pdf"],
+            )
 
         parsed.append(parsed_record)
+
+        if idx % 25 == 0:
+            logger.info(
+                "Progress: %s/%s | pdf_ok=%s | pdf_fail=%s",
+                idx,
+                len(results),
+                download_success,
+                download_fail,
+            )
 
     payload = build_records_payload(
         parsed,
@@ -235,7 +343,13 @@ def main() -> int:
     write_flat_csv(parsed, ROOT / "nts_data.csv")
     write_xlsx(parsed, ROOT / "nts_data.xlsx")
 
-    logger.info("FINAL: %s records | %s with address", payload["total"], payload["with_address"])
+    logger.info(
+        "FINAL: %s records | %s with address | pdf_ok=%s | pdf_fail=%s",
+        payload["total"],
+        payload.get("with_address", 0),
+        download_success,
+        download_fail,
+    )
 
     return 0
 
