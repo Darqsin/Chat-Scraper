@@ -2271,3 +2271,8 @@ NameError: name 'is_valid_property_address' is not defined
 2026-05-03 10:33:56,052 | INFO | clerk_scraper | Total records: 0
 2026-05-03 10:33:56,052 | INFO | fetch | Scraped 0 records
 2026-05-03 10:33:56,059 | INFO | fetch | FINAL: 0 records | 0 with address | pdf_ok=0 | pdf_fail=0
+2026-05-04 12:15:14,349 | INFO | fetch | Date range: 05/03/2026 -> 05/03/2026
+2026-05-04 12:15:14,716 | INFO | clerk_scraper | Page 1: 0 records
+2026-05-04 12:15:14,716 | INFO | clerk_scraper | Total records: 0
+2026-05-04 12:15:14,716 | INFO | fetch | Scraped 0 records
+2026-05-04 12:15:14,723 | INFO | fetch | FINAL: 0 records | 0 with address | pdf_ok=0 | pdf_fail=0
