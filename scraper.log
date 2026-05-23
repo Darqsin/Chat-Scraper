@@ -3474,3 +3474,40 @@ NameError: name 'is_valid_property_address' is not defined
 2026-05-22 10:26:19,230 | WARNING | fetch | Bad PDF response | doc=20260309460 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260309460.pdf
 2026-05-22 10:26:19,231 | WARNING | fetch | Fallback record used for 20260309460: pdf_blocked
 2026-05-22 10:26:19,250 | INFO | fetch | FINAL: 18 records | 7 with address | pdf_ok=9 | pdf_fail=9
+2026-05-23 08:58:34,994 | INFO | fetch | Date range: 05/22/2026 -> 05/22/2026
+2026-05-23 08:58:35,433 | INFO | clerk_scraper | Page 1: 24 records
+2026-05-23 08:59:13,923 | INFO | clerk_scraper | Total records: 24
+2026-05-23 08:59:13,923 | INFO | fetch | Scraped 24 records
+2026-05-23 08:59:14,099 | INFO | fetch | PDF downloaded | doc=20260309801 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260309801.pdf
+2026-05-23 08:59:18,922 | INFO | fetch | PDF downloaded | doc=20260309936 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260309936.pdf
+2026-05-23 08:59:23,270 | INFO | fetch | PDF downloaded | doc=20260309944 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260309944.pdf
+2026-05-23 08:59:28,007 | WARNING | fetch | Bad PDF response | doc=20260309954 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260309954.pdf
+2026-05-23 08:59:28,343 | WARNING | fetch | Bad PDF response | doc=20260309954 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260309954.pdf
+2026-05-23 08:59:28,527 | WARNING | fetch | Bad PDF response | doc=20260309954 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260309954.pdf
+2026-05-23 08:59:30,146 | WARNING | fetch | Bad PDF response | doc=20260309954 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260309954.pdf
+2026-05-23 08:59:33,267 | WARNING | fetch | Bad PDF response | doc=20260309954 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260309954.pdf
+2026-05-23 08:59:33,405 | WARNING | fetch | Bad PDF response | doc=20260309954 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260309954.pdf
+2026-05-23 08:59:35,031 | WARNING | fetch | Bad PDF response | doc=20260309954 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260309954.pdf
+2026-05-23 08:59:38,155 | WARNING | fetch | Bad PDF response | doc=20260309954 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260309954.pdf
+2026-05-23 08:59:38,156 | WARNING | fetch | Fallback record used for 20260309954: pdf_blocked
+2026-05-23 08:59:38,252 | INFO | fetch | PDF downloaded | doc=20260310082 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260310082.pdf
+2026-05-23 08:59:43,329 | INFO | fetch | PDF downloaded | doc=20260310184 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260310184.pdf
+2026-05-23 08:59:48,164 | INFO | fetch | PDF downloaded | doc=20260310222 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260310222.pdf
+2026-05-23 08:59:52,719 | INFO | fetch | PDF downloaded | doc=20260310277 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260310277.pdf
+2026-05-23 08:59:57,675 | INFO | fetch | PDF downloaded | doc=20260310296 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260310296.pdf
+2026-05-23 09:00:02,161 | INFO | fetch | PDF downloaded | doc=20260310477 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260310477.pdf
+2026-05-23 09:00:08,164 | INFO | fetch | PDF downloaded | doc=20260310668 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260310668.pdf
+2026-05-23 09:00:13,430 | INFO | fetch | PDF downloaded | doc=20260310953 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260310953.pdf
+2026-05-23 09:00:17,249 | INFO | fetch | PDF downloaded | doc=20260311118 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260311118.pdf
+2026-05-23 09:00:21,960 | INFO | fetch | PDF downloaded | doc=20260311123 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260311123.pdf
+2026-05-23 09:00:27,048 | INFO | fetch | PDF downloaded | doc=20260311156 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260311156.pdf
+2026-05-23 09:00:33,021 | INFO | fetch | PDF downloaded | doc=20260311173 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260311173.pdf
+2026-05-23 09:00:37,100 | INFO | fetch | PDF downloaded | doc=20260311192 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260311192.pdf
+2026-05-23 09:00:40,976 | INFO | fetch | PDF downloaded | doc=20260311212 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260311212.pdf
+2026-05-23 09:00:45,721 | INFO | fetch | PDF downloaded | doc=20260311865 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260311865.pdf
+2026-05-23 09:00:50,288 | INFO | fetch | PDF downloaded | doc=20260311884 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260311884.pdf
+2026-05-23 09:00:55,730 | INFO | fetch | PDF downloaded | doc=20260311908 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260311908.pdf
+2026-05-23 09:01:00,241 | INFO | fetch | PDF downloaded | doc=20260311915 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260311915.pdf
+2026-05-23 09:01:04,738 | INFO | fetch | PDF downloaded | doc=20260311941 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260311941.pdf
+2026-05-23 09:01:09,631 | INFO | fetch | PDF downloaded | doc=20260311952 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260311952.pdf
+2026-05-23 09:01:14,439 | INFO | fetch | FINAL: 24 records | 22 with address | pdf_ok=23 | pdf_fail=1
