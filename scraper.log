@@ -4067,3 +4067,206 @@ NameError: name 'is_valid_property_address' is not defined
 2026-06-05 10:43:46,659 | INFO | fetch | PDF downloaded | doc=20260339645 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260339645.pdf
 2026-06-05 10:43:52,380 | INFO | fetch | PDF downloaded | doc=20260339725 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260339725.pdf
 2026-06-05 10:43:55,982 | INFO | fetch | FINAL: 22 records | 22 with address | pdf_ok=22 | pdf_fail=0
+2026-06-06 09:20:43,567 | INFO | fetch | Date range: 06/05/2026 -> 06/05/2026
+2026-06-06 09:20:43,796 | INFO | clerk_scraper | Page 1: 22 records
+2026-06-06 09:31:51,130 | INFO | clerk_scraper | Total records: 22
+2026-06-06 09:31:51,131 | INFO | fetch | Scraped 22 records
+2026-06-06 09:31:51,500 | WARNING | fetch | Bad PDF response | doc=20260340025 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260340025.pdf
+2026-06-06 09:31:51,769 | WARNING | fetch | Bad PDF response | doc=20260340025 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260340025.pdf
+2026-06-06 09:31:51,837 | WARNING | fetch | Bad PDF response | doc=20260340025 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340025.pdf
+2026-06-06 09:31:53,430 | WARNING | fetch | Bad PDF response | doc=20260340025 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340025.pdf
+2026-06-06 09:31:56,505 | WARNING | fetch | Bad PDF response | doc=20260340025 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340025.pdf
+2026-06-06 09:31:56,577 | WARNING | fetch | Bad PDF response | doc=20260340025 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340025.pdf
+2026-06-06 09:31:58,132 | WARNING | fetch | Bad PDF response | doc=20260340025 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340025.pdf
+2026-06-06 09:32:01,180 | WARNING | fetch | Bad PDF response | doc=20260340025 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340025.pdf
+2026-06-06 09:32:01,180 | WARNING | fetch | Fallback record used for 20260340025: pdf_blocked
+2026-06-06 09:32:01,520 | WARNING | fetch | Bad PDF response | doc=20260340026 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260340026.pdf
+2026-06-06 09:32:01,864 | WARNING | fetch | Bad PDF response | doc=20260340026 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260340026.pdf
+2026-06-06 09:32:01,941 | WARNING | fetch | Bad PDF response | doc=20260340026 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340026.pdf
+2026-06-06 09:32:03,501 | WARNING | fetch | Bad PDF response | doc=20260340026 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340026.pdf
+2026-06-06 09:32:06,567 | WARNING | fetch | Bad PDF response | doc=20260340026 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340026.pdf
+2026-06-06 09:32:06,613 | WARNING | fetch | Bad PDF response | doc=20260340026 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340026.pdf
+2026-06-06 09:32:08,167 | WARNING | fetch | Bad PDF response | doc=20260340026 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340026.pdf
+2026-06-06 09:32:11,234 | WARNING | fetch | Bad PDF response | doc=20260340026 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340026.pdf
+2026-06-06 09:32:11,235 | WARNING | fetch | Fallback record used for 20260340026: pdf_blocked
+2026-06-06 09:32:11,525 | WARNING | fetch | Bad PDF response | doc=20260340030 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260340030.pdf
+2026-06-06 09:32:11,841 | WARNING | fetch | Bad PDF response | doc=20260340030 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260340030.pdf
+2026-06-06 09:32:11,895 | WARNING | fetch | Bad PDF response | doc=20260340030 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340030.pdf
+2026-06-06 09:32:13,446 | WARNING | fetch | Bad PDF response | doc=20260340030 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340030.pdf
+2026-06-06 09:32:16,536 | WARNING | fetch | Bad PDF response | doc=20260340030 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340030.pdf
+2026-06-06 09:32:16,588 | WARNING | fetch | Bad PDF response | doc=20260340030 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340030.pdf
+2026-06-06 09:32:18,156 | WARNING | fetch | Bad PDF response | doc=20260340030 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340030.pdf
+2026-06-06 09:32:21,227 | WARNING | fetch | Bad PDF response | doc=20260340030 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340030.pdf
+2026-06-06 09:32:21,228 | WARNING | fetch | Fallback record used for 20260340030: pdf_blocked
+2026-06-06 09:32:21,516 | WARNING | fetch | Bad PDF response | doc=20260340031 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260340031.pdf
+2026-06-06 09:32:21,797 | WARNING | fetch | Bad PDF response | doc=20260340031 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260340031.pdf
+2026-06-06 09:32:21,846 | WARNING | fetch | Bad PDF response | doc=20260340031 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340031.pdf
+2026-06-06 09:32:23,397 | WARNING | fetch | Bad PDF response | doc=20260340031 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340031.pdf
+2026-06-06 09:32:26,463 | WARNING | fetch | Bad PDF response | doc=20260340031 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340031.pdf
+2026-06-06 09:32:26,521 | WARNING | fetch | Bad PDF response | doc=20260340031 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340031.pdf
+2026-06-06 09:32:28,069 | WARNING | fetch | Bad PDF response | doc=20260340031 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340031.pdf
+2026-06-06 09:32:31,132 | WARNING | fetch | Bad PDF response | doc=20260340031 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340031.pdf
+2026-06-06 09:32:31,133 | WARNING | fetch | Fallback record used for 20260340031: pdf_blocked
+2026-06-06 09:32:31,465 | WARNING | fetch | Bad PDF response | doc=20260340055 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260340055.pdf
+2026-06-06 09:32:31,753 | WARNING | fetch | Bad PDF response | doc=20260340055 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260340055.pdf
+2026-06-06 09:32:31,807 | WARNING | fetch | Bad PDF response | doc=20260340055 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340055.pdf
+2026-06-06 09:32:33,358 | WARNING | fetch | Bad PDF response | doc=20260340055 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340055.pdf
+2026-06-06 09:32:36,413 | WARNING | fetch | Bad PDF response | doc=20260340055 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340055.pdf
+2026-06-06 09:32:36,462 | WARNING | fetch | Bad PDF response | doc=20260340055 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340055.pdf
+2026-06-06 09:32:38,018 | WARNING | fetch | Bad PDF response | doc=20260340055 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340055.pdf
+2026-06-06 09:32:41,076 | WARNING | fetch | Bad PDF response | doc=20260340055 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340055.pdf
+2026-06-06 09:32:41,076 | WARNING | fetch | Fallback record used for 20260340055: pdf_blocked
+2026-06-06 09:32:41,341 | WARNING | fetch | Bad PDF response | doc=20260340288 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260340288.pdf
+2026-06-06 09:32:41,677 | WARNING | fetch | Bad PDF response | doc=20260340288 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260340288.pdf
+2026-06-06 09:32:41,733 | WARNING | fetch | Bad PDF response | doc=20260340288 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340288.pdf
+2026-06-06 09:32:43,283 | WARNING | fetch | Bad PDF response | doc=20260340288 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340288.pdf
+2026-06-06 09:32:46,330 | WARNING | fetch | Bad PDF response | doc=20260340288 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260340288.pdf
+2026-06-06 09:32:46,380 | WARNING | fetch | Bad PDF response | doc=20260340288 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340288.pdf
+2026-06-06 09:32:47,936 | WARNING | fetch | Bad PDF response | doc=20260340288 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340288.pdf
+2026-06-06 09:32:50,985 | WARNING | fetch | Bad PDF response | doc=20260340288 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260340288.pdf
+2026-06-06 09:32:50,985 | WARNING | fetch | Fallback record used for 20260340288: pdf_blocked
+2026-06-06 09:32:51,276 | WARNING | fetch | Bad PDF response | doc=20260341371 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260341371.pdf
+2026-06-06 09:32:51,378 | WARNING | fetch | Bad PDF response | doc=20260341371 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260341371.pdf
+2026-06-06 09:32:51,423 | WARNING | fetch | Bad PDF response | doc=20260341371 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341371.pdf
+2026-06-06 09:32:52,972 | WARNING | fetch | Bad PDF response | doc=20260341371 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341371.pdf
+2026-06-06 09:32:56,024 | WARNING | fetch | Bad PDF response | doc=20260341371 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341371.pdf
+2026-06-06 09:32:56,073 | WARNING | fetch | Bad PDF response | doc=20260341371 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341371.pdf
+2026-06-06 09:32:57,622 | WARNING | fetch | Bad PDF response | doc=20260341371 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341371.pdf
+2026-06-06 09:33:00,670 | WARNING | fetch | Bad PDF response | doc=20260341371 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341371.pdf
+2026-06-06 09:33:00,671 | WARNING | fetch | Fallback record used for 20260341371: pdf_blocked
+2026-06-06 09:33:00,964 | WARNING | fetch | Bad PDF response | doc=20260341405 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260341405.pdf
+2026-06-06 09:33:01,285 | WARNING | fetch | Bad PDF response | doc=20260341405 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260341405.pdf
+2026-06-06 09:33:01,335 | WARNING | fetch | Bad PDF response | doc=20260341405 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341405.pdf
+2026-06-06 09:33:02,888 | WARNING | fetch | Bad PDF response | doc=20260341405 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341405.pdf
+2026-06-06 09:33:05,938 | WARNING | fetch | Bad PDF response | doc=20260341405 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341405.pdf
+2026-06-06 09:33:05,990 | WARNING | fetch | Bad PDF response | doc=20260341405 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341405.pdf
+2026-06-06 09:33:07,541 | WARNING | fetch | Bad PDF response | doc=20260341405 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341405.pdf
+2026-06-06 09:33:10,596 | WARNING | fetch | Bad PDF response | doc=20260341405 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341405.pdf
+2026-06-06 09:33:10,596 | WARNING | fetch | Fallback record used for 20260341405: pdf_blocked
+2026-06-06 09:33:10,886 | WARNING | fetch | Bad PDF response | doc=20260341410 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260341410.pdf
+2026-06-06 09:33:11,149 | WARNING | fetch | Bad PDF response | doc=20260341410 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260341410.pdf
+2026-06-06 09:33:11,196 | WARNING | fetch | Bad PDF response | doc=20260341410 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341410.pdf
+2026-06-06 09:33:12,762 | WARNING | fetch | Bad PDF response | doc=20260341410 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341410.pdf
+2026-06-06 09:33:15,811 | WARNING | fetch | Bad PDF response | doc=20260341410 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341410.pdf
+2026-06-06 09:33:15,860 | WARNING | fetch | Bad PDF response | doc=20260341410 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341410.pdf
+2026-06-06 09:33:17,414 | WARNING | fetch | Bad PDF response | doc=20260341410 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341410.pdf
+2026-06-06 09:33:20,465 | WARNING | fetch | Bad PDF response | doc=20260341410 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341410.pdf
+2026-06-06 09:33:20,466 | WARNING | fetch | Fallback record used for 20260341410: pdf_blocked
+2026-06-06 09:33:20,758 | WARNING | fetch | Bad PDF response | doc=20260341451 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260341451.pdf
+2026-06-06 09:33:21,104 | WARNING | fetch | Bad PDF response | doc=20260341451 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260341451.pdf
+2026-06-06 09:33:21,156 | WARNING | fetch | Bad PDF response | doc=20260341451 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341451.pdf
+2026-06-06 09:33:22,703 | WARNING | fetch | Bad PDF response | doc=20260341451 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341451.pdf
+2026-06-06 09:33:25,760 | WARNING | fetch | Bad PDF response | doc=20260341451 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341451.pdf
+2026-06-06 09:33:25,814 | WARNING | fetch | Bad PDF response | doc=20260341451 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341451.pdf
+2026-06-06 09:33:27,362 | WARNING | fetch | Bad PDF response | doc=20260341451 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341451.pdf
+2026-06-06 09:33:30,414 | WARNING | fetch | Bad PDF response | doc=20260341451 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341451.pdf
+2026-06-06 09:33:30,415 | WARNING | fetch | Fallback record used for 20260341451: pdf_blocked
+2026-06-06 09:33:30,752 | WARNING | fetch | Bad PDF response | doc=20260341486 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260341486.pdf
+2026-06-06 09:33:31,093 | WARNING | fetch | Bad PDF response | doc=20260341486 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260341486.pdf
+2026-06-06 09:33:31,144 | WARNING | fetch | Bad PDF response | doc=20260341486 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341486.pdf
+2026-06-06 09:33:32,714 | WARNING | fetch | Bad PDF response | doc=20260341486 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341486.pdf
+2026-06-06 09:33:35,769 | WARNING | fetch | Bad PDF response | doc=20260341486 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341486.pdf
+2026-06-06 09:33:35,819 | WARNING | fetch | Bad PDF response | doc=20260341486 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341486.pdf
+2026-06-06 09:33:37,374 | WARNING | fetch | Bad PDF response | doc=20260341486 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341486.pdf
+2026-06-06 09:33:40,426 | WARNING | fetch | Bad PDF response | doc=20260341486 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341486.pdf
+2026-06-06 09:33:40,427 | WARNING | fetch | Fallback record used for 20260341486: pdf_blocked
+2026-06-06 09:33:40,717 | WARNING | fetch | Bad PDF response | doc=20260341503 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260341503.pdf
+2026-06-06 09:33:41,012 | WARNING | fetch | Bad PDF response | doc=20260341503 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260341503.pdf
+2026-06-06 09:33:41,058 | WARNING | fetch | Bad PDF response | doc=20260341503 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341503.pdf
+2026-06-06 09:33:42,606 | WARNING | fetch | Bad PDF response | doc=20260341503 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341503.pdf
+2026-06-06 09:33:45,663 | WARNING | fetch | Bad PDF response | doc=20260341503 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341503.pdf
+2026-06-06 09:33:45,713 | WARNING | fetch | Bad PDF response | doc=20260341503 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341503.pdf
+2026-06-06 09:33:47,265 | WARNING | fetch | Bad PDF response | doc=20260341503 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341503.pdf
+2026-06-06 09:33:50,314 | WARNING | fetch | Bad PDF response | doc=20260341503 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341503.pdf
+2026-06-06 09:33:50,315 | WARNING | fetch | Fallback record used for 20260341503: pdf_blocked
+2026-06-06 09:33:50,581 | WARNING | fetch | Bad PDF response | doc=20260341523 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260341523.pdf
+2026-06-06 09:33:50,914 | WARNING | fetch | Bad PDF response | doc=20260341523 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260341523.pdf
+2026-06-06 09:33:50,967 | WARNING | fetch | Bad PDF response | doc=20260341523 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341523.pdf
+2026-06-06 09:33:52,516 | WARNING | fetch | Bad PDF response | doc=20260341523 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341523.pdf
+2026-06-06 09:33:55,571 | WARNING | fetch | Bad PDF response | doc=20260341523 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341523.pdf
+2026-06-06 09:33:55,621 | WARNING | fetch | Bad PDF response | doc=20260341523 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341523.pdf
+2026-06-06 09:33:57,173 | WARNING | fetch | Bad PDF response | doc=20260341523 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341523.pdf
+2026-06-06 09:34:00,227 | WARNING | fetch | Bad PDF response | doc=20260341523 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341523.pdf
+2026-06-06 09:34:00,228 | WARNING | fetch | Fallback record used for 20260341523: pdf_blocked
+2026-06-06 09:34:00,494 | WARNING | fetch | Bad PDF response | doc=20260341629 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260341629.pdf
+2026-06-06 09:34:00,759 | WARNING | fetch | Bad PDF response | doc=20260341629 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260341629.pdf
+2026-06-06 09:34:00,807 | WARNING | fetch | Bad PDF response | doc=20260341629 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341629.pdf
+2026-06-06 09:34:02,362 | WARNING | fetch | Bad PDF response | doc=20260341629 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341629.pdf
+2026-06-06 09:34:05,415 | WARNING | fetch | Bad PDF response | doc=20260341629 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341629.pdf
+2026-06-06 09:34:05,465 | WARNING | fetch | Bad PDF response | doc=20260341629 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341629.pdf
+2026-06-06 09:34:07,013 | WARNING | fetch | Bad PDF response | doc=20260341629 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341629.pdf
+2026-06-06 09:34:10,072 | WARNING | fetch | Bad PDF response | doc=20260341629 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341629.pdf
+2026-06-06 09:34:10,072 | WARNING | fetch | Fallback record used for 20260341629: pdf_blocked
+2026-06-06 09:34:10,361 | WARNING | fetch | Bad PDF response | doc=20260341650 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260341650.pdf
+2026-06-06 09:34:10,627 | WARNING | fetch | Bad PDF response | doc=20260341650 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260341650.pdf
+2026-06-06 09:34:10,681 | WARNING | fetch | Bad PDF response | doc=20260341650 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341650.pdf
+2026-06-06 09:34:12,242 | WARNING | fetch | Bad PDF response | doc=20260341650 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341650.pdf
+2026-06-06 09:34:15,291 | WARNING | fetch | Bad PDF response | doc=20260341650 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341650.pdf
+2026-06-06 09:34:15,341 | WARNING | fetch | Bad PDF response | doc=20260341650 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341650.pdf
+2026-06-06 09:34:16,893 | WARNING | fetch | Bad PDF response | doc=20260341650 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341650.pdf
+2026-06-06 09:34:19,946 | WARNING | fetch | Bad PDF response | doc=20260341650 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341650.pdf
+2026-06-06 09:34:19,947 | WARNING | fetch | Fallback record used for 20260341650: pdf_blocked
+2026-06-06 09:34:20,233 | WARNING | fetch | Bad PDF response | doc=20260341717 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260341717.pdf
+2026-06-06 09:34:20,492 | WARNING | fetch | Bad PDF response | doc=20260341717 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260341717.pdf
+2026-06-06 09:34:20,554 | WARNING | fetch | Bad PDF response | doc=20260341717 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341717.pdf
+2026-06-06 09:34:22,112 | WARNING | fetch | Bad PDF response | doc=20260341717 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341717.pdf
+2026-06-06 09:34:25,165 | WARNING | fetch | Bad PDF response | doc=20260341717 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341717.pdf
+2026-06-06 09:34:25,216 | WARNING | fetch | Bad PDF response | doc=20260341717 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341717.pdf
+2026-06-06 09:34:26,766 | WARNING | fetch | Bad PDF response | doc=20260341717 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341717.pdf
+2026-06-06 09:34:29,820 | WARNING | fetch | Bad PDF response | doc=20260341717 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341717.pdf
+2026-06-06 09:34:29,821 | WARNING | fetch | Fallback record used for 20260341717: pdf_blocked
+2026-06-06 09:34:30,087 | WARNING | fetch | Bad PDF response | doc=20260341838 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260341838.pdf
+2026-06-06 09:34:30,352 | WARNING | fetch | Bad PDF response | doc=20260341838 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260341838.pdf
+2026-06-06 09:34:30,409 | WARNING | fetch | Bad PDF response | doc=20260341838 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341838.pdf
+2026-06-06 09:34:31,964 | WARNING | fetch | Bad PDF response | doc=20260341838 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341838.pdf
+2026-06-06 09:34:35,012 | WARNING | fetch | Bad PDF response | doc=20260341838 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260341838.pdf
+2026-06-06 09:34:35,059 | WARNING | fetch | Bad PDF response | doc=20260341838 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341838.pdf
+2026-06-06 09:34:36,612 | WARNING | fetch | Bad PDF response | doc=20260341838 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341838.pdf
+2026-06-06 09:34:39,677 | WARNING | fetch | Bad PDF response | doc=20260341838 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260341838.pdf
+2026-06-06 09:34:39,678 | WARNING | fetch | Fallback record used for 20260341838: pdf_blocked
+2026-06-06 09:34:39,966 | WARNING | fetch | Bad PDF response | doc=20260342253 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260342253.pdf
+2026-06-06 09:34:40,253 | WARNING | fetch | Bad PDF response | doc=20260342253 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260342253.pdf
+2026-06-06 09:34:40,300 | WARNING | fetch | Bad PDF response | doc=20260342253 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342253.pdf
+2026-06-06 09:34:41,849 | WARNING | fetch | Bad PDF response | doc=20260342253 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342253.pdf
+2026-06-06 09:34:44,898 | WARNING | fetch | Bad PDF response | doc=20260342253 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342253.pdf
+2026-06-06 09:34:44,951 | WARNING | fetch | Bad PDF response | doc=20260342253 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342253.pdf
+2026-06-06 09:34:46,501 | WARNING | fetch | Bad PDF response | doc=20260342253 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342253.pdf
+2026-06-06 09:34:49,550 | WARNING | fetch | Bad PDF response | doc=20260342253 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342253.pdf
+2026-06-06 09:34:49,551 | WARNING | fetch | Fallback record used for 20260342253: pdf_blocked
+2026-06-06 09:34:49,843 | WARNING | fetch | Bad PDF response | doc=20260342260 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260342260.pdf
+2026-06-06 09:34:50,128 | WARNING | fetch | Bad PDF response | doc=20260342260 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260342260.pdf
+2026-06-06 09:34:50,178 | WARNING | fetch | Bad PDF response | doc=20260342260 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342260.pdf
+2026-06-06 09:34:51,726 | WARNING | fetch | Bad PDF response | doc=20260342260 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342260.pdf
+2026-06-06 09:34:54,779 | WARNING | fetch | Bad PDF response | doc=20260342260 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342260.pdf
+2026-06-06 09:34:54,829 | WARNING | fetch | Bad PDF response | doc=20260342260 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342260.pdf
+2026-06-06 09:34:56,379 | WARNING | fetch | Bad PDF response | doc=20260342260 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342260.pdf
+2026-06-06 09:34:59,426 | WARNING | fetch | Bad PDF response | doc=20260342260 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342260.pdf
+2026-06-06 09:34:59,426 | WARNING | fetch | Fallback record used for 20260342260: pdf_blocked
+2026-06-06 09:34:59,769 | WARNING | fetch | Bad PDF response | doc=20260342288 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260342288.pdf
+2026-06-06 09:35:00,088 | WARNING | fetch | Bad PDF response | doc=20260342288 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260342288.pdf
+2026-06-06 09:35:00,139 | WARNING | fetch | Bad PDF response | doc=20260342288 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342288.pdf
+2026-06-06 09:35:01,690 | WARNING | fetch | Bad PDF response | doc=20260342288 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342288.pdf
+2026-06-06 09:35:04,741 | WARNING | fetch | Bad PDF response | doc=20260342288 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342288.pdf
+2026-06-06 09:35:04,790 | WARNING | fetch | Bad PDF response | doc=20260342288 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342288.pdf
+2026-06-06 09:35:06,345 | WARNING | fetch | Bad PDF response | doc=20260342288 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342288.pdf
+2026-06-06 09:35:09,395 | WARNING | fetch | Bad PDF response | doc=20260342288 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342288.pdf
+2026-06-06 09:35:09,396 | WARNING | fetch | Fallback record used for 20260342288: pdf_blocked
+2026-06-06 09:35:09,732 | WARNING | fetch | Bad PDF response | doc=20260342410 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260342410.pdf
+2026-06-06 09:35:10,058 | WARNING | fetch | Bad PDF response | doc=20260342410 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260342410.pdf
+2026-06-06 09:35:10,110 | WARNING | fetch | Bad PDF response | doc=20260342410 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342410.pdf
+2026-06-06 09:35:11,665 | WARNING | fetch | Bad PDF response | doc=20260342410 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342410.pdf
+2026-06-06 09:35:14,714 | WARNING | fetch | Bad PDF response | doc=20260342410 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342410.pdf
+2026-06-06 09:35:14,762 | WARNING | fetch | Bad PDF response | doc=20260342410 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342410.pdf
+2026-06-06 09:35:16,316 | WARNING | fetch | Bad PDF response | doc=20260342410 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342410.pdf
+2026-06-06 09:35:19,368 | WARNING | fetch | Bad PDF response | doc=20260342410 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342410.pdf
+2026-06-06 09:35:19,369 | WARNING | fetch | Fallback record used for 20260342410: pdf_blocked
+2026-06-06 09:35:19,652 | WARNING | fetch | Bad PDF response | doc=20260342471 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260342471.pdf
+2026-06-06 09:35:19,915 | WARNING | fetch | Bad PDF response | doc=20260342471 | attempt=1/3 | status=404 | type=text/html | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/PDF/20260342471.pdf
+2026-06-06 09:35:19,972 | WARNING | fetch | Bad PDF response | doc=20260342471 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342471.pdf
+2026-06-06 09:35:21,528 | WARNING | fetch | Bad PDF response | doc=20260342471 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342471.pdf
+2026-06-06 09:35:24,577 | WARNING | fetch | Bad PDF response | doc=20260342471 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/pdf/20260342471.pdf
+2026-06-06 09:35:24,623 | WARNING | fetch | Bad PDF response | doc=20260342471 | attempt=1/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342471.pdf
+2026-06-06 09:35:26,174 | WARNING | fetch | Bad PDF response | doc=20260342471 | attempt=2/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342471.pdf
+2026-06-06 09:35:29,223 | WARNING | fetch | Bad PDF response | doc=20260342471 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260342471.pdf
+2026-06-06 09:35:29,224 | WARNING | fetch | Fallback record used for 20260342471: pdf_blocked
+2026-06-06 09:35:29,242 | INFO | fetch | FINAL: 22 records | 0 with address | pdf_ok=0 | pdf_fail=22
