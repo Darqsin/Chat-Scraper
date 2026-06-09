@@ -4280,3 +4280,44 @@ NameError: name 'is_valid_property_address' is not defined
 2026-06-08 11:50:32,015 | INFO | clerk_scraper | Total records: 0
 2026-06-08 11:50:32,015 | INFO | fetch | Scraped 0 records
 2026-06-08 11:50:32,023 | INFO | fetch | FINAL: 0 records | 0 with address | pdf_ok=0 | pdf_fail=0
+2026-06-09 10:30:08,464 | INFO | fetch | Date range: 06/08/2026 -> 06/08/2026
+2026-06-09 10:30:08,796 | INFO | clerk_scraper | Page 1: 35 records
+2026-06-09 10:30:22,352 | INFO | clerk_scraper | Total records: 35
+2026-06-09 10:30:22,352 | INFO | fetch | Scraped 35 records
+2026-06-09 10:30:22,574 | INFO | fetch | PDF downloaded | doc=20260343517 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260343517.pdf
+2026-06-09 10:30:29,569 | INFO | fetch | PDF downloaded | doc=20260343537 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260343537.pdf
+2026-06-09 10:30:33,879 | INFO | fetch | PDF downloaded | doc=20260343567 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260343567.pdf
+2026-06-09 10:30:38,012 | INFO | fetch | PDF downloaded | doc=20260343621 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260343621.pdf
+2026-06-09 10:30:42,862 | INFO | fetch | PDF downloaded | doc=20260343685 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260343685.pdf
+2026-06-09 10:30:47,501 | INFO | fetch | PDF downloaded | doc=20260343689 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260343689.pdf
+2026-06-09 10:30:52,118 | INFO | fetch | PDF downloaded | doc=20260343767 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260343767.pdf
+2026-06-09 10:30:56,627 | INFO | fetch | PDF downloaded | doc=20260344088 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260344088.pdf
+2026-06-09 10:31:00,950 | INFO | fetch | PDF downloaded | doc=20260344135 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260344135.pdf
+2026-06-09 10:31:07,496 | INFO | fetch | PDF downloaded | doc=20260344197 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260344197.pdf
+2026-06-09 10:31:14,798 | INFO | fetch | PDF downloaded | doc=20260344556 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260344556.pdf
+2026-06-09 10:31:20,225 | INFO | fetch | PDF downloaded | doc=20260344565 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260344565.pdf
+2026-06-09 10:31:25,262 | INFO | fetch | PDF downloaded | doc=20260344597 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260344597.pdf
+2026-06-09 10:31:29,559 | INFO | fetch | PDF downloaded | doc=20260344609 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260344609.pdf
+2026-06-09 10:31:34,433 | INFO | fetch | PDF downloaded | doc=20260344623 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260344623.pdf
+2026-06-09 10:31:38,882 | INFO | fetch | PDF downloaded | doc=20260344626 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260344626.pdf
+2026-06-09 10:31:43,834 | INFO | fetch | PDF downloaded | doc=20260344627 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260344627.pdf
+2026-06-09 10:31:48,299 | INFO | fetch | PDF downloaded | doc=20260344772 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260344772.pdf
+2026-06-09 10:31:55,408 | INFO | fetch | PDF downloaded | doc=20260344857 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260344857.pdf
+2026-06-09 10:32:00,730 | INFO | fetch | PDF downloaded | doc=20260345218 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345218.pdf
+2026-06-09 10:32:03,964 | INFO | fetch | PDF downloaded | doc=20260345222 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345222.pdf
+2026-06-09 10:32:09,001 | INFO | fetch | PDF downloaded | doc=20260345226 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345226.pdf
+2026-06-09 10:32:14,551 | INFO | fetch | PDF downloaded | doc=20260345237 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345237.pdf
+2026-06-09 10:32:20,219 | INFO | fetch | PDF downloaded | doc=20260345350 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345350.pdf
+2026-06-09 10:32:24,389 | INFO | fetch | PDF downloaded | doc=20260345356 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345356.pdf
+2026-06-09 10:32:28,427 | INFO | fetch | Progress: 25/35 | pdf_ok=25 | pdf_fail=0
+2026-06-09 10:32:28,508 | INFO | fetch | PDF downloaded | doc=20260345375 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345375.pdf
+2026-06-09 10:32:32,648 | INFO | fetch | PDF downloaded | doc=20260345401 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345401.pdf
+2026-06-09 10:32:37,668 | INFO | fetch | PDF downloaded | doc=20260345449 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345449.pdf
+2026-06-09 10:32:42,218 | INFO | fetch | PDF downloaded | doc=20260345607 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345607.pdf
+2026-06-09 10:32:44,749 | INFO | fetch | PDF downloaded | doc=20260345608 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345608.pdf
+2026-06-09 10:32:47,404 | INFO | fetch | PDF downloaded | doc=20260345660 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345660.pdf
+2026-06-09 10:32:51,215 | INFO | fetch | PDF downloaded | doc=20260345679 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345679.pdf
+2026-06-09 10:32:55,529 | INFO | fetch | PDF downloaded | doc=20260345740 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345740.pdf
+2026-06-09 10:33:00,081 | INFO | fetch | PDF downloaded | doc=20260345816 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345816.pdf
+2026-06-09 10:33:02,823 | INFO | fetch | PDF downloaded | doc=20260345818 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260345818.pdf
+2026-06-09 10:33:06,343 | INFO | fetch | FINAL: 35 records | 32 with address | pdf_ok=35 | pdf_fail=0
