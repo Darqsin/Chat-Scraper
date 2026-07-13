@@ -5681,3 +5681,8 @@ NameError: name 'is_valid_property_address' is not defined
 2026-07-12 08:59:00,887 | INFO | clerk_scraper | Total records: 0
 2026-07-12 08:59:00,887 | INFO | fetch | Scraped 0 records
 2026-07-12 08:59:00,894 | INFO | fetch | FINAL: 0 records | 0 with address | pdf_ok=0 | pdf_fail=0
+2026-07-13 10:17:32,738 | INFO | fetch | Date range: 07/12/2026 -> 07/12/2026
+2026-07-13 10:17:32,963 | INFO | clerk_scraper | Page 1: 0 records
+2026-07-13 10:17:32,963 | INFO | clerk_scraper | Total records: 0
+2026-07-13 10:17:32,963 | INFO | fetch | Scraped 0 records
+2026-07-13 10:17:32,971 | INFO | fetch | FINAL: 0 records | 0 with address | pdf_ok=0 | pdf_fail=0
