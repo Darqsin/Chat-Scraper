@@ -7029,3 +7029,8 @@ NameError: name 'is_valid_property_address' is not defined
 2026-07-25 09:06:02,961 | INFO | fetch | PDF downloaded | doc=20260441095 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260441095.pdf
 2026-07-25 09:06:08,091 | INFO | fetch | PDF downloaded | doc=20260441241 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260441241.pdf
 2026-07-25 09:06:13,108 | INFO | fetch | FINAL: 20 records | 6 with address | pdf_ok=6 | pdf_fail=14
+2026-07-26 09:08:24,230 | INFO | fetch | Date range: 07/25/2026 -> 07/25/2026
+2026-07-26 09:08:24,603 | INFO | clerk_scraper | Page 1: 0 records
+2026-07-26 09:08:24,604 | INFO | clerk_scraper | Total records: 0
+2026-07-26 09:08:24,604 | INFO | fetch | Scraped 0 records
+2026-07-26 09:08:24,611 | INFO | fetch | FINAL: 0 records | 0 with address | pdf_ok=0 | pdf_fail=0
