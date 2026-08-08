@@ -1,17 +1,17 @@
 {
-  "fetched_at": "2026-08-07T08:21:21.808922",
+  "fetched_at": "2026-08-08T07:51:18.351246",
   "source": "https://recorder.maricopa.gov/recording/document-search.html",
   "date_range": {
-    "start": "08/06/2026",
-    "end": "08/06/2026"
+    "start": "08/07/2026",
+    "end": "08/07/2026"
   },
-  "total": 19,
+  "total": 14,
   "with_address": 0,
   "records": [
     {
-      "doc_num": "20260464948",
+      "doc_num": "20260467241",
       "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
+      "filed": "2026-08-07",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
@@ -38,7 +38,7 @@
       "second_first": "",
       "second_last": "",
       "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260464948.pdf",
+      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260467241.pdf",
       "pdf_path": "",
       "flags": [
         "pdf_blocked"
@@ -47,9 +47,9 @@
       "raw_text_path": ""
     },
     {
-      "doc_num": "20260465109",
+      "doc_num": "20260467246",
       "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
+      "filed": "2026-08-07",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
@@ -76,7 +76,7 @@
       "second_first": "",
       "second_last": "",
       "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260465109.pdf",
+      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260467246.pdf",
       "pdf_path": "",
       "flags": [
         "pdf_blocked"
@@ -85,9 +85,9 @@
       "raw_text_path": ""
     },
     {
-      "doc_num": "20260465119",
+      "doc_num": "20260467247",
       "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
+      "filed": "2026-08-07",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
@@ -114,7 +114,7 @@
       "second_first": "",
       "second_last": "",
       "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260465119.pdf",
+      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260467247.pdf",
       "pdf_path": "",
       "flags": [
         "pdf_blocked"
@@ -123,9 +123,9 @@
       "raw_text_path": ""
     },
     {
-      "doc_num": "20260465284",
+      "doc_num": "20260467402",
       "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
+      "filed": "2026-08-07",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
@@ -152,7 +152,7 @@
       "second_first": "",
       "second_last": "",
       "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260465284.pdf",
+      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260467402.pdf",
       "pdf_path": "",
       "flags": [
         "pdf_blocked"
@@ -161,9 +161,9 @@
       "raw_text_path": ""
     },
     {
-      "doc_num": "20260465301",
+      "doc_num": "20260467589",
       "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
+      "filed": "2026-08-07",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
@@ -190,7 +190,7 @@
       "second_first": "",
       "second_last": "",
       "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260465301.pdf",
+      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260467589.pdf",
       "pdf_path": "",
       "flags": [
         "pdf_blocked"
@@ -199,9 +199,9 @@
       "raw_text_path": ""
     },
     {
-      "doc_num": "20260465310",
+      "doc_num": "20260468086",
       "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
+      "filed": "2026-08-07",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
@@ -228,7 +228,7 @@
       "second_first": "",
       "second_last": "",
       "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260465310.pdf",
+      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260468086.pdf",
       "pdf_path": "",
       "flags": [
         "pdf_blocked"
@@ -237,9 +237,9 @@
       "raw_text_path": ""
     },
     {
-      "doc_num": "20260466137",
+      "doc_num": "20260468090",
       "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
+      "filed": "2026-08-07",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
@@ -266,7 +266,7 @@
       "second_first": "",
       "second_last": "",
       "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260466137.pdf",
+      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260468090.pdf",
       "pdf_path": "",
       "flags": [
         "pdf_blocked"
@@ -275,9 +275,9 @@
       "raw_text_path": ""
     },
     {
-      "doc_num": "20260466154",
+      "doc_num": "20260468521",
       "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
+      "filed": "2026-08-07",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
@@ -304,7 +304,7 @@
       "second_first": "",
       "second_last": "",
       "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260466154.pdf",
+      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260468521.pdf",
       "pdf_path": "",
       "flags": [
         "pdf_blocked"
@@ -313,9 +313,9 @@
       "raw_text_path": ""
     },
     {
-      "doc_num": "20260466165",
+      "doc_num": "20260469009",
       "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
+      "filed": "2026-08-07",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
@@ -342,7 +342,7 @@
       "second_first": "",
       "second_last": "",
       "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260466165.pdf",
+      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260469009.pdf",
       "pdf_path": "",
       "flags": [
         "pdf_blocked"
@@ -351,9 +351,9 @@
       "raw_text_path": ""
     },
     {
-      "doc_num": "20260466177",
+      "doc_num": "20260469222",
       "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
+      "filed": "2026-08-07",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
@@ -380,7 +380,7 @@
       "second_first": "",
       "second_last": "",
       "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260466177.pdf",
+      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260469222.pdf",
       "pdf_path": "",
       "flags": [
         "pdf_blocked"
@@ -389,9 +389,9 @@
       "raw_text_path": ""
     },
     {
-      "doc_num": "20260466183",
+      "doc_num": "20260469231",
       "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
+      "filed": "2026-08-07",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
@@ -418,7 +418,7 @@
       "second_first": "",
       "second_last": "",
       "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260466183.pdf",
+      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260469231.pdf",
       "pdf_path": "",
       "flags": [
         "pdf_blocked"
@@ -427,9 +427,9 @@
       "raw_text_path": ""
     },
     {
-      "doc_num": "20260466185",
+      "doc_num": "20260469238",
       "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
+      "filed": "2026-08-07",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
@@ -456,7 +456,7 @@
       "second_first": "",
       "second_last": "",
       "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260466185.pdf",
+      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260469238.pdf",
       "pdf_path": "",
       "flags": [
         "pdf_blocked"
@@ -465,9 +465,9 @@
       "raw_text_path": ""
     },
     {
-      "doc_num": "20260466457",
+      "doc_num": "20260469757",
       "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
+      "filed": "2026-08-07",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
@@ -494,7 +494,7 @@
       "second_first": "",
       "second_last": "",
       "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260466457.pdf",
+      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260469757.pdf",
       "pdf_path": "",
       "flags": [
         "pdf_blocked"
@@ -503,9 +503,9 @@
       "raw_text_path": ""
     },
     {
-      "doc_num": "20260466522",
+      "doc_num": "20260469766",
       "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
+      "filed": "2026-08-07",
       "cat": "NS",
       "cat_label": "Notice of Trustee Sale",
       "owner": "",
@@ -532,197 +532,7 @@
       "second_first": "",
       "second_last": "",
       "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260466522.pdf",
-      "pdf_path": "",
-      "flags": [
-        "pdf_blocked"
-      ],
-      "score": 0,
-      "raw_text_path": ""
-    },
-    {
-      "doc_num": "20260466537",
-      "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
-      "cat": "NS",
-      "cat_label": "Notice of Trustee Sale",
-      "owner": "",
-      "grantee": "",
-      "amount": "",
-      "legal": "",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "county": "Maricopa",
-      "parcel_number": "",
-      "original_loan": "",
-      "trustee_name": "",
-      "trustee_phone": "",
-      "auction_date": "",
-      "deed_of_trust": "",
-      "first_name": "",
-      "last_name": "",
-      "second_first": "",
-      "second_last": "",
-      "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260466537.pdf",
-      "pdf_path": "",
-      "flags": [
-        "pdf_blocked"
-      ],
-      "score": 0,
-      "raw_text_path": ""
-    },
-    {
-      "doc_num": "20260466666",
-      "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
-      "cat": "NS",
-      "cat_label": "Notice of Trustee Sale",
-      "owner": "",
-      "grantee": "",
-      "amount": "",
-      "legal": "",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "county": "Maricopa",
-      "parcel_number": "",
-      "original_loan": "",
-      "trustee_name": "",
-      "trustee_phone": "",
-      "auction_date": "",
-      "deed_of_trust": "",
-      "first_name": "",
-      "last_name": "",
-      "second_first": "",
-      "second_last": "",
-      "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260466666.pdf",
-      "pdf_path": "",
-      "flags": [
-        "pdf_blocked"
-      ],
-      "score": 0,
-      "raw_text_path": ""
-    },
-    {
-      "doc_num": "20260466673",
-      "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
-      "cat": "NS",
-      "cat_label": "Notice of Trustee Sale",
-      "owner": "",
-      "grantee": "",
-      "amount": "",
-      "legal": "",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "county": "Maricopa",
-      "parcel_number": "",
-      "original_loan": "",
-      "trustee_name": "",
-      "trustee_phone": "",
-      "auction_date": "",
-      "deed_of_trust": "",
-      "first_name": "",
-      "last_name": "",
-      "second_first": "",
-      "second_last": "",
-      "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260466673.pdf",
-      "pdf_path": "",
-      "flags": [
-        "pdf_blocked"
-      ],
-      "score": 0,
-      "raw_text_path": ""
-    },
-    {
-      "doc_num": "20260466953",
-      "doc_type": "N/TR SALE",
-      "filed": "2026-08-06",
-      "cat": "NS",
-      "cat_label": "Notice of Trustee Sale",
-      "owner": "",
-      "grantee": "",
-      "amount": "",
-      "legal": "",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "county": "Maricopa",
-      "parcel_number": "",
-      "original_loan": "",
-      "trustee_name": "",
-      "trustee_phone": "",
-      "auction_date": "",
-      "deed_of_trust": "",
-      "first_name": "",
-      "last_name": "",
-      "second_first": "",
-      "second_last": "",
-      "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260466953.pdf",
-      "pdf_path": "",
-      "flags": [
-        "pdf_blocked"
-      ],
-      "score": 0,
-      "raw_text_path": ""
-    },
-    {
-      "doc_num": "20260467026",
-      "doc_type": "N/TR SALE+",
-      "filed": "2026-08-06",
-      "cat": "NS",
-      "cat_label": "Notice of Trustee Sale",
-      "owner": "",
-      "grantee": "",
-      "amount": "",
-      "legal": "",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "county": "Maricopa",
-      "parcel_number": "",
-      "original_loan": "",
-      "trustee_name": "",
-      "trustee_phone": "",
-      "auction_date": "",
-      "deed_of_trust": "",
-      "first_name": "",
-      "last_name": "",
-      "second_first": "",
-      "second_last": "",
-      "clerk_url": "",
-      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260467026.pdf",
+      "pdf_url": "https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260469766.pdf",
       "pdf_path": "",
       "flags": [
         "pdf_blocked"
