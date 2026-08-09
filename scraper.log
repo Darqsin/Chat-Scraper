@@ -7961,3 +7961,8 @@ NameError: name 'is_valid_property_address' is not defined
 2026-08-08 07:51:18,349 | WARNING | fetch | Bad PDF response | doc=20260469766 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260469766.pdf
 2026-08-08 07:51:18,350 | WARNING | fetch | Fallback record used for 20260469766: pdf_blocked
 2026-08-08 07:51:18,365 | INFO | fetch | FINAL: 14 records | 0 with address | pdf_ok=0 | pdf_fail=14
+2026-08-09 07:46:20,562 | INFO | fetch | Date range: 08/08/2026 -> 08/08/2026
+2026-08-09 07:46:24,497 | INFO | clerk_scraper | Page 1: 0 records
+2026-08-09 07:46:24,497 | INFO | clerk_scraper | Total records: 0
+2026-08-09 07:46:24,497 | INFO | fetch | Scraped 0 records
+2026-08-09 07:46:24,504 | INFO | fetch | FINAL: 0 records | 0 with address | pdf_ok=0 | pdf_fail=0
