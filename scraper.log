@@ -9366,3 +9366,10 @@ NameError: name 'is_valid_property_address' is not defined
 2026-08-29 13:13:18,990 | WARNING | fetch | Bad PDF response | doc=20260511728 | attempt=3/3 | status=403 | type=text/html; charset=UTF-8 | url=https://recorder.maricopa.gov/UnOfficialDocs/PDF/20260511728.pdf
 2026-08-29 13:13:18,990 | WARNING | fetch | Fallback record used for 20260511728: pdf_blocked
 2026-08-29 13:13:19,014 | INFO | fetch | FINAL: 29 records | 6 with address | pdf_ok=8 | pdf_fail=21
+2026-08-30 12:28:25,990 | INFO | fetch | Date range: 08/29/2026 -> 08/29/2026
+2026-08-30 12:28:46,118 | WARNING | clerk_scraper | API error: HTTPSConnectionPool(host='publicapi.recorder.maricopa.gov', port=443): Read timed out. (read timeout=20)
+2026-08-30 12:29:11,186 | WARNING | clerk_scraper | API error: HTTPSConnectionPool(host='publicapi.recorder.maricopa.gov', port=443): Read timed out. (read timeout=20)
+2026-08-30 12:29:41,256 | WARNING | clerk_scraper | API error: HTTPSConnectionPool(host='publicapi.recorder.maricopa.gov', port=443): Read timed out. (read timeout=20)
+2026-08-30 12:29:56,256 | INFO | clerk_scraper | Total records: 0
+2026-08-30 12:29:56,257 | INFO | fetch | Scraped 0 records
+2026-08-30 12:29:56,264 | INFO | fetch | FINAL: 0 records | 0 with address | pdf_ok=0 | pdf_fail=0
