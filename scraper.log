@@ -9917,3 +9917,30 @@ NameError: name 'is_valid_property_address' is not defined
 2026-09-11 11:59:54,279 | INFO | fetch | PDF downloaded | doc=20260533969 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260533969.pdf
 2026-09-11 11:59:57,799 | INFO | fetch | Progress: 25/25 | pdf_ok=25 | pdf_fail=0
 2026-09-11 11:59:57,818 | INFO | fetch | FINAL: 25 records | 23 with address | pdf_ok=25 | pdf_fail=0
+2026-09-12 11:24:43,291 | INFO | fetch | Date range: 09/11/2026 -> 09/11/2026
+2026-09-12 11:24:43,649 | INFO | clerk_scraper | Page 1: 22 records
+2026-09-12 11:24:44,534 | INFO | clerk_scraper | Total records: 22
+2026-09-12 11:24:44,534 | INFO | fetch | Scraped 22 records
+2026-09-12 11:24:44,888 | INFO | fetch | PDF downloaded | doc=20260534273 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260534273.pdf
+2026-09-12 11:24:50,462 | INFO | fetch | PDF downloaded | doc=20260534285 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260534285.pdf
+2026-09-12 11:24:54,882 | INFO | fetch | PDF downloaded | doc=20260534472 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260534472.pdf
+2026-09-12 11:24:59,022 | INFO | fetch | PDF downloaded | doc=20260534837 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260534837.pdf
+2026-09-12 11:25:04,689 | INFO | fetch | PDF downloaded | doc=20260534869 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260534869.pdf
+2026-09-12 11:25:09,281 | INFO | fetch | PDF downloaded | doc=20260535112 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260535112.pdf
+2026-09-12 11:25:15,873 | INFO | fetch | PDF downloaded | doc=20260535207 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260535207.pdf
+2026-09-12 11:25:21,868 | INFO | fetch | PDF downloaded | doc=20260535216 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260535216.pdf
+2026-09-12 11:25:26,391 | INFO | fetch | PDF downloaded | doc=20260535478 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260535478.pdf
+2026-09-12 11:25:30,658 | INFO | fetch | PDF downloaded | doc=20260535483 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260535483.pdf
+2026-09-12 11:25:35,311 | INFO | fetch | PDF downloaded | doc=20260535915 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260535915.pdf
+2026-09-12 11:25:38,861 | INFO | fetch | PDF downloaded | doc=20260535980 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260535980.pdf
+2026-09-12 11:25:44,182 | INFO | fetch | PDF downloaded | doc=20260536005 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260536005.pdf
+2026-09-12 11:25:49,398 | INFO | fetch | PDF downloaded | doc=20260536014 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260536014.pdf
+2026-09-12 11:25:54,589 | INFO | fetch | PDF downloaded | doc=20260536017 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260536017.pdf
+2026-09-12 11:25:59,715 | INFO | fetch | PDF downloaded | doc=20260536019 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260536019.pdf
+2026-09-12 11:26:04,828 | INFO | fetch | PDF downloaded | doc=20260536030 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260536030.pdf
+2026-09-12 11:26:09,909 | INFO | fetch | PDF downloaded | doc=20260536040 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260536040.pdf
+2026-09-12 11:26:15,055 | INFO | fetch | PDF downloaded | doc=20260536057 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260536057.pdf
+2026-09-12 11:26:18,485 | INFO | fetch | PDF downloaded | doc=20260536302 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260536302.pdf
+2026-09-12 11:26:23,380 | INFO | fetch | PDF downloaded | doc=20260536308 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260536308.pdf
+2026-09-12 11:26:28,113 | INFO | fetch | PDF downloaded | doc=20260536336 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260536336.pdf
+2026-09-12 11:26:32,331 | INFO | fetch | FINAL: 22 records | 21 with address | pdf_ok=22 | pdf_fail=0
