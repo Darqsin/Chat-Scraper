@@ -9954,3 +9954,31 @@ NameError: name 'is_valid_property_address' is not defined
 2026-09-14 13:31:56,764 | INFO | clerk_scraper | Total records: 0
 2026-09-14 13:31:56,764 | INFO | fetch | Scraped 0 records
 2026-09-14 13:31:56,771 | INFO | fetch | FINAL: 0 records | 0 with address | pdf_ok=0 | pdf_fail=0
+2026-09-15 12:23:35,773 | INFO | fetch | Date range: 09/14/2026 -> 09/14/2026
+2026-09-15 12:23:36,280 | INFO | clerk_scraper | Page 1: 23 records
+2026-09-15 12:23:41,113 | INFO | clerk_scraper | Total records: 23
+2026-09-15 12:23:41,114 | INFO | fetch | Scraped 23 records
+2026-09-15 12:23:41,399 | INFO | fetch | PDF downloaded | doc=20260536964 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260536964.pdf
+2026-09-15 12:23:45,268 | INFO | fetch | PDF downloaded | doc=20260537007 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260537007.pdf
+2026-09-15 12:23:49,232 | INFO | fetch | PDF downloaded | doc=20260537023 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260537023.pdf
+2026-09-15 12:23:53,426 | INFO | fetch | PDF downloaded | doc=20260538230 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260538230.pdf
+2026-09-15 12:23:58,190 | INFO | fetch | PDF downloaded | doc=20260538326 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260538326.pdf
+2026-09-15 12:24:02,078 | INFO | fetch | PDF downloaded | doc=20260538386 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260538386.pdf
+2026-09-15 12:24:04,560 | INFO | fetch | PDF downloaded | doc=20260538762 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260538762.pdf
+2026-09-15 12:24:08,433 | INFO | fetch | PDF downloaded | doc=20260538831 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260538831.pdf
+2026-09-15 12:24:12,513 | INFO | fetch | PDF downloaded | doc=20260538846 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260538846.pdf
+2026-09-15 12:24:16,730 | INFO | fetch | PDF downloaded | doc=20260538852 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260538852.pdf
+2026-09-15 12:24:21,213 | INFO | fetch | PDF downloaded | doc=20260538857 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260538857.pdf
+2026-09-15 12:24:25,239 | INFO | fetch | PDF downloaded | doc=20260538879 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260538879.pdf
+2026-09-15 12:24:29,406 | INFO | fetch | PDF downloaded | doc=20260538900 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260538900.pdf
+2026-09-15 12:24:32,624 | INFO | fetch | PDF downloaded | doc=20260538915 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260538915.pdf
+2026-09-15 12:24:35,862 | INFO | fetch | PDF downloaded | doc=20260538933 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260538933.pdf
+2026-09-15 12:24:39,750 | INFO | fetch | PDF downloaded | doc=20260538999 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260538999.pdf
+2026-09-15 12:24:44,001 | INFO | fetch | PDF downloaded | doc=20260539046 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260539046.pdf
+2026-09-15 12:24:47,770 | INFO | fetch | PDF downloaded | doc=20260539071 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260539071.pdf
+2026-09-15 12:24:51,448 | INFO | fetch | PDF downloaded | doc=20260539101 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260539101.pdf
+2026-09-15 12:24:55,602 | INFO | fetch | PDF downloaded | doc=20260539106 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260539106.pdf
+2026-09-15 12:24:59,545 | INFO | fetch | PDF downloaded | doc=20260539158 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260539158.pdf
+2026-09-15 12:25:02,518 | INFO | fetch | PDF downloaded | doc=20260539159 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260539159.pdf
+2026-09-15 12:25:05,448 | INFO | fetch | PDF downloaded | doc=20260539398 | url=https://legacy.recorder.maricopa.gov/UnOfficialDocs/pdf/20260539398.pdf
+2026-09-15 12:25:08,908 | INFO | fetch | FINAL: 23 records | 20 with address | pdf_ok=23 | pdf_fail=0
